@@ -1,2 +1,2 @@
 # IngenieriaSoft
-Proyecto Tespertador Universidad Complutense de Madrid
+Proyecto Testpertador Universidad Complutense de Madrid
