@@ -20,7 +20,7 @@
 package es.ucm.fdi;
 
 /**
- * Ejemplo de desarrollo para Ingeniería del Software
+ * Ejemplo de desarrollo para Ingeniería del Software.
  * @author escalope
  */
 public class EjemploApp 
