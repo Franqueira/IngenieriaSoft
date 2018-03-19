@@ -6,15 +6,21 @@ public class AlarmaPOJO {
 	private int minutos;
 	private boolean active;
 	private String idTono;
-	
+
 	public AlarmaPOJO(String idAlarma, int horas, int minutos, boolean activa,
 			String idTono) {
-		super();
+		if (!comprobarTiempo(horas, minutos))
+			throw new IllegalArgumentException("Tiempo incorrecto");
+
 		this.idAlarma = idAlarma;
 		this.horas = horas;
 		this.minutos = minutos;
 		this.active = activa;
 		this.idTono = idTono;
+	}
+
+	private boolean comprobarTiempo(int horas, int minutos) {
+		return 0 <= horas && horas < 24 && 0 <= minutos && minutos < 60;
 	}
 
 	public String getIdAlarma() {
@@ -60,5 +66,9 @@ public class AlarmaPOJO {
 	@Override
 	public String toString() {
 		return horas + ":" + minutos;
+	}
+	
+	public boolean isTime(int horas, int minutos){
+		return horas == this.horas && minutos == this.minutos;
 	}
 }

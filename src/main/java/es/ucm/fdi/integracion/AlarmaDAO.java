@@ -3,14 +3,18 @@ package es.ucm.fdi.integracion;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-import es.ucm.fdi.datos.BDNueva;
+import es.ucm.fdi.datos.BD;
 
 public class AlarmaDAO {
 	
-	private BDNueva<AlarmaPOJO> BD;
+	private BD<AlarmaPOJO> BD;
 
-	public AlarmaDAO(BDNueva<AlarmaPOJO> BD) {
+	public AlarmaDAO(BD<AlarmaPOJO> BD) {
 		this.BD = BD;
+	}
+	
+	public AlarmaPOJO getAlarma(String id){
+		return BD.find(id);
 	}
 	
 	public void saveAlarm(AlarmaPOJO alarm){
