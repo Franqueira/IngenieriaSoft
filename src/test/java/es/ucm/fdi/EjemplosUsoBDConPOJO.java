@@ -31,6 +31,7 @@ import junit.framework.TestSuite;
  * @author escalope
  *
  */
+@SuppressWarnings("serial")
 class EjemploTO implements Serializable{
 	private String campo1="";
 	private String campo2="";
