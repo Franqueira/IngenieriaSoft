@@ -16,7 +16,7 @@ public class AlarmaPOJO {
 		this.horas = horas;
 		this.minutos = minutos;
 		this.active = activa;
-		this.idTono = idTono;
+		this.idTono = idTono; // va a haber que comprobar que el Tono tiene el formato válido .mp3 no?.
 	}
 
 	private boolean comprobarTiempo(int horas, int minutos) {
