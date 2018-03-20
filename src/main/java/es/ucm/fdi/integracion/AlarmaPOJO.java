@@ -16,10 +16,10 @@ public class AlarmaPOJO {
 		this.horas = horas;
 		this.minutos = minutos;
 		this.active = activa;
-		String extension=idTono.substring(idTono.length()-4, idTono.length()-1);
+		String extension=idTono.substring(idTono.length()-4, idTono.length()-1); //creo que así esta bien.
 		if(!extension.equals(".mp3"))
 			throw new IllegalArgumentException("El tono debe tener extensión .mp3");
-		this.Tono = idTono; // va a haber que comprobar que el Tono tiene el formato válido .mp3 no?.
+		this.Tono = idTono;
 	}
 
 	private boolean comprobarTiempo(int horas, int minutos) {
