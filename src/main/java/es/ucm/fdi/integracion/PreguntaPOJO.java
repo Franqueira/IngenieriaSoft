@@ -12,10 +12,12 @@ import java.util.ArrayList;
 public class PreguntaPOJO {
 	String id;
 	String texto;
-	ArrayList<String> respuestas;
+	ArrayList<String> respuestas; // podemos hacerlo con array o con 4
+									// Strings(no haría falta el int)
 	int respuestaCorrecta;
-	
-	public PreguntaPOJO(String id, String texto, ArrayList<String> respuestas, int respuestaCorrecta) {
+
+	public PreguntaPOJO(String id, String texto, ArrayList<String> respuestas,
+			int respuestaCorrecta) {
 		super();
 		this.id = id;
 		this.texto = texto;
@@ -54,11 +56,11 @@ public class PreguntaPOJO {
 	public void setRespuestaCorrecta(int respuestaCorrecta) {
 		this.respuestaCorrecta = respuestaCorrecta;
 	}
-	
+
 	@Override
 	public String toString() {
 		String salida = texto + ":\n";
-		for(String r : respuestas) {
+		for (String r : respuestas) {
 			salida += "	-" + r + '\n';
 		}
 		return salida;
