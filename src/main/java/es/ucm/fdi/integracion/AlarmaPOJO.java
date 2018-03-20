@@ -5,7 +5,7 @@ public class AlarmaPOJO {
 	private int horas;
 	private int minutos;
 	private boolean active;
-	private String idTono;
+	private String Tono;
 
 	public AlarmaPOJO(String idAlarma, int horas, int minutos, boolean activa,
 			String idTono) {
@@ -16,7 +16,10 @@ public class AlarmaPOJO {
 		this.horas = horas;
 		this.minutos = minutos;
 		this.active = activa;
-		this.idTono = idTono; // va a haber que comprobar que el Tono tiene el formato válido .mp3 no?.
+		String extension=idTono.substring(idTono.length()-4, idTono.length()-1);
+		if(!extension.equals(".mp3"))
+			throw new IllegalArgumentException("El tono debe tener extensión .mp3");
+		this.Tono = idTono; // va a haber que comprobar que el Tono tiene el formato válido .mp3 no?.
 	}
 
 	private boolean comprobarTiempo(int horas, int minutos) {
@@ -55,12 +58,12 @@ public class AlarmaPOJO {
 		this.active = active;
 	}
 
-	public String getIdTono() {
-		return idTono;
+	public String getTono() {
+		return Tono;
 	}
 
-	public void setIdTono(String idTono) {
-		this.idTono = idTono;
+	public void setTono(String idTono) {
+		this.Tono = idTono;
 	}
 
 	@Override
