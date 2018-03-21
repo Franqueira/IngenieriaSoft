@@ -11,29 +11,22 @@ import es.ucm.fdi.datos.BD;
  */
 
 public class UsuarioClanDAO {
-	private BD<UsuarioClanPOJO> miembros; // el ID de cada UsuarioClanPOJO en la BD es el ID del usuario, ya que solo puede tener 1 clan
+	private BD<UsuarioClanPOJO> miembros; 
+	// el ID de cada UsuarioClanPOJO en la BD es el ID del usuario, ya que solo puede tener 1 clan
 
 	public UsuarioClanDAO(BD<UsuarioClanPOJO> miembros) {
 		super();
 		this.miembros = miembros;
 	}
 	
-	public String getClanById(String id){
+	public String getClan(String id){
 		return miembros.find(id).getIdClan();
-	}
-	
-	public String getClanByUsuario(String usuario){
-		for(String id : miembros.getIds()){
-			if(id.equals(usuario))
-				return getClanById(id);
-		}
-		return null;
 	}
 	
 	public ArrayList<String> getMiembrosClan(String clan){
 		ArrayList<String> miembrosClan =  new ArrayList<String>();
 		for(String id : miembros.getIds()){
-			if(getClanById(id).equals(clan))
+			if(getClan(id).equals(clan))
 				miembrosClan.add(id);
 		}
 		return miembrosClan;
