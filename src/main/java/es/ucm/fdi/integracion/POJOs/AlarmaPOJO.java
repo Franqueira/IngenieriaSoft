@@ -24,6 +24,11 @@ public class AlarmaPOJO extends DataPOJO{
 	private boolean comprobarTiempo(int horas, int minutos) {
 		return 0 <= horas && horas < 24 && 0 <= minutos && minutos < 60;
 	}
+	
+	public void setTiempo(int horas, int minutos) {
+		this.horas = horas;
+		this.minutos = minutos;
+	}
 
 	public int getHoras() {
 		return horas;
