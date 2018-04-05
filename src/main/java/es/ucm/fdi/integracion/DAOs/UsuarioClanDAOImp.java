@@ -16,7 +16,6 @@ public class UsuarioClanDAOImp {
 	// el ID de cada UsuarioClanPOJO en la BD es el ID del usuario, ya que solo puede tener 1 clan
 
 	public UsuarioClanDAOImp(BD<UsuarioClanPOJO> miembros) {
-		super();
 		this.miembros = miembros;
 	}
 	

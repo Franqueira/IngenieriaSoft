@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import es.ucm.fdi.datos.BD;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
-public class PreguntaDAOImp {
+public class PreguntaDAOImp implements PreguntaDAO{
 	private BD<PreguntaPOJO> BD;
 	
 	public PreguntaDAOImp(es.ucm.fdi.datos.BD<PreguntaPOJO> bD) {
