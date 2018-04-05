@@ -11,6 +11,7 @@ public class UsuarioSAImp implements UsuarioSA {
 	public AlarmaUsuarioDAOImp usuariosAlarma;
 	public ClanDAOImp clanes;
 	public AlarmaDAOImp alarmas;
+
 	public void EliminarUsuarioClan(String idUsuario) {
 		String idClan = usuarios.getUsuario(idUsuario).getIdClan();
 		usuariosClan.eliminaUsuarioClan(idUsuario);
@@ -40,9 +41,9 @@ public class UsuarioSAImp implements UsuarioSA {
 	}
 
 	public void EliminarUsuario(String idUsuario) {
-		String idClan=usuarios.getUsuario(idUsuario).getIdClan();
+		String idClan = usuarios.getUsuario(idUsuario).getIdClan();
 		usuarios.eliminaUsuario(idUsuario);
-		if(!idClan.equals("")){
+		if (!idClan.equals("")) {
 			usuariosClan.eliminaUsuarioClan(idUsuario);
 			if (clanes.getClan(idClan).getLider().equals(idUsuario)) {
 				ArrayList<String> c = usuariosClan.getMiembrosClan(idClan);
@@ -50,18 +51,20 @@ public class UsuarioSAImp implements UsuarioSA {
 					clanes.removeClan(idClan);
 				else
 					clanes.getClan(idClan).setLider(c.get(0));
-			}	
-			
+			}
+
 		}
 	}
 
 	public void AnadirAlarma(String idAlarma, int horas, int minutos,
-			boolean active, String Tono) {
-		
-		
+			boolean active, String tono, String idUsuario) {
+		alarmas.saveAlarm(new AlarmaPOJO(idAlarma, horas, minutos, active, tono));
+		usuariosAlarma.addAlarmaUsuario(new AlarmaUsuarioPOJO(idAlarma,
+				idUsuario));
 	}
 
 	public void EliminarAlarma(String idAlarma) {
-
+		alarmas.removeAlarm(idAlarma);
+		usuariosAlarma.removeAlarmaUsuario(idAlarma);
 	}
 }
