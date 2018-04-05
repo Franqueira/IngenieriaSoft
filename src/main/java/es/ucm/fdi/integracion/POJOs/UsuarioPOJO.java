@@ -13,7 +13,7 @@ public class UsuarioPOJO {
 	private String descPerfil;
 	private String password;
 	private String country;
-	
+
 	public UsuarioPOJO(String idUsuario, String nombreReal, int puntuacion,
 			String descPerfil, String password, String country) {
 		this.idUsuario = idUsuario;
@@ -23,7 +23,7 @@ public class UsuarioPOJO {
 		this.password = password;
 		this.country = country;
 	}
-	
+
 	public String getIdUsuario() {
 		return idUsuario;
 	}
@@ -63,7 +63,7 @@ public class UsuarioPOJO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public String getCountry() {
 		return country;
 	}
@@ -74,7 +74,8 @@ public class UsuarioPOJO {
 
 	@Override
 	public String toString() {
-			return idUsuario + '\n' + descPerfil + '\n'+ "Puntuacion: " + puntuacion;
-	
+		return idUsuario + '\n' + descPerfil + '\n' + "Puntuacion: "
+				+ puntuacion;
+
 	}
 }
