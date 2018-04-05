@@ -34,7 +34,7 @@ public class TestperclanSAImp implements TestperclanSA{
 	}
 	
 	public void setGanador(String nombreClan){
-		usuarioDAO.find(clanDAO.getClan(nombreClan).getLider()).setEsGanador(true);
+		usuarioDAO.buscaPorNombre(clanDAO.getClan(nombreClan).getLider()).setEsGanador(true);
 	}
 	
 }
