@@ -9,8 +9,7 @@ import java.util.ArrayList;
  * @author Daniel
  *
  */
-public class PreguntaPOJO {
-	String id;
+public class PreguntaPOJO extends DataPOJO{
 	String texto;
 	ArrayList<String> respuestas; // podemos hacerlo con array o con 4
 									// Strings(no haría falta el int)
@@ -18,19 +17,10 @@ public class PreguntaPOJO {
 
 	public PreguntaPOJO(String id, String texto, ArrayList<String> respuestas,
 			int respuestaCorrecta) {
-		super();
-		this.id = id;
+		super(id);
 		this.texto = texto;
 		this.respuestas = respuestas;
 		this.respuestaCorrecta = respuestaCorrecta;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getTexto() {

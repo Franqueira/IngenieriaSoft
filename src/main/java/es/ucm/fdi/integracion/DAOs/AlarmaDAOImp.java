@@ -19,7 +19,7 @@ public class AlarmaDAOImp implements AlarmaDAO {
 	}
 	
 	public void saveAlarm(AlarmaPOJO alarm){
-		BD.insert(alarm, alarm.getIdAlarma());
+		BD.insert(alarm, alarm.getId());
 	}
 	
 	public void removeAlarm(String idAlarm){
