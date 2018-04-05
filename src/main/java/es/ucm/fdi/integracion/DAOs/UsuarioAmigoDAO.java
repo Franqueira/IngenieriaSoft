@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import es.ucm.fdi.datos.BD;
 import es.ucm.fdi.integracion.POJOs.UsuarioAmigoPOJO;
 
-public class UsuarioAmigoDAO implements UsuarioAmigoDAOInt {
+public class UsuarioAmigoDAO implements UsuarioAmigoDAOImp {
 	
 	private BD<UsuarioAmigoPOJO> amigos;
 	// cada pareja de amigos solo aparece una vez
