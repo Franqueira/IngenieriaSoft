@@ -1,8 +1,8 @@
 package es.ucm.fdi;
 
 import es.ucm.fdi.datos.BD;
-import es.ucm.fdi.integracion.AlarmaDAO;
-import es.ucm.fdi.integracion.AlarmaPOJO;
+import es.ucm.fdi.integracion.DAOs.AlarmaDAO;
+import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.negocio.AlarmaSA;
 
 public class FullTest {

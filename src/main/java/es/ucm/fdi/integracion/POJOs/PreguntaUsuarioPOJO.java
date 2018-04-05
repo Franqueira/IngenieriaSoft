@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.ucm.fdi.integracion;
+package es.ucm.fdi.integracion.POJOs;
 
 
 /**

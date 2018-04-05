@@ -1,4 +1,4 @@
-package es.ucm.fdi.integracion;
+package es.ucm.fdi.integracion.POJOs;
 
 public class UsuarioClanPOJO {
 	String idClan; // su nombre

@@ -1,6 +1,6 @@
 package es.ucm.fdi.negocio;
 
-import es.ucm.fdi.integracion.PreguntaDAO;
+import es.ucm.fdi.integracion.DAOs.PreguntaDAO;
 
 public class PreguntaSA {
 
