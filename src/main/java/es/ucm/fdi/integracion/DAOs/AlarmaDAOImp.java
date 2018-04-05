@@ -22,8 +22,8 @@ public class AlarmaDAOImp implements AlarmaDAO {
 		BD.insert(alarm, alarm.getIdAlarma());
 	}
 	
-	public void removeAlarm(AlarmaPOJO alarm){
-		BD.removeId(alarm.getIdAlarma());
+	public void removeAlarm(String idAlarm){
+		BD.removeId(idAlarm);
 	}
 	
 	public ArrayList<AlarmaPOJO> getActive(){

@@ -10,7 +10,7 @@ public interface AlarmaDAO {
 	
 	public void saveAlarm(AlarmaPOJO alarm);
 	
-	public void removeAlarm(AlarmaPOJO alarm);
+	public void removeAlarm(String idAlarm);
 	
 	public ArrayList<AlarmaPOJO> getActive();
 	

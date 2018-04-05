@@ -15,8 +15,7 @@ public class AlarmaUsuarioDAOImp implements AlarmaUsuarioDAO{
 	@Override
 	public ArrayList<String> getAlarmasUsuario(String idUsuario) {
 		ArrayList<String> listaAlarmas = new ArrayList<>();
-		ArrayList<String> alarmas= BD.getIds();
-		for(String a: alarmas){
+		for(String a: BD.getIds()){
 			if(BD.find(a).getIdUsuario().equals(idUsuario)){
 				listaAlarmas.add(a);
 			}
