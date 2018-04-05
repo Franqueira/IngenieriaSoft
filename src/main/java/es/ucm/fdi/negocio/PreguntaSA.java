@@ -1,12 +1,12 @@
 package es.ucm.fdi.negocio;
 
-import es.ucm.fdi.integracion.DAOs.PreguntaDAO;
+import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 
 public class PreguntaSA {
 
-	private PreguntaDAO preguntaDAO;
+	private PreguntaDAOImp preguntaDAO;
 
-	public PreguntaSA(PreguntaDAO preguntaDAO) {
+	public PreguntaSA(PreguntaDAOImp preguntaDAO) {
 		super();
 		this.preguntaDAO = preguntaDAO;
 	}
