@@ -10,5 +10,5 @@ public interface UsuarioSA {
 			boolean active, String Tono);
 
 	public void EliminarAlarma(String idAlarma);
-
+	
 }
