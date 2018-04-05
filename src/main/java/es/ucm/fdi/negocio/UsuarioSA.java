@@ -10,5 +10,8 @@ public interface UsuarioSA {
 			boolean active, String Tono);
 
 	public void EliminarAlarma(String idAlarma);
-	
+
+	public boolean AnadirUsuario(String idUsuario, String nombreReal,
+			int puntuacion, String descPerfil, String password, String country);
+
 }
