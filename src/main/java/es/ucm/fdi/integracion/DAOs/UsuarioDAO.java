@@ -11,7 +11,7 @@ public interface UsuarioDAO {
 	
 	public void eliminaUsuario(UsuarioPOJO user);
 	
-	public UsuarioPOJO buscaPorNombre(String nombre);
+	public UsuarioPOJO find(String nombre);
 	
 	public ArrayList<UsuarioPOJO> getUsersByCountry(String country);
 	

@@ -27,7 +27,7 @@ public class UsuarioDAOImp implements UsuarioDAO{
 		BD.removeId(user.getIdUsuario());
 	}
 	
-	public UsuarioPOJO buscaPorNombre(String nombre){
+	public UsuarioPOJO find(String nombre){
 		for(String id: BD.getIds()){
 			if(getUsuario(id).getNombreReal().equals(nombre)){
 				return getUsuario(id);

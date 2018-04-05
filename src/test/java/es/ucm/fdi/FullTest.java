@@ -19,10 +19,10 @@ public class FullTest {
 		//this.BDpregunta = new BD<>();
 		//this.BDusuario = new BD<>();
 		
-		inicializar();
+		setup();
 	}
 
-	private void inicializar(){
+	private void setup(){
 		
 		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
 		alarmaDAO.saveAlarm(new AlarmaPOJO("al1", 12, 23, true, "aleat"));
