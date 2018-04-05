@@ -1,42 +1,42 @@
+
+
 package es.ucm.fdi.negocio;
 
+import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
+import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 public class UsuarioSAImp implements UsuarioSA {
 	public UsuarioDAOImp usuario;
-
-	public boolean EliminarUsuarioClan(String idUsuario) {
-		// TODO Auto-generated method stub
-		return false;
+	public UsuarioClanDAOImp usuarioClan;
+	public AlarmaUsuarioDAOImp usuarioAlarma;
+	public void EliminarUsuarioClan(String idUsuario) {
+	
 	}
 
-	public boolean AnadirUsuarioClan(String idUsuario) {
-		// TODO Auto-generated method stub
-		return false;
+	public void AnadirUsuarioClan(String idUsuario,String idClan) {
+
+	
 	}
 
-	public boolean AnadirUsuario(String idUsuario, String nombreReal,
+	public void AnadirUsuario(String idUsuario, String nombreReal,
 			int puntuacion, String descPerfil, String password, String country) {
 
-		return false;
 	}
-	public boolean EliminarUsuario(String idUsuario){
+	public void EliminarUsuario(String idUsuario){
 		
-		return false;
 	}
-	public boolean AnadirAlarma(String idAlarma, int horas, int minutos,
+	public void AnadirAlarma(String idAlarma, int horas, int minutos,
 			boolean active, String Tono) {
-		return false;
+
 
 	}
 
-	public boolean EliminarAlarma(String idAlarma) {
+	public void EliminarAlarma(String idAlarma) {
 
-		return false;
 	}
-	public boolean CrearClan(String idUsuario,String idClan){
+	public void CrearClan(String idUsuario,String idClan){
 		
-		return false;
 	}
 }
