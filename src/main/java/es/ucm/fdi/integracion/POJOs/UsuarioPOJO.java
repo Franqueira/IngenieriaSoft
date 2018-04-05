@@ -13,6 +13,9 @@ public class UsuarioPOJO {
 	private String descPerfil;
 	private String password;
 	private String country;
+	private boolean esGanador;
+
+	
 
 	public UsuarioPOJO(String idUsuario, String nombreReal, int puntuacion,
 			String descPerfil, String password, String country) {
@@ -30,6 +33,14 @@ public class UsuarioPOJO {
 
 	public void setIdUsuario(String idUsuario) {
 		this.idUsuario = idUsuario;
+	}
+	
+	public boolean isEsGanador() {
+		return esGanador;
+	}
+
+	public void setEsGanador(boolean esGanador) {
+		this.esGanador = esGanador;
 	}
 
 	public String getNombreReal() {
