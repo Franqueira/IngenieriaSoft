@@ -5,13 +5,7 @@ import java.util.ArrayList;
 import es.ucm.fdi.datos.BD;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 
-/**
- * 
- * @author jaimefd
- *
- */
-
-public class UsuarioClanDAOImp {
+public class UsuarioClanDAOImp implements UsuarioClanDAO {
 	private BD<UsuarioClanPOJO> miembros; 
 	// el ID de cada UsuarioClanPOJO en la BD es el ID del usuario, ya que solo puede tener 1 clan
 
