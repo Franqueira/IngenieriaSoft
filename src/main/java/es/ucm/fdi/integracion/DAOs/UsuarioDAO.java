@@ -9,7 +9,7 @@ public interface UsuarioDAO {
 	
 	public void guardaUsuario(UsuarioPOJO user);
 	
-	public void eliminaUsuario(UsuarioPOJO user);
+	public void eliminaUsuario(String user);
 	
 	public UsuarioPOJO find(String nombre);
 	

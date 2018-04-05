@@ -23,8 +23,8 @@ public class UsuarioDAOImp implements UsuarioDAO{
 		BD.insert(user, user.getIdUsuario());
 	}
 	
-	public void eliminaUsuario(UsuarioPOJO user){
-		BD.removeId(user.getIdUsuario());
+	public void eliminaUsuario(String user){
+		BD.removeId(user);
 	}
 	
 	public UsuarioPOJO find(String nombre){
