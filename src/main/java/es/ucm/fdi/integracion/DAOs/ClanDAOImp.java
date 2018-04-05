@@ -18,8 +18,8 @@ public class ClanDAOImp implements ClanDAO{
 		clanes.insert(c, c.getNombreClan());
 	}
 
-	public void removeClan(ClanPOJO c) {
-		clanes.removeId(c.getNombreClan());
+	public void removeClan(String c) {
+		clanes.removeId(c);
 	}
 	// no vas a necesitar una lista entera para el clan.
 }

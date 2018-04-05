@@ -7,5 +7,5 @@ public interface ClanDAO {
 
 	public void saveClan(ClanPOJO c);
 
-	public void removeClan(ClanPOJO c);
+	public void removeClan(String c);
 }
