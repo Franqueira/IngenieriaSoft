@@ -9,10 +9,10 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
  * @author javier Guzmán
  *
  */
-public class UsuarioDAO {
+public class UsuarioDAOImp {
 	private BD<UsuarioPOJO> BD;
 
-	public UsuarioDAO(es.ucm.fdi.datos.BD<UsuarioPOJO> BD) {
+	public UsuarioDAOImp(es.ucm.fdi.datos.BD<UsuarioPOJO> BD) {
 		super();
 		this.BD = BD;
 	}

@@ -11,11 +11,11 @@ import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
  *
  */
 
-public class UsuarioClanDAO {
+public class UsuarioClanDAOImp {
 	private BD<UsuarioClanPOJO> miembros; 
 	// el ID de cada UsuarioClanPOJO en la BD es el ID del usuario, ya que solo puede tener 1 clan
 
-	public UsuarioClanDAO(BD<UsuarioClanPOJO> miembros) {
+	public UsuarioClanDAOImp(BD<UsuarioClanPOJO> miembros) {
 		super();
 		this.miembros = miembros;
 	}

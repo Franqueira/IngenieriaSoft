@@ -3,10 +3,10 @@ package es.ucm.fdi.integracion.DAOs;
 import es.ucm.fdi.datos.BD;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
 
-public class ClanDAO {
+public class ClanDAOImp {
 	public BD<ClanPOJO> clanes;
 
-	public ClanDAO(BD<ClanPOJO> clanes) {
+	public ClanDAOImp(BD<ClanPOJO> clanes) {
 		this.clanes = clanes;
 	}
 
