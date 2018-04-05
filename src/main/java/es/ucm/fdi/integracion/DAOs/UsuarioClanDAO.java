@@ -19,5 +19,5 @@ public interface UsuarioClanDAO {
 	
 	public void guardaUsuarioClan(UsuarioClanPOJO uclan);
 	
-	public void eliminaUsuarioClan(UsuarioClanPOJO uclan);
+	public void eliminaUsuarioClan(String idUsuario);
 }
