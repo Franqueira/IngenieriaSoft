@@ -2,7 +2,7 @@ package es.ucm.fdi.integracion.POJOs;
 
 public class ClanPOJO {// duda
 	String nombreClan;
-
+	String lider;
 	public String getNombreClan() {
 		return nombreClan;
 	}
@@ -15,9 +15,10 @@ public class ClanPOJO {// duda
 		this.nombreClan = nombreClan;
 	}
 
-	public ClanPOJO(String nombreClan) {
+	public ClanPOJO(String nombreClan,String lider) {
 		super();
 		this.nombreClan = nombreClan;
+		this.lider=lider;
 	}
 
 }

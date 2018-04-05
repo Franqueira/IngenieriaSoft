@@ -30,7 +30,7 @@ public class UsuarioClanDAOImp implements UsuarioClanDAO {
 		miembros.insert(uclan, uclan.getIdUsuario());
 	}
 	
-	public void eliminaUsuarioClan(UsuarioClanPOJO uclan){
-		miembros.removeId(uclan.getIdUsuario());
+	public void eliminaUsuarioClan(String idUsuario){
+		miembros.removeId(idUsuario);
 	}
 }
