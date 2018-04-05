@@ -2,7 +2,6 @@ package es.ucm.fdi.integracion.DAOs;
 
 import java.util.ArrayList;
 
-import es.ucm.fdi.datos.BD;
 import es.ucm.fdi.integracion.POJOs.UsuarioAmigoPOJO;
 
 public interface UsuarioAmigoDAO{
