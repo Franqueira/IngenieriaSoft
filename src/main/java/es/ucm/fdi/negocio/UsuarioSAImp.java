@@ -21,16 +21,22 @@ public class UsuarioSAImp implements UsuarioSA {
 
 		return false;
 	}
-
-	public void AnadirAlarma(String idAlarma, int horas, int minutos,
+	public boolean EliminarUsuario(String idUsuario){
+		
+		return false;
+	}
+	public boolean AnadirAlarma(String idAlarma, int horas, int minutos,
 			boolean active, String Tono) {
-		// TODO Auto-generated method stub
+		return false;
 
 	}
 
-	public void EliminarAlarma(String idAlarma) {
-		// TODO Auto-generated method stub
+	public boolean EliminarAlarma(String idAlarma) {
 
+		return false;
 	}
-
+	public boolean CrearClan(String idUsuario,String idClan){
+		
+		return false;
+	}
 }
