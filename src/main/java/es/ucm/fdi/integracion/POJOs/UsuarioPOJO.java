@@ -13,6 +13,7 @@ public class UsuarioPOJO {
 	private String descPerfil;
 	private String password;
 	private String country;
+	private String idClan;
 
 	public UsuarioPOJO(String idUsuario, String nombreReal, int puntuacion,
 			String descPerfil, String password, String country) {
