@@ -1,5 +1,6 @@
 package es.ucm.fdi;
 
+import junit.framework.Assert;
 import es.ucm.fdi.datos.BD;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
@@ -13,7 +14,7 @@ public class FullTest {
 	//private BD<UsuarioPOJO> BDusuario;
 	
 	public FullTest(){
-		this.BDalarma = new BD<>();
+		this.BDalarma = new BD<AlarmaPOJO>();
 		//this.BDtono = new BD<>();
 		//this.BDpregunta = new BD<>();
 		//this.BDusuario = new BD<>();
@@ -36,11 +37,10 @@ public class FullTest {
 	//@Test
 	public void Testpertar(){
 		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
-		TonoDAO tonoDAO= new TonoDAO(BDtono);
-		AlarmaSAImp alarmaSA = new AlarmaSAImp(alarmaDAO, tonoDAO);
+		AlarmaSAImp alarmaSA = new AlarmaSAImp(alarmaDAO);
 		
 		AlarmaPOJO a = alarmaDAO.getAlarma("al1");
-		assertTrue("La alarma al1 debería existir", a!=null); //No se por que no va
+		Assert.assertTrue("La alarma al1 debería existir", a!=null); //No se por que no va
 		alarmaSA.reproducirAlarma(a);
 	}
 
