@@ -3,7 +3,7 @@ package es.ucm.fdi;
 import es.ucm.fdi.datos.BD;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
-import es.ucm.fdi.negocio.AlarmaSA;
+import es.ucm.fdi.negocio.AlarmaSAImp;
 
 public class FullTest {
 	
@@ -37,7 +37,7 @@ public class FullTest {
 	public void Testpertar(){
 		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
 		TonoDAO tonoDAO= new TonoDAO(BDtono);
-		AlarmaSA alarmaSA = new AlarmaSA(alarmaDAO, tonoDAO);
+		AlarmaSAImp alarmaSA = new AlarmaSAImp(alarmaDAO, tonoDAO);
 		
 		AlarmaPOJO a = alarmaDAO.getAlarma("al1");
 		assertTrue("La alarma al1 debería existir", a!=null); //No se por que no va
