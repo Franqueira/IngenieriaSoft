@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import es.ucm.fdi.datos.BD;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
-public class AlarmaDAOImp {
+public class AlarmaDAOImp implements AlarmaDAO {
 	
 	private BD<AlarmaPOJO> BD;
 
