@@ -1,7 +1,7 @@
 package es.ucm.fdi;
 
 import es.ucm.fdi.datos.BD;
-import es.ucm.fdi.integracion.DAOs.AlarmaDAO;
+import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.negocio.AlarmaSA;
 
@@ -23,7 +23,7 @@ public class FullTest {
 
 	private void inicializar(){
 		
-		AlarmaDAO alarmaDAO = new AlarmaDAO(BDalarma);
+		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
 		alarmaDAO.saveAlarm(new AlarmaPOJO("al1", 12, 23, true, "aleat"));
 		alarmaDAO.saveAlarm(new AlarmaPOJO("al2", 5, 0, false, "aleat"));
 		alarmaDAO.saveAlarm(new AlarmaPOJO("al3", 16, 47, true, "song1.mp3"));
@@ -35,7 +35,7 @@ public class FullTest {
 	
 	//@Test
 	public void Testpertar(){
-		AlarmaDAO alarmaDAO = new AlarmaDAO(BDalarma);
+		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
 		TonoDAO tonoDAO= new TonoDAO(BDtono);
 		AlarmaSA alarmaSA = new AlarmaSA(alarmaDAO, tonoDAO);
 		
