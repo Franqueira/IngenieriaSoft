@@ -15,7 +15,7 @@ public class UsuarioSAImp implements UsuarioSA {
 	
 	}
 
-	public void AnadirUsuarioClan(String idUsuario) {
+	public void AnadirUsuarioClan(String idUsuario,String idClan) {
 
 	
 	}
