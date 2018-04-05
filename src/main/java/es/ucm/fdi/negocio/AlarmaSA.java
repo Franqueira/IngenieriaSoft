@@ -1,7 +1,7 @@
 package es.ucm.fdi.negocio;
 
-import es.ucm.fdi.integracion.AlarmaDAO;
-import es.ucm.fdi.integracion.AlarmaPOJO;
+import es.ucm.fdi.integracion.DAOs.AlarmaDAO;
+import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 public class AlarmaSA {
 

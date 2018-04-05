@@ -1,9 +1,10 @@
-package es.ucm.fdi.integracion;
+package es.ucm.fdi.integracion.DAOs;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import es.ucm.fdi.datos.BD;
+import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 public class AlarmaDAO {
 	

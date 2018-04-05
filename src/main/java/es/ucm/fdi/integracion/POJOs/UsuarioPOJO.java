@@ -1,4 +1,4 @@
-package es.ucm.fdi.integracion;
+package es.ucm.fdi.integracion.POJOs;
 
 /**
  * 
@@ -52,7 +52,6 @@ public class UsuarioPOJO {
 		return descPerfil;
 	}
 
-
 	public void setDescPerfil(String descPerfil) {
 		this.descPerfil = descPerfil;
 	}
@@ -78,7 +77,4 @@ public class UsuarioPOJO {
 			return idUsuario + '\n' + descPerfil + '\n'+ "Puntuacion: " + puntuacion;
 	
 	}
-	
-	
-	
 }
