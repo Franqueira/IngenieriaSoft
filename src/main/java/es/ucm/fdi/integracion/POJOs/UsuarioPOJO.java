@@ -88,4 +88,12 @@ public class UsuarioPOJO {
 				+ puntuacion;
 
 	}
+
+	public String getIdClan() {
+		return idClan;
+	}
+
+	public void setIdClan(String idClan) {
+		this.idClan = idClan;
+	}
 }
