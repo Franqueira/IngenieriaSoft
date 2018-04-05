@@ -12,7 +12,6 @@ public class UsuarioDAOImp implements UsuarioDAO{
 	private BD<UsuarioPOJO> BD;
 
 	public UsuarioDAOImp(BD<UsuarioPOJO> BD) {
-		super();
 		this.BD = BD;
 	}
 	

@@ -14,6 +14,13 @@ public class TestperclanSAImp implements TestperclanSA{
 	private UsuarioClanDAO usuarioClanDAO;
 	private UsuarioDAO usuarioDAO;
 
+	public TestperclanSAImp(ClanDAO clanDAO, UsuarioClanDAO usuarioClanDAO,
+			UsuarioDAO usuarioDAO) {
+		this.clanDAO = clanDAO;
+		this.usuarioClanDAO = usuarioClanDAO;
+		this.usuarioDAO = usuarioDAO;
+	}
+
 	@Override
 	public ArrayList<UsuarioPOJO> getRanking(String nombreClan) {
 		ArrayList<UsuarioPOJO> ranking = new ArrayList<>();
@@ -27,10 +34,7 @@ public class TestperclanSAImp implements TestperclanSA{
 	}
 	
 	public void setGanador(String nombreClan){
-		getRanking(nombreClan).get(0).setEsGanador(true);
+		usuarioDAO.find(clanDAO.getClan(nombreClan).getLider()).setEsGanador(true);
 	}
-	
-	
-	
 	
 }

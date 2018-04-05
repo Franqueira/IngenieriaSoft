@@ -3,6 +3,7 @@ package es.ucm.fdi.integracion.POJOs;
 public class UsuarioAmigoPOJO {
 	String idUsuarioPrincipal;
 	String idUsuarioAmigo;
+	
 	public UsuarioAmigoPOJO(String idUsuarioPrincipal, String idUsuarioAmigo) {
 		super();
 		this.idUsuarioPrincipal = idUsuarioPrincipal;
