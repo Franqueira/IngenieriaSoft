@@ -11,4 +11,5 @@ public interface UsuarioSA {
 
 	public void EliminarAlarma(String idAlarma);
 	
+	
 }

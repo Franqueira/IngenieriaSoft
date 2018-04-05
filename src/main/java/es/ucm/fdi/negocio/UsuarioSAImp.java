@@ -1,7 +1,11 @@
 package es.ucm.fdi.negocio;
 
-public class UsuarioSAImp implements UsuarioSA{
+import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
+import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
+public class UsuarioSAImp implements UsuarioSA{
+	public UsuarioDAOImp usuario;
+	
 	@Override
 	public boolean EliminarUsuarioClan(String idUsuario) {
 		// TODO Auto-generated method stub
