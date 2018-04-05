@@ -1,14 +1,14 @@
 package es.ucm.fdi.negocio;
 
-import es.ucm.fdi.integracion.DAOs.AlarmaDAO;
+import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 public class AlarmaSA {
 
-	private AlarmaDAO alarmaDAO;
+	private AlarmaDAOImp alarmaDAO;
 	private TonoDAO tonoDAO;
 	
-	public AlarmaSA(AlarmaDAO alarmaDAO, TonoDAO tonoDAO) {
+	public AlarmaSA(AlarmaDAOImp alarmaDAO, TonoDAO tonoDAO) {
 		this.alarmaDAO = alarmaDAO;
 		this.tonoDAO = tonoDAO;
 	}

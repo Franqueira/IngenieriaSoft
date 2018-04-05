@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 import es.ucm.fdi.datos.BD;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
-public class AlarmaDAO {
+public class AlarmaDAOImp {
 	
 	private BD<AlarmaPOJO> BD;
 
-	public AlarmaDAO(BD<AlarmaPOJO> BD) {
+	public AlarmaDAOImp(BD<AlarmaPOJO> BD) {
 		this.BD = BD;
 	}
 	
