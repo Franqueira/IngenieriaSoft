@@ -6,11 +6,10 @@ import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 public class AlarmaSA {
 
 	private AlarmaDAO alarmaDAO;
-	private TonoDAO tonoDAO;
 	
-	public AlarmaSA(AlarmaDAO alarmaDAO, TonoDAO tonoDAO) {
+	
+	public AlarmaSA(AlarmaDAO alarmaDAO) {
 		this.alarmaDAO = alarmaDAO;
-		this.tonoDAO = tonoDAO;
 	}
 	
 	public void reproducirAlarma(AlarmaPOJO a){
