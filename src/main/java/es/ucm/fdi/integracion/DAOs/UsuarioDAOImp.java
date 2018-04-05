@@ -1,6 +1,5 @@
 package es.ucm.fdi.integracion.DAOs;
 import java.util.ArrayList;
-
 import es.ucm.fdi.datos.*;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
@@ -12,7 +11,7 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 public class UsuarioDAOImp {
 	private BD<UsuarioPOJO> BD;
 
-	public UsuarioDAOImp(es.ucm.fdi.datos.BD<UsuarioPOJO> BD) {
+	public UsuarioDAOImp(BD<UsuarioPOJO> BD) {
 		super();
 		this.BD = BD;
 	}
