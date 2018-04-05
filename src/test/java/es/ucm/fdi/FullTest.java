@@ -32,7 +32,7 @@ public class FullTest {
 		
 		//inicializar los demas para luego hacer el test
 		
-	}
+	}sgd
 	
 	//@Test
 	public void Testpertar(){
