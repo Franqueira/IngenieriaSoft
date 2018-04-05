@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import es.ucm.fdi.integracion.POJOs.UsuarioAmigoPOJO;
 
-public interface UsuarioAmigoDAOInt {
+public interface UsuarioAmigoDAOImp {
 	
 	public String getPrincipal(String id);
 	
