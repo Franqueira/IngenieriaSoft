@@ -24,6 +24,7 @@ public class UsuarioPOJO {
 		this.descPerfil = descPerfil;
 		this.password = password;
 		this.country = country;
+		esGanador=false;
 	}
 
 	public String getIdUsuario() {
