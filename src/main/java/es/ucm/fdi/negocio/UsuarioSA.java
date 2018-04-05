@@ -7,7 +7,7 @@ public interface UsuarioSA {
 	public void AnadirUsuarioClan(String idUsuario,String idClan);
 
 	public void AnadirAlarma(String idAlarma, int horas, int minutos,
-			boolean active, String Tono);
+			boolean active, String Tono,String idUsuario);
 
 	public void EliminarAlarma(String idAlarma);
 
