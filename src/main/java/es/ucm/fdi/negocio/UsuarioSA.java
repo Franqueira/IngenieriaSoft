@@ -9,7 +9,7 @@ public interface UsuarioSA {
 	public void EliminarAlarma(String idAlarma);
 
 	public void AnadirUsuario(String idUsuario, String nombreReal,
-			int puntuacion, String descPerfil, String password, String country);
+			int puntuacion, String password, String country);
 	
 	public void EliminarUsuario(String idUsuario);
 
