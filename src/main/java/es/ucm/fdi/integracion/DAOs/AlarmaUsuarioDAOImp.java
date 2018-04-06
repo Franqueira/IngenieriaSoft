@@ -5,22 +5,12 @@ import java.util.ArrayList;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 import es.ucm.fdi.datos.*;
 
-/**
- * 
- * @author Javier Guzmán
- *
- */
-public class AlarmaUsuarioDAOImp implements AlarmaUsuarioDAO{
-	private BDHashMap<AlarmaUsuarioPOJO> BD;
+public class AlarmaUsuarioDAOImp extends HashMapDAO<AlarmaUsuarioPOJO> implements AlarmaUsuarioDAO{
 	
-
-	
-	
-	public AlarmaUsuarioDAOImp(BDHashMap<AlarmaUsuarioPOJO> bD) {
-		super();
-		BD = bD;
+	public AlarmaUsuarioDAOImp(BDHashMap<AlarmaUsuarioPOJO> BD) {
+		super(BD);
 	}
-	
+
 	@Override
 	public ArrayList<String> getAlarmasUsuario(String idUsuario) {
 		ArrayList<String> listaAlarmas = new ArrayList<>();
@@ -31,16 +21,4 @@ public class AlarmaUsuarioDAOImp implements AlarmaUsuarioDAO{
 		}
 		return listaAlarmas;
 	}
-
-	@Override
-	public void removeAlarmaUsuario(String idAlarma) {
-		BD.removeId(idAlarma);
-		
-	}
-
-	@Override
-	public void addAlarmaUsuario(AlarmaUsuarioPOJO au) {
-		BD.insert(au, au.getIdAlarma());
-	}
-	
 }

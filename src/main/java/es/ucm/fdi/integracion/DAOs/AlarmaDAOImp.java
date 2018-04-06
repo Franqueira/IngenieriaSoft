@@ -6,26 +6,12 @@ import java.util.stream.Collectors;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
-public class AlarmaDAOImp implements AlarmaDAO {
+public class AlarmaDAOImp extends HashMapDAO<AlarmaPOJO> implements AlarmaDAO {
 	
-	private BDHashMap<AlarmaPOJO> BD;
-
 	public AlarmaDAOImp(BDHashMap<AlarmaPOJO> BD) {
-		this.BD = BD;
+		super(BD);
 	}
-	
-	public AlarmaPOJO getAlarma(String id){
-		return BD.find(id);
-	}
-	
-	public void saveAlarm(AlarmaPOJO alarm){
-		BD.insert(alarm, alarm.getId());
-	}
-	
-	public void removeAlarm(String idAlarm){
-		BD.removeId(idAlarm);
-	}
-	
+
 	public ArrayList<AlarmaPOJO> getActive(){
 		ArrayList<String> list = BD.getIds();
 		return list.stream()
