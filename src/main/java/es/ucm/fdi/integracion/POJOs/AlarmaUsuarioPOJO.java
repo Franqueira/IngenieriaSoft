@@ -18,7 +18,6 @@ public class AlarmaUsuarioPOJO extends POJO{
 
 	@Override
 	public POJO clone() {
-		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 }

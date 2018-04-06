@@ -11,7 +11,7 @@ public class UsuarioDAOImp extends HashMapDAO<UsuarioPOJO> implements UsuarioDAO
 
 	public UsuarioPOJO find(String nombreReal){
 		for(String id: BD.getIds()){
-			UsuarioPOJO user = (UsuarioPOJO) getFromId(id);
+			UsuarioPOJO user = BD.find(id);
 			if(user.getNombreReal().equals(nombreReal)){
 				return user;
 			}
