@@ -39,26 +39,26 @@ public class UsuarioSAImp implements UsuarioSA {
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).getIdClan();
 		usuarioDAO.remove(idUsuario);
 		if (!idClan.equals("")) {
-			usuariosClanDAO.eliminaUsuarioClan(idUsuario);
-			if (clanDAO.getFromId(idClan).getLider().equals(idUsuario)) {
+			usuariosClanDAO.remove(idUsuario);
+			if (((ClanPOJO) clanDAO.getFromId(idClan)).getLider().equals(idUsuario)) {
 				ArrayList<String> c = usuariosClanDAO.getMiembrosClan(idClan);
 				if (c.isEmpty())
-					clanDAO.removeClan(idClan);
+					clanDAO.remove(idClan);
 				else
-					clanDAO.getClan(idClan).setLider(c.get(0));
+					((ClanPOJO) clanDAO.getFromId(idClan)).setLider(c.get(0));
 			}
 
 		}
 	}
 	public void AnadirPregunta(PreguntaPOJO pregunta,String idUsuario){
-		preguntaDAO.savePregunta(pregunta);
-		preguntaUsuarioDAO.savePreguntaUsuario(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
+		preguntaDAO.save(pregunta);
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
 	}
 	public void ElminarPregunta(String idPregunta,String idUsuario){
 		ArrayList<String> preguntas=preguntaUsuarioDAO.getPreguntas(idUsuario);
 		if(preguntas.size()>10){ // solo dejamos eliminar si tiene mas de 10 preguntas.
-			preguntaDAO.removePregunta(idPregunta);
-			preguntaUsuarioDAO.removePreguntaUsuario(idPregunta);
+			preguntaDAO.remove(idPregunta);
+			preguntaUsuarioDAO.remove(idPregunta);
 			
 		}
 	}
