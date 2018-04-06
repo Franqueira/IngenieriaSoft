@@ -14,7 +14,7 @@ public class UsuarioClanDAOImp extends HashMapDAO<UsuarioClanPOJO> implements Us
 	public ArrayList<String> getMiembrosClan(String clan){
 		ArrayList<String> miembrosClan =  new ArrayList<String>();
 		for(String id : BD.getIds()){
-			if(BD.find(id).equals(clan))
+			if(BD.find(id).getIdClan().equals(clan))
 				miembrosClan.add(id);
 		}
 		return miembrosClan;
