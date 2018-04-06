@@ -24,26 +24,23 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 public class UsuarioSATest {
 	private UsuarioSA usuario;
-	private BDHashMap<AlarmaPOJO> BDalarma;
-	private BDHashMap<PreguntaPOJO> BDpregunta;
-	private BDHashMap<UsuarioPOJO> BDusuario;
-	private BDHashMap<PreguntaUsuarioPOJO> BDpreguntaUsuario;
-	private BDHashMap<AlarmaUsuarioPOJO> BDalarmaUsuario;
-	private BDHashMap<ClanPOJO> BDclan;
-	private BDHashMap<UsuarioClanPOJO> BDusuarioClan;
-	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(BDusuario);
-	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
-	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(BDalarmaUsuario);
-	private PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(BDpregunta);
-	private PreguntaUsuarioDAOImp preguntaUsuarioDAO= new PreguntaUsuarioDAOImp(BDpreguntaUsuario);
-	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
-	private ClanDAOImp clanDAO = new ClanDAOImp (BDclan);
+	private UsuarioDAOImp usuarioDAO;
+	private AlarmaDAOImp alarmaDAO;
+	private AlarmaUsuarioDAOImp alarmaUsuarioDAO;
+	private PreguntaDAOImp preguntaDAO;
+	private PreguntaUsuarioDAOImp preguntaUsuarioDAO;
+	private UsuarioClanDAOImp usuarioClanDAO;
+	private ClanDAOImp clanDAO;
 	
 	public UsuarioSATest(){
-		this.BDalarma = new BDHashMap<AlarmaPOJO>();
+		usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
+		alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
+		alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(new BDHashMap<AlarmaUsuarioPOJO>());
+		preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
+		preguntaUsuarioDAO= new PreguntaUsuarioDAOImp(new BDHashMap<PreguntaUsuarioPOJO>());
+		usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
+		clanDAO = new ClanDAOImp (new BDHashMap<ClanPOJO>());
 		
-		//this.BDpregunta = new BD<>();
-		//this.BDusuario = new BD<>();
 		
 		setup();
 	}
@@ -200,4 +197,5 @@ public class UsuarioSATest {
 		assertTrue("debería encontrarlo",!usuarioDAO.find("jaime123").equals(null));
 		
 	}
+	
 }
