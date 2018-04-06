@@ -1,12 +1,20 @@
+
 package es.ucm.fdi.integracion.DAOs;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.POJO;
 
 public class HashMapDAO<T extends POJO> implements DAO<T>{
 	
-	private BDHashMap<T> BD;
+	protected BDHashMap<T> BD;
 	
+	protected HashMapDAO(BDHashMap<T> BD) {
+		this.BD = BD;
+	}
+
 	@Override
 	public void save(T t) {
 		BD.insert(t, t.getId());
@@ -26,6 +34,12 @@ public class HashMapDAO<T extends POJO> implements DAO<T>{
 	@Override
 	public void remove(String id) {
 		BD.removeId(id);
+	}
+	
+	public List<POJO> getFromIds(List<String> ids) {
+		ArrayList<POJO> pojos = new ArrayList<>();
+		ids.forEach(id -> pojos.add(getFromId(id)));
+		return pojos;
 	}
 	
 }

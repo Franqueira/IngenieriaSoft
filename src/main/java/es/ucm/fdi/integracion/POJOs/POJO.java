@@ -2,7 +2,7 @@ package es.ucm.fdi.integracion.POJOs;
 
 public abstract class POJO {
 
-	private String id;
+	protected String id;
 
 	public POJO(String id) {
 		this.id = id;

@@ -4,20 +4,8 @@ import java.util.ArrayList;
 
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 
-/**
- * 
- * @author jaimefd
- *
- */
-
-
-public interface UsuarioClanDAO {
-	
-	public String getClan(String id);
+public interface UsuarioClanDAO extends DAO<UsuarioClanPOJO>{
 	
 	public ArrayList<String> getMiembrosClan(String clan);
 	
-	public void guardaUsuarioClan(UsuarioClanPOJO uclan);
-	
-	public void eliminaUsuarioClan(String idUsuario);
 }
