@@ -187,7 +187,7 @@ public class FullTest {
 		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
 		AlarmaSAImp alarmaSA = new AlarmaSAImp(alarmaDAO);
 		
-		AlarmaPOJO a = alarmaDAO.getAlarma("al1");
+		AlarmaPOJO a = (AlarmaPOJO) alarmaDAO.getFromId("al1");
 		Assert.assertTrue("La alarma al1 debería existir", a!=null); //No se por que no va
 		alarmaSA.reproducirAlarma(a);
 	}

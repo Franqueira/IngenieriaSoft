@@ -36,12 +36,14 @@ public class AlarmaDAOTest {
 		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
 		setup(alarmaDAO);
 		ArrayList<AlarmaPOJO> activas = alarmaDAO.getActive();
+		System.out.println(activas);
 		ArrayList<AlarmaPOJO> esperadas = new ArrayList<>();
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al1"));
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al2"));
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al3"));
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al4"));
-		assertEquals("Se esperaba que las alarmas activas fuesen al1, al2, al3, al4", esperadas, activas);
-		
+		for(AlarmaPOJO a: activas){
+			assertTrue(esperadas.contains(a));
+		}
 	}
 }
