@@ -1,16 +1,15 @@
 package es.ucm.fdi.integracion.POJOs;
 
-public class ClanPOJO {// duda
-	String nombreClan;
+public class ClanPOJO extends POJO{// duda
 	String lider;
 
 	public ClanPOJO(String nombreClan, String lider) {
-		this.nombreClan = nombreClan;
+		super(nombreClan);
 		this.lider = lider;
 	}
 
-	public String getNombreClan() {
-		return nombreClan;
+	public String getNombreClan() { //en realidad sobra
+		return getId();
 	}
 
 	public void setNombreClan(String nombreClan) {
@@ -18,7 +17,7 @@ public class ClanPOJO {// duda
 			throw new IllegalArgumentException(
 					"Error, el Clan debe contener algún caracter.");
 		}
-		this.nombreClan = nombreClan;
+		this.id = nombreClan;
 	}
 
 	public String getLider() {
@@ -27,6 +26,11 @@ public class ClanPOJO {// duda
 
 	public void setLider(String lider) {
 		this.lider = lider;
+	}
+
+	@Override
+	public POJO clone() {
+		return this;
 	}
 
 }

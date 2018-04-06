@@ -6,8 +6,7 @@ package es.ucm.fdi.integracion.POJOs;
  *
  */
 
-public class UsuarioPOJO {
-	private String idUsuario;
+public class UsuarioPOJO extends POJO{
 	private String nombreReal;
 	private int puntuacion;
 	private String password;
@@ -17,20 +16,12 @@ public class UsuarioPOJO {
 
 	public UsuarioPOJO(String idUsuario, String nombreReal, int puntuacion,
 			String password, String country) {
-		this.idUsuario = idUsuario;
+		super(idUsuario);
 		this.nombreReal = nombreReal;
 		this.puntuacion = puntuacion;
 		this.password = password;
 		this.country = country;
 		esGanador=false;
-	}
-
-	public String getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(String idUsuario) {
-		this.idUsuario = idUsuario;
 	}
 	
 	public boolean isEsGanador() {
@@ -75,7 +66,7 @@ public class UsuarioPOJO {
 
 	@Override
 	public String toString() {
-		return idUsuario + '\n' + "Puntuacion: "
+		return id + '\n' + "Puntuacion: "
 				+ puntuacion;
 
 	}
@@ -86,5 +77,10 @@ public class UsuarioPOJO {
 
 	public void setIdClan(String idClan) {
 		this.idClan = idClan;
+	}
+
+	@Override
+	public POJO clone() {
+		return this;
 	}
 }

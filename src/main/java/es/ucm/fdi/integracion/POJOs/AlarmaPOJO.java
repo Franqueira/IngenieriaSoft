@@ -1,6 +1,6 @@
 package es.ucm.fdi.integracion.POJOs;
 
-public class AlarmaPOJO extends DataPOJO{
+public class AlarmaPOJO extends POJO{
 	private int horas;
 	private int minutos;
 	private boolean active;
@@ -69,5 +69,10 @@ public class AlarmaPOJO extends DataPOJO{
 	
 	public boolean isTime(int horas, int minutos){
 		return horas == this.horas && minutos == this.minutos;
+	}
+
+	@Override
+	public POJO clone() {
+		return this;
 	}
 }

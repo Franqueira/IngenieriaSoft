@@ -1,10 +1,10 @@
 package es.ucm.fdi.integracion.POJOs;
 
-public class DataPOJO {
+public abstract class POJO {
 
-	private String id;
+	protected String id;
 
-	public DataPOJO(String id) {
+	public POJO(String id) {
 		this.id = id;
 	}
 
@@ -15,5 +15,7 @@ public class DataPOJO {
 	public void setId(String id) {
 		this.id = id;
 	}
+	
+	public abstract POJO clone();
 
 }

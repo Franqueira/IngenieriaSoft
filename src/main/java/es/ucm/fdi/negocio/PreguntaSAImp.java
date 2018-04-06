@@ -1,6 +1,7 @@
 package es.ucm.fdi.negocio;
 
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
+import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 public class PreguntaSAImp implements PreguntaSA{
 
@@ -11,7 +12,7 @@ public class PreguntaSAImp implements PreguntaSA{
 	}
 	
 	public boolean comprobarRespuesta(String idPregunta, int respuesta) {
-		return preguntaDAO.getPregunta(idPregunta).getRespuestaCorrecta() == respuesta;
+		return ((PreguntaPOJO) preguntaDAO.getFromId(idPregunta)).getRespuestaCorrecta() == respuesta;
 	}
 
 }
