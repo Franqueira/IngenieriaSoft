@@ -99,10 +99,10 @@ public class UsuarioSATest {
 		//Creacion de clanes
 		
 		TestperclanSAImp testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,usuarioDAO);
-		testperclanSA.CrearClan("javigm", "Los Matinfos");
-		testperclanSA.AnadirUsuarioClan("borisc", "Los Matinfos");
-		testperclanSA.AnadirUsuarioClan("jc", "Los Matinfos");
-		testperclanSA.AnadirUsuarioClan("franqui", "Los Matinfos");
+		testperclanSA.crearClan("javigm", "Los Matinfos");
+		testperclanSA.anadirUsuarioClan("borisc", "Los Matinfos");
+		testperclanSA.anadirUsuarioClan("jc", "Los Matinfos");
+		testperclanSA.anadirUsuarioClan("franqui", "Los Matinfos");
 		
 		ArrayList<String> respuestas1=new ArrayList<String>();
 		respuestas1.add("Madrid");
