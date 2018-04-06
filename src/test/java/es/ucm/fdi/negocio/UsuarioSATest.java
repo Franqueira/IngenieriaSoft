@@ -192,6 +192,7 @@ public class UsuarioSATest {
 		assertFalse("Debería cambiar de líder",c.getLider().equals("javigm"));
 		
 	}
+	@Test
 	public void AnadirUsuarioTest(){
 		usuario.AnadirUsuario(new UsuarioPOJO("jaime123", "Jaime Fernandez", 109, "soyjaime", "Spain"));
 		assertTrue("debería encontrarlo",!usuarioDAO.find("jaime123").equals(null));
