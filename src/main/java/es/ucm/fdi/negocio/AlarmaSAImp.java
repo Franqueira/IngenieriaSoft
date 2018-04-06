@@ -14,5 +14,9 @@ public class AlarmaSAImp implements AlarmaSA{
 	public void reproducirAlarma(AlarmaPOJO a){
 		
 	}
+	
+	public void desconectarAlarma(AlarmaPOJO a){
+		
+	}
 
 }
