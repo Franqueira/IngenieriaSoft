@@ -1,6 +1,7 @@
 package es.ucm.fdi;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,8 @@ import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 import es.ucm.fdi.negocio.AlarmaSA;
 import es.ucm.fdi.negocio.AlarmaSAImp;
+import es.ucm.fdi.negocio.PreguntaSA;
+import es.ucm.fdi.negocio.PreguntaSAImp;
 import es.ucm.fdi.negocio.TestperclanSA;
 import es.ucm.fdi.negocio.TestperclanSAImp;
 
@@ -69,7 +72,7 @@ public class FullTest {
 		
 		//Creacion de alarmas
 		alarmaDAO.save(new AlarmaPOJO("al1", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al2", 5, 0, false, "whatsapp_audio3.mp3"));
+		alarmaDAO.save(new AlarmaPOJO("al2", 5, 0, true, "whatsapp_audio3.mp3"));
 		alarmaDAO.save(new AlarmaPOJO("al3", 16, 47, true, "song1.mp3"));
 		alarmaDAO.save(new AlarmaPOJO("al4", 0, 0, false, "song2.mp3"));
 		for(int i = 5; i<17;i++){
@@ -135,21 +138,27 @@ public class FullTest {
 			preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a"+i,"peter_hy"));
 		}
 		
-		//inicializar los demas para luego hacer el test
-		
 	}
 	
 	@Test
 	public void Testpertar(){
-		UsuarioPOJO = 
-		AlarmaPOJO a = (AlarmaPOJO) alarmaDAO.getFromId("al1");
-		Assert.assertTrue("La alarma al1 debería existir", a!=null);
+		UsuarioPOJO user = (UsuarioPOJO) usuarioDAO.getFromId("peter_hy");
+		AlarmaPOJO a = (AlarmaPOJO) alarmaDAO.getFromId("al2");
+		Assert.assertTrue("La alarma al2 debería existir", a!=null);
+		Assert.assertTrue("La alarma al2 debería estar activa", a.isActive());
 		AlarmaSA alarmaSA = new AlarmaSAImp(alarmaDAO);
 		alarmaSA.reproducirAlarma(a);
 		//Suena
+		PreguntaPOJO pregunta = (PreguntaPOJO) preguntaDAO.getFromId(preguntaUsuarioDAO.getPreguntas("peter_hy").get(0));
+		Assert.assertTrue("La pregunta debería existir", pregunta!=null);
+		//Mostrar pregunta
+		PreguntaSA preguntaSA = new PreguntaSAImp(preguntaDAO);
+		assertTrue("Debería ser correcta",preguntaSA.comprobarRespuesta("a2",2));
 		alarmaSA.desconectarAlarma(a);
 		
-		
+		TestperclanSA testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO, usuarioDAO);
+		testperclanSA.getRanking(user.getIdClan());
+		//Mostrar ranking
 	}
 	@Test
 	public void TestGanador(){
