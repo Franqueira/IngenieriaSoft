@@ -32,7 +32,7 @@ public class UsuarioSAImp implements UsuarioSA {
 			int puntuacion,String password, String country) {
 
 		usuarioDAO.guardaUsuario(new UsuarioPOJO(idUsuario, nombreReal,
-				puntuacion,password, country));
+				puntuacion, password, country));
 	}
 
 	public void EliminarUsuario(String idUsuario) {
@@ -54,6 +54,7 @@ public class UsuarioSAImp implements UsuarioSA {
 		preguntaDAO.savePregunta(pregunta);
 		preguntaUsuarioDAO.savePreguntaUsuario(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
 	}
+	public void ElminarPregunta(String idPregunta,String)
 	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
 		alarmaDAO.saveAlarm(alarma);
 		usuariosAlarmaDAO.addAlarmaUsuario(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
