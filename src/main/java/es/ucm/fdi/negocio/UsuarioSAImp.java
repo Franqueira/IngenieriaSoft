@@ -13,10 +13,10 @@ public class UsuarioSAImp implements UsuarioSA {
 	public AlarmaDAO alarmaDAO;
 
 	public void AnadirUsuario(String idUsuario, String nombreReal,
-			int puntuacion, String descPerfil, String password, String country) {
+			int puntuacion, String password, String country) {
 
 		usuarioDAO.guardaUsuario(new UsuarioPOJO(idUsuario, nombreReal,
-				puntuacion, descPerfil, password, country));
+				puntuacion, password, country));
 	}
 
 	public void EliminarUsuario(String idUsuario) {
