@@ -21,5 +21,4 @@ public class ClanDAOImp implements ClanDAO{
 	public void removeClan(String c) {
 		clanes.removeId(c);
 	}
-	// no vas a necesitar una lista entera para el clan.
 }

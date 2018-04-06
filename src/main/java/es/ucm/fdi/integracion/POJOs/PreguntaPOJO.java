@@ -11,8 +11,7 @@ import java.util.ArrayList;
  */
 public class PreguntaPOJO extends DataPOJO{
 	String texto;
-	ArrayList<String> respuestas; // podemos hacerlo con array o con 4
-									// Strings(no haría falta el int)
+	ArrayList<String> respuestas;
 	int respuestaCorrecta;
 
 	public PreguntaPOJO(String id, String texto, ArrayList<String> respuestas,

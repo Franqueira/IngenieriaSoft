@@ -12,6 +12,7 @@ import es.ucm.fdi.datos.*;
  */
 public class AlarmaUsuarioDAOImp implements AlarmaUsuarioDAO{
 	private BD<AlarmaUsuarioPOJO> BD;
+	
 	@Override
 	public ArrayList<String> getAlarmasUsuario(String idUsuario) {
 		ArrayList<String> listaAlarmas = new ArrayList<>();
