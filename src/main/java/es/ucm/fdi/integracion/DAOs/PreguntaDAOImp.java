@@ -35,8 +35,8 @@ public class PreguntaDAOImp implements PreguntaDAO{
 		BD.insert(preg, preg.getId());
 	}
 	
-	public void removePregunta(PreguntaPOJO preg){
-		BD.removeId(preg.getId());
+	public void removePregunta(String preg){
+		BD.removeId(preg);
 	}
 	
 }

@@ -54,7 +54,14 @@ public class UsuarioSAImp implements UsuarioSA {
 		preguntaDAO.savePregunta(pregunta);
 		preguntaUsuarioDAO.savePreguntaUsuario(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
 	}
-	public void ElminarPregunta(String idPregunta,String idUsuario){}
+	public void ElminarPregunta(String idPregunta,String idUsuario){
+		ArrayList<String> preguntas=preguntaUsuarioDAO.getPreguntas(idUsuario);
+		if(preguntas.size()>10){ // solo dejamos eliminar si tiene mas de 10 preguntas.
+			preguntaDAO.removePregunta(idPregunta);
+			preguntaUsuarioDAO.removePreguntaUsuario(idPregunta);
+			
+		}
+	}
 	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
 		alarmaDAO.saveAlarm(alarma);
 		usuariosAlarmaDAO.addAlarmaUsuario(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));

@@ -1,6 +1,7 @@
 package es.ucm.fdi.negocio;
 
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
+import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 public interface UsuarioSA {
 
@@ -12,5 +13,6 @@ public interface UsuarioSA {
 			int puntuacion, String password, String country);
 	
 	public void EliminarUsuario(String idUsuario);
-
+	public void ElminarPregunta(String idPregunta,String idUsuario);
+	public void AnadirPregunta(PreguntaPOJO pregunta,String idUsuario);
 }
