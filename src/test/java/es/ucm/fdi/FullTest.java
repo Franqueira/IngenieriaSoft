@@ -9,13 +9,11 @@ import es.ucm.fdi.negocio.AlarmaSAImp;
 public class FullTest {
 	
 	private BD<AlarmaPOJO> BDalarma;
-	//private BD<TonoPOJO> BDtono;
 	//private BD<PreguntaPOJO> BDpregunta;
 	//private BD<UsuarioPOJO> BDusuario;
 	
 	public FullTest(){
 		this.BDalarma = new BD<AlarmaPOJO>();
-		//this.BDtono = new BD<>();
 		//this.BDpregunta = new BD<>();
 		//this.BDusuario = new BD<>();
 		
