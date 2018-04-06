@@ -23,7 +23,6 @@ public class TestperclanSAImp implements TestperclanSA{
 		this.usuarioDAO = usuarios;
 	}
 
-	@Override
 	public ArrayList<UsuarioPOJO> getRanking(String nombreClan) {
 		ArrayList<UsuarioPOJO> ranking = new ArrayList<>();
 		ArrayList<String> miembros = usuarioClanDAO.getMiembrosClan(nombreClan);

@@ -35,11 +35,9 @@ public class UsuarioSAImp implements UsuarioSA {
 		}
 	}
 
-	public void AnadirAlarma(String idAlarma, int horas, int minutos,
-			boolean active, String tono, String idUsuario) {
-		alarmaDAO.saveAlarm(new AlarmaPOJO(idAlarma, horas, minutos, active, tono));
-		usuariosAlarmaDAO.addAlarmaUsuario(new AlarmaUsuarioPOJO(idAlarma,
-				idUsuario));
+	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
+		alarmaDAO.saveAlarm(alarma);
+		usuariosAlarmaDAO.addAlarmaUsuario(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
 	}
 
 	public void EliminarAlarma(String idAlarma) {

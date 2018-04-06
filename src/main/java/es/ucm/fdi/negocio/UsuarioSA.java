@@ -1,9 +1,10 @@
 package es.ucm.fdi.negocio;
 
+import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
+
 public interface UsuarioSA {
 
-	public void AnadirAlarma(String idAlarma, int horas, int minutos,
-			boolean active, String Tono,String idUsuario);
+	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario);
 
 	public void EliminarAlarma(String idAlarma);
 
