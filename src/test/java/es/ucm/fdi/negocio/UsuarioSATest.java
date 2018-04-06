@@ -87,9 +87,7 @@ public class UsuarioSATest {
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al15", "jc"));
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al16", "franqui"));
 		
-		
 		//Creacion de clanes
-		
 		TestperclanSAImp testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,usuarioDAO);
 		testperclanSA.crearClan("javigm", "Los Matinfos");
 		testperclanSA.anadirUsuarioClan("borisc", "Los Matinfos");
@@ -155,6 +153,7 @@ public class UsuarioSATest {
 		assertTrue("Debería añadir la alarma",alarmaUsuarioDAO.getAlarmasUsuario("jc").contains("al16"));
 		
 	}
+<<<<<<< HEAD
 	
 	public void AnadirPreguntaTest() {
 		ArrayList<String> respuestas1=new ArrayList<String>();
@@ -165,5 +164,20 @@ public class UsuarioSATest {
 		preguntaDAO.save(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1));
 		usuario.AnadirPregunta(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1), "javigm");
 		assertTrue("Deberia encontrarla", preguntaUsuarioDAO.getPreguntas("javigm").contains("a1"));
+=======
+	@Test
+	public void EliminarAlarmaTest(){
+		assertTrue("Debería estar la alarma",alarmaDAO.getFromId("al1")!=null);
+		usuario.EliminarAlarma("al1");
+		try{
+			alarmaDAO.getFromId("al1");
+			assertTrue("Se esperaba excepcion",true);
+		}
+		catch(NullPointerException e){
+		}
+		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al1"));
+		
+		
+>>>>>>> branch 'master' of https://github.com/Franqueira/IngenieriaSoft.git
 	}
 }
