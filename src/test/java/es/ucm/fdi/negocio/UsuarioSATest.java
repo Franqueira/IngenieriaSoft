@@ -155,4 +155,15 @@ public class UsuarioSATest {
 		assertTrue("Debería añadir la alarma",alarmaUsuarioDAO.getAlarmasUsuario("jc").contains("al16"));
 		
 	}
+	
+	public void AnadirPreguntaTest() {
+		ArrayList<String> respuestas1=new ArrayList<String>();
+		respuestas1.add("Madrid");
+		respuestas1.add("Paris");
+		respuestas1.add("Roma");
+		respuestas1.add("Londres");
+		preguntaDAO.save(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1));
+		usuario.AnadirPregunta(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1), "javigm");
+		assertTrue("Deberia encontrarla", preguntaUsuarioDAO.getPreguntas("javigm").contains("a1"));
+	}
 }
