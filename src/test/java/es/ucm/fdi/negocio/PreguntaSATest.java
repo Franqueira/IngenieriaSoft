@@ -1,7 +1,6 @@
 package es.ucm.fdi.negocio;
 
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -10,11 +9,12 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
+import es.ucm.fdi.integracion.DAOs.PreguntaDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 
 public class PreguntaSATest {
-	public void setup(PreguntaDAOImp preguntaDAO){
-		
+	public void setup(PreguntaDAO preguntaDAO) {
+		//Creacion de preguntas
 		ArrayList<String> respuestas1=new ArrayList<String>();
 		respuestas1.add("Madrid");
 		respuestas1.add("Paris");
@@ -44,15 +44,16 @@ public class PreguntaSATest {
 		preguntaDAO.save(new PreguntaPOJO("a10", "cual es la capital de dinamarca?", respuestas3, 2));
 		preguntaDAO.save(new PreguntaPOJO("a11", "cual es la capital de suecia?", respuestas3, 3));
 		preguntaDAO.save(new PreguntaPOJO("a12", "cual es la capital de finlandia?", respuestas3, 4));	
-		}
+	
+	}
 		
-		@Test
-		public void getActiveTest(){
-			PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
-			setup(preguntaDAO);
-			PreguntaSA preguntaSA = new PreguntaSAImp(preguntaDAO);
-			assertTrue("Debería ser correcta",preguntaSA.comprobarRespuesta("a1",1));
-			assertFalse("Debería ser falsa",preguntaSA.comprobarRespuesta("a1",2));
-			assertFalse("Debería ser falsa",preguntaSA.comprobarRespuesta("a1",3));
-		}
+	@Test
+	public void getActiveTest(){
+		PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
+		setup(preguntaDAO);
+		PreguntaSA preguntaSA = new PreguntaSAImp(preguntaDAO);
+		assertTrue("Debería ser correcta",preguntaSA.comprobarRespuesta("a1",1));
+		assertFalse("Debería ser falsa",preguntaSA.comprobarRespuesta("a1",2));
+		assertFalse("Debería ser falsa",preguntaSA.comprobarRespuesta("a1",3));
+	}
 }
