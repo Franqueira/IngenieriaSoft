@@ -87,9 +87,7 @@ public class UsuarioSATest {
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al15", "jc"));
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al16", "franqui"));
 		
-		
 		//Creacion de clanes
-		
 		TestperclanSAImp testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,usuarioDAO);
 		testperclanSA.crearClan("javigm", "Los Matinfos");
 		testperclanSA.anadirUsuarioClan("borisc", "Los Matinfos");
