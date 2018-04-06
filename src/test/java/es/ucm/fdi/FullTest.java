@@ -2,6 +2,8 @@ package es.ucm.fdi;
 
 import java.util.ArrayList;
 
+import org.junit.Test;
+
 import junit.framework.Assert;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
@@ -18,13 +20,12 @@ import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
+import es.ucm.fdi.negocio.AlarmaSA;
 import es.ucm.fdi.negocio.AlarmaSAImp;
 import es.ucm.fdi.negocio.TestperclanSAImp;
-import es.ucm.fdi.negocio.UsuarioSA;
 
 public class FullTest {
 
-	private UsuarioSA usuario;
 	private UsuarioDAOImp usuarioDAO;
 	private AlarmaDAOImp alarmaDAO;
 	private AlarmaUsuarioDAOImp alarmaUsuarioDAO;
@@ -133,14 +134,17 @@ public class FullTest {
 		
 	}
 	
-	//@Test
+	@Test
 	public void Testpertar(){
-		//AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
-		AlarmaSAImp alarmaSA = new AlarmaSAImp(alarmaDAO);
-		
+		UsuarioPOJO = 
 		AlarmaPOJO a = (AlarmaPOJO) alarmaDAO.getFromId("al1");
-		Assert.assertTrue("La alarma al1 debería existir", a!=null); //No se por que no va
+		Assert.assertTrue("La alarma al1 debería existir", a!=null);
+		AlarmaSA alarmaSA = new AlarmaSAImp(alarmaDAO);
 		alarmaSA.reproducirAlarma(a);
+		//Suena
+		alarmaSA.desconectarAlarma(a);
+		
+		
 	}
 
 }
