@@ -40,12 +40,12 @@ public class TestperclanSAImp implements TestperclanSA{
 	}
 	
 	public void EliminarUsuarioClan(String idUsuario) {
-		String idClan = usuarioDAO.getUsuario(idUsuario).getIdClan();
-		usuarioClanDAO.eliminaUsuarioClan(idUsuario);
-		if (clanDAO.getClan(idClan).getLider().equals(idUsuario)) {
+		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).getIdClan();
+		usuarioClanDAO.remove(idUsuario);
+		if (clanDAO.getFromId(idClan).getLider().equals(idUsuario)) {
 			ArrayList<String> c = usuarioClanDAO.getMiembrosClan(idClan);
 			if (c.isEmpty())
-				clanDAO.removeClan(idClan);
+				clanDAO.remove(idClan);
 			else
 				clanDAO.getClan(idClan).setLider(c.get(0));
 		}
