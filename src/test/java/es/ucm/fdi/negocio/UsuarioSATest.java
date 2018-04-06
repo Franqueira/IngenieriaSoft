@@ -60,7 +60,7 @@ public class UsuarioSATest {
 		usuarioDAO.save(new UsuarioPOJO("jc", "JC Villanueva", 108, "soyjc", "Spain"));
 		
 		
-		//Cracion de alarmas
+		//Creacion de alarmas
 		alarmaDAO.save(new AlarmaPOJO("al1", 12, 23, true, "mytone1.mp3"));
 		alarmaDAO.save(new AlarmaPOJO("al2", 5, 0, false, "whatsapp_audio3.mp3"));
 		alarmaDAO.save(new AlarmaPOJO("al3", 16, 47, true, "song1.mp3"));
