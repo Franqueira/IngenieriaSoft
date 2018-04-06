@@ -195,7 +195,7 @@ public class UsuarioSATest {
 	@Test
 	public void AnadirUsuarioTest(){
 		usuario.AnadirUsuario(new UsuarioPOJO("jaime123", "Jaime Fernandez", 109, "soyjaime", "Spain"));
-		assertTrue("debería encontrarlo",!usuarioDAO.find("jaime123").equals(null));
+		assertTrue("debería encontrarlo",usuarioDAO.find("jaime123")==null);
 		
 	}
 	
