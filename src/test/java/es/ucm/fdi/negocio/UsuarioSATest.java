@@ -1,6 +1,10 @@
 package es.ucm.fdi.negocio;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
+
+import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
@@ -179,6 +183,20 @@ public class UsuarioSATest {
 		//inicializar los demas para luego hacer el test
 		usuario=new UsuarioSAImp(usuarioDAO,usuarioClanDAO,alarmaUsuarioDAO,clanDAO,alarmaDAO,preguntaDAO,preguntaUsuarioDAO);
 	}
-	
-	
+	@Test
+	public void EliminarUsuarioTest(){
+		usuario.EliminarUsuario("jc");
+		assertEquals("Debería desaparecer de usuarioDAO",null,usuarioDAO.find("jc"));
+		String idClan=usuarioDAO.find("javigm").getIdClan();
+		ClanPOJO c=(ClanPOJO)clanDAO.getFromId(idClan);
+		assertTrue("Javi debería ser el líder del clan",c.getLider().equals("javigm"));
+		usuario.EliminarUsuario("javigm");
+		assertEquals("Debería desaparecer de usuarioDAO",null,usuarioDAO.find("javigm"));
+		assertFalse("Debería cambiar de líder",c.getLider().equals("javigm"));
+		
+	}
+	public void AnadirUsuarioTest(){
+		
+		
+	}
 }
