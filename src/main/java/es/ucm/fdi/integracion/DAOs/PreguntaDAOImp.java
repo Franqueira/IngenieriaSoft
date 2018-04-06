@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import es.ucm.fdi.datos.BD;
+import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 public class PreguntaDAOImp implements PreguntaDAO{
-	private BD<PreguntaPOJO> BD;
+	private BDHashMap<PreguntaPOJO> BD;
 	
-	public PreguntaDAOImp(BD<PreguntaPOJO> BD) {
+	public PreguntaDAOImp(BDHashMap<PreguntaPOJO> BD) {
 		this.BD = BD;
 	}
 

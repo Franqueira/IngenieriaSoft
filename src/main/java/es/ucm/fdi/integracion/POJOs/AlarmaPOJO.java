@@ -1,6 +1,6 @@
 package es.ucm.fdi.integracion.POJOs;
 
-public class AlarmaPOJO extends DataPOJO{
+public class AlarmaPOJO extends POJO{
 	private int horas;
 	private int minutos;
 	private boolean active;

@@ -1,19 +1,19 @@
 package es.ucm.fdi;
 
 import junit.framework.Assert;
-import es.ucm.fdi.datos.BD;
+import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.negocio.AlarmaSAImp;
 
 public class FullTest {
 	
-	private BD<AlarmaPOJO> BDalarma;
+	private BDHashMap<AlarmaPOJO> BDalarma;
 	//private BD<PreguntaPOJO> BDpregunta;
 	//private BD<UsuarioPOJO> BDusuario;
 	
 	public FullTest(){
-		this.BDalarma = new BD<AlarmaPOJO>();
+		this.BDalarma = new BDHashMap<AlarmaPOJO>();
 		//this.BDpregunta = new BD<>();
 		//this.BDusuario = new BD<>();
 		

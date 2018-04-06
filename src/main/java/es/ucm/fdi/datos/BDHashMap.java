@@ -17,7 +17,7 @@ import java.util.HashMap;
  * @param <T> El parámetro que se quiere usar para la tabla. Se pueden poner
  * tantos como se quiera
  */
-public class BD<T>{
+public class BDHashMap<T>{
 	private HashMap<String,T> tabla=new HashMap<String,T>();
 	
 	/**

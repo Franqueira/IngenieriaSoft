@@ -3,14 +3,14 @@ package es.ucm.fdi.integracion.DAOs;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-import es.ucm.fdi.datos.BD;
+import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 public class AlarmaDAOImp implements AlarmaDAO {
 	
-	private BD<AlarmaPOJO> BD;
+	private BDHashMap<AlarmaPOJO> BD;
 
-	public AlarmaDAOImp(BD<AlarmaPOJO> BD) {
+	public AlarmaDAOImp(BDHashMap<AlarmaPOJO> BD) {
 		this.BD = BD;
 	}
 	

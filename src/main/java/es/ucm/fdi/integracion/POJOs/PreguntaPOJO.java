@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Daniel
  *
  */
-public class PreguntaPOJO extends DataPOJO{
+public class PreguntaPOJO extends POJO{
 	String texto;
 	ArrayList<String> respuestas;
 	int respuestaCorrecta;

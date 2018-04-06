@@ -9,9 +9,9 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
  *
  */
 public class UsuarioDAOImp implements UsuarioDAO{
-	private BD<UsuarioPOJO> BD;
+	private BDHashMap<UsuarioPOJO> BD;
 
-	public UsuarioDAOImp(BD<UsuarioPOJO> BD) {
+	public UsuarioDAOImp(BDHashMap<UsuarioPOJO> BD) {
 		this.BD = BD;
 	}
 	
