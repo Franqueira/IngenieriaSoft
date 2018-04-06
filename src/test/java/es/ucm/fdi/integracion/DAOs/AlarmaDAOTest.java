@@ -39,19 +39,7 @@ public class AlarmaDAOTest {
 		al4.setActiva(true);
 		
 	}
-	@Test
-	public void getAlarmaTest(){
 	
-	}
-	
-	@Test
-	public void saveAlarmTest(){
-		
-	}
-	@Test
-	public void removeAlarmTest(){
-		
-	}
 	@Test
 	public void getActiveTest(){
 		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
