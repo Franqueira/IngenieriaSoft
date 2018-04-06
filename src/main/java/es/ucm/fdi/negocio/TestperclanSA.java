@@ -9,9 +9,9 @@ public interface TestperclanSA {
 
 	public void setGanador(String nombreClan);
 	
-	public void EliminarUsuarioClan(String idUsuario);
+	public void eliminarUsuarioClan(String idUsuario);
 
-	public void AnadirUsuarioClan(String idUsuario,String idClan);
+	public void anadirUsuarioClan(String idUsuario,String idClan);
 	
-	public void CrearClan(String idUsuario,String idClan);
+	public void crearClan(String idUsuario,String idClan);
 }
