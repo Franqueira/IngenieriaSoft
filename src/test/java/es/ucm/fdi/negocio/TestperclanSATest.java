@@ -12,7 +12,6 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
-import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
@@ -26,6 +25,9 @@ public class TestperclanSATest {
 		usuarioDAO.save(new UsuarioPOJO("borisc", "Boris Carballa", 1244, "soyboris", "Spain"));
 		usuarioDAO.save(new UsuarioPOJO("franqui", "Miguel Franqueira", 1111, "soyFranqui", "Spain"));
 		usuarioDAO.save(new UsuarioPOJO("jc", "JC Villanueva", 108, "soyjc", "Spain"));
+		usuarioDAO.save(new UsuarioPOJO("daniv", "Dani Valverde", 730, "soydani", "Spain"));
+		usuarioDAO.save(new UsuarioPOJO("sergil", "Sergio Gil", 823, "soysergi", "Spain"));
+
 		
 		//Creacion de clanes
 		testperclanSA.crearClan("javigm", "Los Matinfos");
@@ -65,10 +67,11 @@ public class TestperclanSATest {
 		UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
 		TestperclanSA testperClanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO, usuarioDAO);
 		setup(usuarioDAO, clanDAO, usuarioClanDAO, testperClanSA);
-		testperClanSA.eliminarUsuarioClan("daniv");
-		testperClanSA.eliminarUsuarioClan("sergil");
-		assertFalse("No eberia contener al usuario añadido", usuarioClanDAO.getMiembrosClan("Los Matinfos").contains("daniv"));
-		assertFalse("No deberia contener al usuario añadido", usuarioClanDAO.getMiembrosClan("Los Matinfos").contains("sergil"));
+		
+		testperClanSA.eliminarUsuarioClan("borisc");
+		testperClanSA.eliminarUsuarioClan("franqui");
+		assertFalse("No eberia contener al usuario añadido", usuarioClanDAO.getMiembrosClan("Los Matinfos").contains("borisc"));
+		assertFalse("No deberia contener al usuario añadido", usuarioClanDAO.getMiembrosClan("Los Matinfos").contains("franqui"));
 	}
 
 	@Test
