@@ -1,20 +1,11 @@
 package es.ucm.fdi.integracion.POJOs;
 
-public class AlarmaUsuarioPOJO {
-	String idAlarma;
+public class AlarmaUsuarioPOJO extends POJO{
 	String idUsuario;
 
 	public AlarmaUsuarioPOJO(String idAlarma, String idUsuario) {
-		this.idAlarma = idAlarma;
+		super(idAlarma);
 		this.idUsuario = idUsuario;
-	}
-
-	public String getIdAlarma() {
-		return idAlarma;
-	}
-
-	public void setIdAlarma(String idAlarma) {
-		this.idAlarma = idAlarma;
 	}
 
 	public String getIdUsuario() {
@@ -23,5 +14,11 @@ public class AlarmaUsuarioPOJO {
 
 	public void setIdUsuario(String idUsuario) {
 		this.idUsuario = idUsuario;
+	}
+
+	@Override
+	public POJO clone() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
