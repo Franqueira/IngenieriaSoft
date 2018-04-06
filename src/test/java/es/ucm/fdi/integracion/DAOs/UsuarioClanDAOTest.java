@@ -34,20 +34,20 @@ public class UsuarioClanDAOTest extends TestCase {
 		UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
 		ArrayList<String> miembros = new ArrayList<String>();
 		miembros.add("pepitoXD");
-		miembros.add("juanito123");
-		miembros.add("TheFirePro");
-		miembros.add("CarlosGM");
 		miembros.add("Mery_8");
-		assertEquals(usuarioClanDAO.getMiembrosClan("losPros"), miembros);
+		miembros.add("TheFirePro");
+		miembros.add("juanito123");
+		miembros.add("CarlosGM");
+		assertEquals("Se comprueba que los miembros son los mismos",usuarioClanDAO.getMiembrosClan("losPros"), miembros);
 		miembros.clear();
-		miembros.add("_fran_");
 		miembros.add("MADRUGAD0R");
 		miembros.add("Admlnistrador");
 		miembros.add("martin_1998");
-		assertEquals(usuarioClanDAO.getMiembrosClan("AlarmaSpain"), miembros);
+		miembros.add("_fran_");
+		assertEquals("Se comprueba que los miembros son los mismos",usuarioClanDAO.getMiembrosClan("AlarmaSpain"), miembros);
 		miembros.clear();
 		miembros.add("Creador");
-		assertEquals(usuarioClanDAO.getMiembrosClan("clanNuevo"), miembros);
+		assertEquals("Se comprueba que los miembros son los mismos",usuarioClanDAO.getMiembrosClan("clanNuevo"), miembros);
 	}
 	
 }
