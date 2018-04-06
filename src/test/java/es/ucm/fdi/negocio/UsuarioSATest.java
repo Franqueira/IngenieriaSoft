@@ -184,7 +184,7 @@ public class UsuarioSATest {
 	public void EliminarUsuarioTest(){
 		usuario.EliminarUsuario("jc");
 		assertEquals("Debería desaparecer de usuarioDAO",null,usuarioDAO.find("jc"));
-		String idClan=usuarioDAO.find("javigm").getIdClan();
+		String idClan=((UsuarioPOJO) usuarioDAO.getFromId("javigm")).getIdClan();
 		ClanPOJO c=(ClanPOJO)clanDAO.getFromId(idClan);
 		assertTrue("Javi debería ser el líder del clan",c.getLider().equals("javigm"));
 		usuario.EliminarUsuario("javigm");
