@@ -36,10 +36,10 @@ public class HashMapDAO<T extends POJO> implements DAO<T>{
 		BD.removeId(id);
 	}
 	
-	public List<POJO> getFromIds(List<String> ids) {
-		ArrayList<POJO> pojos = new ArrayList<>();
-		ids.forEach(id -> pojos.add(getFromId(id)));
-		return pojos;
+	public List<POJO> getFromIds(List<POJO> pojos) {
+		ArrayList<POJO> nuevos = new ArrayList<>();
+		pojos.forEach(pojo -> nuevos.add(pojo.clone()));
+		return nuevos;
 	}
 	
 }

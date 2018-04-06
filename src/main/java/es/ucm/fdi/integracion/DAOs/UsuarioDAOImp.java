@@ -9,10 +9,10 @@ public class UsuarioDAOImp extends HashMapDAO<UsuarioPOJO> implements UsuarioDAO
 		super(BD);
 	}
 
-	public UsuarioPOJO find(String nombre){
+	public UsuarioPOJO find(String nombreReal){
 		for(String id: BD.getIds()){
 			UsuarioPOJO user = (UsuarioPOJO) getFromId(id);
-			if(user.getNombreReal().equals(nombre)){
+			if(user.getNombreReal().equals(nombreReal)){
 				return user;
 			}
 		}
