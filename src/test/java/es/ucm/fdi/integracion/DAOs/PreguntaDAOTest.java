@@ -1,5 +1,4 @@
 package es.ucm.fdi.integracion.DAOs;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -8,7 +7,6 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
-import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 public class PreguntaDAOTest {
