@@ -2,14 +2,14 @@ package es.ucm.fdi.integracion.DAOs;
 
 import java.util.ArrayList;
 
-import es.ucm.fdi.datos.BD;
+import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 
 public class UsuarioClanDAOImp implements UsuarioClanDAO {
-	private BD<UsuarioClanPOJO> miembros; 
+	private BDHashMap<UsuarioClanPOJO> miembros; 
 	// el ID de cada UsuarioClanPOJO en la BD es el ID del usuario, ya que solo puede tener 1 clan
 
-	public UsuarioClanDAOImp(BD<UsuarioClanPOJO> miembros) {
+	public UsuarioClanDAOImp(BDHashMap<UsuarioClanPOJO> miembros) {
 		this.miembros = miembros;
 	}
 	
