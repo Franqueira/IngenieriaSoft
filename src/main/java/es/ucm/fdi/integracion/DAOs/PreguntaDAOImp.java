@@ -15,9 +15,9 @@ public class PreguntaDAOImp extends HashMapDAO<PreguntaPOJO> implements Pregunta
 
 	public ArrayList<PreguntaPOJO> getAll(){
 		ArrayList<String> list = BD.getIds();
-		return list.stream()
+		return getFromIds(list.stream()
 				.map(id -> BD.find(id)) //Busca el PreguntaPOJO correspondiente
-				.collect(Collectors.toCollection(ArrayList::new)); //Los guarda en un ArrayList
+				.collect(Collectors.toCollection(ArrayList::new))); //Los guarda en un ArrayList
 	}
 	
 	public ArrayList<PreguntaPOJO> getPreguntas(List<String> list){

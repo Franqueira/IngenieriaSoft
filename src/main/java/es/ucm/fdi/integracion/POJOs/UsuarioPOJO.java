@@ -1,11 +1,5 @@
 package es.ucm.fdi.integracion.POJOs;
 
-/**
- * 
- * @author Javier Guzmán
- *
- */
-
 public class UsuarioPOJO extends POJO{
 	private String nombreReal;
 	private int puntuacion;
