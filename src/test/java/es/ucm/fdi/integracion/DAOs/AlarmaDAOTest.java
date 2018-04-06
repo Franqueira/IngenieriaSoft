@@ -19,7 +19,7 @@ public class AlarmaDAOTest {
 		alarmaDAO.save(new AlarmaPOJO("al3", 16, 47, true, "song1.mp3"));
 		alarmaDAO.save(new AlarmaPOJO("al4", 0, 0, true, "song2.mp3"));
 		for(int i = 5; i<17;i++){
-			alarmaDAO.save(new AlarmaPOJO("al"+i, 12, 23, true, "mytone1.mp3"));
+			alarmaDAO.save(new AlarmaPOJO("al"+i, 12, 23, false, "mytone1.mp3"));
 		}
 	}
 	
