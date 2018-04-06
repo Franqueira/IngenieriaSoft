@@ -5,7 +5,7 @@ package es.ucm.fdi.integracion.POJOs;
  * @author Sergi
  *
  */
-public class PreguntaUsuarioPOJO {
+public class PreguntaUsuarioPOJO extends POJO{
 	String id_pregunta;
 	String id_usuario;
 
