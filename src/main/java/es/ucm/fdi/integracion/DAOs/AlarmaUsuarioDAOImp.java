@@ -13,6 +13,14 @@ import es.ucm.fdi.datos.*;
 public class AlarmaUsuarioDAOImp implements AlarmaUsuarioDAO{
 	private BDHashMap<AlarmaUsuarioPOJO> BD;
 	
+
+	
+	
+	public AlarmaUsuarioDAOImp(BDHashMap<AlarmaUsuarioPOJO> bD) {
+		super();
+		BD = bD;
+	}
+	
 	@Override
 	public ArrayList<String> getAlarmasUsuario(String idUsuario) {
 		ArrayList<String> listaAlarmas = new ArrayList<>();

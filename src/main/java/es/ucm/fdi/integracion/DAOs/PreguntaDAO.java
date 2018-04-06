@@ -14,5 +14,5 @@ public interface PreguntaDAO {
 	
 	public void savePregunta(PreguntaPOJO preg);
 	
-	public void removePregunta(PreguntaPOJO preg);
+	public void removePregunta(String preg);
 }
