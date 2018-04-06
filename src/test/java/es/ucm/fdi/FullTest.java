@@ -105,6 +105,8 @@ public class FullTest {
 		testperclanSA.AnadirUsuarioClan("jc", "Los Matinfos");
 		testperclanSA.AnadirUsuarioClan("franqui", "Los Matinfos");
 		
+		
+		//Creacion de preguntas
 		ArrayList<String> respuestas1=new ArrayList<String>();
 		respuestas1.add("Madrid");
 		respuestas1.add("Paris");
