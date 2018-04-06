@@ -1,6 +1,6 @@
 package es.ucm.fdi.negocio;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
@@ -52,6 +52,17 @@ public class TestperclanSATest {
 	
 	@Test
 	public void setGanadorTest() {
+		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
+		ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
+		UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
+		TestperclanSAImp testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,usuarioDAO);
+		setup(usuarioDAO, clanDAO, usuarioClanDAO, testperclanSA);
+		
+		testperclanSA.setGanador("Los Matinfos");
+		UsuarioPOJO ganador = testperclanSA.getRanking("Los Matinfos").get(0); 
+		UsuarioPOJO esperado = (UsuarioPOJO) usuarioDAO.getFromId("borisc");
+		
+		assertTrue("Se comprueba que el ganador es el correcto", ganador.equals(esperado));
 		
 	}
 	
