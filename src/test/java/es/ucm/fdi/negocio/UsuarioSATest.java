@@ -65,17 +65,9 @@ public class UsuarioSATest {
 		alarmaDAO.save(new AlarmaPOJO("al2", 5, 0, false, "whatsapp_audio3.mp3"));
 		alarmaDAO.save(new AlarmaPOJO("al3", 16, 47, true, "song1.mp3"));
 		alarmaDAO.save(new AlarmaPOJO("al4", 0, 0, false, "song2.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al5", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al6", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al7", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al8", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al9", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al10", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al11", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al13", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al14", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al15", 12, 23, true, "mytone1.mp3"));
-		alarmaDAO.save(new AlarmaPOJO("al16", 12, 23, true, "mytone1.mp3"));
+		for(int i = 5; i<17;i++){
+			alarmaDAO.save(new AlarmaPOJO("al"+i, 12, 23, true, "mytone1.mp3"));
+		}
 		
 		//Asignacion de usuarios y alarmas
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al1", "javigm"));
@@ -156,4 +148,11 @@ public class UsuarioSATest {
 		
 	}
 	
+	@Test
+	public void AnadirAlarmaTest(){
+		usuario.AnadirAlarma(new AlarmaPOJO("al16", 12, 23, true, "mytone1.mp3"), "jc");
+		assertTrue("Debería encontrarla",alarmaDAO.getFromId("al16")!=null);
+		assertTrue("Debería añadir la alarma",alarmaUsuarioDAO.getAlarmasUsuario("jc").contains("al16"));
+		
+	}
 }
