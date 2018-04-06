@@ -1,5 +1,7 @@
 package es.ucm.fdi;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 
 import org.junit.Test;
@@ -11,7 +13,9 @@ import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAOImp;
+import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
+import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
@@ -22,6 +26,7 @@ import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 import es.ucm.fdi.negocio.AlarmaSA;
 import es.ucm.fdi.negocio.AlarmaSAImp;
+import es.ucm.fdi.negocio.TestperclanSA;
 import es.ucm.fdi.negocio.TestperclanSAImp;
 
 public class FullTest {
@@ -146,5 +151,15 @@ public class FullTest {
 		
 		
 	}
-
+	@Test
+	public void TestGanador(){
+		TestperclanSAImp tesperclan=new TestperclanSAImp(clanDAO,usuarioClanDAO,usuarioDAO);
+		ArrayList<UsuarioPOJO> usuarios=tesperclan.getRanking("Los Matinfos");
+		assertTrue("Debería ir en este orden",usuarios.get(0).getId().equals("borisc"));
+		assertTrue("Debería ir en este orden",usuarios.get(1).getId().equals("franqui"));
+		assertTrue("Debería ir en este orden",usuarios.get(2).getId().equals("javigm"));
+		tesperclan.setGanador("Los Matinfos");
+		assertTrue("Boris debería ser el ganador",((UsuarioPOJO)usuarioDAO.getFromId("borisc")).isEsGanador());
+		
+	}
 }
