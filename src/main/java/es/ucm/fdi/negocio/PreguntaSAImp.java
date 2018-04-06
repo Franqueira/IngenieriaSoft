@@ -11,7 +11,7 @@ public class PreguntaSAImp implements PreguntaSA{
 	}
 	
 	public boolean comprobarRespuesta(String idPregunta, int respuesta) {
-		return preguntaDAO.getPregunta(idPregunta).getRespuestaCorrecta() == respuesta;
+		return preguntaDAO.getFromId(idPregunta).getRespuestaCorrecta() == respuesta;
 	}
 
 }

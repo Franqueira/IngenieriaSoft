@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import es.ucm.fdi.integracion.DAOs.ClanDAO;
+import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
@@ -12,11 +13,11 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 
 public class TestperclanSAImp implements TestperclanSA{
-	private ClanDAO clanDAO;
+	private ClanDAOImp clanDAO;
 	private UsuarioClanDAO usuarioClanDAO;
 	private UsuarioDAO usuarioDAO;
 
-	public TestperclanSAImp(ClanDAO clanDAO, UsuarioClanDAO usuarioClanDAO,
+	public TestperclanSAImp(ClanDAOImp clanDAO, UsuarioClanDAO usuarioClanDAO,
 			UsuarioDAO usuarios) {
 		this.clanDAO = clanDAO;
 		this.usuarioClanDAO = usuarioClanDAO;
