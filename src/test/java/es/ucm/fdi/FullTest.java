@@ -160,23 +160,23 @@ public class FullTest {
 		respuestas9.add("helsinki");
 		preguntaDAO.save(new PreguntaPOJO("a", "cual es la capital de egipto?", respuestas9, 1));
 		ArrayList<String> respuestas10=new ArrayList<String>();
-		respuestas9.add("el cairo");
-		respuestas9.add("copenague");
-		respuestas9.add("estocolmo");
-		respuestas9.add("helsinki");
-		preguntaDAO.save(new PreguntaPOJO("a", "cual es la capital de el cairo?", respuestas9, 1));
+		respuestas10.add("el cairo");
+		respuestas10.add("copenague");
+		respuestas10.add("estocolmo");
+		respuestas10.add("helsinki");
+		preguntaDAO.save(new PreguntaPOJO("a", "cual es la capital de dinamarca?", respuestas10, 1));
 		ArrayList<String> respuestas11=new ArrayList<String>();
-		respuestas9.add("el cairo");
-		respuestas9.add("copenague");
-		respuestas9.add("estocolmo");
-		respuestas9.add("helsinki");
-		preguntaDAO.save(new PreguntaPOJO("a", "cual es la capital de el cairo?", respuestas9, 1));
+		respuestas11.add("el cairo");
+		respuestas11.add("copenague");
+		respuestas11.add("estocolmo");
+		respuestas11.add("helsinki");
+		preguntaDAO.save(new PreguntaPOJO("a", "cual es la capital de suecia?", respuestas11, 1));
 		ArrayList<String> respuestas12=new ArrayList<String>();
-		respuestas9.add("el cairo");
-		respuestas9.add("copenague");
-		respuestas9.add("estocolmo");
-		respuestas9.add("helsinki");
-		preguntaDAO.save(new PreguntaPOJO("a", "cual es la capital de el cairo?", respuestas9, 1));
+		respuestas12.add("el cairo");
+		respuestas12.add("copenague");
+		respuestas12.add("estocolmo");
+		respuestas12.add("helsinki");
+		preguntaDAO.save(new PreguntaPOJO("a", "cual es la capital de finlandia?", respuestas12, 1));
 	
 		//inicializar los demas para luego hacer el test
 		
