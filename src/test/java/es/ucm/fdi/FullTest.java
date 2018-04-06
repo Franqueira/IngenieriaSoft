@@ -8,6 +8,7 @@ import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
+import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
@@ -16,23 +17,37 @@ import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
+import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 import es.ucm.fdi.negocio.AlarmaSAImp;
-
 import es.ucm.fdi.negocio.TestperclanSAImp;
+import es.ucm.fdi.negocio.UsuarioSA;
 
 public class FullTest {
 
 	private BDHashMap<AlarmaPOJO> BDalarma;
 	private BDHashMap<PreguntaPOJO> BDpregunta;
 	private BDHashMap<UsuarioPOJO> BDusuario;
+	private BDHashMap<PreguntaUsuarioPOJO> BDpreguntaUsuario;
 	private BDHashMap<AlarmaUsuarioPOJO> BDalarmaUsuario;
 	private BDHashMap<ClanPOJO> BDclan;
 	private BDHashMap<UsuarioClanPOJO> BDusuarioClan;
+	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(BDusuario);
+	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
+	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(BDalarmaUsuario);
+	private PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(BDpregunta);
+	private PreguntaUsuarioDAOImp preguntaUsuarioDAO= new PreguntaUsuarioDAOImp(BDpreguntaUsuario);
+	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
 	
-	public FullTest(){
+	private ClanDAOImp clanDAO = new ClanDAOImp (BDclan); FullTest(){
 		this.BDalarma = new BDHashMap<AlarmaPOJO>();
+		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(BDusuario);
+		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
+		AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(BDalarmaUsuario);
+		PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(BDpregunta);
+		UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
+		ClanDAOImp clanDAO = new ClanDAOImp (BDclan);
 		//this.BDpregunta = new BD<>();
 		//this.BDusuario = new BD<>();
 		
@@ -40,12 +55,7 @@ public class FullTest {
 	}
 
 	private void setup(){
-		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(BDusuario);
-		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
-		AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(BDalarmaUsuario);
-		PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(BDpregunta);
-		UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
-		ClanDAOImp clanDAO = new ClanDAOImp (BDclan);
+
 		
 		//Creacion de usuarios
 		usuarioDAO.save(new UsuarioPOJO("javigm", "Javier Guzman", 1001, "hola123", "Spain"));
@@ -179,7 +189,18 @@ public class FullTest {
 		respuestas12.add("estocolmo");
 		respuestas12.add("helsinki");
 		preguntaDAO.save(new PreguntaPOJO("a12", "cual es la capital de finlandia?", respuestas12, 1));
-	
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a1","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a2","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a3","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a4","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a5","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a6","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a7","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a8","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a9","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a10","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a11","peter_hy"));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a12","peter_hy"));
 		//inicializar los demas para luego hacer el test
 		
 	}
