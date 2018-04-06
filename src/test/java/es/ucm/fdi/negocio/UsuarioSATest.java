@@ -38,6 +38,7 @@ public class UsuarioSATest {
 	private PreguntaUsuarioDAOImp preguntaUsuarioDAO= new PreguntaUsuarioDAOImp(BDpreguntaUsuario);
 	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
 	private ClanDAOImp clanDAO = new ClanDAOImp (BDclan);
+	
 	public UsuarioSATest(){
 		this.BDalarma = new BDHashMap<AlarmaPOJO>();
 		
@@ -60,7 +61,6 @@ public class UsuarioSATest {
 		usuarioDAO.save(new UsuarioPOJO("daniv", "Dani Valverde", 730, "soydani", "Spain"));
 		usuarioDAO.save(new UsuarioPOJO("pablitos", "Pablo Sanz", 545, "soypablo", "Spain"));
 		usuarioDAO.save(new UsuarioPOJO("jc", "JC Villanueva", 108, "soyjc", "Spain"));
-		usuarioDAO.save(new UsuarioPOJO("jaime123", "Jaime Fernandez", 109, "soyjaime", "Spain"));
 		
 		
 		//Cracion de alarmas
@@ -196,7 +196,8 @@ public class UsuarioSATest {
 		
 	}
 	public void AnadirUsuarioTest(){
-		
+		usuario.AnadirUsuario(new UsuarioPOJO("jaime123", "Jaime Fernandez", 109, "soyjaime", "Spain"));
+		assertTrue("debería encontrarlo",!usuarioDAO.find("jaime123").equals(null));
 		
 	}
 }
