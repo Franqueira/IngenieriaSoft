@@ -148,4 +148,11 @@ public class UsuarioSATest {
 		
 	}
 	
+	@Test
+	public void AnadirAlarmaTest(){
+		usuario.AnadirAlarma(new AlarmaPOJO("al16", 12, 23, true, "mytone1.mp3"), "jc");
+		assertTrue("Debería encontrarla",alarmaDAO.getFromId("al16")!=null);
+		assertTrue("Debería añadir la alarma",alarmaUsuarioDAO.getAlarmasUsuario("jc").contains("al16"));
+		
+	}
 }
