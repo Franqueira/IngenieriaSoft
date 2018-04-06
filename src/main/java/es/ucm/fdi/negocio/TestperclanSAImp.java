@@ -57,6 +57,8 @@ public class TestperclanSAImp implements TestperclanSA{
 	}
 
 	public void anadirUsuarioClan(String idUsuario, String idClan) {
+		((UsuarioPOJO)usuarioDAO.getFromId(idUsuario)).setIdClan(idClan);
 		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
+		
 	}
 }
