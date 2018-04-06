@@ -1,5 +1,7 @@
 package es.ucm.fdi.negocio;
 
+import static org.junit.Assert.*;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -57,6 +59,17 @@ public class TestperclanSATest {
 	
 	@Test
 	public void setGanadorTest() {
+		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
+		ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
+		UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
+		TestperclanSAImp testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,usuarioDAO);
+		setup(usuarioDAO, clanDAO, usuarioClanDAO, testperclanSA);
+		
+		testperclanSA.setGanador("Los Matinfos");
+		UsuarioPOJO ganador = testperclanSA.getRanking("Los Matinfos").get(0); 
+		UsuarioPOJO esperado = (UsuarioPOJO) usuarioDAO.getFromId("borisc");
+		
+		assertTrue("Se comprueba que el ganador es el correcto", ganador.equals(esperado));
 		
 	}
 	
@@ -95,6 +108,6 @@ public class TestperclanSATest {
 		UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
 		TestperclanSAImp testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,usuarioDAO);
 		setup(usuarioDAO, clanDAO, usuarioClanDAO, testperclanSA);
-		assertTrue("Se debe haber creado el clan y Javi debería ser el líder",((ClanPOJO)clanDAO.getFromId("LosMatinfos")).getLider().equals("javigm"));
+		assertTrue("Se debe haber creado el clan y Javi debería ser el líder",((ClanPOJO)clanDAO.getFromId("Los Matinfos")).getLider().equals("javigm"));
 	}
 }
