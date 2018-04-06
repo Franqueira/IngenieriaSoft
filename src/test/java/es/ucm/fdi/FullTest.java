@@ -39,8 +39,9 @@ public class FullTest {
 	private PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(BDpregunta);
 	private PreguntaUsuarioDAOImp preguntaUsuarioDAO= new PreguntaUsuarioDAOImp(BDpreguntaUsuario);
 	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
+	private ClanDAOImp clanDAO = new ClanDAOImp (BDclan);
 	
-	private ClanDAOImp clanDAO = new ClanDAOImp (BDclan); FullTest(){
+	public FullTest(){
 		this.BDalarma = new BDHashMap<AlarmaPOJO>();
 		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(BDusuario);
 		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(BDalarma);
