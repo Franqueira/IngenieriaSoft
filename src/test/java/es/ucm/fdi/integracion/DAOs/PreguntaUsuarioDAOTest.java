@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
-import junit.framework.TestCase;
 
 public class PreguntaUsuarioDAOTest{
 	
@@ -25,18 +24,9 @@ public class PreguntaUsuarioDAOTest{
 	public void setup() {
 		PreguntaUsuarioDAOImp preguntaUsuarioDAO = new PreguntaUsuarioDAOImp(BDPreguntaUsuario);
 		
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a1","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a2","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a3","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a4","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a5","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a6","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a7","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a8","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a9","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a10","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a11","peter_hy"));
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a12","peter_hy"));
+		for(int i=1;i<13;i++){
+			preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a"+i,"peter_hy"));
+		}
 	}
 	
 	
