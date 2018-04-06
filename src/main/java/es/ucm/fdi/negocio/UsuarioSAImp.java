@@ -11,12 +11,28 @@ public class UsuarioSAImp implements UsuarioSA {
 	public AlarmaUsuarioDAO usuariosAlarmaDAO;
 	public ClanDAO clanDAO;
 	public AlarmaDAO alarmaDAO;
+	public PreguntaDAO preguntaDAO;
+	public PreguntaUsuarioDAO preguntaUsuarioDAO;
+	
+	public UsuarioSAImp(UsuarioDAO usuarioDAO, UsuarioClanDAO usuariosClanDAO,
+			AlarmaUsuarioDAO usuariosAlarmaDAO, ClanDAO clanDAO,
+			AlarmaDAO alarmaDAO, PreguntaDAO preguntaDAO,
+			PreguntaUsuarioDAO preguntaUsuarioDAO) {
+		super();
+		this.usuarioDAO = usuarioDAO;
+		this.usuariosClanDAO = usuariosClanDAO;
+		this.usuariosAlarmaDAO = usuariosAlarmaDAO;
+		this.clanDAO = clanDAO;
+		this.alarmaDAO = alarmaDAO;
+		this.preguntaDAO = preguntaDAO;
+		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
+	}
 
 	public void AnadirUsuario(String idUsuario, String nombreReal,
-			int puntuacion, String descPerfil, String password, String country) {
+			int puntuacion, String password, String country) {
 
 		usuarioDAO.guardaUsuario(new UsuarioPOJO(idUsuario, nombreReal,
-				puntuacion, descPerfil, password, country));
+				puntuacion, password, country));
 	}
 
 	public void EliminarUsuario(String idUsuario) {
@@ -34,7 +50,18 @@ public class UsuarioSAImp implements UsuarioSA {
 
 		}
 	}
-
+	public void AnadirPregunta(PreguntaPOJO pregunta,String idUsuario){
+		preguntaDAO.savePregunta(pregunta);
+		preguntaUsuarioDAO.savePreguntaUsuario(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
+	}
+	public void ElminarPregunta(String idPregunta,String idUsuario){
+		ArrayList<String> preguntas=preguntaUsuarioDAO.getPreguntas(idUsuario);
+		if(preguntas.size()>10){ // solo dejamos eliminar si tiene mas de 10 preguntas.
+			preguntaDAO.removePregunta(idPregunta);
+			preguntaUsuarioDAO.removePreguntaUsuario(idPregunta);
+			
+		}
+	}
 	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
 		alarmaDAO.saveAlarm(alarma);
 		usuariosAlarmaDAO.addAlarmaUsuario(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
