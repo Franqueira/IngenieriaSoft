@@ -11,6 +11,22 @@ public class UsuarioSAImp implements UsuarioSA {
 	public AlarmaUsuarioDAO usuariosAlarmaDAO;
 	public ClanDAO clanDAO;
 	public AlarmaDAO alarmaDAO;
+	public PreguntaDAO preguntaDAO;
+	public PreguntaUsuarioDAO preguntaUsuarioDAO;
+	
+	public UsuarioSAImp(UsuarioDAO usuarioDAO, UsuarioClanDAO usuariosClanDAO,
+			AlarmaUsuarioDAO usuariosAlarmaDAO, ClanDAO clanDAO,
+			AlarmaDAO alarmaDAO, PreguntaDAO preguntaDAO,
+			PreguntaUsuarioDAO preguntaUsuarioDAO) {
+		super();
+		this.usuarioDAO = usuarioDAO;
+		this.usuariosClanDAO = usuariosClanDAO;
+		this.usuariosAlarmaDAO = usuariosAlarmaDAO;
+		this.clanDAO = clanDAO;
+		this.alarmaDAO = alarmaDAO;
+		this.preguntaDAO = preguntaDAO;
+		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
+	}
 
 	public void AnadirUsuario(String idUsuario, String nombreReal,
 			int puntuacion, String password, String country) {
@@ -34,12 +50,13 @@ public class UsuarioSAImp implements UsuarioSA {
 
 		}
 	}
-
-	public void AnadirAlarma(String idAlarma, int horas, int minutos,
-			boolean active, String tono, String idUsuario) {
-		alarmaDAO.saveAlarm(new AlarmaPOJO(idAlarma, horas, minutos, active, tono));
-		usuariosAlarmaDAO.addAlarmaUsuario(new AlarmaUsuarioPOJO(idAlarma,
-				idUsuario));
+	public void AnadirPregunta(PreguntaPOJO pregunta,String idUsuario){
+		preguntaDAO.savePregunta(pregunta);
+		preguntaUsuarioDAO.savePreguntaUsuario(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
+	}
+	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
+		alarmaDAO.saveAlarm(alarma);
+		usuariosAlarmaDAO.addAlarmaUsuario(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
 	}
 
 	public void EliminarAlarma(String idAlarma) {

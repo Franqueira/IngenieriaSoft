@@ -9,7 +9,7 @@ public class PreguntaUsuarioPOJO {
 	String id_pregunta;
 	String id_usuario;
 
-	public PreguntaUsuarioPOJO(String id_usuario, String id_pregunta) {
+	public PreguntaUsuarioPOJO(String id_pregunta,String id_usuario) {
 		super();
 		this.id_pregunta = id_pregunta;
 		this.id_usuario = id_usuario;
