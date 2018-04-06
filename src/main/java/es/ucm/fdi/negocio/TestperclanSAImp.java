@@ -38,7 +38,7 @@ public class TestperclanSAImp implements TestperclanSA{
 		getRanking(nombreClan).get(0).setEsGanador(true);
 	}
 	
-	public void EliminarUsuarioClan(String idUsuario) {
+	public void eliminarUsuarioClan(String idUsuario) {
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).getIdClan();
 		usuarioClanDAO.remove(idUsuario);
 		if (((ClanPOJO) clanDAO.getFromId(idClan)).getLider().equals(idUsuario)) {
@@ -50,12 +50,12 @@ public class TestperclanSAImp implements TestperclanSA{
 		}
 	}
 
-	public void CrearClan(String idUsuario, String idClan) {
+	public void crearClan(String idUsuario, String idClan) {
 		clanDAO.save(new ClanPOJO(idClan, idUsuario));
 		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
 	}
 
-	public void AnadirUsuarioClan(String idUsuario, String idClan) {
+	public void anadirUsuarioClan(String idUsuario, String idClan) {
 		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
 	}
 }
