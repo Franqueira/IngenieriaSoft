@@ -7,7 +7,6 @@ public class PreguntaSAImp implements PreguntaSA{
 	private PreguntaDAOImp preguntaDAO;
 
 	public PreguntaSAImp(PreguntaDAOImp preguntaDAO) {
-		super();
 		this.preguntaDAO = preguntaDAO;
 	}
 	
