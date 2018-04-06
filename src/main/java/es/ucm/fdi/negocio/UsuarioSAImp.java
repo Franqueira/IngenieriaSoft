@@ -9,13 +9,13 @@ public class UsuarioSAImp implements UsuarioSA {
 	public UsuarioDAO usuarioDAO;
 	public UsuarioClanDAO usuariosClanDAO;
 	public AlarmaUsuarioDAO usuariosAlarmaDAO;
-	public ClanDAO clanDAO;
+	public ClanDAOImp clanDAO;
 	public AlarmaDAO alarmaDAO;
 	public PreguntaDAO preguntaDAO;
 	public PreguntaUsuarioDAO preguntaUsuarioDAO;
 	
 	public UsuarioSAImp(UsuarioDAO usuarioDAO, UsuarioClanDAO usuariosClanDAO,
-			AlarmaUsuarioDAO usuariosAlarmaDAO, ClanDAO clanDAO,
+			AlarmaUsuarioDAO usuariosAlarmaDAO, ClanDAOImp clanDAO,
 			AlarmaDAO alarmaDAO, PreguntaDAO preguntaDAO,
 			PreguntaUsuarioDAO preguntaUsuarioDAO) {
 		super();
@@ -31,44 +31,44 @@ public class UsuarioSAImp implements UsuarioSA {
 	public void AnadirUsuario(String idUsuario, String nombreReal,
 			int puntuacion, String password, String country) {
 
-		usuarioDAO.guardaUsuario(new UsuarioPOJO(idUsuario, nombreReal,
+		usuarioDAO.save(new UsuarioPOJO(idUsuario, nombreReal,
 				puntuacion, password, country));
 	}
 
 	public void EliminarUsuario(String idUsuario) {
-		String idClan = usuarioDAO.getUsuario(idUsuario).getIdClan();
-		usuarioDAO.eliminaUsuario(idUsuario);
+		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).getIdClan();
+		usuarioDAO.remove(idUsuario);
 		if (!idClan.equals("")) {
-			usuariosClanDAO.eliminaUsuarioClan(idUsuario);
-			if (clanDAO.getClan(idClan).getLider().equals(idUsuario)) {
+			usuariosClanDAO.remove(idUsuario);
+			if (((ClanPOJO) clanDAO.getFromId(idClan)).getLider().equals(idUsuario)) {
 				ArrayList<String> c = usuariosClanDAO.getMiembrosClan(idClan);
 				if (c.isEmpty())
-					clanDAO.removeClan(idClan);
+					clanDAO.remove(idClan);
 				else
-					clanDAO.getClan(idClan).setLider(c.get(0));
+					((ClanPOJO) clanDAO.getFromId(idClan)).setLider(c.get(0));
 			}
 
 		}
 	}
 	public void AnadirPregunta(PreguntaPOJO pregunta,String idUsuario){
-		preguntaDAO.savePregunta(pregunta);
-		preguntaUsuarioDAO.savePreguntaUsuario(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
+		preguntaDAO.save(pregunta);
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
 	}
 	public void ElminarPregunta(String idPregunta,String idUsuario){
 		ArrayList<String> preguntas=preguntaUsuarioDAO.getPreguntas(idUsuario);
 		if(preguntas.size()>10){ // solo dejamos eliminar si tiene mas de 10 preguntas.
-			preguntaDAO.removePregunta(idPregunta);
-			preguntaUsuarioDAO.removePreguntaUsuario(idPregunta);
+			preguntaDAO.remove(idPregunta);
+			preguntaUsuarioDAO.remove(idPregunta);
 			
 		}
 	}
 	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
-		alarmaDAO.saveAlarm(alarma);
-		usuariosAlarmaDAO.addAlarmaUsuario(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
+		alarmaDAO.save(alarma);
+		usuariosAlarmaDAO.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
 	}
 
 	public void EliminarAlarma(String idAlarma) {
-		alarmaDAO.removeAlarm(idAlarma);
-		usuariosAlarmaDAO.removeAlarmaUsuario(idAlarma);
+		alarmaDAO.remove(idAlarma);
+		usuariosAlarmaDAO.remove(idAlarma);
 	}
 }

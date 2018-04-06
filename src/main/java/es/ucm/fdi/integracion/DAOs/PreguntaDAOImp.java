@@ -4,20 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import es.ucm.fdi.datos.BD;
+import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
-public class PreguntaDAOImp implements PreguntaDAO{
-	private BD<PreguntaPOJO> BD;
+public class PreguntaDAOImp extends HashMapDAO<PreguntaPOJO> implements PreguntaDAO{
 	
-	public PreguntaDAOImp(BD<PreguntaPOJO> BD) {
-		this.BD = BD;
+	public PreguntaDAOImp(BDHashMap<PreguntaPOJO> BD) {
+		super(BD);
 	}
 
-	public PreguntaPOJO getPregunta(String id){
-		return BD.find(id);
-	}
-	
 	public ArrayList<PreguntaPOJO> getAll(){
 		ArrayList<String> list = BD.getIds();
 		return list.stream()
@@ -28,15 +23,7 @@ public class PreguntaDAOImp implements PreguntaDAO{
 	public ArrayList<PreguntaPOJO> getPreguntas(List<String> list){
 		ArrayList<PreguntaPOJO> preguntas = new ArrayList<>();
 		list.forEach(id -> preguntas.add(BD.find(id)));
-		return preguntas;
-	}
-	
-	public void savePregunta(PreguntaPOJO preg){
-		BD.insert(preg, preg.getId());
-	}
-	
-	public void removePregunta(String preg){
-		BD.removeId(preg);
+		return getFromIds(preguntas);
 	}
 	
 }

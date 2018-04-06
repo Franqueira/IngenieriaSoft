@@ -1,18 +1,9 @@
 package es.ucm.fdi.integracion.DAOs;
 
-import java.util.ArrayList;
-
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
-public interface UsuarioDAO {
-	public UsuarioPOJO getUsuario(String idUsuario);
+public interface UsuarioDAO extends DAO<UsuarioPOJO>{
 	
-	public void guardaUsuario(UsuarioPOJO user);
-	
-	public void eliminaUsuario(String user);
-	
-	public UsuarioPOJO find(String nombre);
-	
-	public ArrayList<UsuarioPOJO> getUsersByCountry(String country);
+	public UsuarioPOJO find(String nombreReal);
 	
 }

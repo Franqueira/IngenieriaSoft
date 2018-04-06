@@ -1,17 +1,11 @@
 package es.ucm.fdi.integracion.POJOs;
 
 
-/**
- * @author Sergi
- *
- */
-public class PreguntaUsuarioPOJO {
-	String id_pregunta;
+public class PreguntaUsuarioPOJO extends POJO{
 	String id_usuario;
 
 	public PreguntaUsuarioPOJO(String id_pregunta,String id_usuario) {
-		super();
-		this.id_pregunta = id_pregunta;
+		super(id_pregunta);
 		this.id_usuario = id_usuario;
 	}
 
@@ -23,12 +17,10 @@ public class PreguntaUsuarioPOJO {
 		this.id_usuario = id_usuario;
 	}
 
-	public String getIdPregunta() {
-		return id_pregunta;
+	@Override
+	public POJO clone() {
+		return this;
 	}
 
-	public void setIdPregunta(String id_pregunta) {
-		this.id_pregunta = id_pregunta;
-	}
 
 }
