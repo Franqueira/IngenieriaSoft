@@ -1,5 +1,8 @@
 package es.ucm.fdi.integracion.DAOs;
 
+import org.junit.Test;
+
+import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
@@ -56,4 +59,14 @@ public class AlarmaUsuarioDAOTest {
 				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al15", "jc"));
 				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al16", "franqui"));
 	}
+	
+	@Test
+	public void getAlarmasUsuarioTest(){
+		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
+		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
+		AlarmaUsuarioDAOTest alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(new BDHashMap<>)
+		
+	}
+	
+	
 };
