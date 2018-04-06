@@ -11,7 +11,7 @@ public interface DAO<T> {
 	
 	public POJO getFromId(String id);
 	
-	public List<POJO> getFromIds(List<String> ids);
+	public List<POJO> getFromIds(List<POJO> pojos);
 	
 	public void remove(String id);
 }
