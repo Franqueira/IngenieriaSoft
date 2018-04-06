@@ -2,10 +2,6 @@ package es.ucm.fdi.negocio;
 
 import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
-
 import java.util.ArrayList;
 
 import org.junit.Test;
