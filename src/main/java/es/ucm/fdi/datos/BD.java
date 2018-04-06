@@ -3,7 +3,6 @@ package es.ucm.fdi.datos;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 
 
@@ -85,13 +84,5 @@ public class BD<T>{
 		print(baos);
 		return baos.toString();
 	}
-	/*
-	public ArrayList<T> getValueKey(String value, Comparator<String> comp){
-		ArrayList<T> keys = new ArrayList<>();
-		for(T t : tabla.values()) {
-			if(comp.compare(value, t.toString())) keys.add(t);
-		}
-		return keys;
-	}*/
 
 }
