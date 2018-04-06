@@ -5,6 +5,7 @@ import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 public class AlarmaSAImp implements AlarmaSA{
 	
+	@SuppressWarnings("unused")
 	private AlarmaDAO alarmaDAO;
 	
 	public AlarmaSAImp(AlarmaDAO alarmaDAO) {
