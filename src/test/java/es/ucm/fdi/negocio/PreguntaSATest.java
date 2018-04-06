@@ -3,6 +3,7 @@ package es.ucm.fdi.negocio;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -100,15 +101,9 @@ public void setup(PreguntaDAOImp preguntaDAO){
 	public void getActiveTest(){
 		PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
 		setup(preguntaDAO);
-		ArrayList<PreguntaPOJO> respuestas = preguntaDAO.comprobarRespuesta();
-		System.out.println(respuestas);
-		ArrayList<AlarmaPOJO> esperadas = new ArrayList<>();
-		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al1"));
-		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al2"));
-		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al3"));
-		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al4"));
-		for(AlarmaPOJO a: activas){
-			assertTrue(esperadas.contains(a));
-		}
+		PreguntaSA preguntaSA = new PreguntaSAImp(preguntaDAO);
+		assertTrue("Debería ser correcta",preguntaSA.comprobarRespuesta("a1",1));
+		assertFalse("Debería ser falsa",preguntaSA.comprobarRespuesta("a1",2));
+		assertFalse("Debería ser falsa",preguntaSA.comprobarRespuesta("a1",3));
 	}
 }
