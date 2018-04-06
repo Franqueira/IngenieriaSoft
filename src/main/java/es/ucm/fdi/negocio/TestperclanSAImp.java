@@ -30,7 +30,7 @@ public class TestperclanSAImp implements TestperclanSA{
 			ranking.add((UsuarioPOJO) usuarioDAO.getFromId(m));
 		}
 		return ranking.stream()
-				.sorted((u,v)-> u.getPuntuacion()-v.getPuntuacion())
+				.sorted((u,v)-> v.getPuntuacion() - u.getPuntuacion())
 				.collect(Collectors.toCollection(ArrayList::new));
 	}
 	
