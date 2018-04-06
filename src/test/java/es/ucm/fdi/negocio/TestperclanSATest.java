@@ -1,5 +1,8 @@
 package es.ucm.fdi.negocio;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
@@ -7,6 +10,7 @@ import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
+import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
@@ -40,9 +44,6 @@ public class TestperclanSATest {
 	
 	@Test
 	public void getRankingTest() {
-		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
-		ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
-		UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
 	}
 	
 	@Test
@@ -52,12 +53,28 @@ public class TestperclanSATest {
 	
 	@Test
 	public void eliminarUsuarioClanTest() {
-		
+		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
+		ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
+		UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
+		setup(usuarioDAO, clanDAO, usuarioClanDAO);
+		TestperclanSA testperClanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO, usuarioDAO);
+		testperClanSA.eliminarUsuarioClan("daniv");
+		testperClanSA.eliminarUsuarioClan("sergil");
+		assertFalse("No eberia contener al usuario añadido", usuarioClanDAO.getMiembrosClan("Los Matinfos").contains("daniv"));
+		assertFalse("No deberia contener al usuario añadido", usuarioClanDAO.getMiembrosClan("Los Matinfos").contains("sergil"));
 	}
 
 	@Test
 	public void añadirUsuarioClanTest() {
-		
+		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
+		ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
+		UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
+		setup(usuarioDAO, clanDAO, usuarioClanDAO);
+		TestperclanSA testperClanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO, usuarioDAO);
+		testperClanSA.anadirUsuarioClan("daniv", "Los Matinfos");
+		testperClanSA.anadirUsuarioClan("sergil", "Los Matinfos");
+		assertTrue("Deberia contener al usuario añadido", usuarioClanDAO.getMiembrosClan("Los Matinfos").contains("daniv"));
+		assertTrue("Deberia contener al usuario añadido", usuarioClanDAO.getMiembrosClan("Los Matinfos").contains("sergil"));
 	}
 	
 	@Test
