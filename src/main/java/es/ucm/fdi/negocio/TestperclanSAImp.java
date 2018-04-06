@@ -3,7 +3,6 @@ package es.ucm.fdi.negocio;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-import es.ucm.fdi.integracion.DAOs.ClanDAO;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
@@ -28,7 +27,7 @@ public class TestperclanSAImp implements TestperclanSA{
 		ArrayList<UsuarioPOJO> ranking = new ArrayList<>();
 		ArrayList<String> miembros = usuarioClanDAO.getMiembrosClan(nombreClan);
 		for(String m : miembros){
-			ranking.add(usuarioDAO.getUsuario(m));
+			ranking.add((UsuarioPOJO) usuarioDAO.getFromId(m));
 		}
 		return ranking.stream()
 				.sorted((u,v)-> u.getPuntuacion()-v.getPuntuacion())
@@ -42,21 +41,21 @@ public class TestperclanSAImp implements TestperclanSA{
 	public void EliminarUsuarioClan(String idUsuario) {
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).getIdClan();
 		usuarioClanDAO.remove(idUsuario);
-		if (clanDAO.getFromId(idClan).getLider().equals(idUsuario)) {
+		if (((ClanPOJO) clanDAO.getFromId(idClan)).getLider().equals(idUsuario)) {
 			ArrayList<String> c = usuarioClanDAO.getMiembrosClan(idClan);
 			if (c.isEmpty())
 				clanDAO.remove(idClan);
 			else
-				clanDAO.getClan(idClan).setLider(c.get(0));
+				((ClanPOJO) clanDAO.getFromId(idClan)).setLider(c.get(0));
 		}
 	}
 
 	public void CrearClan(String idUsuario, String idClan) {
-		clanDAO.saveClan(new ClanPOJO(idClan, idUsuario));
-		usuarioClanDAO.guardaUsuarioClan(new UsuarioClanPOJO(idClan, idUsuario));
+		clanDAO.save(new ClanPOJO(idClan, idUsuario));
+		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
 	}
 
 	public void AnadirUsuarioClan(String idUsuario, String idClan) {
-		usuarioClanDAO.guardaUsuarioClan(new UsuarioClanPOJO(idClan, idUsuario));
+		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
 	}
 }
