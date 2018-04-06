@@ -123,7 +123,9 @@ public class UsuarioSATest {
 		preguntaDAO.save(new PreguntaPOJO("a10", "cual es la capital de dinamarca?", respuestas3, 2));
 		preguntaDAO.save(new PreguntaPOJO("a11", "cual es la capital de suecia?", respuestas3, 3));
 		preguntaDAO.save(new PreguntaPOJO("a12", "cual es la capital de finlandia?", respuestas3, 4));	
-	
+		for(int i = 1; i<13; i++){
+			preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a"+i,"peter_hy"));
+		}
 		//inicializar los demas para luego hacer el test
 		usuario=new UsuarioSAImp(usuarioDAO,usuarioClanDAO,alarmaUsuarioDAO,clanDAO,alarmaDAO,preguntaDAO,preguntaUsuarioDAO);
 	}
@@ -164,7 +166,16 @@ public class UsuarioSATest {
 		catch(NullPointerException e){
 		}
 		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al1"));
-		
-		
+			
+	}
+	@Test
+	public void EliminarPreguntaTest(){
+	usuario.ElminarPregunta("a12","peter_hy");
+	try{
+	preguntaDAO.getFromId("a12");
+	assertTrue("Se experaba excepción",true);
+	}catch(NullPointerException e){}
+	assertFalse("No debería aparecer en la lista",preguntaUsuarioDAO.getPreguntas("peter_hy").contains("a12"));	
+	
 	}
 }
