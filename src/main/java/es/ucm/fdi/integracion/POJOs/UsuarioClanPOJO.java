@@ -1,13 +1,11 @@
 package es.ucm.fdi.integracion.POJOs;
 
-public class UsuarioClanPOJO {
+public class UsuarioClanPOJO extends POJO{
 	String idClan; // su nombre
-	String idUsuario;
 
 	public UsuarioClanPOJO(String idClan, String idUsuario) {
-		super();
+		super(idUsuario);
 		this.idClan = idClan;
-		this.idUsuario = idUsuario;
 	}
 
 	public String getIdClan() {
@@ -18,12 +16,12 @@ public class UsuarioClanPOJO {
 		this.idClan = idClan;
 	}
 
-	public String getIdUsuario() {
-		return idUsuario;
+	@Override
+	public POJO clone() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void setIdUsuario(String idUsuario) {
-		this.idUsuario = idUsuario;
-	}
+	
 
 }

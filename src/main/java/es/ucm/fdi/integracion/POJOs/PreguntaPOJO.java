@@ -5,10 +5,6 @@ package es.ucm.fdi.integracion.POJOs;
 
 import java.util.ArrayList;
 
-/**
- * @author Daniel
- *
- */
 public class PreguntaPOJO extends POJO{
 	String texto;
 	ArrayList<String> respuestas;
@@ -53,6 +49,12 @@ public class PreguntaPOJO extends POJO{
 			salida += "	-" + r + '\n';
 		}
 		return salida;
+	}
+
+	@Override
+	public POJO clone() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
