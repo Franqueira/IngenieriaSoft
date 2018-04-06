@@ -153,4 +153,18 @@ public class UsuarioSATest {
 		assertTrue("Debería añadir la alarma",alarmaUsuarioDAO.getAlarmasUsuario("jc").contains("al16"));
 		
 	}
+	@Test
+	public void EliminarAlarmaTest(){
+		assertTrue("Debería estar la alarma",alarmaDAO.getFromId("al1")!=null);
+		usuario.EliminarAlarma("al1");
+		try{
+			alarmaDAO.getFromId("al1");
+			assertTrue("Se esperaba excepcion",true);
+		}
+		catch(NullPointerException e){
+		}
+		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al1"));
+		
+		
+	}
 }
