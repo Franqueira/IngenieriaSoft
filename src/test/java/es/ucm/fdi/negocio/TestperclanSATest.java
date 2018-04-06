@@ -93,6 +93,6 @@ public class TestperclanSATest {
 		UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
 		TestperclanSAImp testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,usuarioDAO);
 		setup(usuarioDAO, clanDAO, usuarioClanDAO, testperclanSA);
-		assertTrue("Se debe haber creado el clan y Javi debería ser el líder",((ClanPOJO)clanDAO.getFromId("LosMatinfos")).getLider().equals("javigm"));
+		assertTrue("Se debe haber creado el clan y Javi debería ser el líder",((ClanPOJO)clanDAO.getFromId("Los Matinfos")).getLider().equals("javigm"));
 	}
 }
