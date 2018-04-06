@@ -64,8 +64,7 @@ public class AlarmaUsuarioDAOTest {
 	public void getAlarmasUsuarioTest(){
 		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
 		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
-		//AlarmaUsuarioDAOTest alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(new BDHashMap<>)
-		
+		AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(new BDHashMap<AlarmaUsuarioPOJO>());
 	}
 	
 	
