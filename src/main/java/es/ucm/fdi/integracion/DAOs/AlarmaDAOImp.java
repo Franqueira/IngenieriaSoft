@@ -14,9 +14,9 @@ public class AlarmaDAOImp extends HashMapDAO<AlarmaPOJO> implements AlarmaDAO {
 
 	public ArrayList<AlarmaPOJO> getActive(){
 		ArrayList<String> list = BD.getIds();
-		return list.stream()
+		return getFromIds(list.stream()
 				.map(id -> BD.find(id)) //Busca el AlarmaPOJO correspondiente
 				.filter(a -> a.isActive()) //Mira los que estan activos
-				.collect(Collectors.toCollection(ArrayList::new)); //Los guarda en un ArrayList
+				.collect(Collectors.toCollection(ArrayList::new))); //Los guarda en un ArrayList
 	}
 }

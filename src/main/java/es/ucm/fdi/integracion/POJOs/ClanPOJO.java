@@ -28,4 +28,10 @@ public class ClanPOJO extends POJO{// duda
 		this.lider = lider;
 	}
 
+	@Override
+	public POJO clone() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

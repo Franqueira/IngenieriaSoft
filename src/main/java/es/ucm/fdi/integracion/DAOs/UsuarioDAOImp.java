@@ -5,7 +5,7 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 public class UsuarioDAOImp extends HashMapDAO<UsuarioPOJO> implements UsuarioDAO{
 	
 	
-	protected UsuarioDAOImp(BDHashMap<UsuarioPOJO> BD) {
+	public UsuarioDAOImp(BDHashMap<UsuarioPOJO> BD) {
 		super(BD);
 	}
 

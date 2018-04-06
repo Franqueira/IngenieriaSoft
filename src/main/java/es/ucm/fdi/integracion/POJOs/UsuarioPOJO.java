@@ -78,4 +78,10 @@ public class UsuarioPOJO extends POJO{
 	public void setIdClan(String idClan) {
 		this.idClan = idClan;
 	}
+
+	@Override
+	public POJO clone() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

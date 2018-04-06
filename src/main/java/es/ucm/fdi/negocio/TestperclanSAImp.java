@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import es.ucm.fdi.integracion.DAOs.ClanDAO;
+import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
@@ -12,11 +13,11 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 
 public class TestperclanSAImp implements TestperclanSA{
-	private ClanDAO clanDAO;
+	private ClanDAOImp clanDAO;
 	private UsuarioClanDAO usuarioClanDAO;
 	private UsuarioDAO usuarioDAO;
 
-	public TestperclanSAImp(ClanDAO clanDAO, UsuarioClanDAO usuarioClanDAO,
+	public TestperclanSAImp(ClanDAOImp clanDAO, UsuarioClanDAO usuarioClanDAO,
 			UsuarioDAO usuarios) {
 		this.clanDAO = clanDAO;
 		this.usuarioClanDAO = usuarioClanDAO;
@@ -39,12 +40,12 @@ public class TestperclanSAImp implements TestperclanSA{
 	}
 	
 	public void EliminarUsuarioClan(String idUsuario) {
-		String idClan = usuarioDAO.getUsuario(idUsuario).getIdClan();
-		usuarioClanDAO.eliminaUsuarioClan(idUsuario);
-		if (clanDAO.getClan(idClan).getLider().equals(idUsuario)) {
+		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).getIdClan();
+		usuarioClanDAO.remove(idUsuario);
+		if (clanDAO.getFromId(idClan).getLider().equals(idUsuario)) {
 			ArrayList<String> c = usuarioClanDAO.getMiembrosClan(idClan);
 			if (c.isEmpty())
-				clanDAO.removeClan(idClan);
+				clanDAO.remove(idClan);
 			else
 				clanDAO.getClan(idClan).setLider(c.get(0));
 		}

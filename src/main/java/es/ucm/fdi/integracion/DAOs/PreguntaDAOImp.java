@@ -23,7 +23,7 @@ public class PreguntaDAOImp extends HashMapDAO<PreguntaPOJO> implements Pregunta
 	public ArrayList<PreguntaPOJO> getPreguntas(List<String> list){
 		ArrayList<PreguntaPOJO> preguntas = new ArrayList<>();
 		list.forEach(id -> preguntas.add(BD.find(id)));
-		return preguntas;
+		return getFromIds(preguntas);
 	}
 	
 }
