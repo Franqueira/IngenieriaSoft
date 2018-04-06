@@ -6,7 +6,6 @@ import junit.framework.Assert;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
-import es.ucm.fdi.integracion.DAOs.ClanDAO;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
