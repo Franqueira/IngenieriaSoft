@@ -28,11 +28,9 @@ public class UsuarioSAImp implements UsuarioSA {
 		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
 	}
 
-	public void AnadirUsuario(String idUsuario, String nombreReal,
-			int puntuacion, String password, String country) {
+	public void AnadirUsuario(UsuarioPOJO usuario) {
 
-		usuarioDAO.save(new UsuarioPOJO(idUsuario, nombreReal,
-				puntuacion, password, country));
+		usuarioDAO.save(usuario);
 	}
 
 	public void EliminarUsuario(String idUsuario) {
