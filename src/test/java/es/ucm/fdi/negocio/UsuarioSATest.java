@@ -153,7 +153,6 @@ public class UsuarioSATest {
 		assertTrue("Debería añadir la alarma",alarmaUsuarioDAO.getAlarmasUsuario("jc").contains("al16"));
 		
 	}
-<<<<<<< HEAD
 	
 	public void AnadirPreguntaTest() {
 		ArrayList<String> respuestas1=new ArrayList<String>();
@@ -164,7 +163,8 @@ public class UsuarioSATest {
 		preguntaDAO.save(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1));
 		usuario.AnadirPregunta(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1), "javigm");
 		assertTrue("Deberia encontrarla", preguntaUsuarioDAO.getPreguntas("javigm").contains("a1"));
-=======
+	}
+	
 	@Test
 	public void EliminarAlarmaTest(){
 		assertTrue("Debería estar la alarma",alarmaDAO.getFromId("al1")!=null);
@@ -176,8 +176,5 @@ public class UsuarioSATest {
 		catch(NullPointerException e){
 		}
 		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al1"));
-		
-		
->>>>>>> branch 'master' of https://github.com/Franqueira/IngenieriaSoft.git
 	}
 }
