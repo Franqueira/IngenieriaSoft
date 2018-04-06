@@ -1,5 +1,9 @@
 package es.ucm.fdi.integracion.DAOs;
 
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
@@ -48,9 +52,9 @@ public class AlarmaUsuarioDAOTest {
 				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al4", "Wiledk7"));
 				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al5", "borisc"));
 				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al6", "franqui"));
-				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al7", "sergil"));
+				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al7", "borisc"));
 				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al8", "daniv"));
-				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al9", "pablitos"));
+				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al9", "borisc"));
 				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al10", "jc"));
 				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al11", "jaime123"));
 				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al12", "borisc"));
@@ -65,6 +69,30 @@ public class AlarmaUsuarioDAOTest {
 		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
 		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
 		AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(new BDHashMap<AlarmaUsuarioPOJO>());
+		setup(alarmaUsuarioDAO, usuarioDAO, alarmaDAO);
+		ArrayList<String> listaJavi = alarmaUsuarioDAO.getAlarmasUsuario("javigm");
+		ArrayList<String> esperadasJavi = new ArrayList<>();
+		esperadasJavi.add("al1");
+		esperadasJavi.add("al13");
+		esperadasJavi.add("al14");
+		for(String e: esperadasJavi){ //Las de esperadas estan en listaJavi
+			assertTrue(listaJavi.contains(e));
+		}
+		for(String e: listaJavi){
+			assertTrue(esperadasJavi.contains(e)); //Las de listaJavi estan esperadas
+		}
+		ArrayList<String> listaBoris = alarmaUsuarioDAO.getAlarmasUsuario("borisc");
+		ArrayList<String> esperadasBoris = new ArrayList<>();
+		esperadasBoris.add("al5");
+		esperadasBoris.add("al7");
+		esperadasBoris.add("al9");
+		esperadasBoris.add("al12");
+		for(String e: esperadasBoris){ //Las de esperadas estan en listaBoris
+			assertTrue(listaBoris.contains(e));
+		}
+		for(String e: listaBoris){
+			assertTrue(esperadasBoris.contains(e)); //Las de listaBoris estan esperadas
+		}
 	}
 	
 	
