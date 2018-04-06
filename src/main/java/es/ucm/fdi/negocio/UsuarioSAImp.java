@@ -36,7 +36,7 @@ public class UsuarioSAImp implements UsuarioSA {
 	public void EliminarUsuario(String idUsuario) {
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).getIdClan();
 		usuarioDAO.remove(idUsuario);
-		if (!idClan.equals("")) {
+		if (!"".equals(idClan)) {
 			usuariosClanDAO.remove(idUsuario);
 			if (((ClanPOJO) clanDAO.getFromId(idClan)).getLider().equals(idUsuario)) {
 				ArrayList<String> c = usuariosClanDAO.getMiembrosClan(idClan);
