@@ -1,6 +1,7 @@
 package es.ucm.fdi.negocio;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -67,6 +68,11 @@ public class TestperclanSATest {
 	
 	@Test
 	public void crearClanTest() {
-		
+		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
+		ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
+		UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
+		TestperclanSAImp testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,usuarioDAO);
+		setup(usuarioDAO, clanDAO, usuarioClanDAO, testperclanSA);
+		assertTrue("Se debe haber creado el clan y Javi debería ser el líder",((ClanPOJO)clanDAO.getFromId("LosMatinfos")).getLider().equals("javigm"));
 	}
 }
