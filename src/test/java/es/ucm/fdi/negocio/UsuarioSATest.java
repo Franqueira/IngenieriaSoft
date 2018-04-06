@@ -156,6 +156,18 @@ public class UsuarioSATest {
 		
 	}
 	@Test
+	public void AnadirPreguntaTest() {
+		ArrayList<String> respuestas1=new ArrayList<String>();
+		respuestas1.add("Madrid");
+		respuestas1.add("Paris");
+		respuestas1.add("Roma");
+		respuestas1.add("Londres");
+		preguntaDAO.save(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1));
+		usuario.AnadirPregunta(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1), "javigm");
+		assertTrue("Deberia encontrarla", preguntaUsuarioDAO.getPreguntas("javigm").contains("a1"));
+	}
+	
+	@Test
 	public void EliminarAlarmaTest(){
 		assertTrue("Debería estar la alarma",alarmaDAO.getFromId("al1")!=null);
 		usuario.EliminarAlarma("al1");
@@ -176,6 +188,7 @@ public class UsuarioSATest {
 	assertTrue("Se experaba excepción",true);
 	}catch(NullPointerException e){}
 	assertFalse("No debería aparecer en la lista",preguntaUsuarioDAO.getPreguntas("peter_hy").contains("a12"));	
-	
+
+		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al2"));
 	}
 }
