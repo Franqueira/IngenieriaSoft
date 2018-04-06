@@ -30,8 +30,7 @@ public class ClanPOJO extends POJO{// duda
 
 	@Override
 	public POJO clone() {
-		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 }
