@@ -5,10 +5,6 @@ package es.ucm.fdi.integracion.POJOs;
 
 import java.util.ArrayList;
 
-/**
- * @author Daniel
- *
- */
 public class PreguntaPOJO extends POJO{
 	String texto;
 	ArrayList<String> respuestas;
