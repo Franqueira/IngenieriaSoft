@@ -23,6 +23,10 @@ import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
+/**
+ * Clase que contiene los test que comprueban la funcionalidad de los UsuarioSA
+ */
+
 public class UsuarioSATest {
 	private UsuarioSA usuario;
 	private UsuarioDAOImp usuarioDAO;
@@ -33,6 +37,10 @@ public class UsuarioSATest {
 	private UsuarioClanDAOImp usuarioClanDAO;
 	private ClanDAOImp clanDAO;
 	
+	
+	/**
+	 * Creaccion de una situacion inicial
+	 */
 	@Before
 	private void setup(){
 		usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
@@ -124,9 +132,12 @@ public class UsuarioSATest {
 			preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a"+i,"peter_hy"));
 		}
 		//inicializar los demas para luego hacer el test
-		usuario=new UsuarioSAImp(usuarioDAO,usuarioClanDAO,alarmaUsuarioDAO,clanDAO,alarmaDAO,preguntaDAO,preguntaUsuarioDAO);
+		usuario = new UsuarioSAImp(usuarioDAO,usuarioClanDAO,alarmaUsuarioDAO,clanDAO,alarmaDAO,preguntaDAO,preguntaUsuarioDAO);
 	}
 	
+	/**
+	 * Comprueba que el sistema elimina correctamente un usuario
+	 */
 	@Test
 	public void EliminarUsuarioTest(){
 		usuario.EliminarUsuario("jc");
@@ -139,12 +150,18 @@ public class UsuarioSATest {
 		assertFalse("Debería cambiar de líder",c.getLider().equals("javigm"));	
 	}
 	
+	/**
+	 * Comprueba que se añade un usuario correctamente
+	 */
 	@Test
 	public void AnadirUsuarioTest(){
 		usuario.AnadirUsuario(new UsuarioPOJO("jaime123", "Jaime Fernandez", 109, "soyjaime", "Spain"));
 		assertTrue("debería encontrarlo",usuarioDAO.find("jaime123")==null);	
 	}
 	
+	/**
+	 * Comprueba que un a alarma se añade correctamente
+	 */
 	@Test
 	public void AnadirAlarmaTest(){
 		usuario.AnadirAlarma(new AlarmaPOJO("al16", 12, 23, true, "mytone1.mp3"), "jc");
@@ -152,6 +169,9 @@ public class UsuarioSATest {
 		assertTrue("Debería añadir la alarma",alarmaUsuarioDAO.getAlarmasUsuario("jc").contains("al16"));
 	}
 	
+	/**
+	 * Comprueba que se añade una pregunta correctamente
+	 */
 	@Test
 	public void AnadirPreguntaTest() {
 		ArrayList<String> respuestas1=new ArrayList<String>();
@@ -164,6 +184,9 @@ public class UsuarioSATest {
 		assertTrue("Deberia encontrarla", preguntaUsuarioDAO.getPreguntas("javigm").contains("a1"));
 	}
 	
+	/**
+	 * Comprueba que se elimina una alarma correctamente
+	 */
 	@Test
 	public void EliminarAlarmaTest(){
 		assertTrue("Debería estar la alarma",alarmaDAO.getFromId("al1")!=null);
@@ -177,15 +200,18 @@ public class UsuarioSATest {
 		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al1"));	
 	}
 	
+	/**
+	 * Comprueba que se elimina correctamente una pregunta
+	 */
 	@Test
 	public void EliminarPreguntaTest(){
-	usuario.ElminarPregunta("a12","peter_hy");
-	try{
-	preguntaDAO.getFromId("a12");
-	assertTrue("Se experaba excepción",true);
-	}catch(NullPointerException e){}
-	assertFalse("No debería aparecer en la lista",preguntaUsuarioDAO.getPreguntas("peter_hy").contains("a12"));	
-
-		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al2"));
+		usuario.ElminarPregunta("a12","peter_hy");
+		try{
+			preguntaDAO.getFromId("a12");
+			assertTrue("Se experaba excepción",true);
+		} catch(NullPointerException e){}
+		assertFalse("No debería aparecer en la lista",preguntaUsuarioDAO.getPreguntas("peter_hy").contains("a12"));	
+		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario(
+				"javigm").contains("al2"));
 	}
 }
