@@ -30,6 +30,8 @@ public class UsuarioSAImp implements UsuarioSA {
 		this.usuariosAlarmaDAO = usuariosAlarmaDAO;
 		this.clanDAO = clanDAO;
 		this.alarmaDAO = alarmaDAO;
+		this.preguntaDAO = preguntaDAO;
+		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
 	}
 
 	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
@@ -60,6 +62,20 @@ public class UsuarioSAImp implements UsuarioSA {
 			}
 
 		}
+	}
+	
+	public void eliminarPregunta(String idPregunta, String idUsuario) {
+		
+		
+		
+		
+		
+	}
+	
+	
+	public void aniadirPregunta(PreguntaPOJO pregunta, String idUsuario) {
+		preguntaDAO.save(pregunta);
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO(pregunta.getId(), idUsuario));
 	}
 	
 }

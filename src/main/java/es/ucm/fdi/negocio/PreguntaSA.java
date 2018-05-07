@@ -1,18 +1,12 @@
 package es.ucm.fdi.negocio;
 
 /**
- * 
-<<<<<<< HEAD
- * Contiene las funcionalidades de la aplicación (a 
- *
- */
-=======
  * Contiene los servicios funcionales de la aplicación (a nivel de servidor)
  * que trabajan con preguntas.
  *
  */
 
->>>>>>> branch 'master' of https://github.com/Franqueira/IngenieriaSoft.git
+
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 public interface PreguntaSA {

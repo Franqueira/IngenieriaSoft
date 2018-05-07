@@ -104,30 +104,30 @@ public class UsuarioSATest {
 		respuestas1.add("Paris");
 		respuestas1.add("Roma");
 		respuestas1.add("Londres");
-		preguntaDAO.save(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1));
-		preguntaDAO.save(new PreguntaPOJO("a2", "cual es la capital de francia?", respuestas1, 2));
-		preguntaDAO.save(new PreguntaPOJO("a3", "cual es la capital de italia?", respuestas1, 3));
-		preguntaDAO.save(new PreguntaPOJO("a4", "cual es la capital de reino unido?", respuestas1, 4));
+		preguntaDAO.save(new PreguntaPOJO("a1", "cual es la capital de españa?", "geografía", respuestas1, 1));
+		preguntaDAO.save(new PreguntaPOJO("a2", "cual es la capital de francia?", "geografía", respuestas1, 2));
+		preguntaDAO.save(new PreguntaPOJO("a3", "cual es la capital de italia?", "geografía", respuestas1, 3));
+		preguntaDAO.save(new PreguntaPOJO("a4", "cual es la capital de reino unido?", "geografía", respuestas1, 4));
 		
 		ArrayList<String> respuestas2=new ArrayList<String>();
 		respuestas2.add("Wahington");
 		respuestas2.add("Moscu");
 		respuestas2.add("Praga");
 		respuestas2.add("Berlin");
-		preguntaDAO.save(new PreguntaPOJO("a5", "cual es la capital de eeuu?", respuestas2, 1));
-		preguntaDAO.save(new PreguntaPOJO("a6", "cual es la capital de rusia?", respuestas2, 2));
-		preguntaDAO.save(new PreguntaPOJO("a7", "cual es la capital de checoslovaquia?", respuestas2, 3));
-		preguntaDAO.save(new PreguntaPOJO("a8", "cual es la capital de alemania?", respuestas2, 4));
+		preguntaDAO.save(new PreguntaPOJO("a5", "cual es la capital de eeuu?", "geografía", respuestas2, 1));
+		preguntaDAO.save(new PreguntaPOJO("a6", "cual es la capital de rusia?", "geografía", respuestas2, 2));
+		preguntaDAO.save(new PreguntaPOJO("a7", "cual es la capital de checoslovaquia?", "geografía", respuestas2, 3));
+		preguntaDAO.save(new PreguntaPOJO("a8", "cual es la capital de alemania?", "geografía", respuestas2, 4));
 		
 		ArrayList<String> respuestas3=new ArrayList<String>();
 		respuestas3.add("el cairo");
 		respuestas3.add("copenague");
 		respuestas3.add("estocolmo");
 		respuestas3.add("helsinki");
-		preguntaDAO.save(new PreguntaPOJO("a9", "cual es la capital de egipto?", respuestas3, 1));
-		preguntaDAO.save(new PreguntaPOJO("a10", "cual es la capital de dinamarca?", respuestas3, 2));
-		preguntaDAO.save(new PreguntaPOJO("a11", "cual es la capital de suecia?", respuestas3, 3));
-		preguntaDAO.save(new PreguntaPOJO("a12", "cual es la capital de finlandia?", respuestas3, 4));	
+		preguntaDAO.save(new PreguntaPOJO("a9", "cual es la capital de egipto?", "geografía", respuestas3, 1));
+		preguntaDAO.save(new PreguntaPOJO("a10", "cual es la capital de dinamarca?", "geografía", respuestas3, 2));
+		preguntaDAO.save(new PreguntaPOJO("a11", "cual es la capital de suecia?", "geografía", respuestas3, 3));
+		preguntaDAO.save(new PreguntaPOJO("a12", "cual es la capital de finlandia?", "geografía", respuestas3, 4));	
 		for(int i = 1; i<13; i++){
 			preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a"+i,"peter_hy"));
 		}
@@ -179,8 +179,9 @@ public class UsuarioSATest {
 		respuestas1.add("Paris");
 		respuestas1.add("Roma");
 		respuestas1.add("Londres");
-		preguntaDAO.save(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1));
-		usuario.AnadirPregunta(new PreguntaPOJO("a1", "cual es la capital de españa?", respuestas1, 1), "javigm");
+		preguntaDAO.save(new PreguntaPOJO("a1", "cual es la capital de españa?", "geografía", respuestas1, 1));
+		usuario.AnadirPregunta(new PreguntaPOJO(
+				"a1", "cual es la capital de españa?", "geografía", respuestas1, 1), "javigm");
 		assertTrue("Deberia encontrarla", preguntaUsuarioDAO.getPreguntas("javigm").contains("a1"));
 	}
 	
@@ -205,7 +206,7 @@ public class UsuarioSATest {
 	 */
 	@Test
 	public void EliminarPreguntaTest(){
-<<<<<<< HEAD
+
 		usuario.ElminarPregunta("a12","peter_hy");
 		try{
 			preguntaDAO.getFromId("a12");
@@ -214,7 +215,7 @@ public class UsuarioSATest {
 		assertFalse("No debería aparecer en la lista",preguntaUsuarioDAO.getPreguntas("peter_hy").contains("a12"));	
 		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario(
 				"javigm").contains("al2"));
-=======
+
 	usuario.EliminarPregunta("a12","peter_hy");
 	try{
 	preguntaDAO.getFromId("a12");
@@ -223,6 +224,6 @@ public class UsuarioSATest {
 	assertFalse("No debería aparecer en la lista",preguntaUsuarioDAO.getPreguntas("peter_hy").contains("a12"));	
 
 		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al2"));
->>>>>>> branch 'master' of https://github.com/Franqueira/IngenieriaSoft.git
+
 	}
 }
