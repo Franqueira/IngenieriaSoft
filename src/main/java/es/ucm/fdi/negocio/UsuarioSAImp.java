@@ -13,7 +13,6 @@ public class UsuarioSAImp implements UsuarioSA {
 	public AlarmaDAO alarmaDAO;
 	public PreguntaDAO preguntaDAO;
 	public PreguntaUsuarioDAO preguntaUsuarioDAO;
-	
 	public UsuarioSAImp(UsuarioDAO usuarioDAO, UsuarioClanDAO usuariosClanDAO,
 			AlarmaUsuarioDAO usuariosAlarmaDAO, ClanDAOImp clanDAO,
 			AlarmaDAO alarmaDAO, PreguntaDAO preguntaDAO,

@@ -50,10 +50,4 @@ public class PreguntaPOJO extends POJO{
 		}
 		return salida;
 	}
-
-	@Override
-	public POJO clone() {
-		return this;
-	}
-
 }

@@ -15,9 +15,4 @@ public class AlarmaUsuarioPOJO extends POJO{
 	public void setIdUsuario(String idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-
-	@Override
-	public POJO clone() {
-		return this;
-	}
 }

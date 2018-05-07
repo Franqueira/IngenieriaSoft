@@ -16,11 +16,4 @@ public class PreguntaUsuarioPOJO extends POJO{
 	public void setIdUsuario(String id_usuario) {
 		this.id_usuario = id_usuario;
 	}
-
-	@Override
-	public POJO clone() {
-		return this;
-	}
-
-
 }
