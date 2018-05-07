@@ -34,6 +34,10 @@ public class TestperclanSAImp implements TestperclanSA{
 				.collect(Collectors.toCollection(ArrayList::new));
 	}
 	
+	public void setRanking(UsuarioPOJO usuario, int puntuacion) {
+		usuario.setPuntuacion(puntuacion);
+	}
+	
 	public void setGanador(String nombreClan){
 		getRanking(nombreClan).get(0).setEsGanador(true);
 	}
