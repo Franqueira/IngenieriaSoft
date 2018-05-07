@@ -7,6 +7,11 @@ import java.util.stream.Collectors;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
+/**
+ * 
+ * Implementacion de la interfaz PreguntaDAO
+ *
+ */
 public class PreguntaDAOImp extends HashMapDAOImp<PreguntaPOJO> implements PreguntaDAO{
 	
 	public PreguntaDAOImp(BDHashMap<PreguntaPOJO> BD) {

@@ -6,6 +6,11 @@ import java.util.stream.Collectors;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 
+/**
+ * 
+ * Implementación de la interfaz PreguntaUsuario
+ *
+ */
 public class PreguntaUsuarioDAOImp extends HashMapDAOImp<PreguntaUsuarioPOJO> implements PreguntaUsuarioDAO {
 	
 	public PreguntaUsuarioDAOImp(BDHashMap<PreguntaUsuarioPOJO> BD) {
