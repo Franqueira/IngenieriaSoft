@@ -5,7 +5,12 @@ import java.util.ArrayList;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 
-public class UsuarioClanDAOImp extends HashMapDAO<UsuarioClanPOJO> implements UsuarioClanDAO {
+/**
+ * 
+ * Implementación de la interfaz UsuarioClanDAO
+ *
+ */
+public class UsuarioClanDAOImp extends HashMapDAOImp<UsuarioClanPOJO> implements UsuarioClanDAO {
 	
 	public UsuarioClanDAOImp(BDHashMap<UsuarioClanPOJO> BD) {
 		super(BD);

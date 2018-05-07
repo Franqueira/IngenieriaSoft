@@ -5,7 +5,12 @@ import java.util.ArrayList;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 import es.ucm.fdi.datos.*;
 
-public class AlarmaUsuarioDAOImp extends HashMapDAO<AlarmaUsuarioPOJO> implements AlarmaUsuarioDAO{
+/**
+ * 
+ * Implementación de la interfaz AlarmausuarioDAO
+ * 
+ */
+public class AlarmaUsuarioDAOImp extends HashMapDAOImp<AlarmaUsuarioPOJO> implements AlarmaUsuarioDAO{
 	
 	public AlarmaUsuarioDAOImp(BDHashMap<AlarmaUsuarioPOJO> BD) {
 		super(BD);
