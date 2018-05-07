@@ -7,11 +7,11 @@ import java.util.List;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.POJO;
 
-public class HashMapDAO<T extends POJO> implements DAO<T>{
+public class HashMapDAOImp<T extends POJO> implements DAO<T>{
 	
 	protected BDHashMap<T> BD;
 	
-	protected HashMapDAO(BDHashMap<T> BD) {
+	protected HashMapDAOImp(BDHashMap<T> BD) {
 		this.BD = BD;
 	}
 

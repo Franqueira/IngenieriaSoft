@@ -2,7 +2,7 @@ package es.ucm.fdi.integracion.DAOs;
 import es.ucm.fdi.datos.*;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
-public class UsuarioDAOImp extends HashMapDAO<UsuarioPOJO> implements UsuarioDAO{
+public class UsuarioDAOImp extends HashMapDAOImp<UsuarioPOJO> implements UsuarioDAO{
 	
 	
 	public UsuarioDAOImp(BDHashMap<UsuarioPOJO> BD) {
@@ -10,13 +10,14 @@ public class UsuarioDAOImp extends HashMapDAO<UsuarioPOJO> implements UsuarioDAO
 	}
 
 	public UsuarioPOJO find(String nombreReal){
+		UsuarioPOJO user = null;
 		for(String id: BD.getIds()){
-			UsuarioPOJO user = BD.find(id);
-			if(user.getNombreReal().equals(nombreReal)){
-				return user;
+			UsuarioPOJO aux = BD.find(id);
+			if(aux.getNombreReal().equals(nombreReal)){
+				user = aux;
 			}
 		}
-		return null;
+		return user;
 	}
 	
 }
