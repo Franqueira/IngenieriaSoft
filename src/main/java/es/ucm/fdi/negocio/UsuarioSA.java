@@ -42,20 +42,4 @@ public interface UsuarioSA {
 	 */
 	public void EliminarUsuario(String idUsuario);
 
-	/**
-	 * 
-	 * @param pregunta pregunta a anadir
-	 * @param idUsuario id del usuario al que se le va a anadir la pregunta
-	 * Anade la pregunta en la base de datos de las preguntas y preguntasUsuario.
-	 */
-	public void AnadirPregunta(PreguntaPOJO pregunta,String idUsuario);
-	
-	/**
-	 * 
-	 * @param idPregunta id de la pregunta a eliminar.
-	 * @param idUsuario id del usuario al que se le va a eliminar la pregunta.
-	 * Elimina la pregunta en cuestion del usuario concreto.
-	 */
-	public void EliminarPregunta(String idPregunta,String idUsuario);
-
 }

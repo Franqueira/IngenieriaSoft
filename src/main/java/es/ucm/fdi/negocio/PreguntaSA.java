@@ -6,6 +6,9 @@ package es.ucm.fdi.negocio;
  * que trabajan con preguntas.
  *
  */
+
+import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
+
 public interface PreguntaSA {
 	
 	/**
@@ -15,5 +18,9 @@ public interface PreguntaSA {
 	 * @return devuelve un boolean que representa si la pregunta ha sido contestada correctamente.
 	 */
 	public boolean comprobarRespuesta(String idPregunta, int respuesta);
+	
+	public void ElminarPregunta(String idPregunta,String idUsuario);
+	
+	public void AnadirPregunta(PreguntaPOJO pregunta,String idUsuario);
 	
 }
