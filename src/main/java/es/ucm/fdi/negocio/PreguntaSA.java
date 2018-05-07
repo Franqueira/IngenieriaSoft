@@ -2,7 +2,7 @@ package es.ucm.fdi.negocio;
 
 /**
  * 
- * Contiene la sfuncionalidades de la aplicación (a 
+ * Contiene las funcionalidades de la aplicación (a 
  *
  */
 public interface PreguntaSA {

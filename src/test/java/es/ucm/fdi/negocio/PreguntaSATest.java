@@ -1,5 +1,9 @@
 package es.ucm.fdi.negocio;
 
+/**
+ * Contiene los test que comprueban la funcionalidad de PreguntaSA
+ */
+
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -17,13 +21,16 @@ public class PreguntaSATest {
 	private PreguntaDAOImp preguntaDAO;
 	private PreguntaSA preguntaSA;
 	
+	
+	/**
+	 * Creaccion de las preguntas
+	 */
 	@Before
 	public void setup() {
 		preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
 		preguntaSA = new PreguntaSAImp(preguntaDAO);
 		
-		//Creacion de preguntas
-		ArrayList<String> respuestas1=new ArrayList<String>();
+		ArrayList<String> respuestas1 = new ArrayList<String>();
 		respuestas1.add("Madrid");
 		respuestas1.add("Paris");
 		respuestas1.add("Roma");
@@ -33,7 +40,7 @@ public class PreguntaSATest {
 		preguntaDAO.save(new PreguntaPOJO("a3", "cual es la capital de italia?", respuestas1, 3));
 		preguntaDAO.save(new PreguntaPOJO("a4", "cual es la capital de reino unido?", respuestas1, 4));
 		
-		ArrayList<String> respuestas2=new ArrayList<String>();
+		ArrayList<String> respuestas2 = new ArrayList<String>();
 		respuestas2.add("Wahington");
 		respuestas2.add("Moscu");
 		respuestas2.add("Praga");
@@ -43,7 +50,7 @@ public class PreguntaSATest {
 		preguntaDAO.save(new PreguntaPOJO("a7", "cual es la capital de checoslovaquia?", respuestas2, 3));
 		preguntaDAO.save(new PreguntaPOJO("a8", "cual es la capital de alemania?", respuestas2, 4));
 		
-		ArrayList<String> respuestas3=new ArrayList<String>();
+		ArrayList<String> respuestas3 = new ArrayList<String>();
 		respuestas3.add("el cairo");
 		respuestas3.add("copenague");
 		respuestas3.add("estocolmo");
@@ -54,7 +61,10 @@ public class PreguntaSATest {
 		preguntaDAO.save(new PreguntaPOJO("a12", "cual es la capital de finlandia?", respuestas3, 4));	
 	
 	}
-		
+	
+	/**
+	 * Prueba que el sistema sabe si la respuesta es correcta o falsa
+	 */
 	@Test
 	public void getActiveTest(){
 		assertTrue("Debería ser correcta",preguntaSA.comprobarRespuesta("a1",1));
