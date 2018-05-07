@@ -6,14 +6,14 @@ import es.ucm.fdi.integracion.DAOs.*;
 import es.ucm.fdi.integracion.POJOs.*;
 
 public class UsuarioSAImp implements UsuarioSA {
-	public UsuarioDAO usuarioDAO;
-	public UsuarioClanDAO usuariosClanDAO;
-	public AlarmaUsuarioDAO usuariosAlarmaDAO;
-	public ClanDAOImp clanDAO;
-	public AlarmaDAO alarmaDAO;
-	public PreguntaDAO preguntaDAO;
-	public PreguntaUsuarioDAO preguntaUsuarioDAO;
-	public UsuarioSAImp(UsuarioDAO usuarioDAO, UsuarioClanDAO usuariosClanDAO,
+	private UsuarioDAO usuarioDAO;
+	private UsuarioClanDAO usuariosClanDAO;
+	private AlarmaUsuarioDAO usuariosAlarmaDAO;
+	private ClanDAOImp clanDAO;
+	private AlarmaDAO alarmaDAO;
+	private PreguntaDAO preguntaDAO;
+	private PreguntaUsuarioDAO preguntaUsuarioDAO;
+	private UsuarioSAImp(UsuarioDAO usuarioDAO, UsuarioClanDAO usuariosClanDAO,
 			AlarmaUsuarioDAO usuariosAlarmaDAO, ClanDAOImp clanDAO,
 			AlarmaDAO alarmaDAO, PreguntaDAO preguntaDAO,
 			PreguntaUsuarioDAO preguntaUsuarioDAO) {
