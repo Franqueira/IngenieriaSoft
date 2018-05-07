@@ -19,9 +19,13 @@ public class AlarmaSAImp implements AlarmaSA{
 		AlarmaPOJO alarmaPOJO = (AlarmaPOJO) alarmaDAO.getFromId(alarma);
 		if(alarmaPOJO.getMinutos() >= 55){
 			alarmaPOJO.setMinutos(alarmaPOJO.getMinutos() - 55);
-			alarmaPOJO.setHoras(horas);
+			if(alarmaPOJO.getHoras() == 23){
+				alarmaPOJO.setHoras(0);
+			}
+			else{
+				alarmaPOJO.setHoras(alarmaPOJO.getHoras() + 1);
+			}
 		}
-		else alarmaPOJO.setMinutos
-		
+		else alarmaPOJO.setMinutos(alarmaPOJO.getMinutos() + 5);
 	}
 }
