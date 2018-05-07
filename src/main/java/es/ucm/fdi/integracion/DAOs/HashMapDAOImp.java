@@ -14,16 +14,18 @@ public class HashMapDAOImp<T extends POJO> implements DAO<T>{
 	protected HashMapDAOImp(BDHashMap<T> BD) {
 		this.BD = BD;
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void save(T t) {
-		BD.insert(t, t.getId());
+		BD.insert((T) t.clone(), t.getId());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void update(T t) {
 		BD.removeId(t.getId());
-		BD.insert(t, t.getId());
+		BD.insert((T) t.clone(), t.getId());
 	}
 
 	@Override
