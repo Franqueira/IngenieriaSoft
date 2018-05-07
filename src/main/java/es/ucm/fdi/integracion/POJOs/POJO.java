@@ -23,18 +23,21 @@ public abstract class POJO {
 	}
 	
 	public POJO clone() {
-		Object deepCopy = this;
-		try {
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ObjectOutputStream oos = new ObjectOutputStream(baos);
-			oos.writeObject(this);
-			ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-			ObjectInputStream ois = new ObjectInputStream(bais);
-			deepCopy = ois.readObject();
-		} catch (ClassNotFoundException | IOException e) {
-			//Couldn't create clone
-		}
-		return (POJO) deepCopy;
+		Object clonedObj = null;
+	    try {
+	      ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	      ObjectOutputStream oos = new ObjectOutputStream(baos);
+	      oos.writeObject(this);
+	      oos.close();
+
+	      ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+	      ObjectInputStream ois = new ObjectInputStream(bais);
+	      clonedObj = ois.readObject();
+	      ois.close();
+	    } catch (Exception cnfe) {
+	      System.out.println("Class not found " + cnfe);
+	    }
+	    return (POJO) clonedObj;
 	}
 
 }
