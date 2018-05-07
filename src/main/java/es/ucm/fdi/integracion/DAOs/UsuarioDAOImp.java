@@ -2,7 +2,7 @@ package es.ucm.fdi.integracion.DAOs;
 import es.ucm.fdi.datos.*;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
-public class UsuarioDAOImp extends HashMapDAO<UsuarioPOJO> implements UsuarioDAO{
+public class UsuarioDAOImp extends HashMapDAOImp<UsuarioPOJO> implements UsuarioDAO{
 	
 	
 	public UsuarioDAOImp(BDHashMap<UsuarioPOJO> BD) {

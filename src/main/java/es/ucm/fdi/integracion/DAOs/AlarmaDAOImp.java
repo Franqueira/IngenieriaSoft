@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
-public class AlarmaDAOImp extends HashMapDAO<AlarmaPOJO> implements AlarmaDAO {
+public class AlarmaDAOImp extends HashMapDAOImp<AlarmaPOJO> implements AlarmaDAO {
 	
 	public AlarmaDAOImp(BDHashMap<AlarmaPOJO> BD) {
 		super(BD);
