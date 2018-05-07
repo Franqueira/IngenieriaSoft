@@ -17,4 +17,6 @@ public interface PreguntaDAO extends DAO<PreguntaPOJO>{
 	
 	public ArrayList<PreguntaPOJO> getAll();
 	
+	public ArrayList<PreguntaPOJO> getPreguntasPorCategoria(String categoria);
+	
 }
