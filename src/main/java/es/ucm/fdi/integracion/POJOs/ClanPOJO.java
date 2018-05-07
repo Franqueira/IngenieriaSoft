@@ -27,10 +27,4 @@ public class ClanPOJO extends POJO{// duda
 	public void setLider(String lider) {
 		this.lider = lider;
 	}
-
-	@Override
-	public POJO clone() {
-		return this;
-	}
-
 }

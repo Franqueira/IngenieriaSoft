@@ -70,9 +70,4 @@ public class AlarmaPOJO extends POJO{
 	public boolean isTime(int horas, int minutos){
 		return horas == this.horas && minutos == this.minutos;
 	}
-
-	@Override
-	public POJO clone() {
-		return this;
-	}
 }

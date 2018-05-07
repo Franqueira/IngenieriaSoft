@@ -15,12 +15,4 @@ public class UsuarioClanPOJO extends POJO{
 	public void setIdClan(String idClan) {
 		this.idClan = idClan;
 	}
-
-	@Override
-	public POJO clone() {
-		return this;
-	}
-
-	
-
 }
