@@ -1,5 +1,13 @@
 package es.ucm.fdi.integracion.POJOs;
 
+/**
+ * Clase que representa un usuario de la aplicación y contiene la información necesaria sobre él:
+ * su id, su nombre real, su puntuación paraincluirlo en el ranking de usuarios, su contraseña, 
+ * su país (para el ranking local), un booleano que indica si esGanador de su clan (y por tanto
+ * tiene ciertos privilegios) y el id del clan al que perteb¡nece si es que perteneciese a alguno.
+ *
+ */
+
 public class UsuarioPOJO extends POJO{
 	private String nombreReal;
 	private int puntuacion;
