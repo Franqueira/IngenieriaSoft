@@ -1,19 +1,22 @@
+
 package es.ucm.fdi.integracion.DAOs;
 
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 public class AlarmaDAOTest {
+	private AlarmaDAOImp alarmaDAO;
 	
-	
-	public void setup(AlarmaDAOImp alarmaDAO){
-		
+	@Before
+	public void setup(){
+		alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
 		alarmaDAO.save(new AlarmaPOJO("al1", 12, 23, true, "mytone1.mp3"));
 		alarmaDAO.save(new AlarmaPOJO("al2", 5, 0, true, "whatsapp_audio3.mp3"));
 		alarmaDAO.save(new AlarmaPOJO("al3", 16, 47, true, "song1.mp3"));
@@ -25,8 +28,6 @@ public class AlarmaDAOTest {
 	
 	@Test
 	public void getActiveTest(){
-		AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
-		setup(alarmaDAO);
 		ArrayList<AlarmaPOJO> activas = alarmaDAO.getActive();
 		System.out.println(activas);
 		ArrayList<AlarmaPOJO> esperadas = new ArrayList<>();

@@ -4,13 +4,19 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 public class PreguntaDAOTest {
-	public void setup(PreguntaDAO preguntaDAO) {
+	private PreguntaDAO preguntaDAO;
+	
+	@Before
+	public void setup() {
+		preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
+		
 		//Creacion de preguntas
 		ArrayList<String> respuestas1=new ArrayList<String>();
 		respuestas1.add("Madrid");
@@ -46,8 +52,6 @@ public class PreguntaDAOTest {
 	
 	@Test
 	public void getAllTest() {
-		PreguntaDAO preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
-		setup(preguntaDAO);
 		ArrayList<PreguntaPOJO> todas = preguntaDAO.getAll();
 		ArrayList<PreguntaPOJO>  esperadas = new ArrayList<>();
 		
@@ -62,8 +66,6 @@ public class PreguntaDAOTest {
 	
 	@Test
 	public void getPreguntasTest() {
-		PreguntaDAO preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
-		setup(preguntaDAO);
 		
 		ArrayList<String> lista = new ArrayList<String>();
 		lista.add("a1");

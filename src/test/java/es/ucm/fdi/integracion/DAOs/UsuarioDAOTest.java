@@ -2,20 +2,20 @@ package es.ucm.fdi.integracion.DAOs;
 
 import junit.framework.TestCase;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 public class UsuarioDAOTest extends TestCase {
 	private BDHashMap<UsuarioPOJO> BDUsuario;
+	private UsuarioDAOImp usuarioDAO;
 	
-	public UsuarioDAOTest(String testName){
-		super(testName);
-		this.BDUsuario = new BDHashMap<UsuarioPOJO>();
-		setup();
-	}
-	
+	@Before
 	public void setup(){
-		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(BDUsuario);
+		usuarioDAO = new UsuarioDAOImp(BDUsuario);
+		BDUsuario = new BDHashMap<UsuarioPOJO>();
 		
 		usuarioDAO.save(new UsuarioPOJO("javigm", "Javier Guzman", 1001, "hola123", "Spain"));
 		usuarioDAO.save(new UsuarioPOJO("peter_hy", "Peter Stones", 147, "hello321", "England"));
@@ -30,6 +30,7 @@ public class UsuarioDAOTest extends TestCase {
 		usuarioDAO.save(new UsuarioPOJO("jaime123", "Jaime Fernandez", 3090, "soyjaime", "Spain"));
 	}
 	
+	@Test
 	public void testFind(){
 		UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(BDUsuario);
 		assertEquals("El nombre real debería coincidir","Javier Guzman",usuarioDAO.find("Javier Guzman").getNombreReal());

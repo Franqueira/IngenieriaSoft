@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
@@ -32,7 +33,8 @@ public class UsuarioSATest {
 	private UsuarioClanDAOImp usuarioClanDAO;
 	private ClanDAOImp clanDAO;
 	
-	public UsuarioSATest(){
+	@Before
+	private void setup(){
 		usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
 		alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
 		alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(new BDHashMap<AlarmaUsuarioPOJO>());
@@ -41,11 +43,6 @@ public class UsuarioSATest {
 		usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
 		clanDAO = new ClanDAOImp (new BDHashMap<ClanPOJO>());
 		
-		
-		setup();
-	}
-
-	private void setup(){
 		
 		//Creacion de usuarios
 		usuarioDAO.save(new UsuarioPOJO("javigm", "Javier Guzman", 1001, "hola123", "Spain"));
@@ -129,6 +126,7 @@ public class UsuarioSATest {
 		//inicializar los demas para luego hacer el test
 		usuario=new UsuarioSAImp(usuarioDAO,usuarioClanDAO,alarmaUsuarioDAO,clanDAO,alarmaDAO,preguntaDAO,preguntaUsuarioDAO);
 	}
+	
 	@Test
 	public void EliminarUsuarioTest(){
 		usuario.EliminarUsuario("jc");
@@ -138,14 +136,13 @@ public class UsuarioSATest {
 		assertTrue("Javi debería ser el líder del clan",c.getLider().equals("javigm"));
 		usuario.EliminarUsuario("javigm");
 		assertEquals("Debería desaparecer de usuarioDAO",null,usuarioDAO.find("javigm"));
-		assertFalse("Debería cambiar de líder",c.getLider().equals("javigm"));
-		
+		assertFalse("Debería cambiar de líder",c.getLider().equals("javigm"));	
 	}
+	
 	@Test
 	public void AnadirUsuarioTest(){
 		usuario.AnadirUsuario(new UsuarioPOJO("jaime123", "Jaime Fernandez", 109, "soyjaime", "Spain"));
-		assertTrue("debería encontrarlo",usuarioDAO.find("jaime123")==null);
-		
+		assertTrue("debería encontrarlo",usuarioDAO.find("jaime123")==null);	
 	}
 	
 	@Test
@@ -153,8 +150,8 @@ public class UsuarioSATest {
 		usuario.AnadirAlarma(new AlarmaPOJO("al16", 12, 23, true, "mytone1.mp3"), "jc");
 		assertTrue("Debería encontrarla",alarmaDAO.getFromId("al16")!=null);
 		assertTrue("Debería añadir la alarma",alarmaUsuarioDAO.getAlarmasUsuario("jc").contains("al16"));
-		
 	}
+	
 	@Test
 	public void AnadirPreguntaTest() {
 		ArrayList<String> respuestas1=new ArrayList<String>();
@@ -177,9 +174,9 @@ public class UsuarioSATest {
 		}
 		catch(NullPointerException e){
 		}
-		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al1"));
-			
+		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al1"));	
 	}
+	
 	@Test
 	public void EliminarPreguntaTest(){
 	usuario.ElminarPregunta("a12","peter_hy");
