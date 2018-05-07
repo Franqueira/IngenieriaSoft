@@ -179,7 +179,7 @@ public class UsuarioSATest {
 	
 	@Test
 	public void EliminarPreguntaTest(){
-	usuario.ElminarPregunta("a12","peter_hy");
+	usuario.EliminarPregunta("a12","peter_hy");
 	try{
 	preguntaDAO.getFromId("a12");
 	assertTrue("Se experaba excepción",true);

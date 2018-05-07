@@ -5,6 +5,12 @@ import java.util.ArrayList;
 import es.ucm.fdi.integracion.DAOs.*;
 import es.ucm.fdi.integracion.POJOs.*;
 
+/**
+ * 
+ * Implementacion de la interfaz UsuarioSAImp
+ *
+ */
+
 public class UsuarioSAImp implements UsuarioSA {
 	private UsuarioDAO usuarioDAO;
 	private UsuarioClanDAO usuariosClanDAO;
@@ -27,8 +33,17 @@ public class UsuarioSAImp implements UsuarioSA {
 		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
 	}
 
-	public void AnadirUsuario(UsuarioPOJO usuario) {
+	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
+		alarmaDAO.save(alarma);
+		usuariosAlarmaDAO.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
+	}
 
+	public void EliminarAlarma(String idAlarma) {
+		alarmaDAO.remove(idAlarma);
+		usuariosAlarmaDAO.remove(idAlarma);
+	}
+	
+	public void AnadirUsuario(UsuarioPOJO usuario) {
 		usuarioDAO.save(usuario);
 	}
 
@@ -47,11 +62,13 @@ public class UsuarioSAImp implements UsuarioSA {
 
 		}
 	}
+	
 	public void AnadirPregunta(PreguntaPOJO pregunta,String idUsuario){
 		preguntaDAO.save(pregunta);
 		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
 	}
-	public void ElminarPregunta(String idPregunta,String idUsuario){
+	
+	public void EliminarPregunta(String idPregunta,String idUsuario){
 		ArrayList<String> preguntas=preguntaUsuarioDAO.getPreguntas(idUsuario);
 		if(preguntas.size()>10){ // solo dejamos eliminar si tiene mas de 10 preguntas.
 			preguntaDAO.remove(idPregunta);
@@ -59,13 +76,5 @@ public class UsuarioSAImp implements UsuarioSA {
 			
 		}
 	}
-	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
-		alarmaDAO.save(alarma);
-		usuariosAlarmaDAO.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
-	}
-
-	public void EliminarAlarma(String idAlarma) {
-		alarmaDAO.remove(idAlarma);
-		usuariosAlarmaDAO.remove(idAlarma);
-	}
+	
 }

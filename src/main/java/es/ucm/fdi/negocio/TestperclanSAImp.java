@@ -10,6 +10,11 @@ import es.ucm.fdi.integracion.POJOs.ClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
+/**
+ * 
+ * Implementacion de la interfaz TestperclanSA
+ *
+ */
 
 public class TestperclanSAImp implements TestperclanSA{
 	private ClanDAOImp clanDAO;
@@ -54,15 +59,15 @@ public class TestperclanSAImp implements TestperclanSA{
 		}
 	}
 
-	public void crearClan(String idUsuario, String idClan) {
-		clanDAO.save(new ClanPOJO(idClan, idUsuario));
-		((UsuarioPOJO)usuarioDAO.getFromId(idUsuario)).setIdClan(idClan);
-		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
-	}
-
 	public void anadirUsuarioClan(String idUsuario, String idClan) {
 		((UsuarioPOJO)usuarioDAO.getFromId(idUsuario)).setIdClan(idClan);
 		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
 		
+	}
+	
+	public void crearClan(String idUsuario, String idClan) {
+		clanDAO.save(new ClanPOJO(idClan, idUsuario));
+		((UsuarioPOJO)usuarioDAO.getFromId(idUsuario)).setIdClan(idClan);
+		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
 	}
 }
