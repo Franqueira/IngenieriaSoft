@@ -6,6 +6,11 @@ import java.util.stream.Collectors;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
+/**
+ * 
+ * Implementación de la interfaz AlarmaDAO
+ *
+ */
 public class AlarmaDAOImp extends HashMapDAOImp<AlarmaPOJO> implements AlarmaDAO {
 	
 	public AlarmaDAOImp(BDHashMap<AlarmaPOJO> BD) {

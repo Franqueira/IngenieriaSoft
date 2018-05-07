@@ -4,20 +4,9 @@ import es.ucm.fdi.integracion.DAOs.AlarmaDAO;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 public class AlarmaSAImp implements AlarmaSA{
-	
-	@SuppressWarnings("unused")
 	private AlarmaDAO alarmaDAO;
-	
-	public AlarmaSAImp(AlarmaDAO alarmaDAO) {
-		this.alarmaDAO = alarmaDAO;
+	@Override
+	public String getTone(String alarma) {
+		return ((AlarmaPOJO) alarmaDAO.getFromId(alarma)).getTono();
 	}
-	
-	public void reproducirAlarma(AlarmaPOJO a){
-		
-	}
-	
-	public void desconectarAlarma(AlarmaPOJO a){
-		
-	}
-
 }

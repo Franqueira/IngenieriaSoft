@@ -2,21 +2,21 @@ package es.ucm.fdi.integracion.DAOs;
 
 import java.util.ArrayList;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import junit.framework.TestCase;
 
 public class UsuarioClanDAOTest extends TestCase {
 	private BDHashMap<UsuarioClanPOJO> BDusuarioClan;
+	private UsuarioClanDAOImp usuarioClanDAO;
 	
-	public UsuarioClanDAOTest(String testName){
-		super(testName);
-		this.BDusuarioClan = new BDHashMap<UsuarioClanPOJO>();
-		setup();
-	}
-	
+	@Before
 	public void setup(){
-		UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
+		BDusuarioClan = new BDHashMap<UsuarioClanPOJO>();
+		usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
 		
 		usuarioClanDAO.save(new UsuarioClanPOJO("losPros","pepitoXD"));
 		usuarioClanDAO.save(new UsuarioClanPOJO("losPros","juanito123"));
@@ -30,8 +30,8 @@ public class UsuarioClanDAOTest extends TestCase {
 		usuarioClanDAO.save(new UsuarioClanPOJO("AlarmaSpain","martin_1998"));
 	}
 	
+	@Test
 	public void testGetMiembrosClan(){
-		UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
 		ArrayList<String> miembros = new ArrayList<String>();
 		miembros.add("pepitoXD");
 		miembros.add("Mery_8");

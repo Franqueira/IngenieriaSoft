@@ -3,6 +3,8 @@ package es.ucm.fdi;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import junit.framework.Assert;
@@ -37,8 +39,9 @@ public class FullTest {
 	private PreguntaUsuarioDAOImp preguntaUsuarioDAO;
 	private UsuarioClanDAOImp usuarioClanDAO;
 	private ClanDAOImp clanDAO;
-	
-	public FullTest(){
+
+	@Before
+	private void setup(){
 		usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
 		alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
 		alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(new BDHashMap<AlarmaUsuarioPOJO>());
@@ -47,12 +50,6 @@ public class FullTest {
 		usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
 		clanDAO = new ClanDAOImp (new BDHashMap<ClanPOJO>());
 		
-		
-		setup();
-	}
-
-	private void setup(){
-
 		//Creacion de usuarios
 		usuarioDAO.save(new UsuarioPOJO("javigm", "Javier Guzman", 1001, "hola123", "Spain"));
 		usuarioDAO.save(new UsuarioPOJO("peter_hy", "Peter Stones", 147, "hello321", "England"));

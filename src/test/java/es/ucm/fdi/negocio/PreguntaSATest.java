@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
@@ -13,7 +14,14 @@ import es.ucm.fdi.integracion.DAOs.PreguntaDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 
 public class PreguntaSATest {
-	public void setup(PreguntaDAO preguntaDAO) {
+	private PreguntaDAOImp preguntaDAO;
+	private PreguntaSA preguntaSA;
+	
+	@Before
+	public void setup() {
+		preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
+		preguntaSA = new PreguntaSAImp(preguntaDAO);
+		
 		//Creacion de preguntas
 		ArrayList<String> respuestas1=new ArrayList<String>();
 		respuestas1.add("Madrid");
@@ -49,9 +57,6 @@ public class PreguntaSATest {
 		
 	@Test
 	public void getActiveTest(){
-		PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
-		setup(preguntaDAO);
-		PreguntaSA preguntaSA = new PreguntaSAImp(preguntaDAO);
 		assertTrue("Debería ser correcta",preguntaSA.comprobarRespuesta("a1",1));
 		assertFalse("Debería ser falsa",preguntaSA.comprobarRespuesta("a1",2));
 		assertFalse("Debería ser falsa",preguntaSA.comprobarRespuesta("a1",3));
