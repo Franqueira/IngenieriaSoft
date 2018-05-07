@@ -205,6 +205,7 @@ public class UsuarioSATest {
 	 */
 	@Test
 	public void EliminarPreguntaTest(){
+<<<<<<< HEAD
 		usuario.ElminarPregunta("a12","peter_hy");
 		try{
 			preguntaDAO.getFromId("a12");
@@ -213,5 +214,15 @@ public class UsuarioSATest {
 		assertFalse("No debería aparecer en la lista",preguntaUsuarioDAO.getPreguntas("peter_hy").contains("a12"));	
 		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario(
 				"javigm").contains("al2"));
+=======
+	usuario.EliminarPregunta("a12","peter_hy");
+	try{
+	preguntaDAO.getFromId("a12");
+	assertTrue("Se experaba excepción",true);
+	}catch(NullPointerException e){}
+	assertFalse("No debería aparecer en la lista",preguntaUsuarioDAO.getPreguntas("peter_hy").contains("a12"));	
+
+		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al2"));
+>>>>>>> branch 'master' of https://github.com/Franqueira/IngenieriaSoft.git
 	}
 }

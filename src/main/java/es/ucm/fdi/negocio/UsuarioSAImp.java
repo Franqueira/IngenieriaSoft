@@ -5,6 +5,12 @@ import java.util.ArrayList;
 import es.ucm.fdi.integracion.DAOs.*;
 import es.ucm.fdi.integracion.POJOs.*;
 
+/**
+ * 
+ * Implementacion de la interfaz UsuarioSAImp
+ *
+ */
+
 public class UsuarioSAImp implements UsuarioSA {
 	private UsuarioDAO usuarioDAO;
 	private UsuarioClanDAO usuariosClanDAO;
@@ -26,8 +32,17 @@ public class UsuarioSAImp implements UsuarioSA {
 		this.alarmaDAO = alarmaDAO;
 	}
 
-	public void AnadirUsuario(UsuarioPOJO usuario) {
+	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
+		alarmaDAO.save(alarma);
+		usuariosAlarmaDAO.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
+	}
 
+	public void EliminarAlarma(String idAlarma) {
+		alarmaDAO.remove(idAlarma);
+		usuariosAlarmaDAO.remove(idAlarma);
+	}
+	
+	public void AnadirUsuario(UsuarioPOJO usuario) {
 		usuarioDAO.save(usuario);
 	}
 
@@ -46,14 +61,5 @@ public class UsuarioSAImp implements UsuarioSA {
 
 		}
 	}
-
-	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
-		alarmaDAO.save(alarma);
-		usuariosAlarmaDAO.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
-	}
-
-	public void EliminarAlarma(String idAlarma) {
-		alarmaDAO.remove(idAlarma);
-		usuariosAlarmaDAO.remove(idAlarma);
-	}
+	
 }
