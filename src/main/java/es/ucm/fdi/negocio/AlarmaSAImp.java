@@ -15,10 +15,11 @@ public class AlarmaSAImp implements AlarmaSA{
 		return ((AlarmaPOJO) alarmaDAO.getFromId(alarma)).getTono();
 	}
 	@Override
-	public void postponerAlarma(String alarma) {
+	public void posponerAlarma(String alarma) {
 		AlarmaPOJO alarmaPOJO = (AlarmaPOJO) alarmaDAO.getFromId(alarma);
 		if(alarmaPOJO.getMinutos() >= 55){
 			alarmaPOJO.setMinutos(alarmaPOJO.getMinutos() - 55);
+			alarmaPOJO.setHoras(alarmaPOJO.getHoras() + 1);
 			if(alarmaPOJO.getHoras() == 23){
 				alarmaPOJO.setHoras(0);
 			}
@@ -27,5 +28,6 @@ public class AlarmaSAImp implements AlarmaSA{
 			}
 		}
 		else alarmaPOJO.setMinutos(alarmaPOJO.getMinutos() + 5);
+
 	}
 }
