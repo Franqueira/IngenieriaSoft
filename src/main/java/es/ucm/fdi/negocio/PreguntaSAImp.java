@@ -7,6 +7,12 @@ import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 
+/**
+ * 
+ * Implementacion de la interfaz PreguntaSA
+ * 
+ */
+
 public class PreguntaSAImp implements PreguntaSA{
 
 	private PreguntaDAOImp preguntaDAO;
