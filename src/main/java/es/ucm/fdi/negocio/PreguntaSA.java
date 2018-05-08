@@ -19,8 +19,12 @@ public interface PreguntaSA {
 	 */
 	public boolean comprobarRespuesta(String idPregunta, int respuesta);
 	
-	public void ElminarPregunta(String idPregunta,String idUsuario);
+	public void desvincularPregunta(String idPregunta, String idUsuario);
 	
-	public void AnadirPregunta(PreguntaPOJO pregunta,String idUsuario);
+	public void vincularPreguntas(String categoria, String idUsuario);
+	
+	public void agregarPregunta(PreguntaPOJO pregunta);
+	
+	public void eliminarPregunta(String idPregunta);
 	
 }

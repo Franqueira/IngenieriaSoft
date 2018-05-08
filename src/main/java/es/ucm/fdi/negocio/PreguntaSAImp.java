@@ -27,17 +27,26 @@ public class PreguntaSAImp implements PreguntaSA{
 		return ((PreguntaPOJO) preguntaDAO.getFromId(idPregunta)).getRespuestaCorrecta() == respuesta;
 	}
 	
-	public void AnadirPregunta(PreguntaPOJO pregunta,String idUsuario){
-		preguntaDAO.save(pregunta);
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
+	public void vincularPreguntas(String categoria, String idUsuario){
+		ArrayList<PreguntaPOJO> preguntas = preguntaDAO.getPreguntasPorCategoria(categoria);
+		for(PreguntaPOJO pregunta : preguntas){
+			preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
+		}
 	}
-	public void ElminarPregunta(String idPregunta,String idUsuario){
+	public void desvincularPregunta(String idPregunta,String idUsuario){
 		ArrayList<String> preguntas=preguntaUsuarioDAO.getPreguntas(idUsuario);
 		if(preguntas.size()>10){ // solo dejamos eliminar si tiene mas de 10 preguntas.
-			preguntaDAO.remove(idPregunta);
 			preguntaUsuarioDAO.remove(idPregunta);
 			
 		}
+	}
+	
+	public void agregarPregunta(PreguntaPOJO pregunta){
+		preguntaDAO.save(pregunta);
+	}
+	
+	public void eliminarPregunta(String idPregunta){
+		preguntaDAO.remove(idPregunta);
 	}
 
 }
