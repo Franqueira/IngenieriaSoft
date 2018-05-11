@@ -63,19 +63,40 @@ public class UsuarioSAImp implements UsuarioSA {
 
 		}
 	}
-	
+
+	@Override
 	public void eliminarPregunta(String idPregunta, String idUsuario) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void anadirPregunta(PreguntaPOJO pregunta, String idUsuario) {
+		// TODO Auto-generated method stub
 		
-		
-		
-		
+	}
+
+	@Override
+	public ArrayList<String> preguntasClan(String usuario) {
+		ArrayList<String> preguntas = new ArrayList<>();
+		ClanPOJO clan = (ClanPOJO) clanDAO.getFromId(usuarioDAO.getFromId(usuario).getId());
+		for(String u: usuariosClanDAO.getMiembrosClan(clan.getId())){
+			for(String p: preguntaUsuarioDAO.getPreguntas(u)){
+				preguntas.add(p);
+			}
+		}
+		return preguntas;
+	}
+
+	@Override
+	public ArrayList<String> preguntasUsuario(String usuario) {
+		ArrayList<String> preguntas = new ArrayList<>();
+		for(String p: preguntaUsuarioDAO.getPreguntas(usuario)){
+			preguntas.add(p);
+		}
+		return preguntas;
 	}
 	
 	
-	public void aniadirPregunta(PreguntaPOJO pregunta, String idUsuario) {
-		preguntaDAO.save(pregunta);
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO(pregunta.getId(), idUsuario));
-	}
-	
+
 }
