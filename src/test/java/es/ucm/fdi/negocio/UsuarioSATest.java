@@ -180,7 +180,7 @@ public class UsuarioSATest {
 		respuestas1.add("Roma");
 		respuestas1.add("Londres");
 		preguntaDAO.save(new PreguntaPOJO("a1", "cual es la capital de españa?", "geografía", respuestas1, 1));
-		usuario.AnadirPregunta(new PreguntaPOJO(
+		usuario.aniadirPregunta(new PreguntaPOJO(
 				"a1", "cual es la capital de españa?", "geografía", respuestas1, 1), "javigm");
 		assertTrue("Deberia encontrarla", preguntaUsuarioDAO.getPreguntas("javigm").contains("a1"));
 	}
@@ -207,7 +207,7 @@ public class UsuarioSATest {
 	@Test
 	public void EliminarPreguntaTest(){
 
-		usuario.ElminarPregunta("a12","peter_hy");
+		usuario.eliminarPregunta("a12","peter_hy");
 		try{
 			preguntaDAO.getFromId("a12");
 			assertTrue("Se experaba excepción",true);
@@ -216,7 +216,7 @@ public class UsuarioSATest {
 		assertTrue("No debería tener asignada esta alarma",!alarmaUsuarioDAO.getAlarmasUsuario(
 				"javigm").contains("al2"));
 
-	usuario.EliminarPregunta("a12","peter_hy");
+	usuario.eliminarPregunta("a12","peter_hy");
 	try{
 	preguntaDAO.getFromId("a12");
 	assertTrue("Se experaba excepción",true);

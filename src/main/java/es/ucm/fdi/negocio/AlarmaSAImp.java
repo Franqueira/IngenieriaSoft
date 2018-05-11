@@ -10,6 +10,12 @@ import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
  */
 public class AlarmaSAImp implements AlarmaSA{
 	private AlarmaDAO alarmaDAO;
+	
+	
+	public AlarmaSAImp(AlarmaDAO alarmaDAO) {
+		this.alarmaDAO = alarmaDAO;
+	}
+	
 	@Override
 	public String getTone(String alarma) {
 		return ((AlarmaPOJO) alarmaDAO.getFromId(alarma)).getTono();

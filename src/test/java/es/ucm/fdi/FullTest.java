@@ -140,14 +140,14 @@ public class FullTest {
 		Assert.assertTrue("La alarma al2 debería existir", a!=null);
 		Assert.assertTrue("La alarma al2 debería estar activa", a.isActive());
 		AlarmaSA alarmaSA = new AlarmaSAImp(alarmaDAO);
-		alarmaSA.reproducirAlarma(a);
+		//alarmaSA.reproducirAlarma(a);
 		//Suena
 		PreguntaPOJO pregunta = (PreguntaPOJO) preguntaDAO.getFromId(preguntaUsuarioDAO.getPreguntas("peter_hy").get(0));
 		Assert.assertTrue("La pregunta debería existir", pregunta!=null);
 		//Mostrar pregunta
-		PreguntaSA preguntaSA = new PreguntaSAImp(preguntaDAO);
+		PreguntaSA preguntaSA = new PreguntaSAImp(preguntaDAO, preguntaUsuarioDAO);
 		assertTrue("Debería ser correcta",preguntaSA.comprobarRespuesta("a2",2));
-		alarmaSA.desconectarAlarma(a);
+		//alarmaSA.desconectarAlarma(a);
 		
 		TestperclanSA testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO, usuarioDAO);
 		testperclanSA.getRanking(user.getIdClan());
