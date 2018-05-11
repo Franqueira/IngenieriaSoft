@@ -30,5 +30,13 @@ public class PreguntaDAOImp extends HashMapDAOImp<PreguntaPOJO> implements Pregu
 		list.forEach(id -> preguntas.add(BD.find(id)));
 		return getFromIds(preguntas);
 	}
-	
+
+	@Override
+	public ArrayList<PreguntaPOJO> getPreguntasPorCategoria(String categoria) {
+		ArrayList<PreguntaPOJO> preguntas = BD.getIds().stream()
+				.map(id -> BD.find(id))
+				.filter(p -> p.getCategoria().equals(categoria))
+				.collect(Collectors.toCollection(ArrayList::new));
+		return preguntas;
+	}
 }

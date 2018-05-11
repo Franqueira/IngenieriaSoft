@@ -1,5 +1,12 @@
 package es.ucm.fdi.integracion.POJOs;
 
+/**
+ * 
+ * Clase que representa un clan en la aplicación. Contiene informacion
+ * acerca de su nombre y el id del lider del mismo.
+ *
+ */
+
 public class ClanPOJO extends POJO{// duda
 	String lider;
 

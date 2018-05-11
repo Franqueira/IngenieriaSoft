@@ -2,6 +2,12 @@ package es.ucm.fdi.integracion.DAOs;
 import es.ucm.fdi.datos.*;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
+/**
+ * 
+ * Implementación de la interfaz UsuarioDAO
+ *
+ */
+
 public class UsuarioDAOImp extends HashMapDAOImp<UsuarioPOJO> implements UsuarioDAO{
 	
 	

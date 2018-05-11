@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * 
+ * Clase genérica que contine las operaciones comunes a todos los POJOs de la aplicación
+ *
+ */
 public abstract class POJO {
 
 	protected String id;
