@@ -2,6 +2,7 @@ package es.ucm.fdi.negocio;
 
 import java.util.ArrayList;
 
+import es.ucm.fdi.integracion.DAOs.PreguntaDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
@@ -15,10 +16,10 @@ import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 
 public class PreguntaSAImp implements PreguntaSA{
 
-	private PreguntaDAOImp preguntaDAO;
+	private PreguntaDAO preguntaDAO;
 	private PreguntaUsuarioDAO preguntaUsuarioDAO;
 
-	public PreguntaSAImp(PreguntaDAOImp preguntaDAO, PreguntaUsuarioDAO preguntaUsuarioDAO) {
+	public PreguntaSAImp(PreguntaDAO preguntaDAO, PreguntaUsuarioDAO preguntaUsuarioDAO) {
 		this.preguntaDAO = preguntaDAO;
 		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
 	}

@@ -16,10 +16,12 @@ import org.junit.Test;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
+import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAO;
 
 public class PreguntaSATest {
 	private PreguntaDAOImp preguntaDAO;
 	private PreguntaSA preguntaSA;
+	private PreguntaUsuarioDAO preguntaUsuarioDAO;
 	
 	
 	/**
@@ -29,6 +31,7 @@ public class PreguntaSATest {
 	public void setup() {
 		preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
 		//preguntaSA = new PreguntaSAImp(preguntaDAO);
+		preguntaSA = new PreguntaSAImp(preguntaDAO, preguntaUsuarioDAO);
 		
 		ArrayList<String> respuestas1 = new ArrayList<String>();
 		respuestas1.add("Madrid");

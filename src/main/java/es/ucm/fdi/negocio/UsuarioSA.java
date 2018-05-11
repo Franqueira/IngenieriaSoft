@@ -1,5 +1,7 @@
 package es.ucm.fdi.negocio;
 
+import java.util.ArrayList;
+
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
@@ -41,5 +43,17 @@ public interface UsuarioSA {
 	 * Elimina al usuario en cuestion
 	 */
 	public void EliminarUsuario(String idUsuario);
+	
+	
+	
+	public void eliminarPregunta(String idPregunta, String idUsuario);
+	
+	
+	
+	public void anadirPregunta(PreguntaPOJO pregunta, String idUsuario);
+	
+	public ArrayList<String> preguntasClan(String usuario);
+	
+	public ArrayList<String> preguntasUsuario(String usuario);
 
 }
