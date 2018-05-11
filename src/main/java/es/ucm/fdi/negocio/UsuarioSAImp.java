@@ -66,16 +66,29 @@ public class UsuarioSAImp implements UsuarioSA {
 
 	@Override
 	public void eliminarPregunta(String idPregunta, String idUsuario) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void anadirPregunta(PreguntaPOJO pregunta, String idUsuario) {
-		// TODO Auto-generated method stub
+	
 		
 	}
+	public void informarRespuesta(String idUsuario, String idPregunta,
+			int respuesta) {
 
+		UsuarioPOJO user=(UsuarioPOJO)usuarioDAO.getFromId(idUsuario);
+		if(((PreguntaPOJO) preguntaDAO.getFromId(idPregunta)).getRespuestaCorrecta() == respuesta){
+			// el usuario ha acertado la pregunta
+			user.setPuntuacion(user.getPuntuacion()+10);// 10 por poner cualquier valor
+			
+		}
+		else{ //no acertó
+			user.setPuntuacion(user.getPuntuacion()-10); // restamos 10 si falla
+		}
+		
+	}
 	@Override
 	public ArrayList<String> preguntasClan(String usuario) {
 		ArrayList<String> preguntas = new ArrayList<>();

@@ -29,7 +29,6 @@ public interface UsuarioSA {
 	 * Elimina la alarma en cuestion.
 	 */
 	public void EliminarAlarma(String idAlarma);
-
 	/**
 	 * 
 	 * @param usuario usuario a anadir
@@ -37,23 +36,20 @@ public interface UsuarioSA {
 	 */
 	public void AnadirUsuario(UsuarioPOJO usuario);
 	
+	public void informarRespuesta(String idUsuario,String idPregunta,int respuesta);
+	
+	public ArrayList<String> preguntasUsuario(String usuario);
+	
+	public ArrayList<String> preguntasClan(String usuario);
+	
+	public void anadirPregunta(PreguntaPOJO pregunta, String idUsuario);
+	
+	public void eliminarPregunta(String idPregunta, String idUsuario);
 	/**
 	 * 
 	 * @param idUsuario id del usuario a eliminar.
 	 * Elimina al usuario en cuestion
 	 */
 	public void EliminarUsuario(String idUsuario);
-	
-	
-	
-	public void eliminarPregunta(String idPregunta, String idUsuario);
-	
-	
-	
-	public void anadirPregunta(PreguntaPOJO pregunta, String idUsuario);
-	
-	public ArrayList<String> preguntasClan(String usuario);
-	
-	public ArrayList<String> preguntasUsuario(String usuario);
 
 }

@@ -68,10 +68,10 @@ public class PreguntaSATest {
 	/**
 	 * Prueba que el sistema sabe si la respuesta es correcta o falsa
 	 */
-	@Test
-	public void getActiveTest(){
+	//@Test
+	/*public void getActiveTest(){
 		assertTrue("Debería ser correcta",preguntaSA.comprobarRespuesta("a1",1));
 		assertFalse("Debería ser falsa",preguntaSA.comprobarRespuesta("a1",2));
 		assertFalse("Debería ser falsa",preguntaSA.comprobarRespuesta("a1",3));
-	}
+	}*/
 }

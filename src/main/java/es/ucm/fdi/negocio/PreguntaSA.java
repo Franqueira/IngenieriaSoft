@@ -17,7 +17,6 @@ public interface PreguntaSA {
 	 * @param respuesta respuesta contestada de la pregunta.
 	 * @return devuelve un boolean que representa si la pregunta ha sido contestada correctamente.
 	 */
-	
 	public void desvincularCategoria(String categoria, String idUsuario);
 	
 	public void vincularCategoria(String categoria, String idUsuario);
