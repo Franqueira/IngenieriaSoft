@@ -153,6 +153,7 @@ public class FullTest {
 		testperclanSA.getRanking(user.getIdClan());
 		//Mostrar ranking
 	}
+	
 	@Test
 	public void TestGanador(){
 		TestperclanSAImp tesperclan=new TestperclanSAImp(clanDAO,usuarioClanDAO,usuarioDAO);
