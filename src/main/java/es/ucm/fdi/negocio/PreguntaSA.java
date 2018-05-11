@@ -17,11 +17,10 @@ public interface PreguntaSA {
 	 * @param respuesta respuesta contestada de la pregunta.
 	 * @return devuelve un boolean que representa si la pregunta ha sido contestada correctamente.
 	 */
-	public boolean comprobarRespuesta(String idPregunta, int respuesta);
 	
-	public void desvincularPregunta(String idPregunta, String idUsuario);
+	public void desvincularCategoria(String categoria, String idUsuario);
 	
-	public void vincularPreguntas(String categoria, String idUsuario);
+	public void vincularCategoria(String categoria, String idUsuario);
 	
 	public void agregarPregunta(PreguntaPOJO pregunta);
 	
