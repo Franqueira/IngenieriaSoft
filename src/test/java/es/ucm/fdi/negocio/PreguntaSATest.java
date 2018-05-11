@@ -28,7 +28,7 @@ public class PreguntaSATest {
 	@Before
 	public void setup() {
 		preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
-		preguntaSA = new PreguntaSAImp(preguntaDAO);
+		//preguntaSA = new PreguntaSAImp(preguntaDAO);
 		
 		ArrayList<String> respuestas1 = new ArrayList<String>();
 		respuestas1.add("Madrid");
