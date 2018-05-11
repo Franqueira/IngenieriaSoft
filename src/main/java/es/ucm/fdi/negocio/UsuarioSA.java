@@ -41,5 +41,13 @@ public interface UsuarioSA {
 	 * Elimina al usuario en cuestion
 	 */
 	public void EliminarUsuario(String idUsuario);
+	
+	
+	
+	public void eliminarPregunta(String idPregunta, String idUsuario);
+	
+	
+	
+	public void aniadirPregunta(PreguntaPOJO pregunta, String idUsuario);
 
 }
