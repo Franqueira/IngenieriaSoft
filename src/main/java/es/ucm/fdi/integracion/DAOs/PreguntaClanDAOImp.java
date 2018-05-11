@@ -9,7 +9,7 @@ import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 
 /**
  * 
- * Implementación de la interfaz PreguntaUsuario
+ * Implementación de la interfaz PreguntaClan
  *
  */
 public class PreguntaClanDAOImp extends HashMapDAOImp<PreguntaClanPOJO> implements PreguntaClanDAO {
