@@ -9,8 +9,7 @@ import es.ucm.fdi.integracion.POJOs.ClanPOJO;
  * clanes de la aplicación.
  *
  */
-public class ClanDAOImp extends HashMapDAOImp<ClanPOJO> implements
-		DAO<ClanPOJO> {
+public class ClanDAOImp extends HashMapDAOImp<ClanPOJO> implements ClanDAO {
 
 	public ClanDAOImp(BDHashMap<ClanPOJO> BD) {
 		super(BD);
