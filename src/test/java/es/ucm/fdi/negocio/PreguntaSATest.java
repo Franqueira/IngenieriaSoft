@@ -66,7 +66,7 @@ public class PreguntaSATest {
 	}
 	
 	/**
-	 * Prueba que el sistema sabe si la respuesta es correcta o falsa
+	 * Prueba que el sistema sabe si la respuesta esta bien
 	 */
 	//@Test
 	/*public void getActiveTest(){
