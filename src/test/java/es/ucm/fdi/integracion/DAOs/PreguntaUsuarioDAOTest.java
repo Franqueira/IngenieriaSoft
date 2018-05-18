@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.ucm.fdi.InicializaPreguntaUsuarioDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 
@@ -16,12 +17,7 @@ public class PreguntaUsuarioDAOTest{
 	
 	@Before
 	public void setup() {
-		BDPreguntaUsuario = new BDHashMap<PreguntaUsuarioPOJO>();
-		preguntaUsuarioDAO = new PreguntaUsuarioDAOImp(BDPreguntaUsuario);
-		
-		for(int i=1;i<13;i++){
-			preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO("a"+i,"peter_hy"));
-		}
+		new InicializaPreguntaUsuarioDAOImp1().inicializa(preguntaUsuarioDAO);
 	}
 	
 	
