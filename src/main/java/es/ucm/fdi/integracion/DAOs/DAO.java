@@ -4,6 +4,12 @@ import java.util.List;
 
 import es.ucm.fdi.integracion.POJOs.POJO;
 
+/**
+ * 
+ * Interfaz con las operaciones comunes a todos los DAO
+ *
+ * @param <T> POJO al que va asociado el DAO
+ */
 public interface DAO<T> {
 	public void save(T t);
 

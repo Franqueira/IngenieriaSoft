@@ -22,11 +22,7 @@ public class AlarmaPOJO extends POJO {
 		this.horas = horas;
 		this.minutos = minutos;
 		this.active = activa;
-		String extension = Tono.substring(Tono.length() - 4, Tono.length()); // creo
-																				// que
-																				// así
-																				// esta
-																				// bien.
+		String extension = Tono.substring(Tono.length() - 4, Tono.length());
 		if (!extension.equals(".mp3"))
 			throw new IllegalArgumentException(
 					"El tono debe tener extensión .mp3");

@@ -11,5 +11,5 @@ import es.ucm.fdi.integracion.POJOs.ClanPOJO;
  * 
  */
 public interface ClanDAO extends DAO<ClanPOJO> {
-
+	
 }

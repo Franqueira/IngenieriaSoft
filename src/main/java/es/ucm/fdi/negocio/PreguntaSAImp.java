@@ -23,7 +23,7 @@ public class PreguntaSAImp implements PreguntaSA {
 		this.preguntaDAO = preguntaDAO;
 		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
 	}
-
+	@Override
 	public void vincularCategoria(String categoria, String idUsuario) {
 		ArrayList<PreguntaPOJO> preguntas = preguntaDAO
 				.getPreguntasPorCategoria(categoria);
@@ -32,7 +32,7 @@ public class PreguntaSAImp implements PreguntaSA {
 					idUsuario));
 		}
 	}
-
+	@Override
 	public void desvincularCategoria(String categoria, String idUsuario) {
 		ArrayList<PreguntaPOJO> preguntas = preguntaDAO
 				.getPreguntas(preguntaUsuarioDAO.getPreguntas(idUsuario));
@@ -42,11 +42,11 @@ public class PreguntaSAImp implements PreguntaSA {
 			}
 		}
 	}
-
+	@Override
 	public void agregarPregunta(PreguntaPOJO pregunta) {
 		preguntaDAO.save(pregunta);
 	}
-
+	@Override
 	public void eliminarPregunta(String idPregunta) {
 		preguntaDAO.remove(idPregunta);
 	}

@@ -67,16 +67,6 @@ public class UsuarioSAImp implements UsuarioSA {
 		}
 	}
 
-	@Override
-	public void eliminarPregunta(String idPregunta, String idUsuario) {
-
-	}
-
-	@Override
-	public void anadirPregunta(PreguntaPOJO pregunta, String idUsuario) {
-
-	}
-
 	public void informarRespuesta(String idUsuario, String idPregunta,
 			int respuesta) {
 
