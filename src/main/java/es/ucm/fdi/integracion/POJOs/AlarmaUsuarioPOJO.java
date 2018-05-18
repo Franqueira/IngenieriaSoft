@@ -7,7 +7,7 @@ package es.ucm.fdi.integracion.POJOs;
  *
  */
 
-public class AlarmaUsuarioPOJO extends POJO{
+public class AlarmaUsuarioPOJO extends POJO {
 	String idUsuario;
 
 	public AlarmaUsuarioPOJO(String idAlarma, String idUsuario) {

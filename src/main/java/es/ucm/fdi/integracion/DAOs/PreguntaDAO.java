@@ -7,16 +7,16 @@ import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 /**
  * 
- * Contiene las operaciones relacionadas con el acceso a memoria
- * con datos de las preguntas de la aplicación.
+ * Contiene las operaciones relacionadas con el acceso a memoria con datos de
+ * las preguntas de la aplicación.
  * 
  */
-public interface PreguntaDAO extends DAO<PreguntaPOJO>{
-	
+public interface PreguntaDAO extends DAO<PreguntaPOJO> {
+
 	public ArrayList<PreguntaPOJO> getPreguntas(List<String> list);
-	
+
 	public ArrayList<PreguntaPOJO> getAll();
-	
+
 	public ArrayList<PreguntaPOJO> getPreguntasPorCategoria(String categoria);
-	
+
 }

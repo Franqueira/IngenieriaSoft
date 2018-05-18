@@ -5,14 +5,15 @@ import es.ucm.fdi.integracion.POJOs.ClanPOJO;
 
 /**
  * 
- * Operaciones relacionadas con el acceso a memoria de datos de los
- * diferentes clanes de la aplicación.
+ * Operaciones relacionadas con el acceso a memoria de datos de los diferentes
+ * clanes de la aplicación.
  *
  */
-public class ClanDAOImp extends HashMapDAOImp<ClanPOJO> implements DAO<ClanPOJO>{
+public class ClanDAOImp extends HashMapDAOImp<ClanPOJO> implements
+		DAO<ClanPOJO> {
 
 	public ClanDAOImp(BDHashMap<ClanPOJO> BD) {
 		super(BD);
 	}
-	
+
 }

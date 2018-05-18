@@ -12,15 +12,16 @@ import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
  * Implementación de la interfaz PreguntaClan
  *
  */
-public class PreguntaClanDAOImp extends HashMapDAOImp<PreguntaClanPOJO> implements PreguntaClanDAO {
-	
+public class PreguntaClanDAOImp extends HashMapDAOImp<PreguntaClanPOJO>
+		implements PreguntaClanDAO {
+
 	public PreguntaClanDAOImp(BDHashMap<PreguntaClanPOJO> BD) {
 		super(BD);
 	}
 
-	public ArrayList<String> getPreguntas(String idClan){
+	public ArrayList<String> getPreguntas(String idClan) {
 		return BD.getIds().stream()
-				.filter(id -> BD.find(id).getIdClan()==idClan)
+				.filter(id -> BD.find(id).getIdClan() == idClan)
 				.collect(Collectors.toCollection(ArrayList::new));
 	}
 }

@@ -4,19 +4,20 @@ import java.util.ArrayList;
 
 /**
  * 
- * Clase que representa un pregunta de la aplicación. Contiene el texto de la pregunta (texto),
- * la categoria a la que perteneces, una lista con las posibles respuestas tipo-test(respuestas) 
- * y un entero indicando el indice de la lista en el que se encuentra la respuesta correcta.
+ * Clase que representa un pregunta de la aplicación. Contiene el texto de la
+ * pregunta (texto), la categoria a la que perteneces, una lista con las
+ * posibles respuestas tipo-test(respuestas) y un entero indicando el indice de
+ * la lista en el que se encuentra la respuesta correcta.
  *
  */
-public class PreguntaPOJO extends POJO{
+public class PreguntaPOJO extends POJO {
 	String texto;
 	String categoria;
 	ArrayList<String> respuestas;
 	int respuestaCorrecta;
 
-	public PreguntaPOJO(String id, String texto, String categoria, ArrayList<String> respuestas,
-			int respuestaCorrecta) {
+	public PreguntaPOJO(String id, String texto, String categoria,
+			ArrayList<String> respuestas, int respuestaCorrecta) {
 		super(id);
 		this.categoria = categoria;
 		this.texto = texto;
@@ -47,7 +48,7 @@ public class PreguntaPOJO extends POJO{
 	public void setRespuestaCorrecta(int respuestaCorrecta) {
 		this.respuestaCorrecta = respuestaCorrecta;
 	}
-	
+
 	public String getCategoria() {
 		return categoria;
 	}

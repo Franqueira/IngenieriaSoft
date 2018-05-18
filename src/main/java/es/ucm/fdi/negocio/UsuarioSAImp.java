@@ -19,7 +19,7 @@ public class UsuarioSAImp implements UsuarioSA {
 	private AlarmaDAO alarmaDAO;
 	private PreguntaDAO preguntaDAO;
 	private PreguntaUsuarioDAO preguntaUsuarioDAO;
-	
+
 	public UsuarioSAImp(UsuarioDAO usuarioDAO, UsuarioClanDAO usuariosClanDAO,
 			AlarmaUsuarioDAO usuariosAlarmaDAO, ClanDAOImp clanDAO,
 			AlarmaDAO alarmaDAO, PreguntaDAO preguntaDAO,
@@ -36,24 +36,27 @@ public class UsuarioSAImp implements UsuarioSA {
 
 	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
 		alarmaDAO.save(alarma);
-		usuariosAlarmaDAO.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
+		usuariosAlarmaDAO
+				.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
 	}
 
 	public void EliminarAlarma(String idAlarma) {
 		alarmaDAO.remove(idAlarma);
 		usuariosAlarmaDAO.remove(idAlarma);
 	}
-	
+
 	public void AnadirUsuario(UsuarioPOJO usuario) {
 		usuarioDAO.save(usuario);
 	}
 
 	public void EliminarUsuario(String idUsuario) {
-		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).getIdClan();
+		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario))
+				.getIdClan();
 		usuarioDAO.remove(idUsuario);
-		if (idClan!=null) {
+		if (idClan != null) {
 			usuariosClanDAO.remove(idUsuario);
-			if (((ClanPOJO) clanDAO.getFromId(idClan)).getLider().equals(idUsuario)) {
+			if (((ClanPOJO) clanDAO.getFromId(idClan)).getLider().equals(
+					idUsuario)) {
 				ArrayList<String> c = usuariosClanDAO.getMiembrosClan(idClan);
 				if (c.isEmpty())
 					clanDAO.remove(idClan);
@@ -66,35 +69,38 @@ public class UsuarioSAImp implements UsuarioSA {
 
 	@Override
 	public void eliminarPregunta(String idPregunta, String idUsuario) {
-		
-		
+
 	}
 
 	@Override
 	public void anadirPregunta(PreguntaPOJO pregunta, String idUsuario) {
-	
-		
+
 	}
+
 	public void informarRespuesta(String idUsuario, String idPregunta,
 			int respuesta) {
 
-		UsuarioPOJO user=(UsuarioPOJO)usuarioDAO.getFromId(idUsuario);
-		if(((PreguntaPOJO) preguntaDAO.getFromId(idPregunta)).getRespuestaCorrecta() == respuesta){
+		UsuarioPOJO user = (UsuarioPOJO) usuarioDAO.getFromId(idUsuario);
+		if (((PreguntaPOJO) preguntaDAO.getFromId(idPregunta))
+				.getRespuestaCorrecta() == respuesta) {
 			// el usuario ha acertado la pregunta
-			user.setPuntuacion(user.getPuntuacion()+10);// 10 por poner cualquier valor
-			
+			user.setPuntuacion(user.getPuntuacion() + 10);// 10 por poner
+															// cualquier valor
+
+		} else { // no acertó
+			user.setPuntuacion(user.getPuntuacion() - 10); // restamos 10 si
+															// falla
 		}
-		else{ //no acertó
-			user.setPuntuacion(user.getPuntuacion()-10); // restamos 10 si falla
-		}
-		
+
 	}
+
 	@Override
 	public ArrayList<String> preguntasClan(String usuario) {
 		ArrayList<String> preguntas = new ArrayList<>();
-		ClanPOJO clan = (ClanPOJO) clanDAO.getFromId(usuarioDAO.getFromId(usuario).getId());
-		for(String u: usuariosClanDAO.getMiembrosClan(clan.getId())){
-			for(String p: preguntaUsuarioDAO.getPreguntas(u)){
+		ClanPOJO clan = (ClanPOJO) clanDAO.getFromId(usuarioDAO.getFromId(
+				usuario).getId());
+		for (String u : usuariosClanDAO.getMiembrosClan(clan.getId())) {
+			for (String p : preguntaUsuarioDAO.getPreguntas(u)) {
 				preguntas.add(p);
 			}
 		}
@@ -104,12 +110,10 @@ public class UsuarioSAImp implements UsuarioSA {
 	@Override
 	public ArrayList<String> preguntasUsuario(String usuario) {
 		ArrayList<String> preguntas = new ArrayList<>();
-		for(String p: preguntaUsuarioDAO.getPreguntas(usuario)){
+		for (String p : preguntaUsuarioDAO.getPreguntas(usuario)) {
 			preguntas.add(p);
 		}
 		return preguntas;
 	}
-	
-	
 
 }

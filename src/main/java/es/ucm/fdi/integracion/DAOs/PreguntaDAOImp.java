@@ -12,20 +12,25 @@ import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
  * Implementacion de la interfaz PreguntaDAO
  *
  */
-public class PreguntaDAOImp extends HashMapDAOImp<PreguntaPOJO> implements PreguntaDAO{
-	
+public class PreguntaDAOImp extends HashMapDAOImp<PreguntaPOJO> implements
+		PreguntaDAO {
+
 	public PreguntaDAOImp(BDHashMap<PreguntaPOJO> BD) {
 		super(BD);
 	}
 
-	public ArrayList<PreguntaPOJO> getAll(){
+	public ArrayList<PreguntaPOJO> getAll() {
 		ArrayList<String> list = BD.getIds();
-		return getFromIds(list.stream()
-				.map(id -> BD.find(id)) //Busca el PreguntaPOJO correspondiente
-				.collect(Collectors.toCollection(ArrayList::new))); //Los guarda en un ArrayList
+		return getFromIds(list.stream().map(id -> BD.find(id)) // Busca el
+																// PreguntaPOJO
+																// correspondiente
+				.collect(Collectors.toCollection(ArrayList::new))); // Los
+																	// guarda en
+																	// un
+																	// ArrayList
 	}
-	
-	public ArrayList<PreguntaPOJO> getPreguntas(List<String> list){
+
+	public ArrayList<PreguntaPOJO> getPreguntas(List<String> list) {
 		ArrayList<PreguntaPOJO> preguntas = new ArrayList<>();
 		list.forEach(id -> preguntas.add(BD.find(id)));
 		return getFromIds(preguntas);
