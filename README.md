@@ -1,4 +1,4 @@
-# Ingenieria del Software
+# Testpertador
 
 Proyecto Testpertador de la Universidad Complutense de Madrid.
 
