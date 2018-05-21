@@ -33,11 +33,13 @@ public interface PreguntaSA {
 
 	/**
 	 * Agregar una nueva pregunta a la base de datos
+	 * La pregunta es agregada a la base de datos del usuario 
+	 * y del clan al que pertenece.
 	 * 
 	 * @param pregunta
 	 *            pregunta a agregar
 	 */
-	public void agregarPregunta(PreguntaPOJO pregunta);
+	public void agregarPregunta(PreguntaPOJO pregunta,String idUsuario);
 
 	/**
 	 * Elimina un apregunta de la base de datos
@@ -45,6 +47,6 @@ public interface PreguntaSA {
 	 * @param idPregunta
 	 *            id de la pregunta a eliminar
 	 */
-	public void eliminarPregunta(String idPregunta);
+	public void eliminarPregunta(String idPregunta,String idUsuario);
 
 }

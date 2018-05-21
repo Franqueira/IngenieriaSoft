@@ -26,4 +26,21 @@ public interface AlarmaSA {
 	 *            minutos.
 	 */
 	public void posponerAlarma(String alarma);
+
+	/**
+	 * 
+	 * @param alarma
+	 *            alarma a anadir.
+	 * @param idUsuario
+	 *            id del usuario al que se le va a anadir la alarma Anade una
+	 *            nueva alarma en la base de datos de las alarmas.
+	 */
+	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario);
+
+	/**
+	 * 
+	 * @param idAlarma
+	 *            id de la alarma a eliminar. Elimina la alarma en cuestion.
+	 */
+	public void EliminarAlarma(String idAlarma);
 }

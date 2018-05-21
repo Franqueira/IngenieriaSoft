@@ -15,12 +15,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
+import es.ucm.fdi.integracion.DAOs.PreguntaClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAO;
+import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 
 public class PreguntaSATest {
 	private PreguntaDAOImp preguntaDAO;
+	private PreguntaClanDAOImp preguntaClanDAO;
+	private UsuarioDAOImp usuarioDAO;
 	private PreguntaSA preguntaSA;
 	private PreguntaUsuarioDAO preguntaUsuarioDAO;
 	
@@ -33,7 +37,7 @@ public class PreguntaSATest {
 		new InicializaPreguntaDAOImp1().inicializa(preguntaDAO);
 		new InicializaPreguntaUsuarioDAOImp1().inicializa(preguntaUsuarioDAO);
 		//preguntaSA = new PreguntaSAImp(preguntaDAO);
-		preguntaSA = new PreguntaSAImp(preguntaDAO, preguntaUsuarioDAO);
+		preguntaSA = new PreguntaSAImp(preguntaDAO, preguntaUsuarioDAO,usuarioDAO,preguntaClanDAO);
 		
 	}
 	

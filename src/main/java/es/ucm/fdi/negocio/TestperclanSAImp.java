@@ -3,12 +3,8 @@ package es.ucm.fdi.negocio;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
-import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
-import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
-import es.ucm.fdi.integracion.POJOs.ClanPOJO;
-import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
-import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
+import es.ucm.fdi.integracion.DAOs.*;
+import es.ucm.fdi.integracion.POJOs.*;
 
 /**
  * 
@@ -20,12 +16,13 @@ public class TestperclanSAImp implements TestperclanSA {
 	private ClanDAOImp clanDAO;
 	private UsuarioClanDAO usuarioClanDAO;
 	private UsuarioDAO usuarioDAO;
-
+	private PreguntaClanDAO preguntaClanDAO;
 	public TestperclanSAImp(ClanDAOImp clanDAO, UsuarioClanDAO usuarioClanDAO,
-			UsuarioDAO usuarios) {
+			UsuarioDAO usuarios,PreguntaClanDAO preguntaClanDAO) {
 		this.clanDAO = clanDAO;
 		this.usuarioClanDAO = usuarioClanDAO;
 		this.usuarioDAO = usuarios;
+		this.preguntaClanDAO=preguntaClanDAO;
 	}
 
 	public ArrayList<UsuarioPOJO> getRanking(String nombreClan) {
@@ -70,5 +67,10 @@ public class TestperclanSAImp implements TestperclanSA {
 		clanDAO.save(new ClanPOJO(idClan, idUsuario));
 		((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).setIdClan(idClan);
 		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
+	}
+	//tiene poco sentido llamar a este método no?
+	@Override
+	public ArrayList<String> preguntasClan(String idClan) {
+		return preguntaClanDAO.getPreguntas(idClan);
 	}
 }

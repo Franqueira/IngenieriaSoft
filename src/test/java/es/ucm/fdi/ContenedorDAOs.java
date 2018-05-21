@@ -6,6 +6,8 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
+import es.ucm.fdi.integracion.DAOs.PreguntaClanDAO;
+import es.ucm.fdi.integracion.DAOs.PreguntaClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
@@ -16,10 +18,14 @@ import es.ucm.fdi.integracion.POJOs.ClanPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
+import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 import es.ucm.fdi.negocio.TestperclanSAImp;
 
-//ya le cambiaré el nombre dependiendo del patrón
+/*
+ * Ahora mismo no es utilizado por la aplicación, pero cabe la posibilidad de que en
+ * un futuro quiera usarse.
+ */
 public class ContenedorDAOs {
 	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
 	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
@@ -28,6 +34,7 @@ public class ContenedorDAOs {
 	private PreguntaUsuarioDAOImp preguntaUsuarioDAO = new PreguntaUsuarioDAOImp(new BDHashMap<PreguntaUsuarioPOJO>());
 	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
 	private ClanDAOImp clanDAO = new ClanDAOImp (new BDHashMap<ClanPOJO>());
+	private PreguntaClanDAO preguntaClanDAO = new PreguntaClanDAOImp(new BDHashMap<PreguntaClanPOJO>());
 	public UsuarioDAOImp getUsuarioDAO() {
 		return usuarioDAO;
 	}
@@ -112,7 +119,7 @@ public class ContenedorDAOs {
 				alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al16", "franqui"));
 				
 				//Creacion de clanes
-				TestperclanSAImp testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,usuarioDAO);
+				TestperclanSAImp testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,usuarioDAO,preguntaClanDAO);
 				testperclanSA.crearClan("javigm", "Los Matinfos");
 				testperclanSA.anadirUsuarioClan("borisc", "Los Matinfos");
 				testperclanSA.anadirUsuarioClan("jc", "Los Matinfos");

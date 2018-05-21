@@ -48,6 +48,14 @@ public interface TestperclanSA {
 
 	/**
 	 * 
+	 * 
+	 * @param idClan
+	 * @return
+	 */
+	public ArrayList<String> preguntasClan(String idClan);
+
+	/**
+	 * 
 	 * @param idUsuario
 	 *            id del usuario que se convertira en el lider del clan.
 	 * @param idClan

@@ -72,7 +72,7 @@ public interface UsuarioSA {
 	 * @return una lista con todas las preguntas vinculadas al clan del que es
 	 *         miembro el usuario
 	 */
-	public ArrayList<String> preguntasClan(String usuario);
+	// public ArrayList<String> preguntasClan(String usuario);
 
 	/**
 	 * Elimina a un usuario de la base de datos de la aplicacion

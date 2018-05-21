@@ -5,11 +5,13 @@ import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAO;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 
-public class InicializaAlarmaUsuarioDAOImp1 implements InicializaAlarmaUsuarioDAO{
+public class InicializaAlarmaUsuarioDAOImp1 implements
+		InicializaAlarmaUsuarioDAO {
 
 	@Override
 	public void inicializa(AlarmaUsuarioDAO alarmaUsuarioDAO) {
-		alarmaUsuarioDAO= new AlarmaUsuarioDAOImp(new BDHashMap<AlarmaUsuarioPOJO>());
+		alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(
+				new BDHashMap<AlarmaUsuarioPOJO>());
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al1", "javigm"));
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al2", "peter_hy"));
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al3", "xu_xu"));
@@ -26,7 +28,7 @@ public class InicializaAlarmaUsuarioDAOImp1 implements InicializaAlarmaUsuarioDA
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al14", "javigm"));
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al15", "jc"));
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al16", "franqui"));
-		
+
 	}
 
 }

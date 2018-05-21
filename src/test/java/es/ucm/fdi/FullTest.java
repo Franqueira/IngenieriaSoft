@@ -1,6 +1,7 @@
 package es.ucm.fdi;
 
 import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -12,6 +13,7 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
+import es.ucm.fdi.integracion.DAOs.PreguntaClanDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
@@ -39,6 +41,7 @@ public class FullTest {
 	private PreguntaUsuarioDAOImp preguntaUsuarioDAO;
 	private UsuarioClanDAOImp usuarioClanDAO;
 	private ClanDAOImp clanDAO;
+	private PreguntaClanDAO preguntaClanDAO;
 	@Before
 	private void setup(){
 		new InicializaUsuarioDAOImp1().inicializa(usuarioDAO);
@@ -48,6 +51,7 @@ public class FullTest {
 		new InicializaPreguntaUsuarioDAOImp1().inicializa(preguntaUsuarioDAO);
 		new InicializaUsuarioClanDAOImp1().inicializa(usuarioClanDAO);
 		new InicializaClanDAOImp1().inicializa(clanDAO);
+		new InicializaPreguntaClanDAOImp1().inicializa(preguntaClanDAO);
 	}
 	
 	@Test
@@ -70,13 +74,13 @@ public class FullTest {
 		assertTrue("Debería ser correcta",preguntaSA.comprobarRespuesta("a2",2));
 		alarmaSA.desconectarAlarma(a);*/
 		
-		TestperclanSA testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO, usuarioDAO);
+		TestperclanSA testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO, usuarioDAO, preguntaClanDAO);
 		testperclanSA.getRanking(user.getIdClan());
 		//Mostrar ranking
 	}
 	@Test
 	public void TestGanador(){
-		TestperclanSAImp tesperclan=new TestperclanSAImp(clanDAO,usuarioClanDAO,usuarioDAO);
+		TestperclanSAImp tesperclan=new TestperclanSAImp(clanDAO,usuarioClanDAO,usuarioDAO,preguntaClanDAO);
 		ArrayList<UsuarioPOJO> usuarios=tesperclan.getRanking("Los Matinfos");
 		assertTrue("Debería ir en este orden",usuarios.get(0).getId().equals("borisc"));
 		assertTrue("Debería ir en este orden",usuarios.get(1).getId().equals("franqui"));

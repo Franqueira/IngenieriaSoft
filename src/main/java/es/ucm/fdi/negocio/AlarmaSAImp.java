@@ -1,7 +1,7 @@
 package es.ucm.fdi.negocio;
 
-import es.ucm.fdi.integracion.DAOs.AlarmaDAO;
-import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
+import es.ucm.fdi.integracion.DAOs.*;
+import es.ucm.fdi.integracion.POJOs.*;
 
 /**
  * 
@@ -10,9 +10,11 @@ import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
  */
 public class AlarmaSAImp implements AlarmaSA {
 	private AlarmaDAO alarmaDAO;
+	private AlarmaUsuarioDAO alarmaUsuarioDAO;
 
-	public AlarmaSAImp(AlarmaDAO alarmaDAO) {
+	public AlarmaSAImp(AlarmaDAO alarmaDAO, AlarmaUsuarioDAO alarmaUsuarioDAO) {
 		this.alarmaDAO = alarmaDAO;
+		this.alarmaUsuarioDAO = alarmaUsuarioDAO;
 	}
 
 	@Override
@@ -34,5 +36,19 @@ public class AlarmaSAImp implements AlarmaSA {
 		} else
 			alarmaPOJO.setMinutos(alarmaPOJO.getMinutos() + 5);
 
+	}
+
+	@Override
+	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
+		alarmaDAO.save(alarma);
+		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
+
+	}
+
+	@Override
+	public void EliminarAlarma(String idAlarma) {
+		alarmaDAO.remove(idAlarma);
+		alarmaUsuarioDAO.remove(idAlarma);
+		
 	}
 }

@@ -10,7 +10,7 @@ import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
  * realcionan preguntas con usuarios
  *
  */
-public interface PreguntaUsuarioDAO extends DAO<PreguntaUsuarioPOJO> {
+public interface PreguntaUsuarioDAO extends DAO<PreguntaUsuarioPOJO>{
 	/**
 	 * @param idUsuario
 	 *            id del usuario del que queremos obtener su listade preguntas.
