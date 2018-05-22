@@ -12,7 +12,7 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 public class PreguntaDAOTest {
-	private PreguntaDAO preguntaDAO;
+	private PreguntaDAO preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
 	
 	@Before
 	public void setup() {
