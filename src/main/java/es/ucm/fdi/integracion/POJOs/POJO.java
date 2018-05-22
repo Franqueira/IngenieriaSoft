@@ -8,7 +8,8 @@ import java.io.ObjectOutputStream;
 
 /**
  * 
- * Clase genérica que contine las operaciones comunes a todos los POJOs de la aplicación
+ * Clase genérica que contine las operaciones comunes a todos los POJOs de la
+ * aplicación
  *
  */
 public abstract class POJO {
@@ -26,23 +27,24 @@ public abstract class POJO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public POJO clone() {
 		Object clonedObj = null;
-	    try {
-	      ByteArrayOutputStream baos = new ByteArrayOutputStream();
-	      ObjectOutputStream oos = new ObjectOutputStream(baos);
-	      oos.writeObject(this);
-	      oos.close();
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+			oos.writeObject(this);
+			oos.close();
 
-	      ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-	      ObjectInputStream ois = new ObjectInputStream(bais);
-	      clonedObj = ois.readObject();
-	      ois.close();
-	    } catch (Exception cnfe) {
-	      System.out.println("Class not found " + cnfe);
-	    }
-	    return (POJO) clonedObj;
+			ByteArrayInputStream bais = new ByteArrayInputStream(
+					baos.toByteArray());
+			ObjectInputStream ois = new ObjectInputStream(bais);
+			clonedObj = ois.readObject();
+			ois.close();
+		} catch (Exception cnfe) {
+			System.out.println("Class not found " + cnfe);
+		}
+		return (POJO) clonedObj;
 	}
 
 	@Override
@@ -69,7 +71,5 @@ public abstract class POJO {
 			return false;
 		return true;
 	}
-	
-	
 
 }

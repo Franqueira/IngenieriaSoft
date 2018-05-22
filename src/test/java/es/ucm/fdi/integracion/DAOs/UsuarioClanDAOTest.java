@@ -5,29 +5,17 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.ucm.fdi.InicializaUsuarioClanDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import junit.framework.TestCase;
 
 public class UsuarioClanDAOTest extends TestCase {
-	private BDHashMap<UsuarioClanPOJO> BDusuarioClan;
 	private UsuarioClanDAOImp usuarioClanDAO;
 	
 	@Before
 	public void setup(){
-		BDusuarioClan = new BDHashMap<UsuarioClanPOJO>();
-		usuarioClanDAO = new UsuarioClanDAOImp(BDusuarioClan);
-		
-		usuarioClanDAO.save(new UsuarioClanPOJO("losPros","pepitoXD"));
-		usuarioClanDAO.save(new UsuarioClanPOJO("losPros","juanito123"));
-		usuarioClanDAO.save(new UsuarioClanPOJO("losPros","TheFirePro"));
-		usuarioClanDAO.save(new UsuarioClanPOJO("losPros","CarlosGM"));
-		usuarioClanDAO.save(new UsuarioClanPOJO("losPros","Mery_8"));
-		usuarioClanDAO.save(new UsuarioClanPOJO("AlarmaSpain","_fran_"));
-		usuarioClanDAO.save(new UsuarioClanPOJO("AlarmaSpain","MADRUGAD0R"));
-		usuarioClanDAO.save(new UsuarioClanPOJO("AlarmaSpain","Admlnistrador"));
-		usuarioClanDAO.save(new UsuarioClanPOJO("clanNuevo","Creador"));
-		usuarioClanDAO.save(new UsuarioClanPOJO("AlarmaSpain","martin_1998"));
+		new InicializaUsuarioClanDAOImp1().inicializa(usuarioClanDAO);
 	}
 	
 	@Test

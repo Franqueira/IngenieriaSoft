@@ -7,16 +7,32 @@ import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 /**
  * 
- * Contiene las operaciones relacionadas con el acceso a memoria
- * con datos de las preguntas de la aplicación.
+ * Contiene las operaciones relacionadas con el acceso a memoria con datos de
+ * las preguntas de la aplicación.
  * 
  */
-public interface PreguntaDAO extends DAO<PreguntaPOJO>{
-	
+public interface PreguntaDAO extends DAO<PreguntaPOJO> {
+	/**
+	 * Devuelve una lista con los POJOS correspondientes a los identificadores
+	 * de las preguntas de list
+	 * 
+	 * @param list
+	 *            lista con los ids de las preguntas
+	 * @return una lista con los POJOS asociados a los ids de list
+	 */
 	public ArrayList<PreguntaPOJO> getPreguntas(List<String> list);
-	
+
+	/**
+	 * @return una lista con todos los POJOS de las preguntas de la aplicacion
+	 */
+
 	public ArrayList<PreguntaPOJO> getAll();
-	
+
+	/**
+	 * @param categoria
+	 *            categoria de la que queremos obtener sus preguntas
+	 * @return todas las preguntas de la categoria categoria
+	 */
 	public ArrayList<PreguntaPOJO> getPreguntasPorCategoria(String categoria);
-	
+
 }
