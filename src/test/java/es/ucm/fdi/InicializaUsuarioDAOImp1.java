@@ -7,7 +7,6 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 public class InicializaUsuarioDAOImp1 implements InicializaUsuarioDAO {
 	public void inicializa(UsuarioDAO usuarioDAO) {
-		usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
 		usuarioDAO.save(new UsuarioPOJO("javigm", "Javier Guzman", 1001,
 				"hola123", "Spain"));
 		usuarioDAO.save(new UsuarioPOJO("peter_hy", "Peter Stones", 147,

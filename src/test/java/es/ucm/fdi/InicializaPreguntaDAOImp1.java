@@ -11,7 +11,6 @@ public class InicializaPreguntaDAOImp1 implements InicializaPreguntaDAO {
 
 	@Override
 	public void inicializa(PreguntaDAO preguntaDAO) {
-		preguntaDAO = new PreguntaDAOImp(new BDHashMap<PreguntaPOJO>());
 		ArrayList<String> respuestas1 = new ArrayList<String>();
 		respuestas1.add("Madrid");
 		respuestas1.add("Paris");
@@ -60,6 +59,22 @@ public class InicializaPreguntaDAOImp1 implements InicializaPreguntaDAO {
 				.save(new PreguntaPOJO("a12",
 						"cual es la capital de finlandia?", "geografía",
 						respuestas3, 4));
+		ArrayList<String> respuestas4 = new ArrayList<String>();
+		respuestas4.add("Colon");
+		respuestas4.add("Copernico");
+		respuestas4.add("Recaredo");
+		respuestas4.add("Kennedy");
+		preguntaDAO.save(new PreguntaPOJO("a13", "Quien descubrio America?",
+				"historia", respuestas4, 1));
+		preguntaDAO.save(new PreguntaPOJO("a14",
+				"Quien planteo que la tierra giraba alrededor del sol?",
+				"historia", respuestas4, 2));
+		preguntaDAO.save(new PreguntaPOJO("a15", "Quien fue un rey visigodo?",
+				"historia", respuestas4, 3));
+		preguntaDAO
+				.save(new PreguntaPOJO("a16",
+						"Quien fue un presidente de EEUU?", "historia",
+						respuestas4, 4));
 
 	}
 

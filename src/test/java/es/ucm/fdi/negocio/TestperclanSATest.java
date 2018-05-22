@@ -15,6 +15,7 @@ import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
+import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
@@ -23,14 +24,17 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
  */
 
 public class TestperclanSATest {
-	private UsuarioDAOImp usuarioDAO;
-	private ClanDAOImp clanDAO;
-	private PreguntaClanDAOImp preguntaClanDAO;
-	private UsuarioClanDAO usuarioClanDAO;
+	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
+			new BDHashMap<UsuarioPOJO>());
+	private ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
+	private PreguntaClanDAOImp preguntaClanDAO = new PreguntaClanDAOImp(
+			new BDHashMap<PreguntaClanPOJO>());
+	private UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(
+			new BDHashMap<UsuarioClanPOJO>());
 	private TestperclanSAImp testperclanSA;
 
 	/**
-	 * Creaccion de los clanes y de sus usuarios
+	 * Creacion de los clanes y de sus usuarios
 	 */
 	@Before
 	public void setup() {
@@ -38,9 +42,9 @@ public class TestperclanSATest {
 		new InicializaUsuarioDAOImp1().inicializa(usuarioDAO);
 		new InicializaUsuarioClanDAOImp1().inicializa(usuarioClanDAO);
 		new InicializaPreguntaClanDAOImp1().inicializa(preguntaClanDAO);
-		
+
 		testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,
-				usuarioDAO,preguntaClanDAO);
+				usuarioDAO, preguntaClanDAO);
 
 	}
 
@@ -80,12 +84,23 @@ public class TestperclanSATest {
 	 */
 	@Test
 	public void eliminarUsuarioClanTest() {
+		testperclanSA.crearClan("borisc", "Testperteros");
+		testperclanSA.anadirUsuarioClan("franqui", "Testperteros");
+		assertTrue(
+				"El clan debe tener a franqui y boris",
+				usuarioClanDAO.getMiembrosClan("Testperteros").contains(
+						"borisc")
+						&& usuarioClanDAO.getMiembrosClan("Testperteros")
+								.contains("franqui"));
 		testperclanSA.eliminarUsuarioClan("borisc");
+		assertFalse("boris no debe estar en el clan", usuarioClanDAO
+				.getMiembrosClan("Testperteros").contains("borisc"));
+		assertEquals("franqui debe ser el lider del clan", "franqui",
+				((ClanPOJO) clanDAO.getFromId("Testperteros")).getLider());
 		testperclanSA.eliminarUsuarioClan("franqui");
-		assertFalse("No eberia contener al usuario añadido", usuarioClanDAO
-				.getMiembrosClan("Los Matinfos").contains("borisc"));
-		assertFalse("No deberia contener al usuario añadido", usuarioClanDAO
-				.getMiembrosClan("Los Matinfos").contains("franqui"));
+		assertTrue("el clan debe estar vacio",
+				usuarioClanDAO.getMiembrosClan("Testperteros").isEmpty());
+
 	}
 
 	/**
@@ -107,8 +122,9 @@ public class TestperclanSATest {
 	 */
 	@Test
 	public void crearClanTest() {
+		testperclanSA.crearClan("javigm", "IS");
 		assertTrue("Se debe haber creado el clan y Javi debería ser el líder",
-				((ClanPOJO) clanDAO.getFromId("Los Matinfos")).getLider()
+				((ClanPOJO) clanDAO.getFromId("IS")).getLider()
 						.equals("javigm"));
 	}
 }

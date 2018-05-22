@@ -14,43 +14,48 @@ import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 public class AlarmaUsuarioDAOTest {
-	private AlarmaDAOImp alarmaDAO;
-	private UsuarioDAOImp usuarioDAO;
-	private AlarmaUsuarioDAOImp alarmaUsuarioDAO;
-	
+	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(
+			new BDHashMap<AlarmaPOJO>());
+	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
+			new BDHashMap<UsuarioPOJO>());
+	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(
+			new BDHashMap<AlarmaUsuarioPOJO>());
+
 	@Before
-	public void setup(){
+	public void setup() {
 		new InicializaAlarmaDAOImp1().inicializa(alarmaDAO);
 		new InicializaUsuarioDAOImp1().inicializa(usuarioDAO);
 		new InicializaAlarmaUsuarioDAOImp1().inicializa(alarmaUsuarioDAO);
 	}
-	
+
 	@Test
-	public void getAlarmasUsuarioTest(){
-		ArrayList<String> listaJavi = alarmaUsuarioDAO.getAlarmasUsuario("javigm");
+	public void getAlarmasUsuarioTest() {
+		ArrayList<String> listaJavi = alarmaUsuarioDAO
+				.getAlarmasUsuario("javigm");
 		ArrayList<String> esperadasJavi = new ArrayList<>();
 		esperadasJavi.add("al1");
 		esperadasJavi.add("al13");
 		esperadasJavi.add("al14");
-		for(String e: esperadasJavi){ //Las de esperadas estan en listaJavi
+		for (String e : esperadasJavi) { // Las de esperadas estan en listaJavi
 			assertTrue(listaJavi.contains(e));
 		}
-		for(String e: listaJavi){
-			assertTrue(esperadasJavi.contains(e)); //Las de listaJavi estan esperadas
+		for (String e : listaJavi) {
+			assertTrue(esperadasJavi.contains(e)); // Las de listaJavi estan
+													// esperadas
 		}
-		ArrayList<String> listaBoris = alarmaUsuarioDAO.getAlarmasUsuario("borisc");
+		ArrayList<String> listaBoris = alarmaUsuarioDAO
+				.getAlarmasUsuario("borisc");
 		ArrayList<String> esperadasBoris = new ArrayList<>();
 		esperadasBoris.add("al5");
-		esperadasBoris.add("al7");
-		esperadasBoris.add("al9");
 		esperadasBoris.add("al12");
-		for(String e: esperadasBoris){ //Las de esperadas estan en listaBoris
+		for (String e : esperadasBoris) { // Las de esperadas estan en
+											// listaBoris
 			assertTrue(listaBoris.contains(e));
 		}
-		for(String e: listaBoris){
-			assertTrue(esperadasBoris.contains(e)); //Las de listaBoris estan esperadas
+		for (String e : listaBoris) {
+			assertTrue(esperadasBoris.contains(e)); // Las de listaBoris estan
+													// esperadas
 		}
 	}
-	
-	
+
 };

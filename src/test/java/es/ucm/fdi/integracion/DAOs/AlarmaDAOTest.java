@@ -14,7 +14,7 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 public class AlarmaDAOTest {
-	private AlarmaDAO alarmaDAO;
+	private AlarmaDAO alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
 	
 	@Before
 	public void setup(){
@@ -29,9 +29,9 @@ public class AlarmaDAOTest {
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al1"));
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al2"));
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al3"));
-		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al4"));
-		for(AlarmaPOJO a: activas){
-			assertTrue(esperadas.contains(a));
+		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al5"));
+		for(AlarmaPOJO e: esperadas){
+			assertTrue(activas.contains(e));
 		}
 	}
 }

@@ -20,7 +20,8 @@ public class PreguntaUsuarioDAOImp extends HashMapDAOImp<PreguntaUsuarioPOJO>
 
 	public ArrayList<String> getPreguntas(String idUsuario) {
 		return BD.getIds().stream()
-				.filter(id -> BD.find(id).getIdUsuario() == idUsuario)
+				.filter(id -> BD.find(id).getIdUsuario().equals(idUsuario))
 				.collect(Collectors.toCollection(ArrayList::new));
+	
 	}
 }

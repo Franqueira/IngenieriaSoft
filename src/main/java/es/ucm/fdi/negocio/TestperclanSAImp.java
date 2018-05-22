@@ -48,24 +48,34 @@ public class TestperclanSAImp implements TestperclanSA {
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario))
 				.getIdClan();
 		usuarioClanDAO.remove(idUsuario);
+		UsuarioPOJO usuario = (UsuarioPOJO) usuarioDAO.getFromId(idUsuario);
+		usuario.setIdClan(null);
+		usuarioDAO.update(usuario);
 		if (((ClanPOJO) clanDAO.getFromId(idClan)).getLider().equals(idUsuario)) {
 			ArrayList<String> c = usuarioClanDAO.getMiembrosClan(idClan);
 			if (c.isEmpty())
 				clanDAO.remove(idClan);
-			else
-				((ClanPOJO) clanDAO.getFromId(idClan)).setLider(c.get(0));
+			else{
+				ClanPOJO clan = (ClanPOJO) clanDAO.getFromId(idClan);
+				clan.setLider(c.get(0));
+				clanDAO.update(clan);
+			}
 		}
 	}
 
 	public void anadirUsuarioClan(String idUsuario, String idClan) {
-		((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).setIdClan(idClan);
+		UsuarioPOJO usuario = (UsuarioPOJO) usuarioDAO.getFromId(idUsuario);
+		usuario.setIdClan(idClan);
+		usuarioDAO.update(usuario);
 		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
 
 	}
 
 	public void crearClan(String idUsuario, String idClan) {
 		clanDAO.save(new ClanPOJO(idClan, idUsuario));
-		((UsuarioPOJO) usuarioDAO.getFromId(idUsuario)).setIdClan(idClan);
+		UsuarioPOJO lider = (UsuarioPOJO) usuarioDAO.getFromId(idUsuario);
+		lider.setIdClan(idClan);
+		usuarioDAO.update(lider);
 		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
 	}
 	//tiene poco sentido llamar a este método no?
