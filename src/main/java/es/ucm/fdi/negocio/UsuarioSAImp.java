@@ -83,20 +83,7 @@ public class UsuarioSAImp implements UsuarioSA {
 		}
 
 	}
-
-	/*@Override
-	public ArrayList<String> preguntasClan(String usuario) {
-		ArrayList<String> preguntas = new ArrayList<>();
-		ClanPOJO clan = (ClanPOJO) clanDAO.getFromId(usuarioDAO.getFromId(
-				usuario).getId());
-		for (String u : usuariosClanDAO.getMiembrosClan(clan.getId())) {
-			for (String p : preguntaUsuarioDAO.getPreguntas(u)) {
-				preguntas.add(p);
-			}
-		}
-		return preguntas;
-	}*/
-
+	
 	@Override
 	public ArrayList<String> preguntasUsuario(String usuario) {
 		ArrayList<String> preguntas = new ArrayList<>();

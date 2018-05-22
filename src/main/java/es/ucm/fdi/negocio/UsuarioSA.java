@@ -65,16 +65,6 @@ public interface UsuarioSA {
 	public ArrayList<String> preguntasUsuario(String usuario);
 
 	/**
-	 * @param usuario
-	 *            usuario del que queremos obtener todas las preguntas
-	 *            vinculadas en su clan (que son el conjunto de las preguntas
-	 *            vinculadas a cada usuario del clan)
-	 * @return una lista con todas las preguntas vinculadas al clan del que es
-	 *         miembro el usuario
-	 */
-	// public ArrayList<String> preguntasClan(String usuario);
-
-	/**
 	 * Elimina a un usuario de la base de datos de la aplicacion
 	 * 
 	 * @param idUsuario
