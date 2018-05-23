@@ -77,21 +77,4 @@ public class FullTest {
 		testperclanSA.getRanking(user.getIdClan());
 		// Mostrar ranking
 	}
-
-	@Test
-	public void TestGanador() {
-		TestperclanSAImp tesperclan = new TestperclanSAImp(clanDAO,
-				usuarioClanDAO, usuarioDAO, preguntaClanDAO);
-		ArrayList<UsuarioPOJO> usuarios = tesperclan.getRanking("Los Matinfos");
-		assertTrue("Debería ir en este orden",
-				usuarios.get(0).getId().equals("borisc"));
-		assertTrue("Debería ir en este orden",
-				usuarios.get(1).getId().equals("franqui"));
-		assertTrue("Debería ir en este orden",
-				usuarios.get(2).getId().equals("javigm"));
-		tesperclan.setGanador("Los Matinfos");
-		assertTrue("Boris debería ser el ganador",
-				((UsuarioPOJO) usuarioDAO.getFromId("borisc")).isEsGanador());
-
-	}
 }
