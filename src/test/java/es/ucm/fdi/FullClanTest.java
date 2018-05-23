@@ -21,7 +21,7 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 import es.ucm.fdi.negocio.TestperclanSAImp;
 
 /**
- * Clase que contiene los test que comprueban la funcionalidad de PreguntaSA
+ * Clase que contiene los test que comprueban la secuencia de TestperclanSA
  */
 
 public class FullClanTest {
