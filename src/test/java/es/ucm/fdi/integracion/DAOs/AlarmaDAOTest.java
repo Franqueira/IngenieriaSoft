@@ -1,4 +1,3 @@
-
 package es.ucm.fdi.integracion.DAOs;
 
 import static org.junit.Assert.*;
@@ -15,14 +14,14 @@ import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 public class AlarmaDAOTest {
 	private AlarmaDAO alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
-	
+
 	@Before
-	public void setup(){
+	public void setup() {
 		new InicializaAlarmaDAOImp1().inicializa(alarmaDAO);
 	}
-	
+
 	@Test
-	public void getActiveTest(){
+	public void getActiveTest() {
 		ArrayList<AlarmaPOJO> activas = alarmaDAO.getActive();
 		System.out.println(activas);
 		ArrayList<AlarmaPOJO> esperadas = new ArrayList<>();
@@ -30,7 +29,7 @@ public class AlarmaDAOTest {
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al2"));
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al3"));
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al5"));
-		for(AlarmaPOJO e: esperadas){
+		for (AlarmaPOJO e : esperadas) {
 			assertTrue(activas.contains(e));
 		}
 	}

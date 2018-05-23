@@ -10,7 +10,7 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 import static org.junit.Assert.*;
 
-public class UsuarioDAOTest{
+public class UsuarioDAOTest {
 	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
 			new BDHashMap<UsuarioPOJO>());
 

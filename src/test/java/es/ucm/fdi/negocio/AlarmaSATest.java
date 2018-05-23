@@ -92,7 +92,8 @@ public class AlarmaSATest {
 	public void eleiminarAlarmaTest() {
 		alarmaSA.EliminarAlarma("al1");
 		assertTrue(!alarmaDAO.getActive().contains("al1"));
-		assertTrue(!alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains("al1"));
+		assertTrue(!alarmaUsuarioDAO.getAlarmasUsuario("javigm")
+				.contains("al1"));
 	}
 
 }

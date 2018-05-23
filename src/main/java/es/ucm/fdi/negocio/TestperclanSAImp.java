@@ -38,10 +38,13 @@ public class TestperclanSAImp implements TestperclanSA {
 
 	public void setRanking(UsuarioPOJO usuario, int puntuacion) {
 		usuario.setPuntuacion(puntuacion);
+		usuarioDAO.update(usuario);
 	}
 
 	public void setGanador(String nombreClan) {
-		getRanking(nombreClan).get(0).setEsGanador(true);
+		UsuarioPOJO ganador = getRanking(nombreClan).get(0);
+		ganador.setEsGanador(true);
+		usuarioDAO.update(ganador);
 	}
 
 	public void eliminarUsuarioClan(String idUsuario) {
