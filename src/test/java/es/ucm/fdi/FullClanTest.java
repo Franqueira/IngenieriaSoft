@@ -54,18 +54,23 @@ public class FullClanTest {
 	 *
 	 */
 	@Test
-	public void TestClan() {
+	public void testClan() {
 		//Probamos que se crea el clan correctamente
 		testperclanSA.crearClan("jc", "GITI");
-		assertTrue("El clan deberia crearse y jc ser su lider", clanDAO.getFromId("GITI") != null);
+		assertTrue("El clan deberia crearse y jc ser su lider",
+				clanDAO.getFromId("GITI") != null);
 	
-		//Anadimos dos usuarios y comprobamos que forman parte y que el numero de miembros corresponde
+		//Anadimos dos usuarios y comprobamos que forman parte y que el numero de
+		//miembros corresponde
 		testperclanSA.anadirUsuarioClan("daniv", "GITI");
 		testperclanSA.anadirUsuarioClan("franqui", "GITI");
 		
-		assertTrue("daniv deberia formar parte del clan", usuarioClanDAO.getMiembrosClan("GITI").contains("daniv"));
-		assertTrue("franqui deberia formar parte del clan", usuarioClanDAO.getMiembrosClan("GITI").contains("franqui"));
-		assertTrue("El numero de miembros deberia ser tres", usuarioClanDAO.getMiembrosClan("GITI").size() == 3);
+		assertTrue("daniv deberia formar parte del clan",
+				usuarioClanDAO.getMiembrosClan("GITI").contains("daniv"));
+		assertTrue("franqui deberia formar parte del clan",
+				usuarioClanDAO.getMiembrosClan("GITI").contains("franqui"));
+		assertTrue("El numero de miembros deberia ser tres",
+				usuarioClanDAO.getMiembrosClan("GITI").size() == 3);
 		
 		//Asignamos un ranking y comprobamos que esta en orden
 		testperclanSA.setRanking((UsuarioPOJO) usuarioDAO.getFromId("jc"), 1);
@@ -81,15 +86,19 @@ public class FullClanTest {
 		assertEquals("Se comprueba que los usuarios estan bien ordenados en el ranking",
 				ranking, esperado);
 		
-		//Se elimina un usuario y comprobamos que ya no forma parte, ademaas comprobamos que el lider ha cambiado.
+		//Se elimina un usuario y comprobamos que ya no forma parte,
+		//ademas comprobamos que el lider ha cambiado.
 		testperclanSA.eliminarUsuarioClan("jc");
 		
-		assertFalse("jc ya no debe ser miembro del clan", usuarioClanDAO.getMiembrosClan("GITI").contains("jc"));
-		assertEquals("daniv debe ser el nuevo lider del clan", "franqui", ((ClanPOJO) clanDAO.getFromId("GITI")).getLider());
+		assertFalse("jc ya no debe ser miembro del clan",
+				usuarioClanDAO.getMiembrosClan("GITI").contains("jc"));
+		assertEquals("daniv debe ser el nuevo lider del clan",
+				"franqui", ((ClanPOJO) clanDAO.getFromId("GITI")).getLider());
 		
 		//Se asigna al ganador y se comprueba que efectivamente lo es.
 		testperclanSA.setGanador("GITI");
-		assertTrue("daniv deberia ser el ganador", ((UsuarioPOJO) usuarioDAO.getFromId("daniv")).isEsGanador());
+		assertTrue("daniv deberia ser el ganador",
+				((UsuarioPOJO) usuarioDAO.getFromId("daniv")).isEsGanador());
 		
 	}
 
