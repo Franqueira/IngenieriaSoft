@@ -60,10 +60,13 @@ public class UsuarioSAImp implements UsuarioSA {
 				ArrayList<String> c = usuariosClanDAO.getMiembrosClan(idClan);
 				if (c.isEmpty())
 					clanDAO.remove(idClan);
-				else
-					((ClanPOJO) clanDAO.getFromId(idClan)).setLider(c.get(0));
+				else{
+					ClanPOJO clan = (ClanPOJO) clanDAO.getFromId(idClan);
+					clan.setLider(c.get(0));
+					clanDAO.update(clan);
+				}
 			}
-
+			
 		}
 	}
 
@@ -81,6 +84,7 @@ public class UsuarioSAImp implements UsuarioSA {
 			user.setPuntuacion(user.getPuntuacion() - 10); // restamos 10 si
 															// falla
 		}
+		usuarioDAO.update(user);
 
 	}
 	

@@ -10,8 +10,6 @@ public class InicializaAlarmaUsuarioDAOImp1 implements
 
 	@Override
 	public void inicializa(AlarmaUsuarioDAO alarmaUsuarioDAO) {
-		//alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(
-				//new BDHashMap<AlarmaUsuarioPOJO>());
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al1", "javigm"));
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al2", "peter_hy"));
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO("al3", "xu_xu"));

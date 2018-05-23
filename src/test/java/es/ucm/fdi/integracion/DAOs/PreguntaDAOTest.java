@@ -24,7 +24,7 @@ public class PreguntaDAOTest {
 		ArrayList<PreguntaPOJO> todas = preguntaDAO.getAll();
 		ArrayList<PreguntaPOJO>  esperadas = new ArrayList<>();
 		
-		for(int i = 1; i<13; i++){
+		for(int i = 1; i<17; i++){
 			esperadas.add((PreguntaPOJO) preguntaDAO.getFromId("a"+i));
 		}
 		

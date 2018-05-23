@@ -10,6 +10,7 @@ public class InicializaClanDAOImp1 implements InicializaClanDAO {
 	@Override
 	public void inicializa(ClanDAO clanDAO) {
 		clanDAO.save(new ClanPOJO("losPros", "miguel"));
+		clanDAO.save(new ClanPOJO("Los Matinfos", "jc"));
 	}
 
 }
