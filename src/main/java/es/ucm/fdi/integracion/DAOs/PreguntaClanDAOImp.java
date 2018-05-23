@@ -21,7 +21,7 @@ public class PreguntaClanDAOImp extends HashMapDAOImp<PreguntaClanPOJO>
 
 	public ArrayList<String> getPreguntas(String idClan) {
 		return BD.getIds().stream()
-				.filter(id -> BD.find(id).getIdClan() == idClan)
+				.filter(id -> BD.find(id).getIdClan().equals(idClan))
 				.collect(Collectors.toCollection(ArrayList::new));
 	}
 }
