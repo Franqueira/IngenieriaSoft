@@ -9,7 +9,6 @@ import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 public class InicializaPreguntaClanDAOImp1 implements InicializaPreguntaClanDAO{
 
 	public void inicializa(PreguntaClanDAO preguntaClanDAO) {
-		preguntaClanDAO= new PreguntaClanDAOImp(new BDHashMap<PreguntaClanPOJO>());
 		for (int i = 1; i < 13; i++) {
 			preguntaClanDAO
 					.save(new PreguntaClanPOJO("a" + i, "losPros"));

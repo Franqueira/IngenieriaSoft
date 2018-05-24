@@ -4,12 +4,12 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAO;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
+import es.ucm.fdi.integracion.POJOs.*;
 
 public class InicializaAlarmaDAOImp1 implements InicializaAlarmaDAO {
 
 	@Override
 	public void inicializa(AlarmaDAO alarmaDAO) {
-		alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
 		alarmaDAO.save(new AlarmaPOJO("al1", 12, 23, true, "mytone1.mp3"));
 		alarmaDAO
 				.save(new AlarmaPOJO("al2", 5, 0, true, "whatsapp_audio3.mp3"));

@@ -34,22 +34,11 @@ public class UsuarioSAImp implements UsuarioSA {
 		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
 	}
 
-	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
-		alarmaDAO.save(alarma);
-		usuariosAlarmaDAO
-				.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
-	}
-
-	public void EliminarAlarma(String idAlarma) {
-		alarmaDAO.remove(idAlarma);
-		usuariosAlarmaDAO.remove(idAlarma);
-	}
-
-	public void AnadirUsuario(UsuarioPOJO usuario) {
+	public void anadirUsuario(UsuarioPOJO usuario) {
 		usuarioDAO.save(usuario);
 	}
 
-	public void EliminarUsuario(String idUsuario) {
+	public void eliminarUsuario(String idUsuario) {
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario))
 				.getIdClan();
 		usuarioDAO.remove(idUsuario);
@@ -60,10 +49,13 @@ public class UsuarioSAImp implements UsuarioSA {
 				ArrayList<String> c = usuariosClanDAO.getMiembrosClan(idClan);
 				if (c.isEmpty())
 					clanDAO.remove(idClan);
-				else
-					((ClanPOJO) clanDAO.getFromId(idClan)).setLider(c.get(0));
+				else{
+					ClanPOJO clan = (ClanPOJO) clanDAO.getFromId(idClan);
+					clan.setLider(c.get(0));
+					clanDAO.update(clan);
+				}
 			}
-
+			
 		}
 	}
 
@@ -81,22 +73,10 @@ public class UsuarioSAImp implements UsuarioSA {
 			user.setPuntuacion(user.getPuntuacion() - 10); // restamos 10 si
 															// falla
 		}
+		usuarioDAO.update(user);
 
 	}
-
-	/*@Override
-	public ArrayList<String> preguntasClan(String usuario) {
-		ArrayList<String> preguntas = new ArrayList<>();
-		ClanPOJO clan = (ClanPOJO) clanDAO.getFromId(usuarioDAO.getFromId(
-				usuario).getId());
-		for (String u : usuariosClanDAO.getMiembrosClan(clan.getId())) {
-			for (String p : preguntaUsuarioDAO.getPreguntas(u)) {
-				preguntas.add(p);
-			}
-		}
-		return preguntas;
-	}*/
-
+	
 	@Override
 	public ArrayList<String> preguntasUsuario(String usuario) {
 		ArrayList<String> preguntas = new ArrayList<>();

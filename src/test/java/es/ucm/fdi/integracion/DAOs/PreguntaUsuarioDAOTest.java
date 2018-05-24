@@ -11,26 +11,28 @@ import es.ucm.fdi.InicializaPreguntaUsuarioDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 
-public class PreguntaUsuarioDAOTest{
-	private BDHashMap<PreguntaUsuarioPOJO> BDPreguntaUsuario;
-	private PreguntaUsuarioDAOImp preguntaUsuarioDAO;
-	
+public class PreguntaUsuarioDAOTest {
+	private PreguntaUsuarioDAOImp preguntaUsuarioDAO = new PreguntaUsuarioDAOImp(
+			new BDHashMap<PreguntaUsuarioPOJO>());
+
 	@Before
 	public void setup() {
 		new InicializaPreguntaUsuarioDAOImp1().inicializa(preguntaUsuarioDAO);
 	}
 	
-	
-
+	/**
+	 * @see InicializaPreguntaUsuarioDAOImp1
+	 */
 	@Test
 	public void getPreguntasTest() {
-		ArrayList<String> preguntas = preguntaUsuarioDAO.getPreguntas("peter_hy");
-		assertTrue("Deberia contener la pregunta con el id", preguntas.contains("a1"));
-		assertTrue("Deberia contener la pregunta con el id", preguntas.contains("a7"));
-		assertFalse("No deberia contener la pregunta con el id", preguntas.contains("b1"));
+		ArrayList<String> preguntas = preguntaUsuarioDAO
+				.getPreguntas("peter_hy");
+		assertTrue("Deberia contener la pregunta con el id",
+				preguntas.contains("a1"));
+		assertTrue("Deberia contener la pregunta con el id",
+				preguntas.contains("a7"));
+		assertFalse("No deberia contener la pregunta con el id",
+				preguntas.contains("b1"));
 	}
-	
-	
-	
 
 }

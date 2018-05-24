@@ -42,6 +42,7 @@ public class BDHashMap<T> {
 	 * @return El objeto o null si no se encuentra.
 	 */
 	public T find(String id) {
+		if(!tabla.containsKey(id))return null;
 		return tabla.get(id);
 	}
 

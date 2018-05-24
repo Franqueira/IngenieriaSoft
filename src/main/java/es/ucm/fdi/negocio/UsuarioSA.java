@@ -15,22 +15,6 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 public interface UsuarioSA {
 
-	/**
-	 * 
-	 * @param alarma
-	 *            alarma a anadir.
-	 * @param idUsuario
-	 *            id del usuario al que se le va a anadir la alarma Anade una
-	 *            nueva alarma en la base de datos de las alarmas.
-	 */
-	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario);
-
-	/**
-	 * 
-	 * @param idAlarma
-	 *            id de la alarma a eliminar. Elimina la alarma en cuestion.
-	 */
-	public void EliminarAlarma(String idAlarma);
 
 	/**
 	 * 
@@ -38,7 +22,7 @@ public interface UsuarioSA {
 	 *            usuario a anadir Anade un usuario a la base de datos de los
 	 *            usuarios.
 	 */
-	public void AnadirUsuario(UsuarioPOJO usuario);
+	public void anadirUsuario(UsuarioPOJO usuario);
 
 	/**
 	 * Comprueba que la respuesta elegida por un usuario a una pregunta es
@@ -65,21 +49,12 @@ public interface UsuarioSA {
 	public ArrayList<String> preguntasUsuario(String usuario);
 
 	/**
-	 * @param usuario
-	 *            usuario del que queremos obtener todas las preguntas
-	 *            vinculadas en su clan (que son el conjunto de las preguntas
-	 *            vinculadas a cada usuario del clan)
-	 * @return una lista con todas las preguntas vinculadas al clan del que es
-	 *         miembro el usuario
-	 */
-	// public ArrayList<String> preguntasClan(String usuario);
-
-	/**
 	 * Elimina a un usuario de la base de datos de la aplicacion
 	 * 
 	 * @param idUsuario
 	 *            id del usuario que se quiere eliminar
 	 */
-	public void EliminarUsuario(String idUsuario);
+	public void eliminarUsuario(String idUsuario);
+	
 
 }

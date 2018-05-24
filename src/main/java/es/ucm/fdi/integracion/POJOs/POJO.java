@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  * 
@@ -12,8 +13,12 @@ import java.io.ObjectOutputStream;
  * aplicación
  *
  */
-public abstract class POJO {
+public abstract class POJO implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String id;
 
 	public POJO(String id) {

@@ -50,7 +50,9 @@ public interface TestperclanSA {
 	 * 
 	 * 
 	 * @param idClan
-	 * @return
+	 *            clan del que queremos obtener las preguntas
+	 * @return una lista con todas las preguntas asociadas al clan pasado como
+	 *         argumento
 	 */
 	public ArrayList<String> preguntasClan(String idClan);
 
