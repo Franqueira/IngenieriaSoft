@@ -18,7 +18,10 @@ public class UsuarioDAOTest {
 	public void setup() {
 		new InicializaUsuarioDAOImp1().inicializa(usuarioDAO);
 	}
-
+	
+	/**
+	 * @see InicializaUsuarioDAOImp1
+	 */
 	@Test
 	public void testFind() {
 		assertEquals("El nombre real debería coincidir", "Javier Guzman",

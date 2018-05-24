@@ -19,7 +19,10 @@ public class PreguntaUsuarioDAOTest {
 	public void setup() {
 		new InicializaPreguntaUsuarioDAOImp1().inicializa(preguntaUsuarioDAO);
 	}
-
+	
+	/**
+	 * @see InicializaPreguntaUsuarioDAOImp1
+	 */
 	@Test
 	public void getPreguntasTest() {
 		ArrayList<String> preguntas = preguntaUsuarioDAO

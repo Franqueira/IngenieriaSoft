@@ -128,6 +128,9 @@ public class FullTest {
 	 * El test para preguntas del clan sería exactamente pero con
 	 * clanoUsuario=false;
 	 */
+	/**
+	 * @see InicializaUsuarioDAOImp1, InicializaAlarmaDAOImp1
+	 */
 	@Test
 	public void testpertarPreguntasPropias() {
 		UsuarioPOJO user = (UsuarioPOJO) usuarioDAO.getFromId("peter_hy");

@@ -49,9 +49,10 @@ public class FullClanTest {
 	}
 
 	/**
-	 * 
 	 * Comprueba una simulacion de una secuencia de acciones del testperclan.
 	 *
+	 * @see InicializaClanDAOImp1
+	 *      ,InicializaUsuarioDAOImp1,InicializaUsuarioClanDAOImp1
 	 */
 	@Test
 	public void testClan() {

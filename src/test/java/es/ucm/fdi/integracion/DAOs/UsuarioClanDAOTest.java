@@ -20,7 +20,9 @@ public class UsuarioClanDAOTest {
 	public void setup() {
 		new InicializaUsuarioClanDAOImp1().inicializa(usuarioClanDAO);
 	}
-
+	/**
+	 * @see IniciaizaUsuarioClanDAOImp1
+	 */
 	@Test
 	public void testGetMiembrosClan() {
 		ArrayList<String> miembros = new ArrayList<String>();
