@@ -25,7 +25,9 @@ import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 /**
+ * 
  * Clase que contiene los test que comprueban la funcionalidad de los UsuarioSA
+ * 
  */
 
 public class UsuarioSATest {
@@ -64,6 +66,8 @@ public class UsuarioSATest {
 
 	/**
 	 * Comprueba que el sistema elimina correctamente un usuario
+	 * 
+	 * @see InicializaUsuarioDAOImp1
 	 */
 	@Test
 	public void eliminarUsuarioTest() {
@@ -98,19 +102,11 @@ public class UsuarioSATest {
 				usuarioDAO.getFromId("jaime123"));
 	}
 
+	/**
+	 * @see InicializaPreguntaDAOImp1,InicializaUsuarioDAOImp1
+	 */
 	@Test
 	public void informarRespuestaTest() {
-		/**
-		 * Recordatorio de la inicialización elegida:
-		 * 
-		 * ArrayList<String> respuestas1 = new ArrayList<String>();
-		 * respuestas1.add("Madrid"); respuestas1.add("Paris");
-		 * respuestas1.add("Roma"); respuestas1.add("Londres");
-		 * preguntaDAO.save(new PreguntaPOJO("a1",
-		 * "cual es la capital de españa?", "geografía", respuestas1, 1));
-		 * UsuarioPOJO javi = new UsuarioPOJO("javigm", "Javier Guzman", 1001,
-		 * "hola123", "Spain");
-		 */
 		assertTrue("La respuesta correcta es la 1",
 				((PreguntaPOJO) preguntaDAO.getFromId("a1"))
 						.getRespuestaCorrecta() == 1);
@@ -121,7 +117,9 @@ public class UsuarioSATest {
 				((UsuarioPOJO) usuarioDAO.getFromId("javigm")).getPuntuacion());
 		usuario.informarRespuesta("javigm", "a2", 1);
 	}
-
+	/**
+	 * @see InicializaAlarmaUsuarioDAOImp1
+	 */
 	@Test
 	public void preguntasUsuarioTest() {
 		ArrayList<String> list = alarmaUsuarioDAO.getAlarmasUsuario("jc");

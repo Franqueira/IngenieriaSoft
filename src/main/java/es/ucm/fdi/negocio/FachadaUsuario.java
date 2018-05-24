@@ -1,4 +1,4 @@
-package es.ucm.fdi;
+package es.ucm.fdi.negocio;
 
 import java.util.ArrayList;
 

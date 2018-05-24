@@ -20,7 +20,9 @@ import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 /**
+ * 
  * Clase que contiene los test que comprueban la funcionalidad de TestperclanSA
+ *
  */
 
 public class TestperclanSATest {
@@ -51,6 +53,8 @@ public class TestperclanSATest {
 	/**
 	 * Comprueba que el sistema ordena los usuarios en el ranking correctamente
 	 * según su puntuación
+	 * 
+	 * @see InicializaClanDAOImp1 , InicializaUsuarioClanDAOImp1
 	 */
 	@Test
 	public void getRankingTest() {
@@ -68,6 +72,8 @@ public class TestperclanSATest {
 
 	/**
 	 * Comprueba que el sistema sabe reconocer cuál es el usuario ganador
+	 * 
+	 * @see InicializaClanDAOImp1 , InicializaUsuarioClanDAOImp1
 	 */
 	@Test
 	public void setGanadorTest() {

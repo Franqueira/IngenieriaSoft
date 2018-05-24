@@ -38,6 +38,9 @@ public class AlarmaSATest {
 		alarmaSA = new AlarmaSAImp(alarmaDAO, alarmaUsuarioDAO);
 	}
 
+	/**
+	 * @see InicializaAlarmaDAOImp1
+	 */
 	@Test
 	public void getToneTest() {
 		assertTrue("Debería estar la alarma",
@@ -49,7 +52,9 @@ public class AlarmaSATest {
 		assertEquals("Deberia ser el tono whatsapp_audio3.mp3",
 				"whatsapp_audio3.mp3", alarmaSA.getTone("al2"));
 	}
-
+	/**
+	 * @see InicializaAlarmaDAOImp1
+	 */
 	@Test
 	public void posponerAlarmaTest() {
 		assertTrue("Debería estar la alarma",
@@ -88,6 +93,9 @@ public class AlarmaSATest {
 				alarmaUsuarioDAO.getAlarmasUsuario("franqui").contains("alarm"));
 	}
 
+	/**
+	 * @see InicializaAlarmaDAOImp1
+	 */
 	@Test
 	public void eliminarAlarmaTest() {
 		alarmaSA.eliminarAlarma("al1");

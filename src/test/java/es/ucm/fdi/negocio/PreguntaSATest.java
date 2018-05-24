@@ -1,7 +1,9 @@
 package es.ucm.fdi.negocio;
 
 /**
+ * 
  * Contiene los test que comprueban la funcionalidad de PreguntaSA
+ * 
  */
 
 import es.ucm.fdi.*;
@@ -47,7 +49,9 @@ public class PreguntaSATest {
 				usuarioDAO, preguntaClanDAO);
 
 	}
-
+	/**
+	 * @see InicializaPreguntaDAOImp1
+	 */
 	@Test
 	public void vincularCategoriaTest() {
 		preguntaSA.vincularCategoria("geografía", "javigm");
@@ -69,6 +73,9 @@ public class PreguntaSATest {
 				.getPreguntas("borisc").isEmpty());
 	}
 
+	/**
+	 * @see InicializaPreguntaDAOimp1
+	 */
 	@Test
 	public void desvincularCategoriaTest() {
 		ArrayList<PreguntaPOJO> l1 = preguntaDAO

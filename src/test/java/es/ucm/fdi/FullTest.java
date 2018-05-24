@@ -36,6 +36,8 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
 import es.ucm.fdi.negocio.AlarmaSA;
 import es.ucm.fdi.negocio.AlarmaSAImp;
+import es.ucm.fdi.negocio.FachadaUsuario;
+import es.ucm.fdi.negocio.FachadaUsuarioImp;
 import es.ucm.fdi.negocio.PreguntaSA;
 import es.ucm.fdi.negocio.PreguntaSAImp;
 import es.ucm.fdi.negocio.TestperclanSA;
@@ -69,7 +71,7 @@ public class FullTest {
 	private TestperclanSA testperclanSA;
 	private UsuarioSA usuarioSA;
 	private AlarmaSA alarmaSA;
-	private FachadaUsuario fachadaUsuarioSAs;
+	private FachadaUsuario fachadaUsuario;
 	@Before
 	public void setup() {
 		new InicializaUsuarioDAOImp1().inicializa(usuarioDAO);
@@ -86,7 +88,7 @@ public class FullTest {
 				alarmaUsuarioDAO, clanDAO, alarmaDAO, preguntaDAO,
 				preguntaUsuarioDAO);
 		alarmaSA = new AlarmaSAImp(alarmaDAO, alarmaUsuarioDAO);
-		fachadaUsuarioSAs=new FachadaUsuarioImp(alarmaSA,null,testperclanSA,usuarioSA);
+		fachadaUsuario=new FachadaUsuarioImp(alarmaSA,null,testperclanSA,usuarioSA);
 	}
 	/**
 	 * 
@@ -97,11 +99,11 @@ public class FullTest {
 	public ArrayList<PreguntaPOJO> getPreguntas(boolean a, String idUsuario) {
 		ArrayList<PreguntaPOJO> preguntas = new ArrayList<>();
 		if (a) {
-			for (String pregunta : fachadaUsuarioSAs.preguntasUsuario(idUsuario)) {
+			for (String pregunta : fachadaUsuario.preguntasUsuario(idUsuario)) {
 				preguntas.add((PreguntaPOJO) preguntaDAO.getFromId(pregunta));
 			}
 		} else {
-			for (String pregunta : fachadaUsuarioSAs
+			for (String pregunta : fachadaUsuario
 					.preguntasClan(((UsuarioPOJO) usuarioDAO
 							.getFromId(idUsuario)).getIdClan())) {
 				preguntas.add((PreguntaPOJO) preguntaDAO.getFromId(pregunta));
@@ -168,7 +170,7 @@ public class FullTest {
 			 */
 
 			// suponemos que marca la primera opción
-			fachadaUsuarioSAs.informarRespuesta(user.getId(), pregunta.getId(), 0);
+			fachadaUsuario.informarRespuesta(user.getId(), pregunta.getId(), 0);
 			// if(n>=3) mostrarBotonPanico();
 			++n;
 			// supongamos que ya acerto:

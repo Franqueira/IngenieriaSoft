@@ -1,14 +1,10 @@
-package es.ucm.fdi;
+package es.ucm.fdi.negocio;
 
 import java.util.ArrayList;
 
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
-import es.ucm.fdi.negocio.AlarmaSA;
-import es.ucm.fdi.negocio.PreguntaSA;
-import es.ucm.fdi.negocio.TestperclanSA;
-import es.ucm.fdi.negocio.UsuarioSA;
 
 public class FachadaUsuarioImp implements FachadaUsuario {
 	private AlarmaSA alarmaSA;
