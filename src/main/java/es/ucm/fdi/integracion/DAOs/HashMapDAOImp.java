@@ -29,7 +29,9 @@ public class HashMapDAOImp<T extends POJO> implements DAO<T> {
 
 	@Override
 	public POJO getFromId(String id) {
-		return BD.find(id).clone();
+		POJO p=BD.find(id);
+		if(p==null)return null;
+		return p.clone();
 	}
 
 	@Override

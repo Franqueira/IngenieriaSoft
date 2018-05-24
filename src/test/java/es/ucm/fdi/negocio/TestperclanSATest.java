@@ -98,9 +98,8 @@ public class TestperclanSATest {
 		assertEquals("franqui debe ser el lider del clan", "franqui",
 				((ClanPOJO) clanDAO.getFromId("Testperteros")).getLider());
 		testperclanSA.eliminarUsuarioClan("franqui");
-		assertTrue("el clan debe estar vacio",
-				usuarioClanDAO.getMiembrosClan("Testperteros").isEmpty());
-
+		assertTrue("Ya no debería existir el clan",
+				clanDAO.getFromId("Testperteros") == null);
 	}
 
 	/**

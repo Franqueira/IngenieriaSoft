@@ -66,7 +66,7 @@ public class UsuarioSATest {
 	 * Comprueba que el sistema elimina correctamente un usuario
 	 */
 	@Test
-	public void EliminarUsuarioTest() {
+	public void eliminarUsuarioTest() {
 		usuario.EliminarUsuario("jc");
 		assertEquals("Debería desaparecer de usuarioDAO", null,
 				usuarioDAO.find("JC Villanueva"));
@@ -88,24 +88,64 @@ public class UsuarioSATest {
 	 * Comprueba que se añade un usuario correctamente
 	 */
 	@Test
-	public void AnadirUsuarioTest() {
-		UsuarioPOJO jaime=new UsuarioPOJO("jaime123", "Jaime Fernandez",
-				109, "soyjaime", "Spain");
+	public void anadirUsuarioTest() {
+		UsuarioPOJO jaime = new UsuarioPOJO("jaime123", "Jaime Fernandez", 109,
+				"soyjaime", "Spain");
 		usuario.AnadirUsuario(jaime);
 		assertTrue("debería encontrarlo",
 				usuarioDAO.find("Jaime Fernandez") != null);
-		assertEquals("Debería encontrarlo",jaime,usuarioDAO.getFromId("jaime123"));
+		assertEquals("Debería encontrarlo", jaime,
+				usuarioDAO.getFromId("jaime123"));
 	}
 
 	@Test
 	public void informarRespuestaTest() {
+		/**
+		 * Recordatorio de la inicialización elegida:
+		 * 
+		 * ArrayList<String> respuestas1 = new ArrayList<String>();
+		 * respuestas1.add("Madrid"); respuestas1.add("Paris");
+		 * respuestas1.add("Roma"); respuestas1.add("Londres");
+		 * preguntaDAO.save(new PreguntaPOJO("a1",
+		 * "cual es la capital de españa?", "geografía", respuestas1, 1));
+		 * UsuarioPOJO javi = new UsuarioPOJO("javigm", "Javier Guzman", 1001,
+		 * "hola123", "Spain");
+		 */
 		assertTrue("La respuesta correcta es la 1",
 				((PreguntaPOJO) preguntaDAO.getFromId("a1"))
 						.getRespuestaCorrecta() == 1);
+		assertEquals("javi debería tener 1001 puntos", 1001,
+				((UsuarioPOJO) usuarioDAO.getFromId("javigm")).getPuntuacion());
 		usuario.informarRespuesta("javigm", "a1", 1);
 		assertEquals("Deberia tener 10 puntos mas", 1011,
 				((UsuarioPOJO) usuarioDAO.getFromId("javigm")).getPuntuacion());
 		usuario.informarRespuesta("javigm", "a2", 1);
 	}
+	@Test
+	public void preguntasUsuarioTest() {
+		ArrayList<String> list = usuario.preguntasUsuario("peter_hy");
+		ArrayList<String> esperadas = new ArrayList<>();
+		for (int i = 1; i < 13; i++) {
+			esperadas.add("a" + i);
+		}
 
+		/*
+		 * Para comprobar que las dos listas son iguales (sin importar el orden)
+		 * comprobamos que todas las preguntas de esperadas se encuentra en list
+		 *  y ademas que tienen el mismo tamano.
+		 * 
+		 * Si list tiene el mismo tamano y contiene todas las preguntas de esperadas
+		 * entonces son la misma lista.
+		 * 
+		 */
+
+		for(String s : esperadas) {
+			assertTrue("List deberia contener la pregunta" + s,
+					list.contains(s));
+		}
+		assertTrue("El tamaño de list deberia ser igual al de esperadas",
+				list.size() == esperadas.size());
+		
+	
+}
 }
