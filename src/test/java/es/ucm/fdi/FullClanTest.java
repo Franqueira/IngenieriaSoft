@@ -47,7 +47,7 @@ public class FullClanTest {
 		testperclanSA = new TestperclanSAImp(clanDAO, usuarioClanDAO,
 				usuarioDAO, preguntaClanDAO);
 	}
-	
+
 	/**
 	 * 
 	 * Comprueba una simulacion de una secuencia de acciones del testperclan.
@@ -55,51 +55,57 @@ public class FullClanTest {
 	 */
 	@Test
 	public void testClan() {
-		//Probamos que se crea el clan correctamente
+		// Probamos que se crea el clan correctamente
 		testperclanSA.crearClan("jc", "GITI");
 		assertTrue("El clan deberia crearse y jc ser su lider",
 				clanDAO.getFromId("GITI") != null);
-	
-		//Anadimos dos usuarios y comprobamos que forman parte y que el numero de
-		//miembros corresponde
+
+		// Anadimos dos usuarios y comprobamos que forman parte y que el numero
+		// de
+		// miembros corresponde
 		testperclanSA.anadirUsuarioClan("daniv", "GITI");
 		testperclanSA.anadirUsuarioClan("franqui", "GITI");
-		
-		assertTrue("daniv deberia formar parte del clan",
-				usuarioClanDAO.getMiembrosClan("GITI").contains("daniv"));
-		assertTrue("franqui deberia formar parte del clan",
-				usuarioClanDAO.getMiembrosClan("GITI").contains("franqui"));
-		assertTrue("El numero de miembros deberia ser tres",
-				usuarioClanDAO.getMiembrosClan("GITI").size() == 3);
-		
-		//Asignamos un ranking y comprobamos que esta en orden
-		testperclanSA.setRanking((UsuarioPOJO) usuarioDAO.getFromId("jc"), 1);
-		testperclanSA.setRanking((UsuarioPOJO) usuarioDAO.getFromId("daniv"), 3);
-		testperclanSA.setRanking((UsuarioPOJO) usuarioDAO.getFromId("franqui"), 2);		
-		ArrayList<UsuarioPOJO> ranking = testperclanSA.getRanking("GITI");
-		
-		ArrayList<UsuarioPOJO> esperado = new ArrayList<UsuarioPOJO>();
-		esperado.add((UsuarioPOJO) usuarioDAO.getFromId("daniv"));
-		esperado.add((UsuarioPOJO) usuarioDAO.getFromId("franqui"));
-		esperado.add((UsuarioPOJO) usuarioDAO.getFromId("jc"));
 
-		assertEquals("Se comprueba que los usuarios estan bien ordenados en el ranking",
+		ArrayList<String> miembrosClan = usuarioClanDAO.getMiembrosClan("GITI");
+		assertTrue("daniv deberia formar parte del clan",
+				miembrosClan.contains("daniv"));
+		assertTrue("franqui deberia formar parte del clan",
+				miembrosClan.contains("franqui"));
+		assertTrue("El numero de miembros deberia ser tres",
+				miembrosClan.size() == 3);
+
+		// Asignamos un ranking y comprobamos que esta en orden
+		UsuarioPOJO jc = (UsuarioPOJO) usuarioDAO.getFromId("jc");
+		UsuarioPOJO daniv = (UsuarioPOJO) usuarioDAO.getFromId("daniv");
+		UsuarioPOJO franqui = (UsuarioPOJO) usuarioDAO.getFromId("franqui");
+		testperclanSA.setPuntuacionRanking(jc, 1);
+		testperclanSA.setPuntuacionRanking(daniv, 3);
+		testperclanSA.setPuntuacionRanking(franqui, 2);
+		ArrayList<UsuarioPOJO> ranking = testperclanSA.getRanking("GITI");
+
+		ArrayList<UsuarioPOJO> esperado = new ArrayList<UsuarioPOJO>();
+		esperado.add(daniv);
+		esperado.add(franqui);
+		esperado.add(jc);
+
+		assertEquals(
+				"Se comprueba que los usuarios estan bien ordenados en el ranking",
 				ranking, esperado);
-		
-		//Se elimina un usuario y comprobamos que ya no forma parte,
-		//ademas comprobamos que el lider ha cambiado.
+
+		// Se elimina un usuario y comprobamos que ya no forma parte,
+		// ademas comprobamos que el lider ha cambiado.
 		testperclanSA.eliminarUsuarioClan("jc");
-		
-		assertFalse("jc ya no debe ser miembro del clan",
-				usuarioClanDAO.getMiembrosClan("GITI").contains("jc"));
-		assertEquals("daniv debe ser el nuevo lider del clan",
-				"franqui", ((ClanPOJO) clanDAO.getFromId("GITI")).getLider());
-		
-		//Se asigna al ganador y se comprueba que efectivamente lo es.
+
+		assertFalse("jc ya no debe ser miembro del clan", usuarioClanDAO
+				.getMiembrosClan("GITI").contains("jc"));
+		assertEquals("daniv debe ser el nuevo lider del clan", "daniv",
+				((ClanPOJO) clanDAO.getFromId("GITI")).getLider());
+
+		// Se asigna al ganador y se comprueba que efectivamente lo es.
 		testperclanSA.setGanador("GITI");
 		assertTrue("daniv deberia ser el ganador",
-				((UsuarioPOJO) usuarioDAO.getFromId("daniv")).isEsGanador());
-		
+				((UsuarioPOJO) usuarioDAO.getFromId("daniv")).esGanador());
+
 	}
 
 }

@@ -23,7 +23,7 @@ public class PreguntaSAImp implements PreguntaSA {
 		this.preguntaDAO = preguntaDAO;
 		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
 		this.usuarioDAO = usuarioDAO;
-		this.preguntaClanDAO=preguntaClanDAO;
+		this.preguntaClanDAO = preguntaClanDAO;
 	}
 
 	@Override
@@ -49,16 +49,20 @@ public class PreguntaSAImp implements PreguntaSA {
 
 	@Override
 	public void agregarPregunta(PreguntaPOJO pregunta, String idUsuario) {
-		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO(pregunta.getId(),idUsuario));
-		String idClan=((UsuarioPOJO)usuarioDAO.getFromId(idUsuario)).getIdClan();
-		if(idClan.length()!=0) // para ver que tiene clan
-			preguntaClanDAO.save(new PreguntaClanPOJO(pregunta.getId(),idClan));
+		preguntaUsuarioDAO.save(new PreguntaUsuarioPOJO(pregunta.getId(),
+				idUsuario));
+		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario))
+				.getIdClan();
+		if (idClan.length() != 0) // para ver que tiene clan
+			preguntaClanDAO
+					.save(new PreguntaClanPOJO(pregunta.getId(), idClan));
 		preguntaDAO.save(pregunta);
 	}
 
 	@Override
 	public void eliminarPregunta(String idPregunta, String idUsuario) {
-		preguntaUsuarioDAO.remove(idPregunta);// aquí debería pasar esta id o de usuario
+		preguntaUsuarioDAO.remove(idPregunta);// aquí debería pasar esta id o de
+												// usuario
 		preguntaClanDAO.remove(idPregunta);
 		preguntaDAO.remove(idPregunta);
 	}

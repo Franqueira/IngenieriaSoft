@@ -34,17 +34,6 @@ public class UsuarioSAImp implements UsuarioSA {
 		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
 	}
 
-	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
-		alarmaDAO.save(alarma);
-		usuariosAlarmaDAO
-				.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
-	}
-
-	public void EliminarAlarma(String idAlarma) {
-		alarmaDAO.remove(idAlarma);
-		usuariosAlarmaDAO.remove(idAlarma);
-	}
-
 	public void AnadirUsuario(UsuarioPOJO usuario) {
 		usuarioDAO.save(usuario);
 	}
