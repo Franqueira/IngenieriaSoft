@@ -34,6 +34,12 @@ import es.ucm.fdi.negocio.PreguntaSAImp;
 import es.ucm.fdi.negocio.TestperclanSA;
 import es.ucm.fdi.negocio.TestperclanSAImp;
 
+/**
+ * 
+ * Clase encargada de probar la funcionalidad de la aplicación,
+ * probando las acciones a realizar para los distrintos casos de uso.
+ *
+ */
 public class FullTest {
 
 	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(new BDHashMap<UsuarioPOJO>());
@@ -64,17 +70,22 @@ public class FullTest {
 		 * La aplicación comprueba que es la hora de una alarma posible y se
 		 * abre
 		 */
-		/**
-		 * El movil se comunica con la base de datos para acceder a la
-		 * información de la alarma que no tiene localmente
+		/*
+		 * El móvil se comunica con la base de datos para acceder a la
+		 * información de la alarma que no tiene localmente. 
+		 * Suponemos que la alarma a debería estar en la lista de alarmas del usuario.
 		 */
 		AlarmaPOJO a = (AlarmaPOJO) alarmaDAO.getFromId("al2");
 		Assert.assertTrue("La alarma al2 debería existir", a != null);
 		Assert.assertTrue("La alarma al2 debería estar activa", a.isActive());
 
+		//creamos el TerperclanSA con los DAO's del servidor
 		TestperclanSA testperclanSA = new TestperclanSAImp(clanDAO,
 				usuarioClanDAO, usuarioDAO, preguntaClanDAO);
-		testperclanSA.getRanking(user.getIdClan());
-		// Mostrar ranking
+		//devolveríamos ese TestperclanSA al usuario.
+		ArrayList<UsuarioPOJO> ranking=testperclanSA.getRanking(user.getIdClan());
+		
+		
+		// Mostrar ranking por pantalla (ya tenemos probado que el ranking funciona.
 	}
 }

@@ -47,6 +47,13 @@ public class TestperclanSAImp implements TestperclanSA {
 		usuarioDAO.update(ganador);
 	}
 
+	 /**
+	  * Elimina el usuario pasado por atributo.
+	  * Si el usuario era el líder del clan, el nuevo líder será el 
+	  * usuario con mayor puntuación.
+	  * Si el usuario era el último miembro del clan el clan se elimina.
+	  * 
+	  */
 	public void eliminarUsuarioClan(String idUsuario) {
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario))
 				.getIdClan();
