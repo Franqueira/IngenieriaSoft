@@ -19,10 +19,13 @@ public class AlarmaDAOTest {
 		new InicializaAlarmaDAOImp1().inicializa(alarmaDAO);
 	}
 
+	/**
+	 * @see InicializaAlarmaDAOImp1
+	 */
 	@Test
 	public void getActiveTest() {
 		ArrayList<AlarmaPOJO> activas = alarmaDAO.getActive();
-		System.out.println(activas);
+		//System.out.println(activas);?????????????????
 		ArrayList<AlarmaPOJO> esperadas = new ArrayList<>();
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al1"));
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al2"));

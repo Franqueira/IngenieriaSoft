@@ -28,6 +28,9 @@ public class AlarmaUsuarioDAOTest {
 		new InicializaAlarmaUsuarioDAOImp1().inicializa(alarmaUsuarioDAO);
 	}
 
+	/**
+	 * @see InicializaAlarmaUsuarioDAOImp1
+	 */
 	@Test
 	public void getAlarmasUsuarioTest() {
 		ArrayList<String> listaJavi = alarmaUsuarioDAO

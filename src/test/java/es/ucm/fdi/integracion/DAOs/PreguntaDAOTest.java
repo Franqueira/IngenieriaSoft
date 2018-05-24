@@ -20,7 +20,9 @@ public class PreguntaDAOTest {
 	public void setup() {
 		new InicializaPreguntaDAOImp1().inicializa(preguntaDAO);
 	}
-
+	/**
+	 * @see InicializaPreguntaDAOImp1
+	 */
 	@Test
 	public void getAllTest() {
 		ArrayList<PreguntaPOJO> todas = preguntaDAO.getAll();
@@ -34,7 +36,9 @@ public class PreguntaDAOTest {
 			assertTrue(esperadas.contains(a));
 		}
 	}
-
+	/**
+	 * @see InicializaPreguntaDAOImp1
+	 */
 	@Test
 	public void getPreguntasTest() {
 
