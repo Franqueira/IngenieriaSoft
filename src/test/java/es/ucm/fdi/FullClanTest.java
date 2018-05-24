@@ -65,23 +65,27 @@ public class FullClanTest {
 		testperclanSA.anadirUsuarioClan("daniv", "GITI");
 		testperclanSA.anadirUsuarioClan("franqui", "GITI");
 		
+		ArrayList<String> miembrosClan=usuarioClanDAO.getMiembrosClan("GITI");
 		assertTrue("daniv deberia formar parte del clan",
-				usuarioClanDAO.getMiembrosClan("GITI").contains("daniv"));
+				miembrosClan.contains("daniv"));
 		assertTrue("franqui deberia formar parte del clan",
-				usuarioClanDAO.getMiembrosClan("GITI").contains("franqui"));
+				miembrosClan.contains("franqui"));
 		assertTrue("El numero de miembros deberia ser tres",
-				usuarioClanDAO.getMiembrosClan("GITI").size() == 3);
+				miembrosClan.size() == 3);
 		
 		//Asignamos un ranking y comprobamos que esta en orden
-		testperclanSA.setRanking((UsuarioPOJO) usuarioDAO.getFromId("jc"), 1);
-		testperclanSA.setRanking((UsuarioPOJO) usuarioDAO.getFromId("daniv"), 3);
-		testperclanSA.setRanking((UsuarioPOJO) usuarioDAO.getFromId("franqui"), 2);		
+		UsuarioPOJO jc=(UsuarioPOJO) usuarioDAO.getFromId("jc");
+		UsuarioPOJO daniv=(UsuarioPOJO) usuarioDAO.getFromId("daniv");
+		UsuarioPOJO franqui=(UsuarioPOJO) usuarioDAO.getFromId("franqui");
+		testperclanSA.setPuntuacionRanking(jc, 1);
+		testperclanSA.setPuntuacionRanking(daniv, 3);
+		testperclanSA.setPuntuacionRanking(franqui, 2);		
 		ArrayList<UsuarioPOJO> ranking = testperclanSA.getRanking("GITI");
 		
 		ArrayList<UsuarioPOJO> esperado = new ArrayList<UsuarioPOJO>();
-		esperado.add((UsuarioPOJO) usuarioDAO.getFromId("daniv"));
-		esperado.add((UsuarioPOJO) usuarioDAO.getFromId("franqui"));
-		esperado.add((UsuarioPOJO) usuarioDAO.getFromId("jc"));
+		esperado.add(daniv);
+		esperado.add(franqui);
+		esperado.add(jc);
 
 		assertEquals("Se comprueba que los usuarios estan bien ordenados en el ranking",
 				ranking, esperado);
@@ -93,12 +97,12 @@ public class FullClanTest {
 		assertFalse("jc ya no debe ser miembro del clan",
 				usuarioClanDAO.getMiembrosClan("GITI").contains("jc"));
 		assertEquals("daniv debe ser el nuevo lider del clan",
-				"franqui", ((ClanPOJO) clanDAO.getFromId("GITI")).getLider());
+				"daniv", ((ClanPOJO) clanDAO.getFromId("GITI")).getLider());
 		
 		//Se asigna al ganador y se comprueba que efectivamente lo es.
 		testperclanSA.setGanador("GITI");
 		assertTrue("daniv deberia ser el ganador",
-				((UsuarioPOJO) usuarioDAO.getFromId("daniv")).isEsGanador());
+				((UsuarioPOJO) usuarioDAO.getFromId("daniv")).esGanador());
 		
 	}
 

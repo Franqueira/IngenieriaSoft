@@ -36,7 +36,7 @@ public class TestperclanSAImp implements TestperclanSA {
 				.collect(Collectors.toCollection(ArrayList::new));
 	}
 
-	public void setRanking(UsuarioPOJO usuario, int puntuacion) {
+	public void setPuntuacionRanking(UsuarioPOJO usuario, int puntuacion) {
 		usuario.setPuntuacion(puntuacion);
 		usuarioDAO.update(usuario);
 	}
@@ -55,12 +55,12 @@ public class TestperclanSAImp implements TestperclanSA {
 		usuario.setIdClan(null);
 		usuarioDAO.update(usuario);
 		if (((ClanPOJO) clanDAO.getFromId(idClan)).getLider().equals(idUsuario)) {
-			ArrayList<String> c = usuarioClanDAO.getMiembrosClan(idClan);
+			ArrayList<UsuarioPOJO> c = getRanking(idClan);
 			if (c.isEmpty())
 				clanDAO.remove(idClan);
 			else{
 				ClanPOJO clan = (ClanPOJO) clanDAO.getFromId(idClan);
-				clan.setLider(c.get(0));
+				clan.setLider(c.get(0).getId());
 				clanDAO.update(clan);
 			}
 		}

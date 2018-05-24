@@ -28,7 +28,7 @@ public class UsuarioPOJO extends POJO {
 		esGanador = false;
 	}
 
-	public boolean isEsGanador() {
+	public boolean esGanador() {
 		return esGanador;
 	}
 
