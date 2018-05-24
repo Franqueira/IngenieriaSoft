@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.ucm.fdi.ContenedorDAOs;
+import es.ucm.fdi.CreadorDAOs;
 import es.ucm.fdi.InicializaAlarmaDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;

@@ -26,7 +26,7 @@ import es.ucm.fdi.negocio.TestperclanSAImp;
  * Ahora mismo no es utilizado por la aplicación, pero cabe la posibilidad de que en
  * un futuro quiera usarse.
  */
-public class ContenedorDAOs {
+public class CreadorDAOs {
 	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
 			new BDHashMap<UsuarioPOJO>());
 	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(
@@ -99,7 +99,7 @@ public class ContenedorDAOs {
 		this.clanDAO = clanDAO;
 	}
 
-	public ContenedorDAOs() {
+	public CreadorDAOs() {
 		// Creacion de usuarios
 		usuarioDAO.save(new UsuarioPOJO("javigm", "Javier Guzman", 1001,
 				"hola123", "Spain"));
