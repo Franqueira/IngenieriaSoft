@@ -50,7 +50,7 @@ public class FullTest {
 	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(new BDHashMap<UsuarioClanPOJO>());
 	private ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
 	private PreguntaClanDAO preguntaClanDAO = new PreguntaClanDAOImp(new BDHashMap<PreguntaClanPOJO>());
-
+	private TestperclanSA testperclanSA;
 	@Before
 	public void setup() {
 		new InicializaUsuarioDAOImp1().inicializa(usuarioDAO);
@@ -61,6 +61,8 @@ public class FullTest {
 		new InicializaUsuarioClanDAOImp1().inicializa(usuarioClanDAO);
 		new InicializaClanDAOImp1().inicializa(clanDAO);
 		new InicializaPreguntaClanDAOImp1().inicializa(preguntaClanDAO);
+		testperclanSA = new TestperclanSAImp(clanDAO,
+				usuarioClanDAO, usuarioDAO, preguntaClanDAO);
 	}
 
 	@Test
@@ -79,10 +81,8 @@ public class FullTest {
 		Assert.assertTrue("La alarma al2 debería existir", a != null);
 		Assert.assertTrue("La alarma al2 debería estar activa", a.isActive());
 
-		//creamos el TerperclanSA con los DAO's del servidor
-		TestperclanSA testperclanSA = new TestperclanSAImp(clanDAO,
-				usuarioClanDAO, usuarioDAO, preguntaClanDAO);
-		//devolveríamos ese TestperclanSA al usuario.
+		//devolveríamos el TestperclanSA al usuario.
+		
 		ArrayList<UsuarioPOJO> ranking=testperclanSA.getRanking(user.getIdClan());
 		
 		
