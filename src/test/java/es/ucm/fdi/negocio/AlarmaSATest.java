@@ -76,21 +76,21 @@ public class AlarmaSATest {
 
 	@Test
 	public void anadirAlarmaTest() {
-		alarmaSA.AnadirAlarma(new AlarmaPOJO("mi_alarma", 10, 30, true,
+		alarmaSA.anadirAlarma(new AlarmaPOJO("mi_alarma", 10, 30, true,
 				"mySong.mp3"), "javigm");
 		assertTrue(
 				"Deberia contenerla",
 				alarmaUsuarioDAO.getAlarmasUsuario("javigm").contains(
 						"mi_alarma"));
-		alarmaSA.AnadirAlarma(new AlarmaPOJO("alarm", 0, 0, true,
+		alarmaSA.anadirAlarma(new AlarmaPOJO("alarm", 0, 0, true,
 				"music123.mp3"), "franqui");
 		assertTrue("Deberia contenerla",
 				alarmaUsuarioDAO.getAlarmasUsuario("franqui").contains("alarm"));
 	}
 
 	@Test
-	public void eleiminarAlarmaTest() {
-		alarmaSA.EliminarAlarma("al1");
+	public void eliminarAlarmaTest() {
+		alarmaSA.eliminarAlarma("al1");
 		assertTrue(!alarmaDAO.getActive().contains("al1"));
 		assertTrue(!alarmaUsuarioDAO.getAlarmasUsuario("javigm")
 				.contains("al1"));

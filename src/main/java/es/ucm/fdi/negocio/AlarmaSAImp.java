@@ -38,14 +38,14 @@ public class AlarmaSAImp implements AlarmaSA {
 	}
 
 	@Override
-	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario) {
+	public void anadirAlarma(AlarmaPOJO alarma, String idUsuario) {
 		alarmaDAO.save(alarma);
 		alarmaUsuarioDAO.save(new AlarmaUsuarioPOJO(alarma.getId(), idUsuario));
 
 	}
 
 	@Override
-	public void EliminarAlarma(String idAlarma) {
+	public void eliminarAlarma(String idAlarma) {
 		alarmaDAO.remove(idAlarma);
 		alarmaUsuarioDAO.remove(idAlarma);
 

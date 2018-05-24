@@ -35,12 +35,12 @@ public interface AlarmaSA {
 	 *            id del usuario al que se le va a anadir la alarma Anade una
 	 *            nueva alarma en la base de datos de las alarmas.
 	 */
-	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario);
+	public void anadirAlarma(AlarmaPOJO alarma, String idUsuario);
 
 	/**
 	 * 
 	 * @param idAlarma
 	 *            id de la alarma a eliminar. Elimina la alarma en cuestion.
 	 */
-	public void EliminarAlarma(String idAlarma);
+	public void eliminarAlarma(String idAlarma);
 }

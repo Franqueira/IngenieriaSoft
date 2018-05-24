@@ -31,6 +31,7 @@ public interface FachadaUsuario {
 	 *            id de la alarma a eliminar. Elimina la alarma en cuestion.
 	 */
 	public void EliminarAlarma(String idAlarma);
+
 	/**
 	 * 
 	 * @param idUsuario
@@ -69,6 +70,7 @@ public interface FachadaUsuario {
 	 *            idUsuario como lider de este.
 	 */
 	public void crearClan(String idUsuario, String idClan);
+
 	/**
 	 * 
 	 * @param usuario
@@ -108,6 +110,7 @@ public interface FachadaUsuario {
 	 *            id del usuario que se quiere eliminar
 	 */
 	public void eliminarUsuario(String idUsuario);
+
 	/**
 	 * Desvinvula todas las preguntas de una categoria de un usuario
 	 * 

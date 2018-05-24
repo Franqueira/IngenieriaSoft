@@ -34,11 +34,11 @@ public class UsuarioSAImp implements UsuarioSA {
 		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
 	}
 
-	public void AnadirUsuario(UsuarioPOJO usuario) {
+	public void anadirUsuario(UsuarioPOJO usuario) {
 		usuarioDAO.save(usuario);
 	}
 
-	public void EliminarUsuario(String idUsuario) {
+	public void eliminarUsuario(String idUsuario) {
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario))
 				.getIdClan();
 		usuarioDAO.remove(idUsuario);

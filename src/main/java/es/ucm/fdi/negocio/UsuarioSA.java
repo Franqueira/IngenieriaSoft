@@ -22,7 +22,7 @@ public interface UsuarioSA {
 	 *            usuario a anadir Anade un usuario a la base de datos de los
 	 *            usuarios.
 	 */
-	public void AnadirUsuario(UsuarioPOJO usuario);
+	public void anadirUsuario(UsuarioPOJO usuario);
 
 	/**
 	 * Comprueba que la respuesta elegida por un usuario a una pregunta es
@@ -54,6 +54,7 @@ public interface UsuarioSA {
 	 * @param idUsuario
 	 *            id del usuario que se quiere eliminar
 	 */
-	public void EliminarUsuario(String idUsuario);
+	public void eliminarUsuario(String idUsuario);
+	
 
 }
