@@ -152,5 +152,32 @@ public class UsuarioSATest {
 				((UsuarioPOJO) usuarioDAO.getFromId("javigm")).getPuntuacion());
 		usuario.informarRespuesta("javigm", "a2", 1);
 	}
+	
+
+	@Test
+	public void preguntasUsuarioTest() {
+		ArrayList<String> list = alarmaUsuarioDAO.getAlarmasUsuario("jc");
+		ArrayList<String> esperadas = new ArrayList<>();
+		esperadas.add("al10");
+		esperadas.add("al15");
+		
+		/*
+		 * Para comprobar que las dos listas son iguales (sin importar el orden)
+		 * comprobamos que todas las preguntas de esperadas se encuentra en list
+		 *  y ademas que tienen el mismo tamano.
+		 * 
+		 * Si list tiene el mismo tamano y contiene todas las preguntas de esperadas
+		 * entonces son la misma lista.
+		 * 
+		 */
+		
+		for(String s : esperadas) {
+			assertTrue("List deberia contener la alarma" + s,
+					list.contains(s));
+		}
+		assertTrue("El tamaño de list deberia ser igual al de esperadas", 
+				list.size() == esperadas.size());
+
+	}
 
 }
