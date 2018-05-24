@@ -69,7 +69,7 @@ public class FullTest {
 	private TestperclanSA testperclanSA;
 	private UsuarioSA usuarioSA;
 	private AlarmaSA alarmaSA;
-
+	private FachadaUsuario fachadaUsuarioSAs;
 	@Before
 	public void setup() {
 		new InicializaUsuarioDAOImp1().inicializa(usuarioDAO);
@@ -86,6 +86,7 @@ public class FullTest {
 				alarmaUsuarioDAO, clanDAO, alarmaDAO, preguntaDAO,
 				preguntaUsuarioDAO);
 		alarmaSA = new AlarmaSAImp(alarmaDAO, alarmaUsuarioDAO);
+		fachadaUsuarioSAs=new FachadaUsuarioImp(alarmaSA,null,testperclanSA,usuarioSA);
 	}
 	/**
 	 * 
@@ -96,11 +97,11 @@ public class FullTest {
 	public ArrayList<PreguntaPOJO> getPreguntas(boolean a, String idUsuario) {
 		ArrayList<PreguntaPOJO> preguntas = new ArrayList<>();
 		if (a) {
-			for (String pregunta : usuarioSA.preguntasUsuario(idUsuario)) {
+			for (String pregunta : fachadaUsuarioSAs.preguntasUsuario(idUsuario)) {
 				preguntas.add((PreguntaPOJO) preguntaDAO.getFromId(pregunta));
 			}
 		} else {
-			for (String pregunta : testperclanSA
+			for (String pregunta : fachadaUsuarioSAs
 					.preguntasClan(((UsuarioPOJO) usuarioDAO
 							.getFromId(idUsuario)).getIdClan())) {
 				preguntas.add((PreguntaPOJO) preguntaDAO.getFromId(pregunta));
@@ -140,10 +141,12 @@ public class FullTest {
 		AlarmaPOJO a = (AlarmaPOJO) alarmaDAO.getFromId("al2");
 		Assert.assertTrue("La alarma al2 debería existir", a != null);
 		Assert.assertTrue("La alarma al2 debería estar activa", a.isActive());
-		/**
+		/*
 		 * La alarma empieza a sonar, se le da la opción al usuario de posponer
 		 * la alarma. Si pulsa en el botón que aparece se llama al método:
 		 * alarmaSA.posponerAlarma(a.getId());
+		 * o
+		 * fachadaUsuarioSAs.posponerAlarma(a.getId());
 		 */
 
 		// este booleano indica que quiere sus preguntas propias.
@@ -165,7 +168,7 @@ public class FullTest {
 			 */
 
 			// suponemos que marca la primera opción
-			usuarioSA.informarRespuesta(user.getId(), pregunta.getId(), 0);
+			fachadaUsuarioSAs.informarRespuesta(user.getId(), pregunta.getId(), 0);
 			// if(n>=3) mostrarBotonPanico();
 			++n;
 			// supongamos que ya acerto:
