@@ -32,7 +32,7 @@ public interface PreguntaSA {
 	public void vincularCategoria(String categoria, String idUsuario);
 
 	/**
-	 * Agregar una nueva pregunta a la base de datos La pregunta es agregada a
+	 * Agregar una nueva pregunta a la base de datos. La pregunta es agregada a
 	 * la base de datos del usuario y del clan al que pertenece.
 	 * 
 	 * @param pregunta

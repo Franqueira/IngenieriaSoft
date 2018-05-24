@@ -122,6 +122,10 @@ public class FullTest {
 		return preguntas.get(pregunta);
 	}
 
+	/*
+	 * El test para preguntas del clan sería exactamente pero con
+	 * clanoUsuario=false;
+	 */
 	@Test
 	public void testpertarPreguntasPropias() {
 		UsuarioPOJO user = (UsuarioPOJO) usuarioDAO.getFromId("peter_hy");
