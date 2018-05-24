@@ -67,7 +67,7 @@ public class UsuarioSATest {
 	 */
 	@Test
 	public void eliminarUsuarioTest() {
-		usuario.EliminarUsuario("jc");
+		usuario.eliminarUsuario("jc");
 		assertEquals("Debería desaparecer de usuarioDAO", null,
 				usuarioDAO.find("JC Villanueva"));
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId("javigm"))
@@ -77,7 +77,7 @@ public class UsuarioSATest {
 				.equals("jc"));
 		assertTrue("franqui deberia ser el lider",
 				c.getLider().equals("franqui"));
-		usuario.EliminarUsuario("franqui");
+		usuario.eliminarUsuario("franqui");
 		c = (ClanPOJO) clanDAO.getFromId(idClan);
 		assertEquals("Debería desaparecer de usuarioDAO", null,
 				usuarioDAO.find("franqui"));
@@ -91,7 +91,7 @@ public class UsuarioSATest {
 	public void anadirUsuarioTest() {
 		UsuarioPOJO jaime = new UsuarioPOJO("jaime123", "Jaime Fernandez", 109,
 				"soyjaime", "Spain");
-		usuario.AnadirUsuario(jaime);
+		usuario.anadirUsuario(jaime);
 		assertTrue("debería encontrarlo",
 				usuarioDAO.find("Jaime Fernandez") != null);
 		assertEquals("Debería encontrarlo", jaime,
