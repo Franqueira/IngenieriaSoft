@@ -94,4 +94,15 @@ public class FachadaUsuarioImp implements FachadaUsuario {
 		preguntaSA.eliminarPregunta(idPregunta, idUsuario);
 	}
 
+	@Override
+	public void posponerAlarma(String alarma) {
+		alarmaSA.posponerAlarma(alarma);
+		
+	}
+
+	@Override
+	public ArrayList<UsuarioPOJO> getRanking(String nombreClan) {
+		return testperclanSA.getRanking(nombreClan);
+	}
+
 }

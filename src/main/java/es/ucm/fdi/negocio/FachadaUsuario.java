@@ -24,7 +24,14 @@ public interface FachadaUsuario {
 	 *            nueva alarma en la base de datos de las alarmas.
 	 */
 	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario);
-
+	
+	/**
+	 * 
+	 * @param alarma
+	 *            alarma que queremos posponer. Pospone la alarma en cinco
+	 *            minutos.
+	 */
+	public void posponerAlarma(String alarma);
 	/**
 	 * 
 	 * @param idAlarma
@@ -61,6 +68,14 @@ public interface FachadaUsuario {
 	 */
 	public ArrayList<String> preguntasClan(String idClan);
 
+	/**
+	 * 
+	 * @param nombreClan
+	 *            Cadena que contiene el nombre del clan
+	 * @return Devuelve el ranking, una lista ordenada de usuarios.
+	 */
+	public ArrayList<UsuarioPOJO> getRanking(String nombreClan);
+	
 	/**
 	 * 
 	 * @param idUsuario
