@@ -85,7 +85,7 @@ public class FullTest {
 		usuarioSA = new UsuarioSAImp(usuarioDAO, usuarioClanDAO,
 				alarmaUsuarioDAO, clanDAO, alarmaDAO, preguntaDAO,
 				preguntaUsuarioDAO);
-		alarmaSA =new AlarmaSAImp(alarmaDAO,alarmaUsuarioDAO);
+		alarmaSA = new AlarmaSAImp(alarmaDAO, alarmaUsuarioDAO);
 	}
 
 	/**
@@ -138,39 +138,38 @@ public class FullTest {
 		Assert.assertTrue("La alarma al2 debería existir", a != null);
 		Assert.assertTrue("La alarma al2 debería estar activa", a.isActive());
 		/**
-		 * La alarma empieza a sonar, se le da la opción al usuario de posponer la alarma.
-		 * Si pulsa en el botón que aparece se llama al método:
+		 * La alarma empieza a sonar, se le da la opción al usuario de posponer
+		 * la alarma. Si pulsa en el botón que aparece se llama al método:
 		 * alarmaSA.posponerAlarma(a.getId());
 		 */
-		
+
 		// este booleano indica que quiere sus preguntas propias.
 		boolean clanoUsuario = true;
 		ArrayList<PreguntaPOJO> preguntas = getPreguntas(clanoUsuario,
 				user.getId());
 		boolean respuestaIncorrecta = true;
-		int n=0;
+		int n = 0;
 		while (respuestaIncorrecta) {
 			PreguntaPOJO pregunta = elegirPregunta(preguntas); // elige la
 																// pregunta que
 																// va a aparecer
 																// en pantalla.
 			/*
-			 * muestraPregunta(pregunta);
-			 * Se le muestra la pregunta al usuario y esperas la respuesta. Si
-			 * acierta se pone respuestaIncorrecta a false. Si no se vuelve a
-			 * repetir el proceso hasta que llegase a 3 veces que se le
-			 * mostraría el botón del pánico.
+			 * muestraPregunta(pregunta); Se le muestra la pregunta al usuario y
+			 * esperas la respuesta. Si acierta se pone respuestaIncorrecta a
+			 * false. Si no se vuelve a repetir el proceso hasta que llegase a 3
+			 * veces que se le mostraría el botón del pánico.
 			 */
-			
-			//suponemos que marca la primera opción
-			usuarioSA.informarRespuesta(user.getId(),pregunta.getId(),0);
-			//if(n>=3) mostrarBotonPanico();
+
+			// suponemos que marca la primera opción
+			usuarioSA.informarRespuesta(user.getId(), pregunta.getId(), 0);
+			// if(n>=3) mostrarBotonPanico();
 			++n;
-			//supongamos que ya acerto:
-			respuestaIncorrecta=false;
+			// supongamos que ya acerto:
+			respuestaIncorrecta = false;
 		}
-		//una vez responde correctamente se apaga la alarma.
-		//el sistema ya tendría actualizada la puntuación del usuario.
-		
+		// una vez responde correctamente se apaga la alarma.
+		// el sistema ya tendría actualizada la puntuación del usuario.s
+
 	}
 }

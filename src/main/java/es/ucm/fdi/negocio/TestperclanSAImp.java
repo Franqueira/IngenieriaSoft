@@ -17,12 +17,13 @@ public class TestperclanSAImp implements TestperclanSA {
 	private UsuarioClanDAO usuarioClanDAO;
 	private UsuarioDAO usuarioDAO;
 	private PreguntaClanDAO preguntaClanDAO;
+
 	public TestperclanSAImp(ClanDAOImp clanDAO, UsuarioClanDAO usuarioClanDAO,
-			UsuarioDAO usuarios,PreguntaClanDAO preguntaClanDAO) {
+			UsuarioDAO usuarios, PreguntaClanDAO preguntaClanDAO) {
 		this.clanDAO = clanDAO;
 		this.usuarioClanDAO = usuarioClanDAO;
 		this.usuarioDAO = usuarios;
-		this.preguntaClanDAO=preguntaClanDAO;
+		this.preguntaClanDAO = preguntaClanDAO;
 	}
 
 	public ArrayList<UsuarioPOJO> getRanking(String nombreClan) {
@@ -47,13 +48,12 @@ public class TestperclanSAImp implements TestperclanSA {
 		usuarioDAO.update(ganador);
 	}
 
-	 /**
-	  * Elimina el usuario pasado por atributo.
-	  * Si el usuario era el líder del clan, el nuevo líder será el 
-	  * usuario con mayor puntuación.
-	  * Si el usuario era el último miembro del clan el clan se elimina.
-	  * 
-	  */
+	/**
+	 * Elimina el usuario pasado por atributo. Si el usuario era el líder del
+	 * clan, el nuevo líder será el usuario con mayor puntuación. Si el usuario
+	 * era el último miembro del clan el clan se elimina.
+	 * 
+	 */
 	public void eliminarUsuarioClan(String idUsuario) {
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario))
 				.getIdClan();
@@ -65,7 +65,7 @@ public class TestperclanSAImp implements TestperclanSA {
 			ArrayList<UsuarioPOJO> c = getRanking(idClan);
 			if (c.isEmpty())
 				clanDAO.remove(idClan);
-			else{
+			else {
 				ClanPOJO clan = (ClanPOJO) clanDAO.getFromId(idClan);
 				clan.setLider(c.get(0).getId());
 				clanDAO.update(clan);
@@ -88,7 +88,8 @@ public class TestperclanSAImp implements TestperclanSA {
 		usuarioDAO.update(lider);
 		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
 	}
-	//tiene poco sentido llamar a este método no?
+
+	// tiene poco sentido llamar a este método no?
 	@Override
 	public ArrayList<String> preguntasClan(String idClan) {
 		return preguntaClanDAO.getPreguntas(idClan);

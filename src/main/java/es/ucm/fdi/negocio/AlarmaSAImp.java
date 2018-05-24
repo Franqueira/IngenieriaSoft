@@ -48,6 +48,6 @@ public class AlarmaSAImp implements AlarmaSA {
 	public void EliminarAlarma(String idAlarma) {
 		alarmaDAO.remove(idAlarma);
 		alarmaUsuarioDAO.remove(idAlarma);
-		
+
 	}
 }
