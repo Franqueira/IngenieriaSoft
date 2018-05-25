@@ -2,6 +2,10 @@
 
 Proyecto Testpertador de la Universidad Complutense de Madrid.
 
+<p align="right">
+  <img src="https://github.com/Franqueira/IngenieriaSoft/blob/master/logo.png" width="350"/>
+</p>
+
 Testpertador es una aplicación que remedia el problema de despertarse por las mañanas. Permite crear alarmas con tests, los cuales impedirán que la alarma deje de sonar, creando un desafío que logra despertar al usuario.
 
 ## Características
@@ -11,4 +15,3 @@ Testpertador es una aplicación que remedia el problema de despertarse por las m
 * Capacidad para testpertar incluso sin conexión a internet
 * Y más...
 
-![alt text](https://github.com/Franqueira/IngenieriaSoft/blob/master/logo.png)
