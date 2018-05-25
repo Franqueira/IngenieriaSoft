@@ -132,4 +132,22 @@ public class TestperclanSATest {
 				((ClanPOJO) clanDAO.getFromId("IS")).getLider()
 						.equals("javigm"));
 	}
+	
+	/**
+	 * Comprueba que el clan genera correctamente la lista de preguntas del clan
+	 */
+	@Test
+	public void preguntasClanTest() {
+		ArrayList<String> esperado = new ArrayList<String>();
+		for (int i = 1; i < 13; i++) {
+			esperado.add("a" + i);
+		}
+		ArrayList<String> salida = testperclanSA.preguntasClan("losPros");
+		for(String s : esperado) {
+			assertTrue("La salida deberia contener la pregunta " + s,
+					salida.contains(s));
+		}
+		assertTrue("El tamaño de la salida deberia ser igual al esperado", 
+				salida.size() == esperado.size());
+	}
 }
