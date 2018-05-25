@@ -47,8 +47,8 @@ import es.ucm.fdi.negocio.UsuarioSAImp;
 
 /**
  * 
- * Clase encargada de probar la funcionalidad de la aplicación, probando las
- * acciones a realizar para los distrintos casos de uso.
+ * Clase encargada de probar el caso de uso testpertar, realizando la secuencia
+ * de acciones necesarias.
  *
  */
 public class FullTest {
@@ -72,6 +72,7 @@ public class FullTest {
 	private UsuarioSA usuarioSA;
 	private AlarmaSA alarmaSA;
 	private FachadaUsuario fachadaUsuario;
+
 	@Before
 	public void setup() {
 		new InicializaUsuarioDAOImp1().inicializa(usuarioDAO);
@@ -88,8 +89,10 @@ public class FullTest {
 				alarmaUsuarioDAO, clanDAO, alarmaDAO, preguntaDAO,
 				preguntaUsuarioDAO);
 		alarmaSA = new AlarmaSAImp(alarmaDAO, alarmaUsuarioDAO);
-		fachadaUsuario=new FachadaUsuarioImp(alarmaSA,null,testperclanSA,usuarioSA);
+		fachadaUsuario = new FachadaUsuarioImp(alarmaSA, null, testperclanSA,
+				usuarioSA);
 	}
+
 	/**
 	 * 
 	 * @param a
@@ -118,10 +121,10 @@ public class FullTest {
 	 * orden
 	 */
 	public PreguntaPOJO elegirPregunta(ArrayList<PreguntaPOJO> preguntas) {
-		Random r = new Random();
-		// devuelve una pregunta aleatoria de la lista
-		int pregunta = r.nextInt(preguntas.size());
-		return preguntas.get(pregunta);
+		PreguntaPOJO pregunta = preguntas.get(0);
+		preguntas.remove(0);
+		preguntas.add(preguntas.size(), pregunta);
+		return pregunta;
 	}
 
 	/*
@@ -129,6 +132,8 @@ public class FullTest {
 	 * clanoUsuario=false;
 	 */
 	/**
+	 * Aquí reproducimos la secuencia de acciones del caso de uso Testpertar
+	 * 
 	 * @see InicializaUsuarioDAOImp1, InicializaAlarmaDAOImp1
 	 */
 	@Test
@@ -149,8 +154,7 @@ public class FullTest {
 		/*
 		 * La alarma empieza a sonar, se le da la opción al usuario de posponer
 		 * la alarma. Si pulsa en el botón que aparece se llama al método:
-		 * alarmaSA.posponerAlarma(a.getId());
-		 * o
+		 * alarmaSA.posponerAlarma(a.getId()); o
 		 * fachadaUsuarioSAs.posponerAlarma(a.getId());
 		 */
 
@@ -158,30 +162,58 @@ public class FullTest {
 		boolean clanoUsuario = true;
 		ArrayList<PreguntaPOJO> preguntas = getPreguntas(clanoUsuario,
 				user.getId());
-		boolean respuestaIncorrecta = true;
-		int n = 0;
-		while (respuestaIncorrecta) {
-			PreguntaPOJO pregunta = elegirPregunta(preguntas); // elige la
-																// pregunta que
-																// va a aparecer
-																// en pantalla.
-			/*
-			 * muestraPregunta(pregunta); Se le muestra la pregunta al usuario y
-			 * esperas la respuesta. Si acierta se pone respuestaIncorrecta a
-			 * false. Si no se vuelve a repetir el proceso hasta que llegase a 3
-			 * veces que se le mostraría el botón del pánico.
-			 */
+		// se le muestra una pregunta al usuario
+		PreguntaPOJO pregunta = elegirPregunta(preguntas);
+		/*
+		 * Responde incorrectamente, su puntuacion baja 10 puntos y se le vuelve
+		 * a mostra otra pregunta
+		 */
+		fachadaUsuario.informarRespuesta(user.getId(), pregunta.getId(), 2);
+		user = (UsuarioPOJO) usuarioDAO.getFromId("peter_hy");
+		assertEquals("Deberia haberle restado 10 puntos", user.getPuntuacion(),
+				137);
+		pregunta = elegirPregunta(preguntas);
+		fachadaUsuario.informarRespuesta(user.getId(), pregunta.getId(), 1);
+		user = (UsuarioPOJO) usuarioDAO.getFromId("peter_hy");
+		assertEquals("Deberia haberle restado 10 puntos", user.getPuntuacion(),
+				127);
+		/*
+		 * Otra vez vuelve a responder incorrectamente, se repite la secuencia
+		 */
+		pregunta = elegirPregunta(preguntas);
+		fachadaUsuario.informarRespuesta(user.getId(), pregunta.getId(), 1);
+		user = (UsuarioPOJO) usuarioDAO.getFromId("peter_hy");
+		assertEquals("Deberia haberle restado 10 puntos", user.getPuntuacion(),
+				117);
 
-			// suponemos que marca la primera opción
-			fachadaUsuario.informarRespuesta(user.getId(), pregunta.getId(), 0);
-			// if(n>=3) mostrarBotonPanico();
-			++n;
-			// supongamos que ya acerto:
-			respuestaIncorrecta = false;
-		}
-		// una vez responde correctamente se apaga la alarma.
-		// el sistema ya tendría actualizada la puntuación del usuario.s
+		/*
+		 * Como ya lleva tres falladas se muestra el boton del panico que
+		 * permite apagar la alarma pese a no haber acertado ninguna pregunta
+		 */
+
+		// mostrarBotonPanico();
+
+		/*
+		 * El usuario decide no usar aun el boton y aparece otra pregunta
+		 */
+
+		/*
+		 * El usuario la responde correctamente y su puntuacion se incrementa en
+		 * 10 puntos
+		 */
+
+		pregunta = elegirPregunta(preguntas);
+		fachadaUsuario.informarRespuesta(user.getId(), pregunta.getId(), 2);
+		user = (UsuarioPOJO) usuarioDAO.getFromId("peter_hy");
+		assertEquals("Deberia haberle sumado 10 puntos", user.getPuntuacion(),
+				127);
+
+		/*
+		 * Como ya ha acertado una pregunta, la alarma se apaga
+		 */
+
+		// apagarAlarma();
 
 	}
-	
+
 }
