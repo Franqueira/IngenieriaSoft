@@ -2,25 +2,20 @@ package es.ucm.fdi.negocio;
 
 import java.util.ArrayList;
 
-import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
-import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 /**
- * 
  * Contiene los servicios funcionales de la aplicacion (a nivel de servidor) que
  * trabajan con los usuarios.
- *
  */
 
 public interface UsuarioSA {
 
 
 	/**
+	 * Anade un usuario a la base de datos de los usuarios.
 	 * 
-	 * @param usuario
-	 *            usuario a anadir Anade un usuario a la base de datos de los
-	 *            usuarios.
+	 * @param usuario	usuario a anadir 
 	 */
 	public void anadirUsuario(UsuarioPOJO usuario);
 
@@ -36,16 +31,16 @@ public interface UsuarioSA {
 	 * @param respuesta
 	 *            posicion de la respuesta marcada
 	 */
-
 	public void informarRespuesta(String idUsuario, String idPregunta,
 			int respuesta);
 
 	/**
+	 * Obtiene una lista con todas las preguntas asociadas al usuario
+	 * 
 	 * @param usuario
 	 *            id del usuario del que queremos obtener su lista de preguntas
-	 * @return una lista con todas las preguntas asociadas al usuario
+	 * @return la lista de preguntas
 	 */
-
 	public ArrayList<String> preguntasUsuario(String usuario);
 
 	/**

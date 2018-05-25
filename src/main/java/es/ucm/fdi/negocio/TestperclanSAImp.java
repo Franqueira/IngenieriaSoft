@@ -7,9 +7,7 @@ import es.ucm.fdi.integracion.DAOs.*;
 import es.ucm.fdi.integracion.POJOs.*;
 
 /**
- * 
- * Implementacion de la interfaz TestperclanSA
- *
+ * Implementación de la interfaz TestperclanSA
  */
 
 public class TestperclanSAImp implements TestperclanSA {
@@ -48,12 +46,6 @@ public class TestperclanSAImp implements TestperclanSA {
 		usuarioDAO.update(ganador);
 	}
 
-	/**
-	 * Elimina el usuario pasado por atributo. Si el usuario era el líder del
-	 * clan, el nuevo líder será el usuario con mayor puntuación. Si el usuario
-	 * era el último miembro del clan el clan se elimina.
-	 * 
-	 */
 	public void eliminarUsuarioClan(String idUsuario) {
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario))
 				.getIdClan();
@@ -93,7 +85,6 @@ public class TestperclanSAImp implements TestperclanSA {
 		usuarioClanDAO.save(new UsuarioClanPOJO(idClan, idUsuario));
 	}
 
-	// tiene poco sentido llamar a este método no?
 	@Override
 	public ArrayList<String> preguntasClan(String idClan) {
 		return preguntaClanDAO.getPreguntas(idClan);

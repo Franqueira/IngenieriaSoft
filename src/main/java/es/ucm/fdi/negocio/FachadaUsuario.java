@@ -14,81 +14,84 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 public interface FachadaUsuario {
 
 	/**
+	 * Anade una nueva alarma en la base de datos de las alarmas al usuario pasado
 	 * 
 	 * @param alarma
 	 *            alarma a anadir.
 	 * @param idUsuario
-	 *            id del usuario al que se le va a anadir la alarma Anade una
-	 *            nueva alarma en la base de datos de las alarmas.
+	 *            id del usuario al que se le va a anadir la alarma 
 	 */
 	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario);
 	
 	/**
+	 * Pospone la alarma en cinco minutos.
 	 * 
 	 * @param alarma
-	 *            alarma que queremos posponer. Pospone la alarma en cinco
-	 *            minutos.
+	 *            alarma que queremos posponer. 
 	 */
 	public void posponerAlarma(String alarma);
+	
 	/**
+	 * Elimina la alarma pasada
 	 * 
 	 * @param idAlarma
-	 *            id de la alarma a eliminar. Elimina la alarma en cuestion.
+	 *            id de la alarma a eliminar. 
 	 */
 	public void EliminarAlarma(String idAlarma);
 
 	/**
+	 * Elimina al usuario del clan. Si no quedan miembros restantes, elimina el clan, 
+	 * y si el usuario es el lider, cambia el lider del clan.
 	 * 
 	 * @param idUsuario
-	 *            id del usuario que va a ser eliminado. Elimina al usuario del
-	 *            clan. Si no quedan miembros restantes. elimina el clan, y si
-	 *            el usuario es el lider, cambia el lider del clan.
+	 *            id del usuario que va a ser eliminado. 
 	 */
 	public void eliminarUsuarioClan(String idUsuario);
 
 	/**
+	 * Añade un usuario concreto al clan idClan.
 	 * 
 	 * @param idUsuario
 	 *            id del usuario a añadir.
 	 * @param idClan
-	 *            id del clan al que se va a añadir el usuario. Añade un usuario
-	 *            concreto al clan idClan.
+	 *            id del clan al que se va a añadir el usuario. 
 	 */
 	public void anadirUsuarioClan(String idUsuario, String idClan);
 
 	/**
-	 * 
+	 * Obtiene una lista con todas las preguntas asociadas al clan pasado como
+	 *         argumento
 	 * 
 	 * @param idClan
 	 *            clan del que queremos obtener las preguntas
-	 * @return una lista con todas las preguntas asociadas al clan pasado como
-	 *         argumento
+	 *            
+	 * @return una lista con todas las preguntas del clan
 	 */
 	public ArrayList<String> preguntasClan(String idClan);
 
 	/**
+	 * Obtiene el ranking
 	 * 
 	 * @param nombreClan
 	 *            Cadena que contiene el nombre del clan
-	 * @return Devuelve el ranking, una lista ordenada de usuarios.
+	 * @return Devuelve el ranking
 	 */
 	public ArrayList<UsuarioPOJO> getRanking(String nombreClan);
 	
 	/**
+	 * Crea un nuevo clan con el idUsuario como lider de este.
 	 * 
 	 * @param idUsuario
 	 *            id del usuario que se convertira en el lider del clan.
 	 * @param idClan
-	 *            id del clan que se va a crear. Crea un nuevo clan con el
-	 *            idUsuario como lider de este.
+	 *            id del clan que se va a crear. 
 	 */
 	public void crearClan(String idUsuario, String idClan);
 
 	/**
+	 * Anade un usuario a la base de datos de los usuarios.
 	 * 
-	 * @param usuario
-	 *            usuario a anadir Anade un usuario a la base de datos de los
-	 *            usuarios.
+	 * @param usuario	usuario a anadir 
 	 */
 	public void AnadirUsuario(UsuarioPOJO usuario);
 
@@ -104,16 +107,16 @@ public interface FachadaUsuario {
 	 * @param respuesta
 	 *            posicion de la respuesta marcada
 	 */
-
 	public void informarRespuesta(String idUsuario, String idPregunta,
 			int respuesta);
 
 	/**
+	 * Obtiene una lista con todas las preguntas asociadas al usuario
+	 * 
 	 * @param usuario
 	 *            id del usuario del que queremos obtener su lista de preguntas
-	 * @return una lista con todas las preguntas asociadas al usuario
+	 * @return la lista de preguntas
 	 */
-
 	public ArrayList<String> preguntasUsuario(String usuario);
 
 	/**
@@ -125,7 +128,7 @@ public interface FachadaUsuario {
 	public void eliminarUsuario(String idUsuario);
 
 	/**
-	 * Desvinvula todas las preguntas de una categoria de un usuario
+	 * Desvincula todas las preguntas de una categoria de un usuario
 	 * 
 	 * @param categoria
 	 *            categoria de la que no queremos mas preguntas
@@ -150,16 +153,14 @@ public interface FachadaUsuario {
 	 * Agregar una nueva pregunta a la base de datos. La pregunta es agregada a
 	 * la base de datos del usuario y del clan al que pertenece.
 	 * 
-	 * @param pregunta
-	 *            pregunta a agregar
+	 * @param pregunta	pregunta a agregar
 	 */
 	public void agregarPregunta(PreguntaPOJO pregunta, String idUsuario);
 
 	/**
-	 * Elimina un apregunta de la base de datos
+	 * Elimina una pregunta de la base de datos
 	 * 
-	 * @param idPregunta
-	 *            id de la pregunta a eliminar
+	 * @param idPregunta	id de la pregunta a eliminar
 	 */
 	public void eliminarPregunta(String idPregunta, String idUsuario);
 }

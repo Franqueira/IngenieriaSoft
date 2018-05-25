@@ -6,9 +6,7 @@ import es.ucm.fdi.integracion.DAOs.*;
 import es.ucm.fdi.integracion.POJOs.*;
 
 /**
- * 
- * Implementacion de la interfaz PreguntaSA
- * 
+ * Implementación de la interfaz PreguntaSA
  */
 
 public class PreguntaSAImp implements PreguntaSA {
@@ -53,7 +51,7 @@ public class PreguntaSAImp implements PreguntaSA {
 				idUsuario));
 		String idClan = ((UsuarioPOJO) usuarioDAO.getFromId(idUsuario))
 				.getIdClan();
-		if (idClan.length() != 0) // para ver que tiene clan
+		if (idClan.length() != 0)
 			preguntaClanDAO
 					.save(new PreguntaClanPOJO(pregunta.getId(), idClan));
 		preguntaDAO.save(pregunta);
@@ -61,8 +59,7 @@ public class PreguntaSAImp implements PreguntaSA {
 
 	@Override
 	public void eliminarPregunta(String idPregunta, String idUsuario) {
-		preguntaUsuarioDAO.remove(idPregunta);// aquí debería pasar esta id o de
-												// usuario
+		preguntaUsuarioDAO.remove(idPregunta);
 		preguntaClanDAO.remove(idPregunta);
 		preguntaDAO.remove(idPregunta);
 	}

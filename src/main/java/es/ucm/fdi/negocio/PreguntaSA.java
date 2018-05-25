@@ -3,14 +3,13 @@ package es.ucm.fdi.negocio;
 /**
  * Contiene los servicios funcionales de la aplicación (a nivel de servidor)
  * que trabajan con preguntas.
- *
  */
 
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 public interface PreguntaSA {
 	/**
-	 * Desvinvula todas las preguntas de una categoria de un usuario
+	 * Desvincula todas las preguntas de una categoria de un usuario
 	 * 
 	 * @param categoria
 	 *            categoria de la que no queremos mas preguntas
