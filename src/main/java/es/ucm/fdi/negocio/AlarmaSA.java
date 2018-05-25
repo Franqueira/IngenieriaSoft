@@ -1,17 +1,14 @@
 package es.ucm.fdi.negocio;
 
-import java.util.ArrayList;
-
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 /**
- * 
  * Contiene las funcionalidades de la aplicación (a nivel de servidor) que
  * trabajan con alarmas.
- *
  */
 public interface AlarmaSA {
 	/**
+	 * Obtiene el tono de una alarma
 	 * 
 	 * @param alarma
 	 *            alarma de la que queremos conocer su tono para reproducir.
@@ -20,27 +17,28 @@ public interface AlarmaSA {
 	public String getTone(String alarma);
 
 	/**
+	 * Pospone la alarma pasada en cinco minutos
 	 * 
 	 * @param alarma
-	 *            alarma que queremos posponer. Pospone la alarma en cinco
-	 *            minutos.
+	 *            alarma que queremos posponer.
 	 */
 	public void posponerAlarma(String alarma);
 
 	/**
+	 * Anade una nueva alarma en la base de datos de las alarmas conectandola al ususario pasado
 	 * 
 	 * @param alarma
 	 *            alarma a anadir.
 	 * @param idUsuario
-	 *            id del usuario al que se le va a anadir la alarma Anade una
-	 *            nueva alarma en la base de datos de las alarmas.
+	 *            id del usuario al que se le va a anadir la alarma 
 	 */
 	public void anadirAlarma(AlarmaPOJO alarma, String idUsuario);
 
 	/**
+	 * Elimina la alarma pasada
 	 * 
 	 * @param idAlarma
-	 *            id de la alarma a eliminar. Elimina la alarma en cuestion.
+	 *            id de la alarma a eliminar. 
 	 */
 	public void eliminarAlarma(String idAlarma);
 }

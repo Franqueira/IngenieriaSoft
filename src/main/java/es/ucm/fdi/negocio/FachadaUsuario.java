@@ -10,8 +10,6 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
  * Esta interfaz contiene todos los métodos que dependen del usuario que lo
  * llame, por lo tanto simplica la llamada a las funciones que contiene ya que
  * permite abstraerte de saber en que SA está implementada la función
- * 
- *
  */
 public interface FachadaUsuario {
 

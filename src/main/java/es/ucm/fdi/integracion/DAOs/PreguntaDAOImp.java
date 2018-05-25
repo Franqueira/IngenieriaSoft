@@ -8,9 +8,7 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
 /**
- * 
- * Implementacion de la interfaz PreguntaDAO
- *
+ * Implementación de la interfaz PreguntaDAO
  */
 public class PreguntaDAOImp extends HashMapDAOImp<PreguntaPOJO> implements
 		PreguntaDAO {

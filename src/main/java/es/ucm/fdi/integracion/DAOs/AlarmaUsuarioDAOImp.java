@@ -6,9 +6,7 @@ import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 import es.ucm.fdi.datos.*;
 
 /**
- * 
  * Implementación de la interfaz AlarmausuarioDAO
- * 
  */
 public class AlarmaUsuarioDAOImp extends HashMapDAOImp<AlarmaUsuarioPOJO>
 		implements AlarmaUsuarioDAO {
@@ -17,7 +15,6 @@ public class AlarmaUsuarioDAOImp extends HashMapDAOImp<AlarmaUsuarioPOJO>
 		super(BD);
 	}
 
-	@Override
 	public ArrayList<String> getAlarmasUsuario(String idUsuario) {
 		ArrayList<String> listaAlarmas = new ArrayList<>();
 		for (String a : BD.getIds()) {

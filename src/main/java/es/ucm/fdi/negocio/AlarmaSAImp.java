@@ -4,9 +4,7 @@ import es.ucm.fdi.integracion.DAOs.*;
 import es.ucm.fdi.integracion.POJOs.*;
 
 /**
- * 
  * Implementación de la interfaz AlarmaSA
- *
  */
 public class AlarmaSAImp implements AlarmaSA {
 	private AlarmaDAO alarmaDAO;

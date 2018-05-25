@@ -12,12 +12,8 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 /**
- * 
  * Clase que prueba AlarmaDAO
- *
  */
-
-
 public class AlarmaDAOTest {
 	private AlarmaDAO alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
 

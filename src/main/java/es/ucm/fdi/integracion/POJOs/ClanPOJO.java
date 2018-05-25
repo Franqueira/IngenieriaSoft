@@ -1,13 +1,12 @@
 package es.ucm.fdi.integracion.POJOs;
 
 /**
- * 
- * Clase que representa un clan en la aplicación. Contiene informacion acerca de
+ * Clase que representa un clan en la aplicación. Contiene información acerca de
  * su nombre y el id del lider del mismo.
- *
  */
 
-public class ClanPOJO extends POJO {// duda
+public class ClanPOJO extends POJO {
+	private static final long serialVersionUID = -3656663855718569874L;
 	String lider;
 
 	public ClanPOJO(String nombreClan, String lider) {
@@ -15,7 +14,7 @@ public class ClanPOJO extends POJO {// duda
 		this.lider = lider;
 	}
 
-	public String getNombreClan() { // en realidad sobra
+	public String getNombreClan() {
 		return getId();
 	}
 

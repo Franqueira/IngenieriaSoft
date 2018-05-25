@@ -2,23 +2,17 @@ package es.ucm.fdi.integracion.POJOs;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
- * 
  * Clase genérica que contine las operaciones comunes a todos los POJOs de la
  * aplicación
- *
  */
 public abstract class POJO implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1788711036075118821L;
 	protected String id;
 
 	public POJO(String id) {

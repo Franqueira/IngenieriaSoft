@@ -6,9 +6,7 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 
 /**
- * 
  * Implementación de la interfaz UsuarioClanDAO
- *
  */
 public class UsuarioClanDAOImp extends HashMapDAOImp<UsuarioClanPOJO> implements
 		UsuarioClanDAO {

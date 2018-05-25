@@ -7,10 +7,11 @@ package es.ucm.fdi.integracion.POJOs;
  * booleano que indica si esGanador de su clan (y por tanto tiene ciertos
  * privilegios) y el id del clan al que perteb¡nece si es que perteneciese a
  * alguno.
- *
  */
 
 public class UsuarioPOJO extends POJO {
+
+	private static final long serialVersionUID = -4440415554455641113L;
 	private String nombreReal;
 	private int puntuacion;
 	private String password;

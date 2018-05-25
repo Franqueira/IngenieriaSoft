@@ -30,7 +30,7 @@ public class HashMapDAOImp<T extends POJO> implements DAO<T> {
 	@Override
 	public POJO getFromId(String id) {
 		POJO p=BD.find(id);
-		if(p==null)return null;
+		if(p==null) return null;
 		return p.clone();
 	}
 
@@ -38,8 +38,9 @@ public class HashMapDAOImp<T extends POJO> implements DAO<T> {
 	public void remove(String id) {
 		BD.removeId(id);
 	}
-
+	
 	@SuppressWarnings("unchecked")
+	@Override
 	public ArrayList<T> getFromIds(List<T> pojos) {
 		ArrayList<T> nuevos = new ArrayList<>();
 		pojos.forEach(pojo -> nuevos.add((T) pojo.clone()));

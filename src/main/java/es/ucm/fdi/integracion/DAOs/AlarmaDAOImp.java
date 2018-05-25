@@ -7,9 +7,7 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 /**
- * 
  * Implementación de la interfaz AlarmaDAO
- *
  */
 public class AlarmaDAOImp extends HashMapDAOImp<AlarmaPOJO> implements
 		AlarmaDAO {
@@ -20,13 +18,8 @@ public class AlarmaDAOImp extends HashMapDAOImp<AlarmaPOJO> implements
 
 	public ArrayList<AlarmaPOJO> getActive() {
 		ArrayList<String> list = BD.getIds();
-		return getFromIds(list.stream().map(id -> BD.find(id)) // Busca el
-																// AlarmaPOJO
-																// correspondiente
+		return getFromIds(list.stream().map(id -> BD.find(id)) // Busca el AlarmaPOJO correspondiente
 				.filter(a -> a.isActive()) // Mira los que estan activos
-				.collect(Collectors.toCollection(ArrayList::new))); // Los
-																	// guarda en
-																	// un
-																	// ArrayList
+				.collect(Collectors.toCollection(ArrayList::new))); // Los guarda en un ArrayList
 	}
 }

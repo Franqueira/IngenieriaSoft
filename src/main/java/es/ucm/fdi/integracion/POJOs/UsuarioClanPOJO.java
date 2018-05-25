@@ -1,12 +1,13 @@
 package es.ucm.fdi.integracion.POJOs;
 
 /**
- * Relaciona un usuario con un caln, indicando que el usuario es miembro del
+ * Relaciona un usuario con un clan, indicando que el usuario es miembro del
  * clan.
- *
  */
 public class UsuarioClanPOJO extends POJO {
-	String idClan; // su nombre
+
+	private static final long serialVersionUID = -7318816738728432942L;
+	String idClan;
 
 	public UsuarioClanPOJO(String idClan, String idUsuario) {
 		super(idUsuario);
