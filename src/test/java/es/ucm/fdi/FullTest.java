@@ -129,6 +129,7 @@ public class FullTest {
 	 * clanoUsuario=false;
 	 */
 	/**
+	 * Aquí reproducimos la secuencia de acciones del caso de uso Testpertar
 	 * @see InicializaUsuarioDAOImp1, InicializaAlarmaDAOImp1
 	 */
 	@Test
