@@ -6,17 +6,13 @@ import es.ucm.fdi.integracion.DAOs.*;
 import es.ucm.fdi.integracion.POJOs.*;
 
 /**
- * 
- * Implementacion de la interfaz UsuarioSAImp
- *
+ * Implementación de la interfaz UsuarioSAImp
  */
 
 public class UsuarioSAImp implements UsuarioSA {
 	private UsuarioDAO usuarioDAO;
 	private UsuarioClanDAO usuariosClanDAO;
-	private AlarmaUsuarioDAO usuariosAlarmaDAO;
 	private ClanDAOImp clanDAO;
-	private AlarmaDAO alarmaDAO;
 	private PreguntaDAO preguntaDAO;
 	private PreguntaUsuarioDAO preguntaUsuarioDAO;
 
@@ -27,9 +23,7 @@ public class UsuarioSAImp implements UsuarioSA {
 		super();
 		this.usuarioDAO = usuarioDAO;
 		this.usuariosClanDAO = usuariosClanDAO;
-		this.usuariosAlarmaDAO = usuariosAlarmaDAO;
 		this.clanDAO = clanDAO;
-		this.alarmaDAO = alarmaDAO;
 		this.preguntaDAO = preguntaDAO;
 		this.preguntaUsuarioDAO = preguntaUsuarioDAO;
 	}
