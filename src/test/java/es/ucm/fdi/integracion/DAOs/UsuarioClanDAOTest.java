@@ -1,6 +1,6 @@
 package es.ucm.fdi.integracion.DAOs;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,6 @@ import org.junit.Test;
 import es.ucm.fdi.InicializaUsuarioClanDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
-import junit.framework.TestCase;
 
 public class UsuarioClanDAOTest {
 	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(

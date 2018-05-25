@@ -1,6 +1,7 @@
 package es.ucm.fdi.negocio;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,17 +9,13 @@ import org.junit.Test;
 import es.ucm.fdi.InicializaAlarmaDAOImp1;
 import es.ucm.fdi.InicializaAlarmaUsuarioDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
-import es.ucm.fdi.integracion.DAOs.AlarmaDAO;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
-import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAO;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 
 /**
- * 
  * Contiene los test que que prueban la funcionalidad de la alarma
- *
  */
 
 public class AlarmaSATest {

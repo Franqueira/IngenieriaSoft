@@ -25,9 +25,7 @@ import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 /**
- * 
  * Clase que contiene los test que comprueban la funcionalidad de los UsuarioSA
- * 
  */
 
 public class UsuarioSATest {

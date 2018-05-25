@@ -1,8 +1,6 @@
 package es.ucm.fdi;
 
-import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
-import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 
 public class InicializaUsuarioClanDAOImp1 implements InicializaUsuarioClanDAO {

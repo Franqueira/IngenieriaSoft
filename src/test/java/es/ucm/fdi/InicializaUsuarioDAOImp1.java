@@ -1,8 +1,6 @@
 package es.ucm.fdi;
 
-import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
-import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 public class InicializaUsuarioDAOImp1 implements InicializaUsuarioDAO {

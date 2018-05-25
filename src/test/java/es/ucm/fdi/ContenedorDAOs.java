@@ -22,7 +22,7 @@ import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 import es.ucm.fdi.negocio.TestperclanSAImp;
 
-/*
+/**
  * Ahora mismo no es utilizado por la aplicación, pero cabe la posibilidad de que en
  * un futuro quiera usarse.
  */

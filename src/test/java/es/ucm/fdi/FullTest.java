@@ -1,55 +1,44 @@
 package es.ucm.fdi;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
-import java.util.Random;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import junit.framework.Assert;
+
+import org.junit.Before;
+import org.junit.Test;
+
 import es.ucm.fdi.datos.BDHashMap;
-import es.ucm.fdi.integracion.DAOs.AlarmaDAO;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
-import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAO;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaClanDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaClanDAOImp;
-import es.ucm.fdi.integracion.DAOs.PreguntaDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
-import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAOImp;
-import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
-import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
+import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
-import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
 import es.ucm.fdi.negocio.AlarmaSA;
 import es.ucm.fdi.negocio.AlarmaSAImp;
 import es.ucm.fdi.negocio.FachadaUsuario;
 import es.ucm.fdi.negocio.FachadaUsuarioImp;
-import es.ucm.fdi.negocio.PreguntaSA;
-import es.ucm.fdi.negocio.PreguntaSAImp;
 import es.ucm.fdi.negocio.TestperclanSA;
 import es.ucm.fdi.negocio.TestperclanSAImp;
 import es.ucm.fdi.negocio.UsuarioSA;
 import es.ucm.fdi.negocio.UsuarioSAImp;
 
 /**
- * 
  * Clase encargada de probar el caso de uso testpertar, realizando la secuencia
  * de acciones necesarias.
- *
  */
 public class FullTest {
 
@@ -94,9 +83,10 @@ public class FullTest {
 	}
 
 	/**
+	 * Si el booleano es true devuelve las preguntas del usuario, si no las de todo su clan
 	 * 
-	 * @param a
-	 *            Si es true devuelve las del usuario, si no las de todo su clan
+	 * @param a 	booleano que indica la opción
+	 * 
 	 * @return lista con las preguntas
 	 */
 	public ArrayList<PreguntaPOJO> getPreguntas(boolean a, String idUsuario) {
@@ -115,10 +105,8 @@ public class FullTest {
 		return preguntas;
 	}
 
-	/*
-	 * Este método debería elegir eficientemente la próxima pregunta. Queda
-	 * pendiente ir llevando una lista con las preguntas ya respondidas y en que
-	 * orden
+	/**
+	 * Elige la siguiente pregunta
 	 */
 	public PreguntaPOJO elegirPregunta(ArrayList<PreguntaPOJO> preguntas) {
 		PreguntaPOJO pregunta = preguntas.get(0);

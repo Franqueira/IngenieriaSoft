@@ -1,6 +1,6 @@
 package es.ucm.fdi.integracion.DAOs;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,7 +8,6 @@ import org.junit.Test;
 import es.ucm.fdi.InicializaUsuarioDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
-import static org.junit.Assert.*;
 
 public class UsuarioDAOTest {
 	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(

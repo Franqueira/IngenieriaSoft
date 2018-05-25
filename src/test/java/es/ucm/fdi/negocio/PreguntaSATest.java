@@ -1,30 +1,28 @@
 package es.ucm.fdi.negocio;
 
 /**
- * 
  * Contiene los test que comprueban la funcionalidad de PreguntaSA
- * 
  */
 
-import es.ucm.fdi.*;
-import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
-import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
-import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
-import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import es.ucm.fdi.InicializaPreguntaDAOImp1;
+import es.ucm.fdi.InicializaPreguntaUsuarioDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.PreguntaClanDAOImp;
-import es.ucm.fdi.integracion.DAOs.PreguntaDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAO;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
+import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
+import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
+import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
+import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 public class PreguntaSATest {
 	private PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(
@@ -44,7 +42,6 @@ public class PreguntaSATest {
 	public void setup() {
 		new InicializaPreguntaDAOImp1().inicializa(preguntaDAO);
 		new InicializaPreguntaUsuarioDAOImp1().inicializa(preguntaUsuarioDAO);
-		// preguntaSA = new PreguntaSAImp(preguntaDAO);
 		preguntaSA = new PreguntaSAImp(preguntaDAO, preguntaUsuarioDAO,
 				usuarioDAO, preguntaClanDAO);
 

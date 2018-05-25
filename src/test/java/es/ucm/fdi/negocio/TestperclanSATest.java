@@ -20,9 +20,7 @@ import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 /**
- * 
  * Clase que contiene los test que comprueban la funcionalidad de TestperclanSA
- *
  */
 
 public class TestperclanSATest {
