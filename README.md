@@ -12,7 +12,7 @@ Testpertador es una aplicación que remedia el problema de despertarse por las m
 ## Características
 
 * Alarmas configurables con preguntas
-* Pregntas de multitud de categorías para elegir
+* Preguntas de multitud de categorías para elegir
 * **Testperclan** - ¡Compite con tus amigos y sé el primero del ranking!
 * Capacidad para testpertar incluso sin conexión a internet
 * Y más...
