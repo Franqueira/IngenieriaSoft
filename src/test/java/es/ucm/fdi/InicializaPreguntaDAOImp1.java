@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 
+/**
+ * Implementación de InicializaPreguntaDAO
+ */
 public class InicializaPreguntaDAOImp1 implements InicializaPreguntaDAO {
 
 	@Override

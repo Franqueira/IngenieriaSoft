@@ -3,7 +3,7 @@ package es.ucm.fdi;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
 
 /**
- * Clase encargada de inicialziar un UsuarioDAO
+ * Clase encargada de inicializar un UsuarioDAO
  */
 public interface InicializaUsuarioDAO {
 	

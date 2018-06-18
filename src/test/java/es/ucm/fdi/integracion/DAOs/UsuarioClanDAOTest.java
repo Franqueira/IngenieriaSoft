@@ -11,6 +11,9 @@ import es.ucm.fdi.InicializaUsuarioClanDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 
+/**
+ * Clase encargada de probar UsuarioClanDAO
+ */
 public class UsuarioClanDAOTest {
 	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(
 			new BDHashMap<UsuarioClanPOJO>());

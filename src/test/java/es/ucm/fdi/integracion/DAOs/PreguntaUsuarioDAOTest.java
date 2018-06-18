@@ -11,6 +11,9 @@ import es.ucm.fdi.InicializaPreguntaUsuarioDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 
+/**
+ * Clase encargada de probar PreguntaUsuarioDAO
+ */
 public class PreguntaUsuarioDAOTest {
 	private PreguntaUsuarioDAOImp preguntaUsuarioDAO = new PreguntaUsuarioDAOImp(
 			new BDHashMap<PreguntaUsuarioPOJO>());

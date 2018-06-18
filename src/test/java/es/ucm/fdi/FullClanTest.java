@@ -36,7 +36,7 @@ public class FullClanTest {
 	private TestperclanSAImp testperclanSA;
 
 	/**
-	 * Creacion de los clanes y de sus usuarios
+	 * Creación de los clanes y de sus usuarios
 	 */
 	@Before
 	public void setup() {
@@ -50,7 +50,7 @@ public class FullClanTest {
 	}
 
 	/**
-	 * Comprueba una simulacion de una secuencia de acciones del testperclan.
+	 * Comprueba una simulación de una secuencia de acciones del testperclan
 	 *
 	 * @see InicializaClanDAOImp1
 	 *      ,InicializaUsuarioDAOImp1,InicializaUsuarioClanDAOImp1

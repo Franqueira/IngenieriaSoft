@@ -3,6 +3,9 @@ package es.ucm.fdi;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 
+/**
+ * Implementación de InicializaAlarmaUsuarioDAO
+ */
 public class InicializaAlarmaUsuarioDAOImp1 implements
 		InicializaAlarmaUsuarioDAO {
 

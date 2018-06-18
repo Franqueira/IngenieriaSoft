@@ -3,10 +3,10 @@ package es.ucm.fdi.integracion.POJOs;
 import java.util.ArrayList;
 
 /**
- * Clase que representa un pregunta de la aplicación. Contiene el texto de la
- * pregunta (texto), la categoria a la que perteneces, una lista con las
- * posibles respuestas tipo-test(respuestas) y un entero indicando el indice de
- * la lista en el que se encuentra la respuesta correcta.
+ * Clase que representa una pregunta de la aplicación. Contiene el texto de la
+ * pregunta (texto), la categoría a la que perteneces, una lista con las
+ * posibles respuestas tipo-test(respuestas) y un entero indicando el índice de
+ * la lista en el que se encuentra la respuesta correcta
  */
 public class PreguntaPOJO extends POJO {
 	

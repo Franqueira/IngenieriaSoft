@@ -6,7 +6,7 @@ import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 
 /**
  * Operaciones con BD que requieren datos de usuarios y alarmas, tales como
- * obtener la lista de alaramas de un usuario
+ * obtener la lista de alarmas de un usuario
  */
 public interface AlarmaUsuarioDAO extends DAO<AlarmaUsuarioPOJO> {
 

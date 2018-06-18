@@ -15,7 +15,7 @@ import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 
 /**
- * Contiene los test que que prueban la funcionalidad de la alarma
+ * Contiene los test que prueban la funcionalidad de la alarma
  */
 
 public class AlarmaSATest {
@@ -26,7 +26,7 @@ public class AlarmaSATest {
 	private AlarmaSAImp alarmaSA;
 
 	/**
-	 * Creacion de las alarmas
+	 * Creación de las alarmas
 	 */
 	@Before
 	public void setup() {

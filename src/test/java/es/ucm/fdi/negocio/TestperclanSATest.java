@@ -34,7 +34,7 @@ public class TestperclanSATest {
 	private TestperclanSAImp testperclanSA;
 
 	/**
-	 * Creacion de los clanes y de sus usuarios
+	 * Creación de los clanes y de sus usuarios
 	 */
 	@Before
 	public void setup() {
@@ -107,7 +107,7 @@ public class TestperclanSATest {
 	}
 
 	/**
-	 * Comprueba que el sistema añade a un usuario correctamente
+	 * Comprueba que el sistema anade a un usuario correctamente
 	 */
 	@Test
 	public void añadirUsuarioClanTest() {

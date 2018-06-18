@@ -6,7 +6,7 @@ import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
 /**
  * Realiza las acciones de acceso a memoria relacionadas con las alarmas de la
- * aplicacion
+ * aplicación
  */
 public interface AlarmaDAO extends DAO<AlarmaPOJO> {
 	

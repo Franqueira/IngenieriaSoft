@@ -3,6 +3,9 @@ package es.ucm.fdi;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAO;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 
+/**
+ * Implementación de InicializaAlarmaDAO
+ */
 public class InicializaAlarmaDAOImp1 implements InicializaAlarmaDAO {
 
 	@Override

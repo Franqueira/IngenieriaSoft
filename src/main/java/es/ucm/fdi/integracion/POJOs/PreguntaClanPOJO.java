@@ -1,7 +1,7 @@
 package es.ucm.fdi.integracion.POJOs;
 
 /**
- * Establece una relación entre un clan y una pregunta.
+ * Establece una relación entre un clan y una pregunta
  */
 public class PreguntaClanPOJO extends POJO {
 

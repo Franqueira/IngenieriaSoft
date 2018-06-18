@@ -17,17 +17,17 @@ public interface FachadaUsuario {
 	 * Anade una nueva alarma en la base de datos de las alarmas al usuario pasado
 	 * 
 	 * @param alarma
-	 *            alarma a anadir.
+	 *            alarma a anadir
 	 * @param idUsuario
 	 *            id del usuario al que se le va a anadir la alarma 
 	 */
 	public void AnadirAlarma(AlarmaPOJO alarma, String idUsuario);
 	
 	/**
-	 * Pospone la alarma en cinco minutos.
+	 * Pospone la alarma en cinco minutos
 	 * 
 	 * @param alarma
-	 *            alarma que queremos posponer. 
+	 *            alarma que queremos posponer
 	 */
 	public void posponerAlarma(String alarma);
 	
@@ -35,32 +35,32 @@ public interface FachadaUsuario {
 	 * Elimina la alarma pasada
 	 * 
 	 * @param idAlarma
-	 *            id de la alarma a eliminar. 
+	 *            id de la alarma a eliminar 
 	 */
 	public void EliminarAlarma(String idAlarma);
 
 	/**
 	 * Elimina al usuario del clan. Si no quedan miembros restantes, elimina el clan, 
-	 * y si el usuario es el lider, cambia el lider del clan.
+	 * y si el usuario es el líder, cambia el líder del clan
 	 * 
 	 * @param idUsuario
-	 *            id del usuario que va a ser eliminado. 
+	 *            id del usuario que va a ser eliminado 
 	 */
 	public void eliminarUsuarioClan(String idUsuario);
 
 	/**
-	 * Añade un usuario concreto al clan idClan.
+	 * Añade un usuario concreto al clan idClan
 	 * 
 	 * @param idUsuario
-	 *            id del usuario a añadir.
+	 *            id del usuario a anadir
 	 * @param idClan
-	 *            id del clan al que se va a añadir el usuario. 
+	 *            id del clan al que se va a anadir el usuario 
 	 */
 	public void anadirUsuarioClan(String idUsuario, String idClan);
 
 	/**
 	 * Obtiene una lista con todas las preguntas asociadas al clan pasado como
-	 *         argumento
+	 * argumento
 	 * 
 	 * @param idClan
 	 *            clan del que queremos obtener las preguntas
@@ -79,17 +79,17 @@ public interface FachadaUsuario {
 	public ArrayList<UsuarioPOJO> getRanking(String nombreClan);
 	
 	/**
-	 * Crea un nuevo clan con el idUsuario como lider de este.
+	 * Crea un nuevo clan con el idUsuario como líder de este
 	 * 
 	 * @param idUsuario
-	 *            id del usuario que se convertira en el lider del clan.
+	 *            id del usuario que se convertira en el líder del clan
 	 * @param idClan
-	 *            id del clan que se va a crear. 
+	 *            id del clan que se va a crear 
 	 */
 	public void crearClan(String idUsuario, String idClan);
 
 	/**
-	 * Anade un usuario a la base de datos de los usuarios.
+	 * Anade un usuario a la base de datos de los usuarios
 	 * 
 	 * @param usuario	usuario a anadir 
 	 */
@@ -97,7 +97,7 @@ public interface FachadaUsuario {
 
 	/**
 	 * Comprueba que la respuesta elegida por un usuario a una pregunta es
-	 * correcta, y modifica su puntuacion en funcion de la correccion de la
+	 * correcta, y modifica su puntuacion en funcion de la corrección de la
 	 * respuesta
 	 * 
 	 * @param idUsuario
@@ -105,7 +105,7 @@ public interface FachadaUsuario {
 	 * @param idPregunta
 	 *            id de la pregunta que se ha respondido
 	 * @param respuesta
-	 *            posicion de la respuesta marcada
+	 *            posición de la respuesta marcada
 	 */
 	public void informarRespuesta(String idUsuario, String idPregunta,
 			int respuesta);
@@ -120,7 +120,7 @@ public interface FachadaUsuario {
 	public ArrayList<String> preguntasUsuario(String usuario);
 
 	/**
-	 * Elimina a un usuario de la base de datos de la aplicacion
+	 * Elimina a un usuario de la base de datos de la aplicación
 	 * 
 	 * @param idUsuario
 	 *            id del usuario que se quiere eliminar
@@ -138,8 +138,8 @@ public interface FachadaUsuario {
 	public void desvincularCategoria(String categoria, String idUsuario);
 
 	/**
-	 * Vincula todas las preguntas de la categoria categoria con el usuario
-	 * idUsuario, haciendo asi que estas preguntas puedan ser las que aparezcan
+	 * Vincula todas las preguntas de la categoría categoria con el usuario
+	 * idUsuario, haciendo así que estas preguntas puedan ser las que aparezcan
 	 * cuando suena la alarma
 	 * 
 	 * @param categoria
@@ -151,7 +151,7 @@ public interface FachadaUsuario {
 
 	/**
 	 * Agregar una nueva pregunta a la base de datos. La pregunta es agregada a
-	 * la base de datos del usuario y del clan al que pertenece.
+	 * la base de datos del usuario y del clan al que pertenece
 	 * 
 	 * @param pregunta	pregunta a agregar
 	 */

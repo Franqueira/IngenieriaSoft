@@ -10,7 +10,7 @@ import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
  */
 public interface UsuarioClanDAO extends DAO<UsuarioClanPOJO> {
 	/**
-	 * btiene una lista con los usuarios pertenecientes a un clan
+	 * Obtiene una lista con los usuarios pertenecientes a un clan
 	 * 
 	 * @param clan
 	 *            id del clan del que queremos obtener su lista de usuarios

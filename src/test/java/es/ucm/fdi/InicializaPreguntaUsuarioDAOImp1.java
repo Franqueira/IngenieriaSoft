@@ -3,6 +3,9 @@ package es.ucm.fdi;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAO;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 
+/**
+ * Implementación de InicializaPreguntaUsuarioDAO
+ */
 public class InicializaPreguntaUsuarioDAOImp1 implements
 		InicializaPreguntaUsuarioDAO {
 

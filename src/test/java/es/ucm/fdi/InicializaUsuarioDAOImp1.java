@@ -3,6 +3,9 @@ package es.ucm.fdi;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
+/**
+ * Implementación de InicializaUsuarioDAO
+ */
 public class InicializaUsuarioDAOImp1 implements InicializaUsuarioDAO {
 	public void inicializa(UsuarioDAO usuarioDAO) {
 		UsuarioPOJO javi = new UsuarioPOJO("javigm", "Javier Guzman", 1001,

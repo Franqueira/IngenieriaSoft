@@ -1,8 +1,8 @@
 package es.ucm.fdi.integracion.POJOs;
 
 /**
- * Clase que representa una alarma en la aplicación, alamacenando información
- * acerca de su id (idAlarma), sus hora(horas, minutos) y el Tono que reproduce
+ * Clase que representa una alarma en la aplicación, almacenando información
+ * acerca de su id (idAlarma), su hora (horas, minutos) y el tono que reproduce
  * cuando se activa (tono)
  */
 public class AlarmaPOJO extends POJO {

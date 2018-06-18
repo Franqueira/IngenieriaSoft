@@ -3,7 +3,7 @@ package es.ucm.fdi.integracion.POJOs;
 /**
  * Establece una relación entre un usuario y una pregunta, indicando que un
  * usuario ha seleccionado una pregunta para guardarla y que este entre las que
- * se muestren al ejecutar la alarma.
+ * se muestren al ejecutar la alarma
  */
 public class PreguntaUsuarioPOJO extends POJO {
 

@@ -9,6 +9,9 @@ import es.ucm.fdi.InicializaUsuarioDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
+/**
+ * Clase encargada de probar UsuarioDAO
+ */
 public class UsuarioDAOTest {
 	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
 			new BDHashMap<UsuarioPOJO>());

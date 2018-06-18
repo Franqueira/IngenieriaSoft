@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
- * Clase genérica que contine las operaciones comunes a todos los POJOs de la
+ * Clase genérica que contiene las operaciones comunes a todos los POJOs de la
  * aplicación
  */
 public abstract class POJO implements Serializable{

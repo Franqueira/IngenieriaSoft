@@ -3,6 +3,9 @@ package es.ucm.fdi;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
 
+/**
+ * Implementación de InicializaUsuarioClanDAO
+ */
 public class InicializaUsuarioClanDAOImp1 implements InicializaUsuarioClanDAO {
 	public void inicializa(UsuarioClanDAO usuarioClanDAO) {
 		usuarioClanDAO.save(new UsuarioClanPOJO("losPros", "pepitoXD"));

@@ -2,7 +2,7 @@ package es.ucm.fdi.integracion.POJOs;
 
 /**
  * Relaciona un usuario con un clan, indicando que el usuario es miembro del
- * clan.
+ * clan
  */
 public class UsuarioClanPOJO extends POJO {
 

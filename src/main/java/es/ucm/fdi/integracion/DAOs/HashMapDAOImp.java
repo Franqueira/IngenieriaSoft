@@ -5,7 +5,9 @@ import java.util.List;
 
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.POJOs.POJO;
-
+/**
+ * Implementación de la clase DAO
+ */
 public class HashMapDAOImp<T extends POJO> implements DAO<T> {
 
 	protected BDHashMap<T> BD;

@@ -13,6 +13,9 @@ import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
+/**
+ * Clase encargada de probar AlarmaUsuarioDAO
+ */
 public class AlarmaUsuarioDAOTest {
 	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(
 			new BDHashMap<AlarmaPOJO>());

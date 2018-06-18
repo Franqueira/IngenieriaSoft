@@ -45,7 +45,7 @@ public class UsuarioSATest {
 	private ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
 
 	/**
-	 * Creacion de una situacion inicial
+	 * Creación de una situación inicial
 	 */
 	@Before
 	public void setup() {

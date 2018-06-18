@@ -14,8 +14,8 @@ public interface PreguntaUsuarioDAO extends DAO<PreguntaUsuarioPOJO>{
 	 * Obtiene una lista con las preguntas de un usuario
 	 * 
 	 * @param idUsuario
-	 *            id del usuario del que queremos obtener su lista de preguntas.
-	 * @return lista de preguntas que el usuario ha guardado como suyas.
+	 *            id del usuario del que queremos obtener su lista de preguntas
+	 * @return lista de preguntas que el usuario ha guardado como suyas
 	 */
 	public ArrayList<String> getPreguntas(String idUsuario);
 

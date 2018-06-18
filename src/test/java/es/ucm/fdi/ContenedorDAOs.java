@@ -23,8 +23,9 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 import es.ucm.fdi.negocio.TestperclanSAImp;
 
 /**
+ * Clase que inicializa todos los DAOs de la aplicación.
  * Ahora mismo no es utilizado por la aplicación, pero cabe la posibilidad de que en
- * un futuro quiera usarse.
+ * un futuro quiera usarse
  */
 public class ContenedorDAOs {
 	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(

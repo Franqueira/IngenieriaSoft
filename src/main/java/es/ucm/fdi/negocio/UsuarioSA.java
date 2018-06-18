@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
 /**
- * Contiene los servicios funcionales de la aplicacion (a nivel de servidor) que
- * trabajan con los usuarios.
+ * Contiene los servicios funcionales de la aplicación (a nivel de servidor) que
+ * trabajan con los usuarios
  */
 
 public interface UsuarioSA {
 
 
 	/**
-	 * Anade un usuario a la base de datos de los usuarios.
+	 * Anade un usuario a la base de datos de los usuarios
 	 * 
 	 * @param usuario	usuario a anadir 
 	 */
@@ -21,7 +21,7 @@ public interface UsuarioSA {
 
 	/**
 	 * Comprueba que la respuesta elegida por un usuario a una pregunta es
-	 * correcta, y modifica su puntuacion en funcion de la correccion de la
+	 * correcta, y modifica su puntuación en función de la corrección de la
 	 * respuesta
 	 * 
 	 * @param idUsuario
@@ -29,7 +29,7 @@ public interface UsuarioSA {
 	 * @param idPregunta
 	 *            id de la pregunta que se ha respondido
 	 * @param respuesta
-	 *            posicion de la respuesta marcada
+	 *            posición de la respuesta marcada
 	 */
 	public void informarRespuesta(String idUsuario, String idPregunta,
 			int respuesta);
@@ -44,7 +44,7 @@ public interface UsuarioSA {
 	public ArrayList<String> preguntasUsuario(String usuario);
 
 	/**
-	 * Elimina a un usuario de la base de datos de la aplicacion
+	 * Elimina a un usuario de la base de datos de la aplicación
 	 * 
 	 * @param idUsuario
 	 *            id del usuario que se quiere eliminar

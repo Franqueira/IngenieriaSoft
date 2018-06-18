@@ -36,7 +36,7 @@ public class PreguntaSATest {
 	private PreguntaSA preguntaSA;
 
 	/**
-	 * Creaccion de las preguntas
+	 * Creación de las preguntas
 	 */
 	@Before
 	public void setup() {

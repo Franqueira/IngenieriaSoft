@@ -3,6 +3,9 @@ package es.ucm.fdi;
 import es.ucm.fdi.integracion.DAOs.ClanDAO;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
 
+/**
+ * Implementación de InicializaClanDAO
+ */
 public class InicializaClanDAOImp1 implements InicializaClanDAO {
 
 	@Override

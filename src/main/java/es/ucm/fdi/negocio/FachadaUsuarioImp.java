@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
-
+/**
+ * Implementación de FachadaUsuario
+ */
 public class FachadaUsuarioImp implements FachadaUsuario {
 	private AlarmaSA alarmaSA;
 	private PreguntaSA preguntaSA;

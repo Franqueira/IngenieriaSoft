@@ -46,7 +46,7 @@ public interface DAO<T> {
 	public List<T> getFromIds(List<T> pojos);
 
 	/**
-	 * Elimina el POJO cuya id coincida de la BD, en caso de existir
+	 * Elimina el POJO cuya id coincida de la BD
 	 * 
 	 * @param id	id del POJO
 	 */
