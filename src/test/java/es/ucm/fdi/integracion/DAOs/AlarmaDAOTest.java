@@ -15,8 +15,10 @@ import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
  * Clase que prueba AlarmaDAO
  */
 public class AlarmaDAOTest {
-	private AlarmaDAO alarmaDAO = new AlarmaDAOImp(new BDHashMap<AlarmaPOJO>());
-
+	@SuppressWarnings("rawtypes")
+	FactoriaDAOs factoria = new FactoriaDAOs();
+	@SuppressWarnings("unchecked")
+	private AlarmaDAO alarmaDAO = (AlarmaDAO) factoria.creaDAO(0,new BDHashMap<AlarmaPOJO>());
 	@Before
 	public void setup() {
 		new InicializaAlarmaDAOImp1().inicializa(alarmaDAO);
@@ -28,7 +30,6 @@ public class AlarmaDAOTest {
 	@Test
 	public void getActiveTest() {
 		ArrayList<AlarmaPOJO> activas = alarmaDAO.getActive();
-		//System.out.println(activas);?????????????????
 		ArrayList<AlarmaPOJO> esperadas = new ArrayList<>();
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al1"));
 		esperadas.add((AlarmaPOJO) alarmaDAO.getFromId("al2"));

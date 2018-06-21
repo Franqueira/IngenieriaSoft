@@ -16,7 +16,8 @@ import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
  * Clase encargada de probar PreguntaDAO
  */
 public class PreguntaDAOTest {
-	private PreguntaDAO preguntaDAO = new PreguntaDAOImp(
+	FactoriaDAOs<PreguntaPOJO> factoria = new FactoriaDAOs<PreguntaPOJO>();
+	private PreguntaDAO preguntaDAO = (PreguntaDAO) factoria.creaDAO(4,
 			new BDHashMap<PreguntaPOJO>());
 
 	@Before
@@ -32,7 +33,7 @@ public class PreguntaDAOTest {
 		ArrayList<PreguntaPOJO> esperadas = new ArrayList<>();
 
 		for (int i = 1; i < 17; i++) {
-			esperadas.add((PreguntaPOJO) preguntaDAO.getFromId("a" + i));
+			esperadas.add((PreguntaPOJO) preguntaDAO.getFromId("al" + i));
 		}
 
 		for (PreguntaPOJO a : todas) {
@@ -46,17 +47,17 @@ public class PreguntaDAOTest {
 	public void getPreguntasTest() {
 
 		ArrayList<String> lista = new ArrayList<String>();
-		lista.add("a1");
-		lista.add("a5");
-		lista.add("a11");
+		lista.add("al1");
+		lista.add("al5");
+		lista.add("al11");
 		ArrayList<PreguntaPOJO> preguntas = preguntaDAO.getPreguntas(lista);
 		ArrayList<PreguntaPOJO> esperadas = new ArrayList<>();
 
-		esperadas.add((PreguntaPOJO) preguntaDAO.getFromId("a1"));
-		esperadas.add((PreguntaPOJO) preguntaDAO.getFromId("a5"));
-		esperadas.add((PreguntaPOJO) preguntaDAO.getFromId("a11"));
+		esperadas.add((PreguntaPOJO) preguntaDAO.getFromId("al1"));
+		esperadas.add((PreguntaPOJO) preguntaDAO.getFromId("al5"));
+		esperadas.add((PreguntaPOJO) preguntaDAO.getFromId("al11"));
 
-		assertEquals("Se esperaban las preguntas a1, a5 y a11", esperadas,
+		assertEquals("Se esperaban las preguntas al1, al5 y al11", esperadas,
 				preguntas);
 	}
 }

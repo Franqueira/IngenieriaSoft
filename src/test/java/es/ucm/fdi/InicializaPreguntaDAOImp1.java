@@ -51,13 +51,13 @@ public class InicializaPreguntaDAOImp1 implements InicializaPreguntaDAO {
 		preguntaDAO.save(new PreguntaPOJO("al9",
 				"cual es la capital de egipto?", "geografía", respuestas3, 1));
 		preguntaDAO
-				.save(new PreguntaPOJO("a10",
+				.save(new PreguntaPOJO("al10",
 						"cual es la capital de dinamarca?", "geografía",
 						respuestas3, 2));
-		preguntaDAO.save(new PreguntaPOJO("a11",
+		preguntaDAO.save(new PreguntaPOJO("al11",
 				"cual es la capital de suecia?", "geografía", respuestas3, 3));
 		preguntaDAO
-				.save(new PreguntaPOJO("a12",
+				.save(new PreguntaPOJO("al12",
 						"cual es la capital de finlandia?", "geografía",
 						respuestas3, 4));
 		ArrayList<String> respuestas4 = new ArrayList<String>();
@@ -65,15 +65,15 @@ public class InicializaPreguntaDAOImp1 implements InicializaPreguntaDAO {
 		respuestas4.add("Copernico");
 		respuestas4.add("Recaredo");
 		respuestas4.add("Kennedy");
-		preguntaDAO.save(new PreguntaPOJO("a13", "Quien descubrio America?",
+		preguntaDAO.save(new PreguntaPOJO("al13", "Quien descubrio America?",
 				"historia", respuestas4, 1));
-		preguntaDAO.save(new PreguntaPOJO("a14",
+		preguntaDAO.save(new PreguntaPOJO("al14",
 				"Quien planteo que la tierra giraba alrededor del sol?",
 				"historia", respuestas4, 2));
-		preguntaDAO.save(new PreguntaPOJO("a15", "Quien fue un rey visigodo?",
+		preguntaDAO.save(new PreguntaPOJO("al15", "Quien fue un rey visigodo?",
 				"historia", respuestas4, 3));
 		preguntaDAO
-				.save(new PreguntaPOJO("a16",
+				.save(new PreguntaPOJO("al16",
 						"Quien fue un presidente de EEUU?", "historia",
 						respuestas4, 4));
 

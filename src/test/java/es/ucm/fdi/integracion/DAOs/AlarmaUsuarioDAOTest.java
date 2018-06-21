@@ -16,13 +16,16 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 /**
  * Clase encargada de probar AlarmaUsuarioDAO
  */
+@SuppressWarnings("unchecked")
 public class AlarmaUsuarioDAOTest {
-	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(
+	@SuppressWarnings("rawtypes")
+	FactoriaDAOs factoria = new FactoriaDAOs();
+	private AlarmaDAOImp alarmaDAO = (AlarmaDAOImp) factoria.creaDAO(0,
 			new BDHashMap<AlarmaPOJO>());
-	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
+	private UsuarioDAOImp usuarioDAO = (UsuarioDAOImp) factoria.creaDAO(6,
 			new BDHashMap<UsuarioPOJO>());
-	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(
-			new BDHashMap<AlarmaUsuarioPOJO>());
+	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = (AlarmaUsuarioDAOImp) factoria
+			.creaDAO(1, new BDHashMap<AlarmaUsuarioPOJO>());
 
 	@Before
 	public void setup() {

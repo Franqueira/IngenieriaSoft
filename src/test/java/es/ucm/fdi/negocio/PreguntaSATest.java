@@ -14,25 +14,28 @@ import org.junit.Test;
 import es.ucm.fdi.InicializaPreguntaDAOImp1;
 import es.ucm.fdi.InicializaPreguntaUsuarioDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
+import es.ucm.fdi.integracion.DAOs.FactoriaDAOs;
 import es.ucm.fdi.integracion.DAOs.PreguntaClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAO;
-import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
 import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 
+@SuppressWarnings("unchecked")
 public class PreguntaSATest {
-	private PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(
+	@SuppressWarnings("rawtypes")
+	FactoriaDAOs factoria = new FactoriaDAOs();
+	private PreguntaDAOImp preguntaDAO = (PreguntaDAOImp) factoria.creaDAO(4,
 			new BDHashMap<PreguntaPOJO>());
-	private PreguntaClanDAOImp preguntaClanDAO = new PreguntaClanDAOImp(
-			new BDHashMap<PreguntaClanPOJO>());
-	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
+	private PreguntaClanDAOImp preguntaClanDAO = (PreguntaClanDAOImp) factoria
+			.creaDAO(3, new BDHashMap<PreguntaClanPOJO>());
+	private UsuarioDAOImp usuarioDAO = (UsuarioDAOImp) factoria.creaDAO(6,
 			new BDHashMap<UsuarioPOJO>());
-	private PreguntaUsuarioDAO preguntaUsuarioDAO = new PreguntaUsuarioDAOImp(
-			new BDHashMap<PreguntaUsuarioPOJO>());
+	private PreguntaUsuarioDAO preguntaUsuarioDAO = (PreguntaUsuarioDAO) factoria
+			.creaDAO(5, new BDHashMap<PreguntaUsuarioPOJO>());
 	private PreguntaSA preguntaSA;
 
 	/**
@@ -46,6 +49,7 @@ public class PreguntaSATest {
 				usuarioDAO, preguntaClanDAO);
 
 	}
+
 	/**
 	 * @see InicializaPreguntaDAOImp1
 	 */

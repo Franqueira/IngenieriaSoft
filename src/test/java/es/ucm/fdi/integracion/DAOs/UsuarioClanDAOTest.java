@@ -15,8 +15,9 @@ import es.ucm.fdi.integracion.POJOs.UsuarioClanPOJO;
  * Clase encargada de probar UsuarioClanDAO
  */
 public class UsuarioClanDAOTest {
-	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(
-			new BDHashMap<UsuarioClanPOJO>());
+	FactoriaDAOs<UsuarioClanPOJO> factoria = new FactoriaDAOs<UsuarioClanPOJO>();
+	private UsuarioClanDAOImp usuarioClanDAO = (UsuarioClanDAOImp) factoria
+			.creaDAO(7, new BDHashMap<UsuarioClanPOJO>());
 
 	@Before
 	public void setup() {

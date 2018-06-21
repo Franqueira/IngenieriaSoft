@@ -15,14 +15,15 @@ import es.ucm.fdi.integracion.POJOs.PreguntaUsuarioPOJO;
  * Clase encargada de probar PreguntaUsuarioDAO
  */
 public class PreguntaUsuarioDAOTest {
-	private PreguntaUsuarioDAOImp preguntaUsuarioDAO = new PreguntaUsuarioDAOImp(
-			new BDHashMap<PreguntaUsuarioPOJO>());
+	FactoriaDAOs<PreguntaUsuarioPOJO> factoria = new FactoriaDAOs<PreguntaUsuarioPOJO>();
+	private PreguntaUsuarioDAOImp preguntaUsuarioDAO = (PreguntaUsuarioDAOImp) factoria
+			.creaDAO(5, new BDHashMap<PreguntaUsuarioPOJO>());
 
 	@Before
 	public void setup() {
 		new InicializaPreguntaUsuarioDAOImp1().inicializa(preguntaUsuarioDAO);
 	}
-	
+
 	/**
 	 * @see InicializaPreguntaUsuarioDAOImp1
 	 */
@@ -31,9 +32,9 @@ public class PreguntaUsuarioDAOTest {
 		ArrayList<String> preguntas = preguntaUsuarioDAO
 				.getPreguntas("peter_hy");
 		assertTrue("Deberia contener la pregunta con el id",
-				preguntas.contains("a1"));
+				preguntas.contains("al1"));
 		assertTrue("Deberia contener la pregunta con el id",
-				preguntas.contains("a7"));
+				preguntas.contains("al7"));
 		assertFalse("No deberia contener la pregunta con el id",
 				preguntas.contains("b1"));
 	}

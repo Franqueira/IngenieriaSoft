@@ -11,17 +11,20 @@ import es.ucm.fdi.InicializaAlarmaUsuarioDAOImp1;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
+import es.ucm.fdi.integracion.DAOs.FactoriaDAOs;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
 
 /**
  * Contiene los test que prueban la funcionalidad de la alarma
  */
-
+@SuppressWarnings("unchecked")
 public class AlarmaSATest {
-	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(
+	@SuppressWarnings("rawtypes")
+	FactoriaDAOs factoria = new FactoriaDAOs();
+	private AlarmaDAOImp alarmaDAO = (AlarmaDAOImp) factoria.creaDAO(0,
 			new BDHashMap<AlarmaPOJO>());
-	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(
+	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = (AlarmaUsuarioDAOImp) factoria.creaDAO(1,
 			new BDHashMap<AlarmaUsuarioPOJO>());
 	private AlarmaSAImp alarmaSA;
 

@@ -13,14 +13,15 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
  * Clase encargada de probar UsuarioDAO
  */
 public class UsuarioDAOTest {
-	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
+	FactoriaDAOs<UsuarioPOJO> factoria = new FactoriaDAOs<UsuarioPOJO>();
+	private UsuarioDAOImp usuarioDAO = (UsuarioDAOImp) factoria.creaDAO(6,
 			new BDHashMap<UsuarioPOJO>());
 
 	@Before
 	public void setup() {
 		new InicializaUsuarioDAOImp1().inicializa(usuarioDAO);
 	}
-	
+
 	/**
 	 * @see InicializaUsuarioDAOImp1
 	 */

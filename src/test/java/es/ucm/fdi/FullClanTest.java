@@ -11,9 +11,9 @@ import org.junit.Test;
 
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
+import es.ucm.fdi.integracion.DAOs.FactoriaDAOs;
 import es.ucm.fdi.integracion.DAOs.PreguntaClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
-import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
@@ -24,15 +24,18 @@ import es.ucm.fdi.negocio.TestperclanSAImp;
 /**
  * Clase que contiene los test que comprueban la secuencia de TestperclanSA
  */
-
+@SuppressWarnings("unchecked")
 public class FullClanTest {
-	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
+	@SuppressWarnings("rawtypes")
+	FactoriaDAOs factoria = new FactoriaDAOs();
+	private UsuarioDAOImp usuarioDAO = (UsuarioDAOImp) factoria.creaDAO(6,
 			new BDHashMap<UsuarioPOJO>());
-	private ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
-	private PreguntaClanDAOImp preguntaClanDAO = new PreguntaClanDAOImp(
-			new BDHashMap<PreguntaClanPOJO>());
-	private UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(
-			new BDHashMap<UsuarioClanPOJO>());
+	private ClanDAOImp clanDAO = (ClanDAOImp) factoria.creaDAO(2,
+			new BDHashMap<ClanPOJO>());
+	private PreguntaClanDAOImp preguntaClanDAO = (PreguntaClanDAOImp) factoria
+			.creaDAO(3, new BDHashMap<PreguntaClanPOJO>());
+	private UsuarioClanDAO usuarioClanDAO = (UsuarioClanDAO) factoria.creaDAO(
+			7, new BDHashMap<UsuarioClanPOJO>());
 	private TestperclanSAImp testperclanSA;
 
 	/**

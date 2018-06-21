@@ -13,11 +13,11 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
-import es.ucm.fdi.integracion.DAOs.PreguntaClanDAO;
+import es.ucm.fdi.integracion.DAOs.FactoriaDAOs;
 import es.ucm.fdi.integracion.DAOs.PreguntaClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
-import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAOImp;
-import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
+import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAO;
+import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
@@ -40,23 +40,28 @@ import es.ucm.fdi.negocio.UsuarioSAImp;
  * Clase encargada de probar el caso de uso testpertar, realizando la secuencia
  * de acciones necesarias.
  */
+
+@SuppressWarnings("unchecked")
 public class FullTest {
 
-	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
+	@SuppressWarnings("rawtypes")
+	FactoriaDAOs factoria = new FactoriaDAOs();
+	private UsuarioDAOImp usuarioDAO = (UsuarioDAOImp) factoria.creaDAO(6,
 			new BDHashMap<UsuarioPOJO>());
-	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(
+	private AlarmaDAOImp alarmaDAO = (AlarmaDAOImp) factoria.creaDAO(0,
 			new BDHashMap<AlarmaPOJO>());
-	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(
-			new BDHashMap<AlarmaUsuarioPOJO>());
-	private PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(
+	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = (AlarmaUsuarioDAOImp) factoria
+			.creaDAO(1, new BDHashMap<AlarmaUsuarioPOJO>());
+	private PreguntaDAOImp preguntaDAO = (PreguntaDAOImp) factoria.creaDAO(4,
 			new BDHashMap<PreguntaPOJO>());
-	private PreguntaUsuarioDAOImp preguntaUsuarioDAO = new PreguntaUsuarioDAOImp(
-			new BDHashMap<PreguntaUsuarioPOJO>());
-	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(
-			new BDHashMap<UsuarioClanPOJO>());
-	private ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
-	private PreguntaClanDAO preguntaClanDAO = new PreguntaClanDAOImp(
-			new BDHashMap<PreguntaClanPOJO>());
+	private PreguntaUsuarioDAO preguntaUsuarioDAO = (PreguntaUsuarioDAO) factoria
+			.creaDAO(5, new BDHashMap<PreguntaUsuarioPOJO>());
+	private UsuarioClanDAO usuarioClanDAO = (UsuarioClanDAO) factoria.creaDAO(
+			7, new BDHashMap<UsuarioClanPOJO>());
+	private ClanDAOImp clanDAO = (ClanDAOImp) factoria.creaDAO(2,
+			new BDHashMap<ClanPOJO>());
+	private PreguntaClanDAOImp preguntaClanDAO = (PreguntaClanDAOImp) factoria
+			.creaDAO(3, new BDHashMap<PreguntaClanPOJO>());
 	private TestperclanSA testperclanSA;
 	private UsuarioSA usuarioSA;
 	private AlarmaSA alarmaSA;
@@ -191,7 +196,7 @@ public class FullTest {
 		 */
 
 		pregunta = elegirPregunta(preguntas);
-		fachadaUsuario.informarRespuesta(user.getId(), pregunta.getId(), 2);
+		fachadaUsuario.informarRespuesta(user.getId(), pregunta.getId(), 1);
 		user = (UsuarioPOJO) usuarioDAO.getFromId("peter_hy");
 		assertEquals("Deberia haberle sumado 10 puntos", user.getPuntuacion(),
 				127);

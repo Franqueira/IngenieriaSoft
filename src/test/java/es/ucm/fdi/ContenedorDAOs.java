@@ -6,7 +6,7 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
-import es.ucm.fdi.integracion.DAOs.PreguntaClanDAO;
+import es.ucm.fdi.integracion.DAOs.FactoriaDAOs;
 import es.ucm.fdi.integracion.DAOs.PreguntaClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
 import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAOImp;
@@ -23,26 +23,29 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
 import es.ucm.fdi.negocio.TestperclanSAImp;
 
 /**
- * Clase que inicializa todos los DAOs de la aplicación.
- * Ahora mismo no es utilizado por la aplicación, pero cabe la posibilidad de que en
- * un futuro quiera usarse
+ * Clase que inicializa todos los DAOs de la aplicación. Ahora mismo no es
+ * utilizado por la aplicación, pero cabe la posibilidad de que en un futuro
+ * quiera usarse
  */
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class ContenedorDAOs {
-	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
+	FactoriaDAOs factoria = new FactoriaDAOs();
+	private UsuarioDAOImp usuarioDAO = (UsuarioDAOImp) factoria.creaDAO(6,
 			new BDHashMap<UsuarioPOJO>());
-	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(
+	private AlarmaDAOImp alarmaDAO = (AlarmaDAOImp) factoria.creaDAO(0,
 			new BDHashMap<AlarmaPOJO>());
-	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(
-			new BDHashMap<AlarmaUsuarioPOJO>());
-	private PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(
+	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = (AlarmaUsuarioDAOImp) factoria
+			.creaDAO(1, new BDHashMap<AlarmaUsuarioPOJO>());
+	private PreguntaDAOImp preguntaDAO = (PreguntaDAOImp) factoria.creaDAO(4,
 			new BDHashMap<PreguntaPOJO>());
-	private PreguntaUsuarioDAOImp preguntaUsuarioDAO = new PreguntaUsuarioDAOImp(
-			new BDHashMap<PreguntaUsuarioPOJO>());
-	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(
-			new BDHashMap<UsuarioClanPOJO>());
-	private ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
-	private PreguntaClanDAO preguntaClanDAO = new PreguntaClanDAOImp(
-			new BDHashMap<PreguntaClanPOJO>());
+	private PreguntaUsuarioDAOImp preguntaUsuarioDAO = (PreguntaUsuarioDAOImp) factoria
+			.creaDAO(5, new BDHashMap<PreguntaUsuarioPOJO>());
+	private UsuarioClanDAOImp usuarioClanDAO = (UsuarioClanDAOImp) factoria
+			.creaDAO(7, new BDHashMap<UsuarioClanPOJO>());
+	private ClanDAOImp clanDAO = (ClanDAOImp) factoria.creaDAO(2,
+			new BDHashMap<ClanPOJO>());
+	private PreguntaClanDAOImp preguntaClanDAO = (PreguntaClanDAOImp) factoria
+			.creaDAO(3, new BDHashMap<PreguntaClanPOJO>());
 
 	public UsuarioDAOImp getUsuarioDAO() {
 		return usuarioDAO;

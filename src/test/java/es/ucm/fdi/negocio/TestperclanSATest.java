@@ -10,9 +10,9 @@ import org.junit.Test;
 import es.ucm.fdi.*;
 import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
+import es.ucm.fdi.integracion.DAOs.FactoriaDAOs;
 import es.ucm.fdi.integracion.DAOs.PreguntaClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
-import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.ClanPOJO;
 import es.ucm.fdi.integracion.POJOs.PreguntaClanPOJO;
@@ -23,14 +23,18 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
  * Clase que contiene los test que comprueban la funcionalidad de TestperclanSA
  */
 
+@SuppressWarnings("unchecked")
 public class TestperclanSATest {
-	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
+	@SuppressWarnings("rawtypes")
+	FactoriaDAOs factoria = new FactoriaDAOs();
+	private UsuarioDAOImp usuarioDAO = (UsuarioDAOImp) factoria.creaDAO(6,
 			new BDHashMap<UsuarioPOJO>());
-	private ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
-	private PreguntaClanDAOImp preguntaClanDAO = new PreguntaClanDAOImp(
-			new BDHashMap<PreguntaClanPOJO>());
-	private UsuarioClanDAO usuarioClanDAO = new UsuarioClanDAOImp(
-			new BDHashMap<UsuarioClanPOJO>());
+	private ClanDAOImp clanDAO = (ClanDAOImp) factoria.creaDAO(2,
+			new BDHashMap<ClanPOJO>());
+	private PreguntaClanDAOImp preguntaClanDAO = (PreguntaClanDAOImp) factoria
+			.creaDAO(3, new BDHashMap<PreguntaClanPOJO>());
+	private UsuarioClanDAO usuarioClanDAO = (UsuarioClanDAO) factoria.creaDAO(
+			7, new BDHashMap<UsuarioClanPOJO>());
 	private TestperclanSAImp testperclanSA;
 
 	/**
@@ -130,7 +134,7 @@ public class TestperclanSATest {
 				((ClanPOJO) clanDAO.getFromId("IS")).getLider()
 						.equals("javigm"));
 	}
-	
+
 	/**
 	 * Comprueba que el clan genera correctamente la lista de preguntas del clan
 	 */
@@ -138,14 +142,14 @@ public class TestperclanSATest {
 	public void preguntasClanTest() {
 		ArrayList<String> esperado = new ArrayList<String>();
 		for (int i = 1; i < 13; i++) {
-			esperado.add("a" + i);
+			esperado.add("al" + i);
 		}
 		ArrayList<String> salida = testperclanSA.preguntasClan("losPros");
-		for(String s : esperado) {
+		for (String s : esperado) {
 			assertTrue("La salida deberia contener la pregunta " + s,
 					salida.contains(s));
 		}
-		assertTrue("El tamaño de la salida deberia ser igual al esperado", 
+		assertTrue("El tamaño de la salida deberia ser igual al esperado",
 				salida.size() == esperado.size());
 	}
 }

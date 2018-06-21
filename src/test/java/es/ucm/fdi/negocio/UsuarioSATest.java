@@ -12,9 +12,10 @@ import es.ucm.fdi.datos.BDHashMap;
 import es.ucm.fdi.integracion.DAOs.AlarmaDAOImp;
 import es.ucm.fdi.integracion.DAOs.AlarmaUsuarioDAOImp;
 import es.ucm.fdi.integracion.DAOs.ClanDAOImp;
+import es.ucm.fdi.integracion.DAOs.FactoriaDAOs;
 import es.ucm.fdi.integracion.DAOs.PreguntaDAOImp;
-import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAOImp;
-import es.ucm.fdi.integracion.DAOs.UsuarioClanDAOImp;
+import es.ucm.fdi.integracion.DAOs.PreguntaUsuarioDAO;
+import es.ucm.fdi.integracion.DAOs.UsuarioClanDAO;
 import es.ucm.fdi.integracion.DAOs.UsuarioDAOImp;
 import es.ucm.fdi.integracion.POJOs.AlarmaPOJO;
 import es.ucm.fdi.integracion.POJOs.AlarmaUsuarioPOJO;
@@ -28,21 +29,25 @@ import es.ucm.fdi.integracion.POJOs.UsuarioPOJO;
  * Clase que contiene los test que comprueban la funcionalidad de los UsuarioSA
  */
 
+@SuppressWarnings("unchecked")
 public class UsuarioSATest {
+	@SuppressWarnings("rawtypes")
+	FactoriaDAOs factoria = new FactoriaDAOs();
 	private UsuarioSA usuario;
-	private UsuarioDAOImp usuarioDAO = new UsuarioDAOImp(
+	private UsuarioDAOImp usuarioDAO = (UsuarioDAOImp) factoria.creaDAO(6,
 			new BDHashMap<UsuarioPOJO>());
-	private AlarmaDAOImp alarmaDAO = new AlarmaDAOImp(
+	private AlarmaDAOImp alarmaDAO = (AlarmaDAOImp) factoria.creaDAO(0,
 			new BDHashMap<AlarmaPOJO>());
-	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = new AlarmaUsuarioDAOImp(
-			new BDHashMap<AlarmaUsuarioPOJO>());
-	private PreguntaDAOImp preguntaDAO = new PreguntaDAOImp(
+	private AlarmaUsuarioDAOImp alarmaUsuarioDAO = (AlarmaUsuarioDAOImp) factoria
+			.creaDAO(1, new BDHashMap<AlarmaUsuarioPOJO>());
+	private PreguntaDAOImp preguntaDAO = (PreguntaDAOImp) factoria.creaDAO(4,
 			new BDHashMap<PreguntaPOJO>());
-	private PreguntaUsuarioDAOImp preguntaUsuarioDAO = new PreguntaUsuarioDAOImp(
-			new BDHashMap<PreguntaUsuarioPOJO>());
-	private UsuarioClanDAOImp usuarioClanDAO = new UsuarioClanDAOImp(
-			new BDHashMap<UsuarioClanPOJO>());
-	private ClanDAOImp clanDAO = new ClanDAOImp(new BDHashMap<ClanPOJO>());
+	private PreguntaUsuarioDAO preguntaUsuarioDAO = (PreguntaUsuarioDAO) factoria
+			.creaDAO(5, new BDHashMap<PreguntaUsuarioPOJO>());
+	private UsuarioClanDAO usuarioClanDAO = (UsuarioClanDAO) factoria.creaDAO(
+			7, new BDHashMap<UsuarioClanPOJO>());
+	private ClanDAOImp clanDAO = (ClanDAOImp) factoria.creaDAO(2,
+			new BDHashMap<ClanPOJO>());
 
 	/**
 	 * Creación de una situación inicial
@@ -106,15 +111,16 @@ public class UsuarioSATest {
 	@Test
 	public void informarRespuestaTest() {
 		assertTrue("La respuesta correcta es la 1",
-				((PreguntaPOJO) preguntaDAO.getFromId("a1"))
+				((PreguntaPOJO) preguntaDAO.getFromId("al1"))
 						.getRespuestaCorrecta() == 1);
 		assertEquals("javi debería tener 1001 puntos", 1001,
 				((UsuarioPOJO) usuarioDAO.getFromId("javigm")).getPuntuacion());
-		usuario.informarRespuesta("javigm", "a1", 1);
+		usuario.informarRespuesta("javigm", "al1", 1);
 		assertEquals("Deberia tener 10 puntos mas", 1011,
 				((UsuarioPOJO) usuarioDAO.getFromId("javigm")).getPuntuacion());
-		usuario.informarRespuesta("javigm", "a2", 1);
+		usuario.informarRespuesta("javigm", "al2", 1);
 	}
+
 	/**
 	 * @see InicializaAlarmaUsuarioDAOImp1
 	 */
@@ -124,24 +130,22 @@ public class UsuarioSATest {
 		ArrayList<String> esperadas = new ArrayList<>();
 		esperadas.add("al10");
 		esperadas.add("al15");
-		
+
 		/*
 		 * Para comprobar que las dos listas son iguales (sin importar el orden)
 		 * comprobamos que todas las preguntas de esperadas se encuentra en list
-		 *  y ademas que tienen el mismo tamano.
+		 * y ademas que tienen el mismo tamano.
 		 * 
-		 * Si list tiene el mismo tamano y contiene todas las preguntas de esperadas
-		 * entonces son la misma lista.
-		 * 
+		 * Si list tiene el mismo tamano y contiene todas las preguntas de
+		 * esperadas entonces son la misma lista.
 		 */
-		
-		for(String s : esperadas) {
-			assertTrue("List deberia contener la alarma" + s,
-					list.contains(s));
+
+		for (String s : esperadas) {
+			assertTrue("List deberia contener la alarma" + s, list.contains(s));
 		}
-		assertTrue("El tamaño de list deberia ser igual al de esperadas", 
+		assertTrue("El tamaño de list deberia ser igual al de esperadas",
 				list.size() == esperadas.size());
 
 	}
-		
+
 }
