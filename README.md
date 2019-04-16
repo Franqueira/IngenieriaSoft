@@ -1,5 +1,5 @@
 <p>
-  <img src="https://github.com/Franqueira/IngenieriaSoft/blob/master/logo.png" align="right" width="50"/>
+  <img src="https://github.com/jcturing/PacMan/blob/master/resources/sprites/PacmanIcon.png" align="right" width="50"/>
 </p>
 
 
